@@ -19,7 +19,9 @@ debugger;
                          })
         }
          return next(action);
- };debugger
+         
+ }
+//  ;debugger
 export const getStaticData = ({ dispatch, getState }) => next => action => {
         var url = window.location
         const userName = (url.pathname.split)('/')[1]
