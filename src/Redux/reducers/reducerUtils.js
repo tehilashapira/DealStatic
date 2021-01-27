@@ -10,27 +10,26 @@ export function createReducer(state, action, handlers) {
     }
 }
 
-export function sumData(data){
+// export function sumData(sumProject){
 
     // debugger;
     // בדיקה האם המערך שהגיע ריק
-    if(data.length>0){
-          if(data[0].sumContactOptions){
-              let sumConcat=[];
-              sumConcat=data.map(contactOption => JSON.parse(contactOption.sumContactOptions))
-              return sumConcat.reduce(function(prev, contactOption) {
-              let sum= Object.keys(contactOption).reduce((sum,key)=>sum+parseFloat(contactOption[key]||0),0);
-              console.log("prev+sum"+prev+"sssssss"+sum)
-              return prev + sum;
-        },0);
+    // if(data.length>0){
+    //       if(data[0].sumContactOptions){
+    //           let sumConcat=[];
+    //           sumConcat=data.map(contactOption => JSON.parse(contactOption.sumContactOptions))
+    //           return sumConcat.reduce(function(prev, contactOption) {
+    //           let sum= Object.keys(contactOption).reduce((sum,key)=>sum+parseFloat(contactOption[key]||0),0);
+    //           return prev + sum;
+    //     },0);
 
-    }
+    // }
 
     // עבור viewers ו- submitioms
-    else{
-    return data.reduce(function(sum, obj) {
-        return sum + obj.amount;
-    },0);
-   }}
-   return 0;
-}
+//     else{
+//     return data.reduce(function(sum, obj) {
+//         return sum + obj.amount;
+//     },0);
+//    }}
+//    return 0;
+// }

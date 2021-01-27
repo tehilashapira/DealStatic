@@ -1,15 +1,12 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
-import { getUserName,getStaticData} from './middleware/crudMiddleware'
+import {getStaticData,getStaticTask,getStaticPapers,getStaticContacts} from './middleware/crudMiddleware'
 import staticDetailsReducer from './reducers/staticDetailsReducer'
 
 
-const state = {
-       
-};
 
 const reducer = combineReducers({staticDetailsReducer});
 
-const store = createStore(reducer, applyMiddleware(getStaticData,getUserName));
+const store = createStore(reducer, applyMiddleware(getStaticData,getStaticTask,getStaticPapers,getStaticContacts));
 window.store = store;
 export default store;
-store.dispatch({ type: 'GET_USER_NAME' });
+store.dispatch({type: 'INIT_DATA' });
