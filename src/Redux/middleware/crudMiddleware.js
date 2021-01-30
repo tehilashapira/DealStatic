@@ -4,8 +4,11 @@ import { setStaticData,setProjectStatic,setTaskStatic,setContactStatic } from '.
 
 
 export const getStaticData =   ({ dispatch, getState }) => next => action => {
-        if (action.type === 'INIT_DATA') {
+      // with this type client enter to application:INIT_DATA
 
+      
+  if (action.type === 'INIT_DATA') {
+      //  fetch to get sum of projects for user-----------------
 fetch('https://reacthub.dev.leader.codes/api/renana-il/getAllProjectsForUser', {
     method: 'GET',
     headers: {
@@ -19,20 +22,12 @@ fetch('https://reacthub.dev.leader.codes/api/renana-il/getAllProjectsForUser', {
     let sumProject=data.sumProjectForUser
     debugger
     dispatch(actions.setProjectStatic(sumProject));
-    // (store.staticDetailsReducer.sumProject=sumProject);
      console.log(data)
     
 
 })
 
-}
-    return next(action)
-
-}
-
-export const getStaticTask =   ({ dispatch, getState }) => next => action => {
-  if (action.type === 'INIT_DATA') {
-
+        // fetch to get sum tasks for user-------------
 fetch('https://reacthub.dev.leader.codes/api/renana-il/getAllTasksForUser', {
 method: 'GET',
 headers: {
@@ -45,21 +40,13 @@ Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJIZXNJaFlXaVU2Z1A
 .then((data) => {  
 let sumTask=data.sumTaskForUser
 debugger
-// dispatch(actions.setTaskStatic(sumTask));
-dispatch(actions.setTaskStatic(56));
-// (store.staticDetailsReducer.sumProject=sumProject);
+dispatch(actions.setTaskStatic(sumTask));
 console.log(data)
 
 
 })
 
-}
-return next(action)
-
-}
-
-export const getStaticPapers =   ({ dispatch, getState }) => next => action => {
-  if (action.type === 'INIT_DATA') {
+        //  fetch to get sum of papers for user-----------------
 
 fetch('https://papers.dev.leader.codes/api/ruth109476@gmail.com/getAllQuote', {
 method: 'GET',
@@ -73,21 +60,13 @@ Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJEWWMzVlVtRUhTY3F
 .then((data) => {  
 let sumPapers=data.quotes.length
 debugger
-// dispatch(actions.setTaskStatic(sumTask));
 dispatch(actions.setPaperStatic(sumPapers));
-// (store.staticDetailsReducer.sumProject=sumProject);
 console.log(data)
 
 
 })
 
-}
-return next(action)
-
-}
-
-export const getStaticContacts =   ({ dispatch, getState }) => next => action => {
-  if (action.type === 'INIT_DATA') {
+// fetch to get sum of contacts for user----------------------
 
 fetch('https://api.dev.leader.codes/blabla101/getContacts/?includesConversations=false', {
 method: 'GET',
@@ -101,20 +80,15 @@ Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJzaW1kc01ycmNKZHB
 .then((data) => {  
 let sumContact=data.length
 debugger
-// dispatch(actions.setTaskStatic(sumTask));
 dispatch(actions.setContactStatic(sumContact));
-// (store.staticDetailsReducer.sumProject=sumProject);
 console.log(data)
 
 
 })
 
-}
-return next(action)
 
 }
+    return next(action)
 
-
-
-
+}
 
