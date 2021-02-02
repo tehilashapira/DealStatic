@@ -12,6 +12,7 @@ import iconThree from '../img/iconThree.png'
 import iconFour from '../img/iconFour.png'
 import { actions } from '../Redux/actions/staticAction'
 import moment from 'moment';
+import {} from 'react-router-dom'
 
 
 // -------get new date in correct format to filter data----------------------------------------------------
@@ -76,10 +77,12 @@ function Information(props) {
         })
     }
 
-function paper(){
-    debugger
-    console.log("rrrr");
-}
+    function paper() {
+        debugger
+        console.log("rrrr");
+        window.location.assign('https://papers.dev.leader.codes/admin/ruth109476@gmail.com')
+        
+    }
     function filterByWeek() {
         let dataStaticFilterViewer = props.dataStatic.viewers.filter(function (viewer) {
             const dateViewer = viewer.date.split("/")
