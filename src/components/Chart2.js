@@ -96,18 +96,17 @@ export default function TryChart() {
     }
     return (
         <div className="container" >
-            <div className="row">
-                <div className="col-3" style={{ paddingRight:"30%"}}>
-
-                    <ReactApexChart options={state.options} series={state.series} type="bar" width="500" />
+            <div className="row"  >
+                <div className="col-md-4"  >
+                    <ReactApexChart options={state.options} series={state.series} type="bar" width="420" />
                 </div>
-                <div className="col-5" >
+                <div className="col-md-4"  >
+                < ReactApexChart options={state.options} series={state.series} type="line" width="400"/>
 
-                    <Chart options={state.op} series={state.serie} type="donut" width="470" height="270" />
                 </div>
-
-                <div className="col-3">
-                    < ReactApexChart options={state.options} series={state.series} type="line" width="470" height="270" />
+                <div className="col-md-1" >
+                <Chart options={state.op} series={state.serie} type="donut" width="420" height="240" />
+                 
                 </div>
             </div>
         </div>
