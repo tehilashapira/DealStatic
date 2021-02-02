@@ -12,7 +12,7 @@ export default function TryChart() {
             dataLabels: {
                 enabled: true
             },
-             //con pap pro tasks
+            //con pap pro tasks
             labels: ['contacts', 'papers', 'project', 'tasks'],
             //change color
             colors: [' rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgb(253, 81, 219)'],
@@ -23,26 +23,26 @@ export default function TryChart() {
                 dashArray: [0, 8, 5]
             },
         },
-         
-     
+
+
         serie: [UpdatedData.leaderStatic.sumContacts,
-            UpdatedData.leaderStatic.sumPapers,
-            UpdatedData.leaderStatic.sumProjects,
-            UpdatedData.leaderStatic.sumTasks],
+        UpdatedData.leaderStatic.sumPapers,
+        UpdatedData.leaderStatic.sumProjects,
+        UpdatedData.leaderStatic.sumTasks],
         series: [
             {
                 // leaderStatic:{sumProjects:0,sumTasks:0,sumPapers:0,sumContacts:0},
                 name: "",
                 data: [UpdatedData.leaderStatic.sumContacts,
-                    UpdatedData.leaderStatic.sumPapers,
-                    UpdatedData.leaderStatic.sumProjects,
-                    UpdatedData.leaderStatic.sumTasks],
+                UpdatedData.leaderStatic.sumPapers,
+                UpdatedData.leaderStatic.sumProjects,
+                UpdatedData.leaderStatic.sumTasks],
             },
         ],
-       
+
         options:
         {
-            colors:{ series[0] :'rgb(103, 114, 222)',series[1]: 'rgb(1, 220, 209)', ' rgb(247, 181, 0)', 'rgb(253, 81, 219)']}
+            // colors: { se: 'rgb(103, 114, 222)', series[1]: 'rgb(1, 220, 209)', series[2]: ' rgb(247, 181, 0)', series[3]: 'rgb(253, 81, 219)' },
             chart: {
                 type: 'line',
                 zoom: {
@@ -69,7 +69,7 @@ export default function TryChart() {
                 }
             },
             xaxis: {
-                 
+
                 categories: [' contacts', ' papers', 'projects ', 'tasks']
             },
             tooltip: {
@@ -89,25 +89,26 @@ export default function TryChart() {
                         }
                     },
                 ]
-            },                                                                                      
+            },
 
         },
-        
+
     }
     return (
         <div className="container" >
             <div className="row">
-                <div className="col-7">
-                 
+                <div className="col-3" style={{ paddingRight:"30%"}}>
+
                     <ReactApexChart options={state.options} series={state.series} type="bar" width="500" />
                 </div>
-                <div className="col-5" style={{paddingTop:"3%"}}>
-                    
-                    <Chart options={state.op} series={state.serie} type="donut"  width="470" height="270" />
+                <div className="col-5" >
+
+                    <Chart options={state.op} series={state.serie} type="donut" width="470" height="270" />
                 </div>
-            </div>
-            <div className="row">
-            < ReactApexChart options={state.options} series={state.series} type="line"  width="470" height="270"  />
+
+                <div className="col-3">
+                    < ReactApexChart options={state.options} series={state.series} type="line" width="470" height="270" />
+                </div>
             </div>
         </div>
 
