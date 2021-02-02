@@ -30,7 +30,7 @@ export default function TryChart() {
                 }
               },
               xaxis: {
-                categories: []
+                categories: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
               },
               yaxis: [
                 {
@@ -47,7 +47,7 @@ export default function TryChart() {
                     }
                   },
                   title: {
-                    text: "Series A",
+                    text: "contacs",
                     style: {
                       color: "#FF1654"
                     }
@@ -68,7 +68,7 @@ export default function TryChart() {
                     }
                   },
                   title: {
-                    text: "Series B",
+                    text: "papers",
                     style: {
                       color: "#247BA0"
                     }
@@ -132,7 +132,7 @@ export default function TryChart() {
 
         options:
         {
-            // colors: { se: 'rgb(103, 114, 222)', series[1]: 'rgb(1, 220, 209)', series[2]: ' rgb(247, 181, 0)', series[3]: 'rgb(253, 81, 219)' },
+            colors: [ 'rgb(103, 114, 222)',  'rgb(1, 220, 209)',' rgb(247, 181, 0)','rgb(253, 81, 219)' ],
             chart: {
                 type: 'line',
                 zoom: {
@@ -190,10 +190,10 @@ export default function TryChart() {
                 <div className="col-md-4"  >
                     <ReactApexChart options={state.options} series={state.series} type="bar" width="420" />
                 </div>
-                <div className="col-md-4"  >
+                {/* <div className="col-md-4"  >
                 < ReactApexChart options={state.op1} series={state.series1} type="line" width="400"/>
 
-                </div>
+                </div> */}
                 <div className="col-md-1" >
                 <Chart options={state.op} series={state.serie} type="donut" width="420" height="240" />
                  
