@@ -6,93 +6,93 @@ import { useSelector } from 'react-redux';
 export default function TryChart() {
     const UpdatedData = useSelector(state => state.staticDetailsReducer);
     const state = {
-        op1:{
+        op1: {
             chart: {
                 height: 350,
                 type: "line",
                 stacked: false
-              },
-              dataLabels: {
+            },
+            dataLabels: {
                 enabled: false
-              },
-              colors: ["#FF1654", "#247BA0"],
-            
-              stroke: {
+            },
+            colors: ["#FF1654", "#247BA0"],
+
+            stroke: {
                 width: [4, 4]
-              },
-              plotOptions: {
+            },
+            plotOptions: {
                 bar: {
-                  columnWidth: "20%"
+                    columnWidth: "20%"
                 }
-              },
-              xaxis: {
-                categories: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20]
-              },
-              yaxis: [
+            },
+            xaxis: {
+                categories: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+            },
+            yaxis: [
                 {
-                  axisTicks: {
-                    show: true
-                  },
-                  axisBorder: {
-                    show: true,
-                    color: "#FF1654"
-                  },
-                  labels: {
-                    style: {
-                      colors: "#FF1654"
+                    axisTicks: {
+                        show: true
+                    },
+                    axisBorder: {
+                        show: true,
+                        color: "#FF1654"
+                    },
+                    labels: {
+                        style: {
+                            colors: "#FF1654"
+                        }
+                    },
+                    title: {
+                        text: "contacs",
+                        style: {
+                            color: "#FF1654"
+                        }
                     }
-                  },
-                  title: {
-                    text: "contacs",
-                    style: {
-                      color: "#FF1654"
-                    }
-                  }
                 },
                 {
-                  opposite: true,
-                  axisTicks: {
-                    show: true
-                  },
-                  axisBorder: {
-                    show: true,
-                    color: "#247BA0"
-                  },
-                  labels: {
-                    style: {
-                      colors: "#247BA0"
+                    opposite: true,
+                    axisTicks: {
+                        show: true
+                    },
+                    axisBorder: {
+                        show: true,
+                        color: "#247BA0"
+                    },
+                    labels: {
+                        style: {
+                            colors: "#247BA0"
+                        }
+                    },
+                    title: {
+                        text: "papers",
+                        style: {
+                            color: "#247BA0"
+                        }
                     }
-                  },
-                  title: {
-                    text: "papers",
-                    style: {
-                      color: "#247BA0"
-                    }
-                  }
                 }
-              ],
-              tooltip: {
+            ],
+            tooltip: {
                 shared: false,
                 intersect: true,
                 x: {
-                  show: false
+                    show: false
                 }
-              },
-              legend: {
+            },
+            legend: {
                 horizontalAlign: "left",
                 offsetX: 40
-              }
+            }
+        },
+        series1: [
+            {
+                name: "contacts",
+                data: [UpdatedData.leaderStatic.sumContacts]
             },
-            series1: [
-                {
-                  name: "contacts",
-                  data: [UpdatedData.leaderStatic.sumContacts]
-                },
-                {
-                  name: "papers",
-                  data: [UpdatedData.leaderStatic.sumPapers]
-                }
-              ],
+            {
+                name: "papers",
+                data: [UpdatedData.leaderStatic.sumPapers]
+            }
+        ],
         op: {
             //%%%%%%
             dataLabels: {
@@ -137,6 +137,7 @@ export default function TryChart() {
             dataLabels: {
                 enabled: false
             },
+
             stroke: {
                 width: [5, 7, 5],
                 curve: 'straight',
@@ -147,14 +148,6 @@ export default function TryChart() {
                     return val + ' - ' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + ''
                 }
             },
-            // markers: {
-            //     size: 0,
-            //     hover: {
-            //         sizeOffset: 6
-            //     }
-            // },
-            color: ['rgb(103, 114, 222)',  'rgb(1, 220, 209)',' rgb(247, 181, 0)','rgb(253, 81, 219)' ],
-
             xaxis: {
 
                 categories: [' contacts', ' papers', 'projects ', 'tasks']
@@ -191,8 +184,8 @@ export default function TryChart() {
                 < ReactApexChart options={state.op1} series={state.series1} type="line" width="400"/>
                 </div> */}
                 <div className="col-md-1" >
-                <Chart options={state.op} series={state.serie} type="donut" width="420" height="240" />
-                 
+                    <Chart options={state.op} series={state.serie} type="donut" width="420" height="240" />
+
                 </div>
             </div>
         </div>
