@@ -128,6 +128,23 @@ export default function TryChart() {
 
         options:
         {
+            colors: [function (series,value) {
+                switch (series) {
+                    case :series[0].data[0] {
+                    return value=='#7E36AF'
+                       
+                }
+                    default:
+                        break;
+                }
+                // debugger
+                // if (value.sumPapers) {
+                //     return '#7E36AF'
+                // } else {
+                //     return '#D9534F'
+                // }
+
+            }],
             chart: {
                 type: 'line',
                 zoom: {
