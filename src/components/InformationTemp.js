@@ -227,9 +227,9 @@ function Information(props) {
             </div>
             {/* ----------------------------filter by: day ,week, month----------------------------------------------------- */}
             <div>
-                <div class="row" style={{ direction: "rtl", marginBottom: "20px" }}>
+                <div class="row" style={{ direction: "rtl", paddingLeft: "30%" }}>
                     ‎
-                    <Button variant="contained" style={{ display: 'flex', justifyContent: 'left', background: "lightslategrey", marginRight: "490px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" className="float-right" onClick={filterByYear}>Year</Button>
+                    <Button variant="contained" style={{ display: 'flex', justifyContent: 'left', background: "lightslategrey", marginRight: "520px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" className="float-right" onClick={filterByYear}>Year</Button>
                     <Button variant="contained" style={{ display: 'flex', justifyContent: 'left', background: "lightslategrey", marginRight: "3px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" className="float-right" onClick={filterByMonth}>Month</Button>
                     <Button variant="contained" style={{ display: 'flex', justifyContent: 'left', background: "lightslategrey", marginRight: "3px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" className="float-right" onClick={filterByWeek}>Week</Button>
                     <Button variant="contained" style={{ display: 'flex', justifyContent: 'left', background: "lightslategrey", marginRight: "3px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" className="float-right" onClick={filterByDay}>Day</Button>
