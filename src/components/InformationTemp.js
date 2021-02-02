@@ -76,7 +76,10 @@ function Information(props) {
         })
     }
 
-
+function paper(){
+    debugger
+    console.log("rrrr");
+}
     function filterByWeek() {
         let dataStaticFilterViewer = props.dataStatic.viewers.filter(function (viewer) {
             const dateViewer = viewer.date.split("/")
@@ -127,8 +130,8 @@ function Information(props) {
                 <div className="col-3.5" style={{ direction: "rtl" }}>
                     <div className="col-3.5" style={{ direction: "rtl" }}>
                     </div></div>‏
-      <Grid container spacing={4}>
-                    <Grid item xs={12} sm={3}>
+             <Grid container spacing={4}>
+                    <Grid item xs={12} sm={3} onClick={paper}>
                         <Paper className="paperOne" style={{ padding: 10, borderRadius: '14px', background: '#FFFDFA', border: '2px Solid #F7B500', color: '#F7B500' }}>
                             <div className="ml-2" style={{ textAlign: 'start', fontWeight: 'bolder' }}>
                                 Total Contacts {" "}
@@ -150,7 +153,7 @@ function Information(props) {
                             </div>
                         </Paper>
                     </Grid>
-                    <Grid item xs={12} sm={3}>
+                    <Grid item xs={12} sm={3} onClick={paper}>
                         <Paper className="paperTwo" style={{ padding: 10, background: '#ECFAFA', border: '2px Solid #01DCD1', color: '#01DCD1', borderRadius: '14px' }}>
                             <div className="ml-2" style={{ textAlign: 'start', fontWeight: 'bolder' }}>
                                 Total Papers {" "}
@@ -222,7 +225,7 @@ function Information(props) {
             <div>
                 <div class="row" style={{ direction: "rtl", marginBottom: "20px" }}>
                     ‎
- <Button variant="contained" style={{ display: 'flex', justifyContent: 'left', background: "lightslategrey", marginRight: "490px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" className="float-right" onClick={filterByYear}>Year</Button>
+                    <Button variant="contained" style={{ display: 'flex', justifyContent: 'left', background: "lightslategrey", marginRight: "490px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" className="float-right" onClick={filterByYear}>Year</Button>
                     <Button variant="contained" style={{ display: 'flex', justifyContent: 'left', background: "lightslategrey", marginRight: "3px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" className="float-right" onClick={filterByMonth}>Month</Button>
                     <Button variant="contained" style={{ display: 'flex', justifyContent: 'left', background: "lightslategrey", marginRight: "3px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" className="float-right" onClick={filterByWeek}>Week</Button>
                     <Button variant="contained" style={{ display: 'flex', justifyContent: 'left', background: "lightslategrey", marginRight: "3px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" className="float-right" onClick={filterByDay}>Day</Button>
