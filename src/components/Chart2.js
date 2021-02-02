@@ -12,9 +12,10 @@ export default function TryChart() {
             dataLabels: {
                 enabled: true
             },
-            labels: ['project', 'papers', 'contacts', 'tasks'],
+             //con pap pro tasks
+            labels: ['contacts', 'papers', 'project', 'tasks'],
             //change color
-            colors: ['rgb(103, 114, 222)', 'rgb(1, 220, 209)', ' rgb(247, 181, 0)', 'rgb(253, 81, 219)'],
+            colors: [' rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgb(253, 81, 219)'],
             //Spacing
             stroke: {
                 width: [5, 7, 5],
@@ -24,23 +25,24 @@ export default function TryChart() {
         },
          
      
-        serie: [UpdatedData.leaderStatic.sumProjects,
+        serie: [UpdatedData.leaderStatic.sumContacts,
             UpdatedData.leaderStatic.sumPapers,
-            UpdatedData.leaderStatic.sumContacts,
+            UpdatedData.leaderStatic.sumProjects,
             UpdatedData.leaderStatic.sumTasks],
         series: [
             {
                 // leaderStatic:{sumProjects:0,sumTasks:0,sumPapers:0,sumContacts:0},
                 name: "",
-                data: [UpdatedData.leaderStatic.sumProjects,
-                UpdatedData.leaderStatic.sumPapers,
-                UpdatedData.leaderStatic.sumContacts,
-                UpdatedData.leaderStatic.sumTasks]
+                data: [UpdatedData.leaderStatic.sumContacts,
+                    UpdatedData.leaderStatic.sumPapers,
+                    UpdatedData.leaderStatic.sumProjects,
+                    UpdatedData.leaderStatic.sumTasks],
             },
         ],
+       
         options:
         {
-
+            colors:{ series[0] :'rgb(103, 114, 222)',series[1]: 'rgb(1, 220, 209)', ' rgb(247, 181, 0)', 'rgb(253, 81, 219)']}
             chart: {
                 type: 'line',
                 zoom: {
@@ -67,7 +69,8 @@ export default function TryChart() {
                 }
             },
             xaxis: {
-                categories: [' projects', ' papers', ' contacts', 'tasks']
+                 
+                categories: [' contacts', ' papers', 'projects ', 'tasks']
             },
             tooltip: {
                 y: [
@@ -87,7 +90,6 @@ export default function TryChart() {
                     },
                 ]
             },                                                                                      
-            colors: ['rgb(103, 114, 222)', 'rgb(1, 220, 209)', ' rgb(247, 181, 0)', 'rgb(253, 81, 219)'],
 
         },
         
