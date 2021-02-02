@@ -128,21 +128,18 @@ export default function TryChart() {
 
         options:
         {
-            colors: [function (series,value) {
-                switch (series) {
-                    case :series[0].data[0] {
-                    return value=='#7E36AF'
-                       
+            colors: [function ({ value  }) {
+                if (value ==38) {
+                    return 'rgb(247, 181, 0)'
+                } 
+              else  if(value==11) {
+                    return  'rgb(1, 220, 209)'
                 }
-                    default:
-                        break;
+               else if(value==20) {
+                    return 'rgb(103, 114, 222)'
                 }
-                // debugger
-                // if (value.sumPapers) {
-                //     return '#7E36AF'
-                // } else {
-                //     return '#D9534F'
-                // }
+                else
+                return 'rgb(253, 81, 219)'
 
             }],
             chart: {
@@ -197,9 +194,9 @@ export default function TryChart() {
                 <div className="col-md-4"  >
                     <ReactApexChart options={state.options} series={state.series} type="bar" width="420" />
                 </div>
-                {/* <div className="col-md-4"  >
-                < ReactApexChart options={state.op1} series={state.series1} type="line" width="400"/>
-                </div> */}
+                <div className="col-md-4"  >
+                {/* < ReactApexChart options={state.op1} series={state.series1} type="line" width="400"/> */}
+                </div>
                 <div className="col-md-1" >
                     <Chart options={state.op} series={state.serie} type="donut" width="420" height="240" />
 
