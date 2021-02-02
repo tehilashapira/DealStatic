@@ -19,6 +19,7 @@ import moment from 'moment';
 let currentDate = moment().format("MM/DD/YYYY");
 let dateBeforeWeek = moment().subtract(1, 'week').format('MM/DD/YYYY');
 let dateBeforeMonth = moment().subtract(1, 'month').format('MM/DD/YYYY');
+let dateBeforeYear = moment().subtract(1, 'year').format('MM/DD/YYYY')
 // --------------------------------------------------------------------------------------------------------------
 const useStyles = () => ({
     root: {
@@ -81,6 +82,27 @@ const useStyles = () => ({
             const dateViewer = viewer.date.split("/")
             const dateFormater = dateViewer[1] + "/" + dateViewer[0] + "/" + dateViewer[2];
             return (new Date(dateFormater) >= new Date(dateBeforeMonth))
+        })
+        let dataStaticFilterConcatOptions = props.dataStatic.contactOptions.filter(function (contactOptions) {
+            const dateClick = contactOptions.date.split("/")
+            const dateFormater = dateClick[1] + "/" + dateClick[0] + "/" + dateClick[2];
+            return (new Date(dateFormater) >= new Date(dateBeforeMonth))
+        })
+        let dataStaticFiltersubmitioms = props.dataStatic.submitioms.filter(function (submitioms) {
+            const dateSubmitions = submitioms.date.split("/")
+            const dateFormater = dateSubmitions[1] + "/" + dateSubmitions[0] + "/" + dateSubmitions[2];
+            return (new Date(dateFormater) >= new Date(dateBeforeMonth))
+        })
+        props.changeSumStatic({
+            viewers: dataStaticFilterViewer, contactOptions: dataStaticFilterConcatOptions, submitioms: dataStaticFiltersubmitioms
+        })
+    }
+
+    function  filterByYear() {
+        let dataStaticFilterViewer = props.dataStatic.viewers.filter(function (viewer) {
+            const dateViewer = viewer.date.split("/")
+            const dateFormater = dateViewer[1] + "/" + dateViewer[0] + "/" + dateViewer[2];
+            return (new Date(dateFormater) >= new Date(dateBeforeYear))
         })
         let dataStaticFilterConcatOptions = props.dataStatic.contactOptions.filter(function (contactOptions) {
             const dateClick = contactOptions.date.split("/")
@@ -198,11 +220,12 @@ const useStyles = () => ({
             </div>
             {/* ----------------------------filter by: day ,week, month----------------------------------------------------- */}
             <div>
-                <div class="row" style={{ direction: "rtl", marginBottom: "20px" }}>
-
-                    <Button variant="contained" style={{ display: 'flex', justifyContent: 'left', background: "lightslategrey", marginRight: "60px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" className="float-right" onClick={filterByMonth}>Month</Button>
+                <div class="row" style={{ direction: "rtl", marginBottom: "50px" }}>
+                    <Button variant="contained" style={{ display: 'flex', justifyContent: 'left', background: "lightslategrey", marginRight: "490px",height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" className="float-right" onClick={filterByYear}>Year</Button>
+                    <Button variant="contained" style={{ display: 'flex', justifyContent: 'left', background: "lightslategrey", marginRight: "3px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" className="float-right" onClick={filterByMonth}>Month</Button>
                     <Button variant="contained" style={{ display: 'flex', justifyContent: 'left', background: "lightslategrey", marginRight: "3px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" className="float-right" onClick={filterByWeek}>Week</Button>
                     <Button variant="contained" style={{ display: 'flex', justifyContent: 'left', background: "lightslategrey", marginRight: "3px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" className="float-right" onClick={filterByDay}>Day</Button>
+                    
 
                 </div>
             </div>

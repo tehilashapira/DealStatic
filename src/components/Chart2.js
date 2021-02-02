@@ -12,7 +12,7 @@ export default function TryChart() {
             dataLabels: {
                 enabled: true
             },
-            labels: ['project', 'papers', 'contacts', 'tasks'],
+            labels: [  'contacts','papers', 'project','tasks'],
             //change color
             colors: ['rgb(103, 114, 222)', 'rgb(1, 220, 209)', ' rgb(247, 181, 0)', 'rgb(253, 81, 219)'],
             //Spacing
@@ -24,17 +24,19 @@ export default function TryChart() {
         },
          
      
-        serie: [UpdatedData.leaderStatic.sumProjects,
-            UpdatedData.leaderStatic.sumPapers,
+        serie: [
             UpdatedData.leaderStatic.sumContacts,
+            UpdatedData.leaderStatic.sumPapers,
+            UpdatedData.leaderStatic.sumProjects,
             UpdatedData.leaderStatic.sumTasks],
         series: [
             {
                 // leaderStatic:{sumProjects:0,sumTasks:0,sumPapers:0,sumContacts:0},
                 name: "",
-                data: [UpdatedData.leaderStatic.sumProjects,
-                UpdatedData.leaderStatic.sumPapers,
+                data: [
                 UpdatedData.leaderStatic.sumContacts,
+                UpdatedData.leaderStatic.sumPapers,
+                UpdatedData.leaderStatic.sumProjects,
                 UpdatedData.leaderStatic.sumTasks]
             },
         ],
@@ -67,7 +69,7 @@ export default function TryChart() {
                 }
             },
             xaxis: {
-                categories: [' projects', ' papers', ' contacts', 'tasks']
+                categories: [' contacts',' papers',' projects', 'tasks']
             },
             tooltip: {
                 y: [
@@ -94,20 +96,20 @@ export default function TryChart() {
     }
     return (
         <div className="container" >
-            <div className="row">
-                <div className="col-7">
-                 
-                    <ReactApexChart options={state.options} series={state.series} type="bar" width="500" />
-                </div>
-                <div className="col-5" style={{paddingTop:"3%"}}>
-                    
-                    <Chart options={state.op} series={state.serie} type="donut"  width="470" height="270" />
-                </div>
+        <div className="row">
+            <div className="md-col-6">
+                <ReactApexChart options={state.options} series={state.series} type="bar" width="500" />
             </div>
-            <div className="row">
-            < ReactApexChart options={state.options} series={state.series} type="line"  width="470" height="270"  />
+            <div className="col-2" style={{ paddingTop: "3%",paddingRight:"10%" }}>
+                <Chart options={state.op} series={state.serie} type="donut" width="500" height="270" />
             </div>
         </div>
+        <div className="row">
+            <div className="md-col-7">
+                < ReactApexChart options={state.options} series={state.series} type="line" width="500" />
+            </div>
+        </div>
+    </div>
 
     );
 }

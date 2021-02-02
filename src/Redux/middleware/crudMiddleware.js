@@ -1,25 +1,48 @@
+
 import { actions } from '../actions/staticAction'
-import { setStaticData,setProjectStatic,setTaskStatic,setContactStatic } from '../reducers/staticDetailsReducer'
+// import { setStaticData,setProjectStatic,setTaskStatic,setContactStatic } from '../reducers/staticDetailsReducer'
+
+
+// ---------------A function that extracts the jwt from the cookies----------------
+export const getCookie = (c_name) => {
+  if (document.cookie.length > 0) {
+    let c_start = document.cookie.indexOf(c_name + '=');
+    if (c_start !== -1) {
+      c_start = c_start + c_name.length + 1;
+      let c_end = document.cookie.indexOf(';', c_start);
+      if (c_end === -1) {
+        c_end = document.cookie.length;
+      }
+      return unescape(document.cookie.substring(c_start, c_end));
+    }
+  }
+  return '';
+};
+
 
 
 
 export const getStaticData =   ({ dispatch, getState }) => next => action => {
       // with this type client enter to application:INIT_DATA
 
-      
+
   if (action.type === 'INIT_DATA') {
+     let jwt = getCookie('jwt');
+
       //  fetch to get sum of projects for user-----------------
+
 fetch('https://reacthub.dev.leader.codes/api/renana-il/getAllProjectsForUser', {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
       Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJIZXNJaFlXaVU2Z1A3M1NkMHRXaDJZVzA4ZFkyIiwiZW1haWwiOiJyZW5hbmFAbGVhZGVyLmNvZGVzIiwiaWF0IjoxNjA3NTkxOTI5fQ.U2FQ7I4qBXW9DF-SVJqxKiWgVs5tjSo06pyvmuwzCFU",
+//    Authorization: jwt,
     },
    
   })
     .then((data) => data.json())
     .then((data) => {  
-    let sumProject=data.sumProjectForUser
+     let sumProject=data.countProjectsForUser
     debugger
     dispatch(actions.setProjectStatic(sumProject));
      console.log(data)
@@ -33,12 +56,13 @@ method: 'GET',
 headers: {
 'Content-Type': 'application/json',
 Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJIZXNJaFlXaVU2Z1A3M1NkMHRXaDJZVzA4ZFkyIiwiZW1haWwiOiJyZW5hbmFAbGVhZGVyLmNvZGVzIiwiaWF0IjoxNjA3NTkxOTI5fQ.U2FQ7I4qBXW9DF-SVJqxKiWgVs5tjSo06pyvmuwzCFU",
+//     Authorization: jwt,
 },
 
 })
 .then((data) => data.json())
 .then((data) => {  
-let sumTask=data.sumTaskForUser
+let sumTask=(data.countTasksForUser)
 debugger
 dispatch(actions.setTaskStatic(sumTask));
 console.log(data)
@@ -53,12 +77,13 @@ method: 'GET',
 headers: {
 'Content-Type': 'application/json',
 Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJEWWMzVlVtRUhTY3FhWkJ3MzAwbHY4OWZuYTgyIiwiZW1haWwiOiJydXRoMTA5NDc2QGdtYWlsLmNvbSIsImlhdCI6MTYxMTcyNjEzN30.sDgXmAvDj3JirPgU5AksbPVMdtxHVIAU9rgTFAeAluE",
+ //     Authorization: jwt,
 },
 
 })
 .then((data) => data.json())
 .then((data) => {  
-let sumPapers=data.quotes.length
+let sumPapers=(data.quotes.length)
 debugger
 dispatch(actions.setPaperStatic(sumPapers));
 console.log(data)
@@ -73,12 +98,13 @@ method: 'GET',
 headers: {
 'Content-Type': 'application/json',
 Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJzaW1kc01ycmNKZHBRZ3RhOGtnWHlRQmRERnkyIiwiZW1haWwiOiJjdG9AbGVhZGVyLmNvZGVzIiwiaWF0IjoxNjEwNDM3MDcxfQ.vn3nemrfKrW2TKQqwtkIoyaRZRjS8JBEhTtmIWzdc04",
+//     Authorization: jwt,
 },
 
 })
 .then((data) => data.json())
 .then((data) => {  
-let sumContact=data.length
+let sumContact=(data.length)
 debugger
 dispatch(actions.setContactStatic(sumContact));
 console.log(data)
@@ -91,4 +117,5 @@ console.log(data)
     return next(action)
 
 }
+
 

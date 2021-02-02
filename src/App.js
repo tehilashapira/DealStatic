@@ -4,7 +4,6 @@ import { Provider } from 'react-redux';
 import { BrowserRouter as Router} from "react-router-dom";
 import store from './Redux/staticStore'
 import InformationTemp from './components/InformationTemp'
-import { Chart1, Donut } from './components/Charts'
  import Chart2 from './components/Chart2'
 // // import PieChart from './components/PieChart'
 // import {TryChart,Pie1} from './components/Chart2'
@@ -21,7 +20,7 @@ function App() {
       {/* <TryChart></TryChart>
       <Pie1></Pie1> */}
 
-       <div style={{marginLeft:"60%" }}><Donut></Donut>  </div>
+       <div style={{marginLeft:"60%" }}> </div>
 
     </Provider>
     
