@@ -6,7 +6,97 @@ import { useSelector } from 'react-redux';
 export default function TryChart() {
     const UpdatedData = useSelector(state => state.staticDetailsReducer);
 
+
+   
+
     const state = {
+        op1:{
+            chart: {
+                height: 350,
+                type: "line",
+                stacked: false
+              },
+              dataLabels: {
+                enabled: false
+              },
+              colors: ["#FF1654", "#247BA0"],
+            
+              stroke: {
+                width: [4, 4]
+              },
+              plotOptions: {
+                bar: {
+                  columnWidth: "20%"
+                }
+              },
+              xaxis: {
+                categories: []
+              },
+              yaxis: [
+                {
+                  axisTicks: {
+                    show: true
+                  },
+                  axisBorder: {
+                    show: true,
+                    color: "#FF1654"
+                  },
+                  labels: {
+                    style: {
+                      colors: "#FF1654"
+                    }
+                  },
+                  title: {
+                    text: "Series A",
+                    style: {
+                      color: "#FF1654"
+                    }
+                  }
+                },
+                {
+                  opposite: true,
+                  axisTicks: {
+                    show: true
+                  },
+                  axisBorder: {
+                    show: true,
+                    color: "#247BA0"
+                  },
+                  labels: {
+                    style: {
+                      colors: "#247BA0"
+                    }
+                  },
+                  title: {
+                    text: "Series B",
+                    style: {
+                      color: "#247BA0"
+                    }
+                  }
+                }
+              ],
+              tooltip: {
+                shared: false,
+                intersect: true,
+                x: {
+                  show: false
+                }
+              },
+              legend: {
+                horizontalAlign: "left",
+                offsetX: 40
+              }
+            },
+            series1: [
+                {
+                  name: "contacts",
+                  data: [UpdatedData.leaderStatic.sumContacts]
+                },
+                {
+                  name: "papers",
+                  data: [UpdatedData.leaderStatic.sumPapers]
+                }
+              ],
         op: {
             //%%%%%%
             dataLabels: {
@@ -101,7 +191,7 @@ export default function TryChart() {
                     <ReactApexChart options={state.options} series={state.series} type="bar" width="420" />
                 </div>
                 <div className="col-md-4"  >
-                < ReactApexChart options={state.options} series={state.series} type="line" width="400"/>
+                < ReactApexChart options={state.op1} series={state.series1} type="line" width="400"/>
 
                 </div>
                 <div className="col-md-1" >
