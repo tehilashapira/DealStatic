@@ -5,10 +5,6 @@ import { useSelector } from 'react-redux';
 
 export default function TryChart() {
     const UpdatedData = useSelector(state => state.staticDetailsReducer);
-
-
-   
-
     const state = {
         op1:{
             chart: {
@@ -132,7 +128,6 @@ export default function TryChart() {
 
         options:
         {
-            colors: [ 'rgb(103, 114, 222)',  'rgb(1, 220, 209)',' rgb(247, 181, 0)','rgb(253, 81, 219)' ],
             chart: {
                 type: 'line',
                 zoom: {
@@ -152,12 +147,14 @@ export default function TryChart() {
                     return val + ' - ' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + ''
                 }
             },
-            markers: {
-                size: 0,
-                hover: {
-                    sizeOffset: 6
-                }
-            },
+            // markers: {
+            //     size: 0,
+            //     hover: {
+            //         sizeOffset: 6
+            //     }
+            // },
+            color: ['rgb(103, 114, 222)',  'rgb(1, 220, 209)',' rgb(247, 181, 0)','rgb(253, 81, 219)' ],
+
             xaxis: {
 
                 categories: [' contacts', ' papers', 'projects ', 'tasks']
@@ -192,7 +189,6 @@ export default function TryChart() {
                 </div>
                 {/* <div className="col-md-4"  >
                 < ReactApexChart options={state.op1} series={state.series1} type="line" width="400"/>
-
                 </div> */}
                 <div className="col-md-1" >
                 <Chart options={state.op} series={state.serie} type="donut" width="420" height="240" />
