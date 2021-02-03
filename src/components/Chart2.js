@@ -18,7 +18,7 @@ export default function TryChart() {
             colors: [' rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgb(253, 81, 219)'],
 
             stroke: {
-                width: [5,5,5,5]
+                width: [5, 5, 5, 5]
             },
             plotOptions: {
                 bar: {
@@ -27,9 +27,9 @@ export default function TryChart() {
             },
             xaxis: {
                 categories: ['01 Jan', '02 Jan', '03 Jan', '04 Jan', '05 Jan', '06 Jan', '07 Jan', '08 Jan', '09 Jan',
-                  '10 Jan', '11 Jan', '12 Jan'
+                    '10 Jan', '11 Jan', '12 Jan'
                 ],
-              },
+            },
             yaxis: [
                 {
                     // axisTicks: {
@@ -44,11 +44,11 @@ export default function TryChart() {
                     //         colors: "#FF1654"
                     //     }
                     // },
-              
+
                 },
-              
+
             ],
-    
+
             //the plase of labels
             legend: {
                 horizontalAlign: "left",
@@ -106,18 +106,18 @@ export default function TryChart() {
         ],
         options:
         {
-            colors: [function ({ value  }) {
-                if (value ==38) {
+            colors: [function ({ value }) {
+                if (value == 38) {
                     return 'rgb(247, 181, 0)'
-                } 
-              else  if(value==11) {
-                    return  'rgb(1, 220, 209)'
                 }
-               else if(value==20) {
+                else if (value == 11) {
+                    return 'rgb(1, 220, 209)'
+                }
+                else if (value == 20) {
                     return 'rgb(103, 114, 222)'
                 }
                 else
-                return 'rgb(253, 81, 219)'
+                    return 'rgb(253, 81, 219)'
             }],
             chart: {
                 type: 'line',
@@ -164,16 +164,16 @@ export default function TryChart() {
     }
     return (
         <div className="container" >
-            <div className="row"  >
-                <div className="col-md-4"  >
+            <div className="row"   >
+                <div className="col-md-4" style={{ paddingLeft: "18px" }}>
                     <ReactApexChart options={state.options} series={state.series} type="bar" width="420" />
-                </div>
-                <div className="col-md-4"  >
-                < ReactApexChart options={state.op1} series={state.series1} type="line" width="400"/>
-                </div>
-                <div className="col-md-1" >
+                </div><div className="col-md-5" >
                     <Chart options={state.op} series={state.serie} type="donut" width="420" height="240" />
                 </div>
+                <div className="col-md-3"   >
+                    < ReactApexChart options={state.op1} series={state.series1} type="line" width="400" height="270" />
+                </div>
+
             </div>
         </div>
     );
