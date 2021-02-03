@@ -8,6 +8,7 @@ export default function TryChart() {
     const state = {
         op1: {
             chart: {
+                zoom: { enabled: false },
                 height: 350,
                 type: "line",
                 stacked: false
@@ -20,11 +21,7 @@ export default function TryChart() {
             stroke: {
                 width: [5, 5, 5, 5]
             },
-            plotOptions: {
-                bar: {
-                    columnWidth: "20%"
-                }
-            },
+          
             xaxis: {
                 categories: ['01 Jan', '02 Jan', '03 Jan', '04 Jan', '05 Jan', '06 Jan', '07 Jan', '08 Jan', '09 Jan',
                     '10 Jan', '11 Jan', '12 Jan'
@@ -164,13 +161,13 @@ export default function TryChart() {
     }
     return (
         <div className="container" >
-            <div className="row"   >
-                <div className="col-md-4" style={{ paddingLeft: "18px" }}>
+            <div className="row" style={{paddingTop:"5%"}}  >
+                <div className="col-md-4" style={{ marginLeft: "-75px"}}>
                     <ReactApexChart options={state.options} series={state.series} type="bar" width="420" />
                 </div><div className="col-md-5" >
-                    <Chart options={state.op} series={state.serie} type="donut" width="420" height="240" />
+                    <Chart options={state.op} series={state.serie} type="donut" width="460" height="250" />
                 </div>
-                <div className="col-md-3"   >
+                <div className="col-md-3">
                     < ReactApexChart options={state.op1} series={state.series1} type="line" width="400" height="270" />
                 </div>
 
