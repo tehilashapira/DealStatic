@@ -109,8 +109,6 @@ export default function TryChart() {
                 dashArray: [0, 8, 5]
             },
         },
-
-
         serie: [UpdatedData.leaderStatic.sumContacts,
         UpdatedData.leaderStatic.sumPapers,
         UpdatedData.leaderStatic.sumProjects,
@@ -125,7 +123,6 @@ export default function TryChart() {
                 UpdatedData.leaderStatic.sumTasks],
             },
         ],
-
         options:
         {
             colors: [function ({ value  }) {
@@ -140,7 +137,6 @@ export default function TryChart() {
                 }
                 else
                 return 'rgb(253, 81, 219)'
-
             }],
             chart: {
                 type: 'line',
@@ -151,7 +147,6 @@ export default function TryChart() {
             dataLabels: {
                 enabled: false
             },
-
             stroke: {
                 width: [5, 7, 5],
                 curve: 'straight',
@@ -184,9 +179,7 @@ export default function TryChart() {
                     },
                 ]
             },
-
         },
-
     }
     return (
         <div className="container" >
@@ -195,14 +188,12 @@ export default function TryChart() {
                     <ReactApexChart options={state.options} series={state.series} type="bar" width="420" />
                 </div>
                 <div className="col-md-4"  >
-                {/* < ReactApexChart options={state.op1} series={state.series1} type="line" width="400"/> */}
+                < ReactApexChart options={state.op1} series={state.series1} type="line" width="400"/>
                 </div>
                 <div className="col-md-1" >
                     <Chart options={state.op} series={state.serie} type="donut" width="420" height="240" />
-
                 </div>
             </div>
         </div>
-
     );
 }

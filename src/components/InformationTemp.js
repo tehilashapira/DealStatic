@@ -12,7 +12,7 @@ import iconThree from '../img/iconThree.png'
 import iconFour from '../img/iconFour.png'
 import { actions } from '../Redux/actions/staticAction'
 import moment from 'moment';
-import {} from 'react-router-dom'
+import { } from 'react-router-dom'
 
 
 // -------get new date in correct format to filter data----------------------------------------------------
@@ -81,7 +81,7 @@ function Information(props) {
         debugger
         console.log("rrrr");
         window.location.assign('https://papers.dev.leader.codes/admin/ruth109476@gmail.com')
-        
+
     }
     function filterByWeek() {
         let dataStaticFilterViewer = props.dataStatic.viewers.filter(function (viewer) {
@@ -156,8 +156,8 @@ function Information(props) {
                             </div>
                         </Paper>
                     </Grid>
-    
-                    <Grid item xs={12} sm={3} onClick={()=>{ window.location.assign('https://papers.dev.leader.codes/admin/ruth109476@gmail.com')}}>
+
+                    <Grid item xs={12} sm={3} onClick={() => { window.location.assign('https://papers.dev.leader.codes/admin/ruth109476@gmail.com') }}>
                         <Paper className="paperTwo" style={{ padding: 10, background: '#ECFAFA', border: '2px Solid #01DCD1', color: '#01DCD1', borderRadius: '14px' }}>
                             <div className="ml-2" style={{ textAlign: 'start', fontWeight: 'bolder' }}>
                                 Total Papers {" "}
@@ -229,10 +229,10 @@ function Information(props) {
             <div>
                 <div class="row" style={{ direction: "rtl", paddingLeft: "30%" }}>
                     ‎
-                    <Button variant="contained" style={{ display: 'flex', justifyContent: 'left', background: "lightslategrey", marginRight: "520px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" className="float-right" onClick={filterByYear}>Year</Button>
-                    <Button variant="contained" style={{ display: 'flex', justifyContent: 'left', background: "lightslategrey", marginRight: "3px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" className="float-right" onClick={filterByMonth}>Month</Button>
-                    <Button variant="contained" style={{ display: 'flex', justifyContent: 'left', background: "lightslategrey", marginRight: "3px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" className="float-right" onClick={filterByWeek}>Week</Button>
-                    <Button variant="contained" style={{ display: 'flex', justifyContent: 'left', background: "lightslategrey", marginRight: "3px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" className="float-right" onClick={filterByDay}>Day</Button>
+                    <Button variant="contained" style={{ background: "lightslategrey", marginRight: "520px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" onClick={filterByYear}>Year</Button>
+                    <Button variant="contained" style={{ background: "lightslategrey", marginRight: "3px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" onClick={filterByMonth}>Month</Button>
+                    <Button variant="contained" style={{ background: "lightslategrey", marginRight: "3px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" onClick={filterByWeek}>Week</Button>
+                    <Button variant="contained" style={{ background: "lightslategrey", marginRight: "3px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" onClick={filterByDay}>Day</Button>
 
                 </div>
             </div>
