@@ -30,7 +30,9 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
     })
       .then((data) => data.json())
       .then((data) => {
+        //only sumProject
         let sumProject = data.countProjectsForUser
+        //all data for project
         let projectData = data.userProjectsList
         debugger
         dispatch(actions.setProjectStatic(sumProject));
@@ -47,6 +49,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
     })
       .then((data) => data.json())
       .then((data) => {
+        let taskData = data.userTasksList
         let sumTask = (data.countTasksForUser)
         debugger
         dispatch(actions.setTaskStatic(sumTask));

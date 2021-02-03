@@ -168,7 +168,7 @@ export default function TryChart() {
     return (
         <div className="container" >
             <div className="row" style={{paddingTop:"5%"}}  >
-                <div className="col-md-4" style={{ marginLeft: "-75px"}}>
+                <div className="col-sm-4" style={{ marginLeft: "-75px"}}>
                     <ReactApexChart options={state.options} series={state.series} type="bar" width="420" />
                 </div><div className="col-md-5" >
                     <Chart options={state.op} series={state.serie} type="donut" width="460" height="250" />

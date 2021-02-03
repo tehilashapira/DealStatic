@@ -135,8 +135,8 @@ function Information(props) {
                     <div className="col-3.5" style={{ direction: "rtl" }}>
                     </div></div>‏
              <Grid container spacing={4}>
-                    <Grid item xs={12} sm={3}  style={{cursor:'pointer'}} onClick={paper}>
-                        <Paper className="paperOne" style={{ padding: 10, borderRadius: '14px', background: '#FFFDFA', border: '2px Solid #F7B500', color: '#F7B500' }}>
+                    <Grid item xs={12} sm={3}>
+                        <Paper className="paperOne" style={{cursor:'pointer', padding: 10, borderRadius: '14px', background: '#FFFDFA', border: '2px Solid #F7B500', color: '#F7B500' }}>
                             <div className="ml-2" style={{ textAlign: 'start', fontWeight: 'bolder' }}>
                                 Total Contacts {" "}
                             </div>
@@ -159,7 +159,7 @@ function Information(props) {
                     </Grid>
 
                     <Grid item xs={12} sm={3}>
-                        <Paper className="paperTwo"  style={{cursor:'pointer'}} onClick={() => { window.location.assign('https://papers.dev.leader.codes/admin/ruth109476@gmail.com') }} style={{ padding: 10, background: '#ECFAFA', border: '2px Solid #01DCD1', color: '#01DCD1', borderRadius: '14px' }}>
+                        <Paper className="paperTwo"  onClick={() => { window.location.assign('https://papers.dev.leader.codes/admin/ruth109476@gmail.com') }} style={{ padding: 10, background: '#ECFAFA',cursor:'pointer', border: '2px Solid #01DCD1', color: '#01DCD1', borderRadius: '14px' }}>
                             <div className="ml-2" style={{ textAlign: 'start', fontWeight: 'bolder' }}>
                                 Total Papers {" "}
                             </div>
