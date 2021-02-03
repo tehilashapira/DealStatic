@@ -80,6 +80,7 @@ function Information(props) {
     function paper() {
         debugger
         console.log("rrrr");
+        console.log(props.projectList)
         window.location.assign('https://papers.dev.leader.codes/admin/ruth109476@gmail.com')
 
     }
@@ -134,7 +135,7 @@ function Information(props) {
                     <div className="col-3.5" style={{ direction: "rtl" }}>
                     </div></div>‏
              <Grid container spacing={4}>
-                    <Grid item xs={12} sm={3} onClick={paper}>
+                    <Grid item xs={12} sm={3}  style={{cursor:'pointer'}} onClick={paper}>
                         <Paper className="paperOne" style={{ padding: 10, borderRadius: '14px', background: '#FFFDFA', border: '2px Solid #F7B500', color: '#F7B500' }}>
                             <div className="ml-2" style={{ textAlign: 'start', fontWeight: 'bolder' }}>
                                 Total Contacts {" "}
@@ -157,8 +158,8 @@ function Information(props) {
                         </Paper>
                     </Grid>
 
-                    <Grid item xs={12} sm={3} onClick={() => { window.location.assign('https://papers.dev.leader.codes/admin/ruth109476@gmail.com') }}>
-                        <Paper className="paperTwo" style={{ padding: 10, background: '#ECFAFA', border: '2px Solid #01DCD1', color: '#01DCD1', borderRadius: '14px' }}>
+                    <Grid item xs={12} sm={3}>
+                        <Paper className="paperTwo"  style={{cursor:'pointer'}} onClick={() => { window.location.assign('https://papers.dev.leader.codes/admin/ruth109476@gmail.com') }} style={{ padding: 10, background: '#ECFAFA', border: '2px Solid #01DCD1', color: '#01DCD1', borderRadius: '14px' }}>
                             <div className="ml-2" style={{ textAlign: 'start', fontWeight: 'bolder' }}>
                                 Total Papers {" "}
                             </div>
@@ -178,8 +179,8 @@ function Information(props) {
                             </div>
                         </Paper>
                     </Grid>
-                    <Grid item xs={12} sm={3}>
-                        <Paper className="paperThree" style={{ padding: 10, background: '#F2F3FF', border: '2px Solid #6772DE', color: '#6772DE', borderRadius: '14px' }}>
+                    <Grid item xs={12} sm={3}  >
+                        <Paper className="paperThree" style={{ cursor:'pointer',padding: 10, background: '#F2F3FF', border: '2px Solid #6772DE', color: '#6772DE', borderRadius: '14px' }}>
                             <div className="ml-2" style={{ textAlign: 'start', fontWeight: 'bolder' }}>
                                 Total Projects {" "}
                             </div>
@@ -201,8 +202,8 @@ function Information(props) {
                             </div>
                         </Paper>
                     </Grid>
-                    <Grid item xs={12} sm={3} >
-                        <Paper className="paperFour" style={{ padding: 10, background: '#FFF5FD', border: '2px Solid #FD51DB', color: '#FD51DB', borderRadius: '14px' }}>
+                    <Grid item xs={12} sm={3}  >
+                        <Paper className="paperFour" style={{ padding: 10, background: '#FFF5FD', border: '2px Solid #FD51DB', color: '#FD51DB', borderRadius: '14px',cursor:'pointer' }}>
                             <div className="cardFor" className="ml-2 cardFor" style={{ textAlign: 'start', fontWeight: 'bolder' }}>
                                 Total Tasks  {" "}
                             </div>
@@ -246,7 +247,8 @@ const mapStateToProps = (state) => {
     return {
         dataStatic: state.staticDetailsReducer.dataStatic,
         sumStatic: state.staticDetailsReducer.sumStatic,
-        leaderStatic: state.staticDetailsReducer.leaderStatic
+        leaderStatic: state.staticDetailsReducer.leaderStatic,
+        projectList: state.staticDetailsReducer.projectList
     };
 }
 const mapDispatchToProps = (dispatch) => ({

@@ -21,11 +21,8 @@ export default function TryChart() {
             stroke: {
                 width: [5, 5, 5, 5]
             },
-          
             xaxis: {
-                categories: ['01 Jan', '02 Jan', '03 Jan', '04 Jan', '05 Jan', '06 Jan', '07 Jan', '08 Jan', '09 Jan',
-                    '10 Jan', '11 Jan', '12 Jan'
-                ],
+                categories: ['Jan', 'feb', 'marth', 'apr', 'may', 'jun', 'jul', 'aug','sep', 'oct','nov','dic'],
             },
             yaxis: [
                 {
@@ -45,7 +42,6 @@ export default function TryChart() {
                 },
 
             ],
-
             //the plase of labels
             legend: {
                 horizontalAlign: "left",
