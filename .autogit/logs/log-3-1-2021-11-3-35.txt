@@ -1,0 +1,20 @@
+-------------------- Auto-Git Log --------------------
+		Wed Feb 03 2021 11:03:35 GMT+0200 (שעון ישראל (חורף))
+------------------------------------------------------
+
+Modified files:
+* .eslintcache
+* src/Redux/middleware/crudMiddleware.js
+* src/components/Chart2.js
+* src/components/InformationTemp.js
+
+
+Created files:
+* .autogit/logs/log-2-1-2021-23-15-48.txt
+* src/components/workspace.code-workspace
+
+
+Deleted files:
+
+
+Renamed files:

@@ -15,10 +15,10 @@ export default function TryChart() {
             dataLabels: {
                 enabled: false
             },
-            colors: ["#FF1654", "#247BA0"],
+            colors: [' rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgb(253, 81, 219)'],
 
             stroke: {
-                width: [4, 4]
+                width: [5,5,5,5]
             },
             plotOptions: {
                 bar: {
@@ -26,58 +26,30 @@ export default function TryChart() {
                 }
             },
             xaxis: {
-                categories: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
-            },
+                categories: ['01 Jan', '02 Jan', '03 Jan', '04 Jan', '05 Jan', '06 Jan', '07 Jan', '08 Jan', '09 Jan',
+                  '10 Jan', '11 Jan', '12 Jan'
+                ],
+              },
             yaxis: [
                 {
-                    axisTicks: {
-                        show: true
-                    },
-                    axisBorder: {
-                        show: true,
-                        color: "#FF1654"
-                    },
-                    labels: {
-                        style: {
-                            colors: "#FF1654"
-                        }
-                    },
-                    title: {
-                        text: "contacs",
-                        style: {
-                            color: "#FF1654"
-                        }
-                    }
+                    // axisTicks: {
+                    //     show: true
+                    // },
+                    // axisBorder: {
+                    //     show: true,
+                    //     color: "#FF1654"
+                    // },
+                    // labels: {
+                    //     style: {
+                    //         colors: "#FF1654"
+                    //     }
+                    // },
+              
                 },
-                {
-                    opposite: true,
-                    axisTicks: {
-                        show: true
-                    },
-                    axisBorder: {
-                        show: true,
-                        color: "#247BA0"
-                    },
-                    labels: {
-                        style: {
-                            colors: "#247BA0"
-                        }
-                    },
-                    title: {
-                        text: "papers",
-                        style: {
-                            color: "#247BA0"
-                        }
-                    }
-                }
+              
             ],
-            tooltip: {
-                shared: false,
-                intersect: true,
-                x: {
-                    show: false
-                }
-            },
+    
+            //the plase of labels
             legend: {
                 horizontalAlign: "left",
                 offsetX: 40
@@ -91,7 +63,16 @@ export default function TryChart() {
             {
                 name: "papers",
                 data: [UpdatedData.leaderStatic.sumPapers]
+            },
+            {
+                name: "projects",
+                data: [UpdatedData.leaderStatic.sumProjects]
+            },
+            {
+                name: "tasks",
+                data: [UpdatedData.leaderStatic.sumTasks]
             }
+
         ],
         op: {
             //%%%%%%
