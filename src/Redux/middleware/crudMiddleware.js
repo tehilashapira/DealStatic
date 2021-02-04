@@ -67,7 +67,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
     })
       .then((data) => data.json())
       .then((data) => {
-        debugger
+
         let sumPapers = (data.quotes.length)
         let papersData = data.quotes
 

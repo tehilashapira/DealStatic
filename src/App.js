@@ -14,7 +14,7 @@ function App() {
         <Provider store={store}>
           <InformationTemp></InformationTemp>
           <Chart2></Chart2>
-      {/* <TryC></TryC> */}
+      <TryC></TryC>
         </Provider>
       </Router>
     </div>

@@ -2,41 +2,34 @@ import React from 'react';
 import ReactApexChart from 'react-apexcharts'
 import Chart from "react-apexcharts";
 import { useSelector } from 'react-redux';
-export default function ApexChart(props) {
 
 
+function SetAllDtaForChart() {
+    debugger
     const UpdatedData = useSelector(state => state.staticDetailsReducer);
+    console.log(UpdatedData);
+    return (
+        <ApexChart data={UpdatedData}></ApexChart>
+    )
+}
 
+export default function ApexChart(props) {
     const state = {
-
-        let series = [];
-        let categories = [];
-        
-        for (let x = 0; x <UpdatedData.AllPapers.length; x++) {
-          series.push({
-            name: papers,
-            data: x.UpdatedData.AllPapers
-          });
-          categories.concat(testData[x].datetime);
-        }
-
         series: [{
-            
             name: "papers",
-           data: data.map(x => +x.UpdatedData.AllPapers) 
-       
+            data: props.UpdatedData
         },
         {
             name: "papers",
-            data: [UpdatedData.leaderStatic.sumPapers]
+            data: [35, 41, 62, 42, 13, 18, 29, 37, 36, 51, 32, 35]
         },
         {
             name: "projects",
-            // data: [UpdatedData.AllProject[]]
+            data: [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15, 10]
         },
         {
             name: "tasks",
-            data: [UpdatedData.leaderStatic.sumTasks]
+            data: [45, 52, 38, 24, 33, 26, 21, 20, 6, 8, 15, 10]
         }
 
         ],

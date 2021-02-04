@@ -45,7 +45,7 @@ const staticData = {
 
     },
     setPaperData(state, action) {
-        debugger
+
 
         state.AllPapers = action.payload
     },

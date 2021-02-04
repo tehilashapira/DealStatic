@@ -43,7 +43,7 @@ function Information(props) {
             return (dateFormater == currentDate)
         })
         let AllPapersData = (props.AllPapers).filter(function (AllPapers) {
-            debugger
+
             const datePaper1 = AllPapers.createdDate
             let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
             // const dateFormater = detaPaper[1] + "/" + detaPaper[0] + "/" + detaPaper[2];
@@ -61,14 +61,14 @@ function Information(props) {
             return (new Date(dateFormater) >= new Date(dateBeforeYear))
 
         })
-            let AllPapersData = (props.AllPapers).filter(function (AllPapers) {
-                debugger
-                const datePaper1 = AllPapers.createdDate
-                let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
-                // const dateFormater = detaPaper[1] + "/" + detaPaper[0] + "/" + detaPaper[2];
-                return (new Date(detaPaper) >= new Date(dateBeforeYear))
+        let AllPapersData = (props.AllPapers).filter(function (AllPapers) {
 
-            })
+            const datePaper1 = AllPapers.createdDate
+            let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
+            // const dateFormater = detaPaper[1] + "/" + detaPaper[0] + "/" + detaPaper[2];
+            return (new Date(detaPaper) >= new Date(dateBeforeYear))
+
+        })
         console.log(AllProjectData.length)
         props.dispatch(actions.setProjectStatic(AllProjectData.length));
         props.dispatch(actions.setPaperStatic(AllPapersData.length));
@@ -81,7 +81,7 @@ function Information(props) {
             return (new Date(dateFormater) >= new Date(dateBeforeWeek))
         })
         let AllPapersData = (props.AllPapers).filter(function (AllPapers) {
-            debugger
+
             const datePaper1 = AllPapers.createdDate
             let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
             // const dateFormater = detaPaper[1] + "/" + detaPaper[0] + "/" + detaPaper[2];
@@ -99,7 +99,7 @@ function Information(props) {
             return (new Date(dateFormater) >= new Date(dateBeforeMonth))
         })
         let AllPapersData = (props.AllPapers).filter(function (AllPapers) {
-            debugger
+
             const datePaper1 = AllPapers.createdDate
             let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
             // const dateFormater = detaPaper[1] + "/" + detaPaper[0] + "/" + detaPaper[2];
