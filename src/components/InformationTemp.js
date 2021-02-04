@@ -200,7 +200,8 @@ const mapStateToProps = (state) => {
         dataStatic: state.staticDetailsReducer.dataStatic,
         sumStatic: state.staticDetailsReducer.sumStatic,
         leaderStatic: state.staticDetailsReducer.leaderStatic,
-        AllProject: state.staticDetailsReducer.AllProject
+        AllProject: state.staticDetailsReducer.AllProject,
+        AllPapers: state.staticDetailsReducer.AllPapers
     };
 }
 // const mapDispatchToProps = (dispatch) => ({
