@@ -37,81 +37,44 @@ function Information(props) {
     //  ---filter by: last day,last week,last month
     function filterByDay() {
         debugger
-        let AllProjectData= (props.AllProject).filter(function (AllProject){
-            const dateProject =AllProject.dueDate.split("/")
+        let AllProjectData = (props.AllProject).filter(function (AllProject) {
+            const dateProject = AllProject.dueDate.split("/")
             const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
             return (dateFormater == currentDate)
         })
-       props.dispatch(actions.setSumStatic(AllProjectData))
+        console.log(AllProjectData.length)
+        props.dispatch(actions.setProjectStatic(AllProjectData.length));
     }
     function filterByYear() {
-        let dataStaticFilterViewer = props.dataStatic.viewers.filter(function (viewer) {
-            const dateViewer = viewer.date.split("/")
-            const dateFormater = dateViewer[1] + "/" + dateViewer[0] + "/" + dateViewer[2];
+        let AllProjectData = (props.AllProject).filter(function (AllProject) {
+            const dateProject = AllProject.dueDate.split("/")
+            const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
             return (new Date(dateFormater) >= new Date(dateBeforeYear))
+
         })
-        let dataStaticFilterConcatOptions = props.dataStatic.contactOptions.filter(function (contactOptions) {
-            const dateClick = contactOptions.date.split("/")
-            const dateFormater = dateClick[1] + "/" + dateClick[0] + "/" + dateClick[2];
-            return (new Date(dateFormater) >= new Date(dateBeforeMonth))
-        })
-        let dataStaticFiltersubmitioms = props.dataStatic.submitioms.filter(function (submitioms) {
-            const dateSubmitions = submitioms.date.split("/")
-            const dateFormater = dateSubmitions[1] + "/" + dateSubmitions[0] + "/" + dateSubmitions[2];
-            return (new Date(dateFormater) >= new Date(dateBeforeMonth))
-        })
-        props.changeSumStatic({
-            viewers: dataStaticFilterViewer, contactOptions: dataStaticFilterConcatOptions, submitioms: dataStaticFiltersubmitioms
-        })
+        console.log(AllProjectData.length)
+        props.dispatch(actions.setProjectStatic(AllProjectData.length));
     }
 
-    function paper() {
-        debugger
-        console.log("rrrr");
-        console.log(props.projectList)
-        window.location.assign('https://papers.dev.leader.codes/admin/ruth109476@gmail.com')
-
-    }
     function filterByWeek() {
-        let dataStaticFilterViewer = props.dataStatic.viewers.filter(function (viewer) {
-            const dateViewer = viewer.date.split("/")
-            const dateFormater = dateViewer[1] + "/" + dateViewer[0] + "/" + dateViewer[2];
+        let AllProjectData = (props.AllProject).filter(function (AllProject) {
+            const dateProject = AllProject.dueDate.split("/")
+            const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
             return (new Date(dateFormater) >= new Date(dateBeforeWeek))
+
+
         })
-        let dataStaticFilterConcatOptions = props.dataStatic.contactOptions.filter(function (contactOptions) {
-            const dateClick = contactOptions.date.split("/")
-            const dateFormater = dateClick[1] + "/" + dateClick[0] + "/" + dateClick[2];
-            return (new Date(dateFormater) >= new Date(dateBeforeWeek))
-        })
-        let dataStaticFiltersubmitioms = props.dataStatic.submitioms.filter(function (submitioms) {
-            const dateSubmitions = submitioms.date.split("/")
-            const dateFormater = dateSubmitions[1] + "/" + dateSubmitions[0] + "/" + dateSubmitions[2];
-            return (new Date(dateFormater) >= new Date(dateBeforeWeek))
-        })
-        props.changeSumStatic({ viewers: dataStaticFilterViewer, contactOptions: dataStaticFilterConcatOptions, submitioms: dataStaticFiltersubmitioms })
+        console.log(AllProjectData.length)
+        props.dispatch(actions.setProjectStatic(AllProjectData.length));
     }
-
-
-
     function filterByMonth() {
-        let dataStaticFilterViewer = props.dataStatic.viewers.filter(function (viewer) {
-            const dateViewer = viewer.date.split("/")
-            const dateFormater = dateViewer[1] + "/" + dateViewer[0] + "/" + dateViewer[2];
+        let AllProjectData = (props.AllProject).filter(function (AllProject) {
+            const dateProject = AllProject.dueDate.split("/")
+            const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
             return (new Date(dateFormater) >= new Date(dateBeforeMonth))
         })
-        let dataStaticFilterConcatOptions = props.dataStatic.contactOptions.filter(function (contactOptions) {
-            const dateClick = contactOptions.date.split("/")
-            const dateFormater = dateClick[1] + "/" + dateClick[0] + "/" + dateClick[2];
-            return (new Date(dateFormater) >= new Date(dateBeforeMonth))
-        })
-        let dataStaticFiltersubmitioms = props.dataStatic.submitioms.filter(function (submitioms) {
-            const dateSubmitions = submitioms.date.split("/")
-            const dateFormater = dateSubmitions[1] + "/" + dateSubmitions[0] + "/" + dateSubmitions[2];
-            return (new Date(dateFormater) >= new Date(dateBeforeMonth))
-        })
-        props.changeSumStatic({
-            viewers: dataStaticFilterViewer, contactOptions: dataStaticFilterConcatOptions, submitioms: dataStaticFiltersubmitioms
-        })
+        console.log(AllProjectData.length)
+        props.dispatch(actions.setProjectStatic(AllProjectData.length));
     }
     return (
         <div className="container-fluid mt-5">
@@ -124,7 +87,7 @@ function Information(props) {
                     </div></div>‏
              <Grid container spacing={4}>
                     <Grid item xs={12} sm={3}>
-                        <Paper className="paperOne" style={{cursor:'pointer', padding: 10, borderRadius: '14px', background: '#FFFDFA', border: '2px Solid #F7B500', color: '#F7B500' }}>
+                        <Paper className="paperOne" style={{ cursor: 'pointer', padding: 10, borderRadius: '14px', background: '#FFFDFA', border: '2px Solid #F7B500', color: '#F7B500' }}>
                             <div className="ml-2" style={{ textAlign: 'start', fontWeight: 'bolder' }}>
                                 Total Contacts {" "}
                             </div>
@@ -147,7 +110,7 @@ function Information(props) {
                     </Grid>
 
                     <Grid item xs={12} sm={3}>
-                        <Paper className="paperTwo"  onClick={() => { window.location.assign('https://papers.dev.leader.codes/admin/ruth109476@gmail.com') }} style={{ padding: 10, background: '#ECFAFA',cursor:'pointer', border: '2px Solid #01DCD1', color: '#01DCD1', borderRadius: '14px' }}>
+                        <Paper className="paperTwo" onClick={() => { window.location.assign('https://papers.dev.leader.codes/admin/ruth109476@gmail.com') }} style={{ padding: 10, background: '#ECFAFA', cursor: 'pointer', border: '2px Solid #01DCD1', color: '#01DCD1', borderRadius: '14px' }}>
                             <div className="ml-2" style={{ textAlign: 'start', fontWeight: 'bolder' }}>
                                 Total Papers {" "}
                             </div>
@@ -168,7 +131,7 @@ function Information(props) {
                         </Paper>
                     </Grid>
                     <Grid item xs={12} sm={3}  >
-                        <Paper className="paperThree" style={{ cursor:'pointer',padding: 10, background: '#F2F3FF', border: '2px Solid #6772DE', color: '#6772DE', borderRadius: '14px' }}>
+                        <Paper className="paperThree" style={{ cursor: 'pointer', padding: 10, background: '#F2F3FF', border: '2px Solid #6772DE', color: '#6772DE', borderRadius: '14px' }}>
                             <div className="ml-2" style={{ textAlign: 'start', fontWeight: 'bolder' }}>
                                 Total Projects {" "}
                             </div>
@@ -191,7 +154,7 @@ function Information(props) {
                         </Paper>
                     </Grid>
                     <Grid item xs={12} sm={3}  >
-                        <Paper className="paperFour" style={{ padding: 10, background: '#FFF5FD', border: '2px Solid #FD51DB', color: '#FD51DB', borderRadius: '14px',cursor:'pointer' }}>
+                        <Paper className="paperFour" style={{ padding: 10, background: '#FFF5FD', border: '2px Solid #FD51DB', color: '#FD51DB', borderRadius: '14px', cursor: 'pointer' }}>
                             <div className="cardFor" className="ml-2 cardFor" style={{ textAlign: 'start', fontWeight: 'bolder' }}>
                                 Total Tasks  {" "}
                             </div>
@@ -232,7 +195,7 @@ function Information(props) {
 
 }
 const mapStateToProps = (state) => {
-    
+
     return {
         dataStatic: state.staticDetailsReducer.dataStatic,
         sumStatic: state.staticDetailsReducer.sumStatic,
