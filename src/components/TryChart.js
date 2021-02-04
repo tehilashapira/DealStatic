@@ -11,7 +11,7 @@ export default function ApexChart(props) {
 
         series: [{
             name: "contacts",
-            data: [UpdatedData.leaderStatic.sumContacts]
+            data: {UpdatedData.leaderStatic.sumContacts.}
         },
         {
             name: "papers",

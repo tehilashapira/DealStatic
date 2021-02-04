@@ -1,0 +1,20 @@
+-------------------- Auto-Git Log --------------------
+		Thu Feb 04 2021 16:57:24 GMT+0200 (שעון ישראל (חורף))
+------------------------------------------------------
+
+Modified files:
+* .eslintcache
+* src/App.js
+* src/components/Chart2.js
+* src/components/InformationTemp.js
+
+
+Created files:
+* .autogit/logs/log-4-1-2021-16-27-15.txt
+* src/components/TryChart.js
+
+
+Deleted files:
+
+
+Renamed files:
