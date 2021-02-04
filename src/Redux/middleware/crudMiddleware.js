@@ -36,6 +36,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
         let projectData = data.userProjectsList
         debugger
         dispatch(actions.setProjectStatic(sumProject));
+        dispatch(actions.setProjectData(projectData));
         console.log(data)
       })
     // fetch to get sum tasks for user-------------

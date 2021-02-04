@@ -36,25 +36,13 @@ const useStyles = () => ({
 function Information(props) {
     //  ---filter by: last day,last week,last month
     function filterByDay() {
-
-        let dataStaticFilterViewer = props.dataStatic.viewers.filter(function (viewer) {
-            const dateViewer = viewer.date.split("/")
-            const dateFormater = dateViewer[1] + "/" + dateViewer[0] + "/" + dateViewer[2];
+        debugger
+        let AllProjectData= (props.AllProject).filter(function (AllProject){
+            const dateProject =AllProject.dueDate.split("/")
+            const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
             return (dateFormater == currentDate)
         })
-        let dataStaticFilterConcatOptions = props.dataStatic.contactOptions.filter(function (contactOptions) {
-            const dateConcatOptions = contactOptions.date.split("/")
-            const dateFormater = dateConcatOptions[1] + "/" + dateConcatOptions[0] + "/" + dateConcatOptions[2];
-            return (dateFormater == currentDate)
-        })
-        let dataStaticFiltersubmitioms = props.dataStatic.submitioms.filter(function (submitioms) {
-            const dateSubmitioms = submitioms.date.split("/")
-            const dateFormater = dateSubmitioms[1] + "/" + dateSubmitioms[0] + "/" + dateSubmitioms[2];
-            return (dateFormater == currentDate)
-        })
-        props.changeSumStatic({
-            viewers: dataStaticFilterViewer, contactOptions: dataStaticFilterConcatOptions, submitioms: dataStaticFiltersubmitioms
-        })
+       props.dispatch(actions.setSumStatic(AllProjectData))
     }
     function filterByYear() {
         let dataStaticFilterViewer = props.dataStatic.viewers.filter(function (viewer) {
@@ -244,14 +232,15 @@ function Information(props) {
 
 }
 const mapStateToProps = (state) => {
+    
     return {
         dataStatic: state.staticDetailsReducer.dataStatic,
         sumStatic: state.staticDetailsReducer.sumStatic,
         leaderStatic: state.staticDetailsReducer.leaderStatic,
-        projectList: state.staticDetailsReducer.projectList
+        AllProject: state.staticDetailsReducer.AllProject
     };
 }
-const mapDispatchToProps = (dispatch) => ({
-    changeSumStatic: (data) => dispatch(actions.setSumStatic(data))
-})
-export default connect(mapStateToProps, mapDispatchToProps)(withStyles(useStyles)(Information));
+// const mapDispatchToProps = (dispatch) => ({
+//     changeSumStatic: (data) => dispatch(actions.setSumStatic(data))
+// })
+export default connect(mapStateToProps)(withStyles(useStyles)(Information));
