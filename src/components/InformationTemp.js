@@ -42,8 +42,17 @@ function Information(props) {
             const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
             return (dateFormater == currentDate)
         })
+        let AllPapersData = (props.AllPapers).filter(function (AllPapers) {
+            debugger
+            const datePaper1 = AllPapers.createdDate
+            const detaPaper = moment(datePaper1).format("MM/DD/YYYY");
+            const dateFormater = datePaper[1] + "/" + datePaper[0] + "/" + datePaper[2];
+            return (dateFormater == currentDate)
+        })
         console.log(AllProjectData.length)
         props.dispatch(actions.setProjectStatic(AllProjectData.length));
+        props.dispatch(actions.setPapersStatic(AllPapersData.length));
+
     }
     function filterByYear() {
         let AllProjectData = (props.AllProject).filter(function (AllProject) {
