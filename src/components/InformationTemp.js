@@ -45,13 +45,13 @@ function Information(props) {
         let AllPapersData = (props.AllPapers).filter(function (AllPapers) {
             debugger
             const datePaper1 = AllPapers.createdDate
-            const detaPaper = moment(datePaper1).format("MM/DD/YYYY");
-            const dateFormater = datePaper[1] + "/" + datePaper[0] + "/" + datePaper[2];
-            return (dateFormater == currentDate)
+            let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
+            // const dateFormater = detaPaper[1] + "/" + detaPaper[0] + "/" + detaPaper[2];
+            return (detaPaper == currentDate)
         })
         console.log(AllProjectData.length)
         props.dispatch(actions.setProjectStatic(AllProjectData.length));
-        props.dispatch(actions.setPapersStatic(AllPapersData.length));
+        props.dispatch(actions.setPaperStatic(AllPapersData.length));
 
     }
     function filterByYear() {
@@ -61,8 +61,17 @@ function Information(props) {
             return (new Date(dateFormater) >= new Date(dateBeforeYear))
 
         })
+            let AllPapersData = (props.AllPapers).filter(function (AllPapers) {
+                debugger
+                const datePaper1 = AllPapers.createdDate
+                let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
+                // const dateFormater = detaPaper[1] + "/" + detaPaper[0] + "/" + detaPaper[2];
+                return (new Date(detaPaper) >= new Date(dateBeforeYear))
+
+            })
         console.log(AllProjectData.length)
         props.dispatch(actions.setProjectStatic(AllProjectData.length));
+        props.dispatch(actions.setPaperStatic(AllPapersData.length));
     }
 
     function filterByWeek() {
@@ -70,11 +79,18 @@ function Information(props) {
             const dateProject = AllProject.dueDate.split("/")
             const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
             return (new Date(dateFormater) >= new Date(dateBeforeWeek))
-
+        })
+        let AllPapersData = (props.AllPapers).filter(function (AllPapers) {
+            debugger
+            const datePaper1 = AllPapers.createdDate
+            let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
+            // const dateFormater = detaPaper[1] + "/" + detaPaper[0] + "/" + detaPaper[2];
+            return (new Date(detaPaper) >= new Date(dateBeforeWeek))
 
         })
         console.log(AllProjectData.length)
         props.dispatch(actions.setProjectStatic(AllProjectData.length));
+        props.dispatch(actions.setPaperStatic(AllPapersData.length));
     }
     function filterByMonth() {
         let AllProjectData = (props.AllProject).filter(function (AllProject) {
@@ -82,8 +98,17 @@ function Information(props) {
             const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
             return (new Date(dateFormater) >= new Date(dateBeforeMonth))
         })
+        let AllPapersData = (props.AllPapers).filter(function (AllPapers) {
+            debugger
+            const datePaper1 = AllPapers.createdDate
+            let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
+            // const dateFormater = detaPaper[1] + "/" + detaPaper[0] + "/" + detaPaper[2];
+            return (new Date(detaPaper) >= new Date(dateBeforeMonth))
+
+        })
         console.log(AllProjectData.length)
         props.dispatch(actions.setProjectStatic(AllProjectData.length));
+        props.dispatch(actions.setPaperStatic(AllPapersData.length));
     }
     return (
         <div className="container-fluid mt-5">

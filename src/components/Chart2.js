@@ -109,19 +109,19 @@ export default function TryChart() {
         ],
         options:
         {
-            colors: [function ({ value }) {
-                if (value == 38) {
-                    return 'rgb(247, 181, 0)'
-                }
-                else if (value == 11) {
-                    return 'rgb(1, 220, 209)'
-                }
-                else if (value == 20) {
-                    return 'rgb(103, 114, 222)'
-                }
-                else
-                    return 'rgb(253, 81, 219)'
-            }],
+            // colors: [function ({ value }) {
+            //     if (value == 38) {
+            //         return 'rgb(247, 181, 0)'
+            //     }
+            //     else if (value == 11) {
+            //         return 'rgb(1, 220, 209)'
+            //     }
+            //     else if (value == 20) {
+            //         return 'rgb(103, 114, 222)'
+            //     }
+            //     else
+            //         return 'rgb(253, 81, 219)'
+            // }],
             chart: {
                 type: 'line',
                 zoom: {
