@@ -9,9 +9,22 @@ export default function ApexChart(props) {
 
     const state = {
 
+        let series = [];
+        let categories = [];
+        
+        for (let x = 0; x <UpdatedData.AllPapers.length; x++) {
+          series.push({
+            name: papers,
+            data: x.UpdatedData.AllPapers
+          });
+          categories.concat(testData[x].datetime);
+        }
+
         series: [{
-            name: "contacts",
-            data: {UpdatedData.leaderStatic.sumContacts.}
+            
+            name: "papers",
+           data: data.map(x => +x.UpdatedData.AllPapers) 
+       
         },
         {
             name: "papers",
@@ -19,7 +32,7 @@ export default function ApexChart(props) {
         },
         {
             name: "projects",
-            data: [UpdatedData.leaderStatic.sumProjects]
+            // data: [UpdatedData.AllProject[]]
         },
         {
             name: "tasks",
