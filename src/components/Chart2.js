@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 
 export default function TryChart() {
     const UpdatedData = useSelector(state => state.staticDetailsReducer);
+    debugger
     const state = {
         op1: {
             chart: {

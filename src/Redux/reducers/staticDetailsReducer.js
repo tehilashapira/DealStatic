@@ -10,43 +10,22 @@ const initialState = {
 };
 
 const staticData = {
-
-    //  setStaticData(state, action) {
-    //      ;
-    // //   state.sumStatic=action.payload.viewers.map((viewer) =>new Date(viewer.data))
-    //     state.dataStatic=action.payload;
-    //      ;
-    //     state.sumStatic.viewer=sumData(state.dataStatic.viewers);
-    //      ;
-    //     state.sumStatic.contactOptions=sumData(state.dataStatic.contactOptions);
-    //     state.sumStatic.submitioms=sumData(state.dataStatic.submitioms);
-    //      ;
-
-    // },
-
     setSumStatic(state, action) {
         state.AllProject = (action.payload);
-        // state.sumStatic.contactOptions=sumData(action.payload.contactOptions);
-        // state.sumStatic.submitioms=sumData(action.payload.submitioms);  
     },
     setProjectStatic(state, action) {
         state.leaderStatic.sumProjects = action.payload
     },
     setProjectData(state, action) {
-
         state.AllProject = action.payload
     },
     setTaskStatic(state, action) {
         state.leaderStatic.sumTasks = action.payload
-
     },
     setPaperStatic(state, action) {
         state.leaderStatic.sumPapers = action.payload
-
     },
     setPaperData(state, action) {
-
-
         state.AllPapers = action.payload
     },
     setContactStatic(state, action) {

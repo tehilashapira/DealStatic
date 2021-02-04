@@ -4,20 +4,17 @@ import Chart from "react-apexcharts";
 import { useSelector } from 'react-redux';
 
 
-function SetAllDtaForChart() {
-    debugger
-    const UpdatedData = useSelector(state => state.staticDetailsReducer);
-    console.log(UpdatedData);
-    return (
-        <ApexChart data={UpdatedData}></ApexChart>
-    )
-}
 
 export default function ApexChart(props) {
+
+
+    const UpdatedData = useSelector(state => state.staticDetailsReducer);
+
     const state = {
         series: [{
             name: "papers",
-            data: props.UpdatedData
+            data: [UpdatedData.AllPapers[0], UpdatedData.AllPapers[1]]
+        
         },
         {
             name: "papers",
