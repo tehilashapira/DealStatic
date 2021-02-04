@@ -36,7 +36,7 @@ const useStyles = () => ({
 function Information(props) {
     //  ---filter by: last day,last week,last month
     function filterByDay() {
-        debugger
+
         let AllProjectData = (props.AllProject).filter(function (AllProject) {
             const dateProject = AllProject.dueDate.split("/")
             const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
