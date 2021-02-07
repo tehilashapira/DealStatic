@@ -34,7 +34,7 @@ const useStyles = () => ({
     },
 })
 function Information(props) {
-    //  ---filter by: last day,last week,last month
+    //  ---filter by: last day,last week,last month,year
     function filterByDay() {
 
         let AllTaskData = (props.AllTask).filter(function (AllTask) {
@@ -43,7 +43,6 @@ function Information(props) {
             return (dateFormater == currentDate)
 
         })
-        props.dispatch(actions.setTaskStatic(AllTaskData.length))
 
         let AllContactData = (props.AllContact).filter(function (AllContact) {
             const dateContact = (AllContact.createDateAndTime).substring(0, 10)
@@ -54,9 +53,6 @@ function Information(props) {
             const dateFormater = dateC[1] + "/" + dateC[2] + "/" + dateC[0];
             return (dateFormater == currentDate)
         })
-        props.dispatch(actions.setContactStatic(AllContactData.length))
-
-
         let AllProjectData = (props.AllProject).filter(function (AllProject) {
             const dateProject = AllProject.dueDate.split("/")
             const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
@@ -69,7 +65,8 @@ function Information(props) {
             // const dateFormater = detaPaper[1] + "/" + detaPaper[0] + "/" + detaPaper[2];
             return (detaPaper == currentDate)
         })
-        console.log(AllProjectData.length)
+        props.dispatch(actions.setTaskStatic(AllTaskData.length))
+        props.dispatch(actions.setContactStatic(AllContactData.length))
         props.dispatch(actions.setProjectStatic(AllProjectData.length));
         props.dispatch(actions.setPaperStatic(AllPapersData.length));
 
@@ -89,15 +86,12 @@ function Information(props) {
             return (new Date(detaPaper) >= new Date(dateBeforeYear))
 
         })
-        console.log(AllProjectData.length)
         let AllTaskData = (props.AllTask).filter(function (AllTask) {
             const dateTask = AllTask.startDate.split("/")
             const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
-            return (dateFormater == currentDate)
+            return (new Date(dateFormater) >= new Date(dateBeforeYear))
 
         })
-        props.dispatch(actions.setTaskStatic(AllTaskData.length))
-
         let AllContactData = (props.AllContact).filter(function (AllContact) {
             const dateContact = (AllContact.createDateAndTime).substring(0, 10)
             console.log(dateContact)
@@ -105,12 +99,14 @@ function Information(props) {
             console.log(correctDate)
             const dateC = correctDate.split("/")
             const dateFormater = dateC[1] + "/" + dateC[2] + "/" + dateC[0];
-            return (dateFormater == currentDate)
+            return (new Date(dateFormater) >= new Date(dateBeforeYear))
+
         })
         props.dispatch(actions.setContactStatic(AllContactData.length))
+        props.dispatch(actions.setTaskStatic(AllTaskData.length))
         props.dispatch(actions.setProjectStatic(AllProjectData.length));
         props.dispatch(actions.setPaperStatic(AllPapersData.length));
-        props.dispatch(actions.setPaperChart(AllPapersData.createdDate));
+        // props.dispatch(actions.setPaperChart(AllPapersData.createdDate));
     }
 
     function filterByWeek() {
@@ -127,9 +123,27 @@ function Information(props) {
             return (new Date(detaPaper) >= new Date(dateBeforeWeek))
 
         })
-        console.log(AllProjectData.length)
+
+        let AllTaskData = (props.AllTask).filter(function (AllTask) {
+            const dateTask = AllTask.startDate.split("/")
+            const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
+            return (new Date(dateFormater) >= new Date(dateBeforeWeek))
+
+        })
+        let AllContactData = (props.AllContact).filter(function (AllContact) {
+            const dateContact = (AllContact.createDateAndTime).substring(0, 10)
+            console.log(dateContact)
+            const correctDate = dateContact.replace(/-/g, '/');
+            console.log(correctDate)
+            const dateC = correctDate.split("/")
+            const dateFormater = dateC[1] + "/" + dateC[2] + "/" + dateC[0];
+            return (new Date(dateFormater) >= new Date(dateBeforeYear))
+
+        })
         props.dispatch(actions.setProjectStatic(AllProjectData.length));
         props.dispatch(actions.setPaperStatic(AllPapersData.length));
+        props.dispatch(actions.setContactStatic(AllContactData.length))
+        props.dispatch(actions.setTaskStatic(AllTaskData.length))
     }
     function filterByMonth() {
         let AllProjectData = (props.AllProject).filter(function (AllProject) {
@@ -145,9 +159,27 @@ function Information(props) {
             return (new Date(detaPaper) >= new Date(dateBeforeMonth))
 
         })
-        console.log(AllProjectData.length)
+        let AllTaskData = (props.AllTask).filter(function (AllTask) {
+            const dateTask = AllTask.startDate.split("/")
+            const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
+            return (new Date(dateFormater) >= new Date(dateBeforeMonth))
+
+        })
+        let AllContactData = (props.AllContact).filter(function (AllContact) {
+            const dateContact = (AllContact.createDateAndTime).substring(0, 10)
+            console.log(dateContact)
+            const correctDate = dateContact.replace(/-/g, '/');
+            console.log(correctDate)
+            const dateC = correctDate.split("/")
+            const dateFormater = dateC[1] + "/" + dateC[2] + "/" + dateC[0];
+            return (new Date(dateFormater) >= new Date(dateBeforeMonth))
+
+        })
+
         props.dispatch(actions.setProjectStatic(AllProjectData.length));
         props.dispatch(actions.setPaperStatic(AllPapersData.length));
+        props.dispatch(actions.setContactStatic(AllContactData.length))
+        props.dispatch(actions.setTaskStatic(AllTaskData.length))
     }
     return (
         <div className="container-fluid mt-5">
@@ -279,7 +311,4 @@ const mapStateToProps = (state) => {
         AllContact: state.staticDetailsReducer.AllContact
     };
 }
-// const mapDispatchToProps = (dispatch) => ({
-//     changeSumStatic: (data) => dispatch(actions.setSumStatic(data))
-// })
 export default connect(mapStateToProps)(withStyles(useStyles)(Information));
