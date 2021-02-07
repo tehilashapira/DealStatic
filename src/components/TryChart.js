@@ -8,7 +8,12 @@
 // export default function ApexChart(props) {
 
 
-//     const UpdatedData = useSelector(state => state.staticDetailsReducer);
+    // const UpdatedData = useSelector(state => state.staticDetailsReducer);
+
+
+
+
+    
 
 //     const state = {
 //         series: [{

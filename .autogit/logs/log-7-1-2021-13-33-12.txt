@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Sun Feb 07 2021 13:33:12 GMT+0200 (שעון ישראל (חורף))
+------------------------------------------------------
+
+Modified files:
+* .eslintcache
+
+
+Created files:
+* .autogit/logs/log-7-1-2021-11-42-15.txt
+
+
+Deleted files:
+
+
+Renamed files:
