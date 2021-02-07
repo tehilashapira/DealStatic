@@ -1,5 +1,7 @@
 import produce from 'immer';
+import moment from 'moment';
 import { createReducer } from "./reducerUtils";
+let dateBeforeYear = moment().subtract(1, 'year').format('MM/DD/YYYY')
 
 const initialState = {
     leaderStatic: { sumProjects: 0, sumTasks: 0, sumPapers: 0, sumContacts: 0 },
@@ -7,7 +9,7 @@ const initialState = {
     sumStatic: { viewer: 0, contactOptions: 0, submitioms: 0 },
     AllProject: [],
     AllPapers: [],
-    cartData: {
+    chartData: {
         papers: [],
         projects: [],
         tasks: [],
@@ -18,15 +20,12 @@ const initialState = {
 const staticData = {
     setPaperChart(state, action) {
         debugger
-        let AllPapersData = (action.payload).filter(function (AllPapers) {
-            const datePaper1 = AllPapers.createdDate
-            let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
-            // const dateFormater = detaPaper[1] + "/" + detaPaper[0] + "/" + detaPaper[2];
-            return (new Date(detaPaper) >= new Date(dateBeforeYear))
-
-
-        })
-        state.cartData.papers = AllPapersData
+        // let AllPapersData = (action.payload).filter(function (AllPapers) {
+        //     const datePaper1 = AllPapers.createdDate
+        //     let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
+        //     return (new Date(detaPaper) >= new Date(dateBeforeYear))
+        // })
+        // state.chartData.papers = (action.payload).createdDate
     },
     setSumStatic(state, action) {
         state.AllProject = (action.payload);
