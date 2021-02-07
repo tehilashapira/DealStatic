@@ -69,8 +69,9 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
       .then((data) => data.json())
       .then((data) => {
 
-        let sumPapers = (data.quotes.length)
+        // let sumPapers = (data.quotes.length)
         let papersData = data.quotes
+          let sumPapers = (data.quotes.length)
 
         dispatch(actions.setPaperStatic(sumPapers));
         dispatch(actions.setPaperData(papersData));
@@ -91,7 +92,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
     })
       .then((data) => data.json())
       .then((dataContact) => {
-        let sumContact = (data.length)
+        let sumContact = (dataContact.length)
         let contactData = dataContact
 
         dispatch(actions.setContactStatic(sumContact));
