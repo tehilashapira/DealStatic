@@ -9,4 +9,4 @@ const reducer = combineReducers({staticDetailsReducer});
 const store = createStore(reducer, applyMiddleware(getStaticData));
 window.store = store;
 export default store;
-store.dispatch({type: 'INIT_DATA' });
+store.dispatch({type: 'INIT_DATA'});

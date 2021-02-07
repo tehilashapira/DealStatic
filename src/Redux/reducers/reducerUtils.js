@@ -10,12 +10,12 @@ export function createReducer(state, action, handlers) {
     }
 }
 
-// export function sumData(sumProject){
+export function sumData(data){
 
-    // debugger;
+     debugger;
     // בדיקה האם המערך שהגיע ריק
-    // if(data.length>0){
-    //       if(data[0].sumContactOptions){
+    if(data.length>0){
+         
     //           let sumConcat=[];
     //           sumConcat=data.map(contactOption => JSON.parse(contactOption.sumContactOptions))
     //           return sumConcat.reduce(function(prev, contactOption) {
@@ -26,10 +26,13 @@ export function createReducer(state, action, handlers) {
     // }
 
     // עבור viewers ו- submitioms
-//     else{
-//     return data.reduce(function(sum, obj) {
-//         return sum + obj.amount;
-//     },0);
-//    }}
-//    return 0;
-// }
+    // else{
+      // return 6
+    // var  sum=(7)
+    // let x=0;
+    // x+=1;
+    // data.reduce(function(sum, obj) {
+    //     return sum + obj.createDateAndTime;
+    // },0);
+   }}
+ 
