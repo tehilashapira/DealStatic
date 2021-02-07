@@ -58,17 +58,17 @@ function Information(props) {
             const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
             return (dateFormater == currentDate)
         })
-        // let AllPapersData = (props.AllPapers).filter(function (AllPapers) {
+        let AllPapersData = (props.AllPapers).filter(function (AllPapers) {
 
-        //     const datePaper1 = AllPapers.createdDate
-        //     let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
-        //     // const dateFormater = detaPaper[1] + "/" + detaPaper[0] + "/" + detaPaper[2];
-        //     return (detaPaper == currentDate)
-        // })
+            const datePaper1 = AllPapers.createdDate
+            let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
+            // const dateFormater = detaPaper[1] + "/" + detaPaper[0] + "/" + detaPaper[2];
+            return (detaPaper == currentDate)
+        })
         props.dispatch(actions.setTaskStatic(AllTaskData.length))
         props.dispatch(actions.setContactStatic(AllContactData.length))
         props.dispatch(actions.setProjectStatic(AllProjectData.length));
-        // props.dispatch(actions.setPaperStatic(AllPapersData.length));
+        props.dispatch(actions.setPaperStatic(AllPapersData.length));
 
     }
     function filterByYear() {
@@ -78,14 +78,14 @@ function Information(props) {
             return (new Date(dateFormater) >= new Date(dateBeforeYear))
 
         })
-        // let AllPapersData = (props.AllPapers).filter(function (AllPapers) {
+        let AllPapersData = (props.AllPapers).filter(function (AllPapers) {
 
-        //     const datePaper1 = AllPapers.createdDate
-        //     let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
-        //     // const dateFormater = detaPaper[1] + "/" + detaPaper[0] + "/" + detaPaper[2];
-        //     return (new Date(detaPaper) >= new Date(dateBeforeYear))
+            const datePaper1 = AllPapers.createdDate
+            let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
+            // const dateFormater = detaPaper[1] + "/" + detaPaper[0] + "/" + detaPaper[2];
+            return (new Date(detaPaper) >= new Date(dateBeforeYear))
 
-        // })
+        })
         let AllTaskData = (props.AllTask).filter(function (AllTask) {
             const dateTask = AllTask.startDate.split("/")
             const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
@@ -105,7 +105,7 @@ function Information(props) {
         props.dispatch(actions.setContactStatic(AllContactData.length))
         props.dispatch(actions.setTaskStatic(AllTaskData.length))
         props.dispatch(actions.setProjectStatic(AllProjectData.length));
-        // props.dispatch(actions.setPaperStatic(AllPapersData.length));
+        props.dispatch(actions.setPaperStatic(AllPapersData.length));
         // props.dispatch(actions.setPaperChart(AllPapersData.createdDate));
     }
 
@@ -115,14 +115,14 @@ function Information(props) {
             const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
             return (new Date(dateFormater) >= new Date(dateBeforeWeek))
         })
-        // let AllPapersData = (props.AllPapers).filter(function (AllPapers) {
+        let AllPapersData = (props.AllPapers).filter(function (AllPapers) {
 
-        //     const datePaper1 = AllPapers.createdDate
-        //     let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
-        //     // const dateFormater = detaPaper[1] + "/" + detaPaper[0] + "/" + detaPaper[2];
-        //     return (new Date(detaPaper) >= new Date(dateBeforeWeek))
+            const datePaper1 = AllPapers.createdDate
+            let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
+            // const dateFormater = detaPaper[1] + "/" + detaPaper[0] + "/" + detaPaper[2];
+            return (new Date(detaPaper) >= new Date(dateBeforeWeek))
 
-        // })
+        })
 
         let AllTaskData = (props.AllTask).filter(function (AllTask) {
             const dateTask = AllTask.startDate.split("/")
@@ -141,7 +141,7 @@ function Information(props) {
 
         })
         props.dispatch(actions.setProjectStatic(AllProjectData.length));
-        // props.dispatch(actions.setPaperStatic(AllPapersData.length));
+        props.dispatch(actions.setPaperStatic(AllPapersData.length));
         props.dispatch(actions.setContactStatic(AllContactData.length))
         props.dispatch(actions.setTaskStatic(AllTaskData.length))
     }
@@ -151,14 +151,14 @@ function Information(props) {
             const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
             return (new Date(dateFormater) >= new Date(dateBeforeMonth))
         })
-        // let AllPapersData = (props.AllPapers).filter(function (AllPapers) {
+        let AllPapersData = (props.AllPapers).filter(function (AllPapers) {
 
-        //     const datePaper1 = AllPapers.createdDate
-        //     let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
-        //     // const dateFormater = detaPaper[1] + "/" + detaPaper[0] + "/" + detaPaper[2];
-        //     return (new Date(detaPaper) >= new Date(dateBeforeMonth))
+            const datePaper1 = AllPapers.createdDate
+            let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
+            // const dateFormater = detaPaper[1] + "/" + detaPaper[0] + "/" + detaPaper[2];
+            return (new Date(detaPaper) >= new Date(dateBeforeMonth))
 
-        // })
+        })
         let AllTaskData = (props.AllTask).filter(function (AllTask) {
             const dateTask = AllTask.startDate.split("/")
             const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
@@ -177,7 +177,7 @@ function Information(props) {
         })
 
         props.dispatch(actions.setProjectStatic(AllProjectData.length));
-        // props.dispatch(actions.setPaperStatic(AllPapersData.length));
+        props.dispatch(actions.setPaperStatic(AllPapersData.length));
         props.dispatch(actions.setContactStatic(AllContactData.length))
         props.dispatch(actions.setTaskStatic(AllTaskData.length))
     }
@@ -222,7 +222,7 @@ function Information(props) {
                             <div class="row justify-content-between">
                                 <div className="ml-2" >
                                     <div class="col-6 ml-2">
-                                        {/* <h5> {props.leaderStatic.sumPapers ? props.leaderStatic.sumPapers : "0"}</h5> */}
+                                        <h5> {props.leaderStatic.sumPapers ? props.leaderStatic.sumPapers : "0"}</h5>
                                     </div>
                                 </div>
                                 <div class="col-4" >

@@ -9,8 +9,8 @@ const initialState = {
     sumStatic: { viewer: 0, contactOptions: 0, submitioms: 0 },
     AllProject: [],
     AllPapers: [],
-    AllTask:[],
-    AllContact:[],
+    AllTask: [],
+    AllContact: [],
     chartData: {
         papers: [],
         projects: [],
@@ -22,13 +22,14 @@ const initialState = {
 const staticData = {
     setPaperChart(state, action) {
         debugger
-        // let AllPapersData = (action.payload).filter(function (AllPapers) {
-        //     const datePaper1 = AllPapers.createdDate
-        //     let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
-        //     return (new Date(detaPaper) >= new Date(dateBeforeYear))
-        // })
-         state.chartData.papers = action.payload
-         debugger
+        for (let i = 0; i < action.payload.length; i++) {
+            let data = action.payload.due_date;
+            //  let  date1=split(data).
+            //    state.chartData.papers[date1]++
+            i++;
+        }
+        state.chartData.papers = action.payload
+        debugger
     },
     setSumStatic(state, action) {
         state.AllProject = (action.payload);
