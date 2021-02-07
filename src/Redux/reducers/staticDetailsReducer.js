@@ -9,6 +9,8 @@ const initialState = {
     sumStatic: { viewer: 0, contactOptions: 0, submitioms: 0 },
     AllProject: [],
     AllPapers: [],
+    AllTask:[],
+    AllContact:[],
     chartData: {
         papers: [],
         projects: [],
@@ -40,6 +42,9 @@ const staticData = {
     setTaskStatic(state, action) {
         state.leaderStatic.sumTasks = action.payload
     },
+    setTaskData(state, action) {
+        state.AllTask = action.payload
+    },
     setPaperStatic(state, action) {
         state.leaderStatic.sumPapers = action.payload
     },
@@ -48,6 +53,9 @@ const staticData = {
     },
     setContactStatic(state, action) {
         state.leaderStatic.sumContacts = action.payload
+    },
+    setContactData(state, action) {
+        state.AllContact = action.payload
     }
 };
 

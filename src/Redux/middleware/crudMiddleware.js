@@ -37,7 +37,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
 
         dispatch(actions.setProjectStatic(sumProject));
         dispatch(actions.setProjectData(projectData));
-        console.log(data)
+
       })
     // fetch to get sum tasks for user-------------
     fetch('https://reacthub.dev.leader.codes/api/renana-il/getAllTasksForUser', {
@@ -54,7 +54,8 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
         let sumTask = (data.countTasksForUser)
 
         dispatch(actions.setTaskStatic(sumTask));
-        console.log(data)
+        dispatch(actions.setTaskStatic(taskData));
+
       })
     //  fetch to get sum of papers for user-----------------
     fetch('https://papers.dev.leader.codes/api/ruth109476@gmail.com/getAllQuote', {
@@ -89,11 +90,13 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
       },
     })
       .then((data) => data.json())
-      .then((data) => {
+      .then((dataContact) => {
         let sumContact = (data.length)
+        let contactData = dataContact
 
         dispatch(actions.setContactStatic(sumContact));
-        console.log(data)
+        dispatch(actions.setContactData(contactData));
+
       })
   }
   return next(action)
