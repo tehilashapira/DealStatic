@@ -25,7 +25,8 @@ const staticData = {
         //     let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
         //     return (new Date(detaPaper) >= new Date(dateBeforeYear))
         // })
-        // state.chartData.papers = (action.payload).createdDate
+         state.chartData.papers = action.payload
+         debugger
     },
     setSumStatic(state, action) {
         state.AllProject = (action.payload);

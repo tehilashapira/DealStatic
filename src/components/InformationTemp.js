@@ -72,6 +72,7 @@ function Information(props) {
         console.log(AllProjectData.length)
         props.dispatch(actions.setProjectStatic(AllProjectData.length));
         props.dispatch(actions.setPaperStatic(AllPapersData.length));
+        props.dispatch(actions.setPaperChart(AllPapersData.createdDate));
     }
 
     function filterByWeek() {
