@@ -52,11 +52,11 @@ export default function TryChart() {
         series1: [
             {
                 name: "papers",
-                data: [UpdatedData.chartData.papers]
+                data: [UpdatedData.chartData.projects]
             },
             {
                 name: "papers",
-                data: [UpdatedData.leaderStatic.sumPapers]
+                data: [UpdatedData.leaderStatic.projects]
             },
             {
                 name: "projects",

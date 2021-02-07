@@ -57,30 +57,32 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
         dispatch(actions.setTaskStatic(taskData));
 
       })
-    //  fetch to get sum of papers for user-----------------
-    fetch('https://papers.dev.leader.codes/api/ruth109476@gmail.com/getAllQuote', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJEWWMzVlVtRUhTY3FhWkJ3MzAwbHY4OWZuYTgyIiwiZW1haWwiOiJydXRoMTA5NDc2QGdtYWlsLmNvbSIsImlhdCI6MTYxMTcyNjEzN30.sDgXmAvDj3JirPgU5AksbPVMdtxHVIAU9rgTFAeAluE",
-        //     Authorization: jwt,
-      },
-    })
-      .then((data) => data.json())
-      .then((data) => {
+    // //  fetch to get sum of papers for user-----------------
+    // fetch('https://papers.dev.leader.codes/api/ruth109476@gmail.com/getAllQuote', {
+    //   method: 'GET',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJEWWMzVlVtRUhTY3FhWkJ3MzAwbHY4OWZuYTgyIiwiZW1haWwiOiJydXRoMTA5NDc2QGdtYWlsLmNvbSIsImlhdCI6MTYxMTcyNjEzN30.sDgXmAvDj3JirPgU5AksbPVMdtxHVIAU9rgTFAeAluE",
+    //     //     Authorization: jwt,
+    //   },
+    // })
+    //   .then((data) => data.json())
+    //   .then((data) => {
 
-        // let sumPapers = (data.quotes.length)
-        let papersData = data.quotes
-          let sumPapers = (data.quotes.length)
+    //     // let sumPapers = (data.quotes.length)
+    //     let papersData = data.quotes
+    //     let sumPapers = (data.quotes.length)
+    //     //chart data
+    //     let chartPapers=papersData.dueDate.filter(paper => paper)
 
-        dispatch(actions.setPaperStatic(sumPapers));
-        dispatch(actions.setPaperData(papersData));
-        debugger
-        // dispatch(actions.setPaperChart(papersData));
+    //     dispatch(actions.setPaperStatic(sumPapers));
+    //     dispatch(actions.setPaperData(papersData));
+    //     debugger
+    //     // dispatch(actions.setPaperChart(papersData));
 
 
-        console.log(data)
-      })
+    //     console.log(data)
+    //   })
     // fetch to get sum of contacts for user----------------------
     fetch('https://api.dev.leader.codes/blabla101/getContacts/?includesConversations=false', {
       method: 'GET',
