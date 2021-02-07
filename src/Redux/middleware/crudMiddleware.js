@@ -73,6 +73,8 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
 
         dispatch(actions.setPaperStatic(sumPapers));
         dispatch(actions.setPaperData(papersData));
+        dispatch(actions.setPaperChart(papersData));
+
 
         console.log(data)
       })

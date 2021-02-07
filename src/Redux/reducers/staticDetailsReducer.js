@@ -6,10 +6,28 @@ const initialState = {
     dataStatic: [],
     sumStatic: { viewer: 0, contactOptions: 0, submitioms: 0 },
     AllProject: [],
-    AllPapers: []
+    AllPapers: [],
+    cartData: {
+        papers: [],
+        projects: [],
+        tasks: [],
+        contacts: []
+    }
 };
 
 const staticData = {
+    setPaperChart(state, action) {
+        debugger
+        let AllPapersData = (action.payload).filter(function (AllPapers) {
+            const datePaper1 = AllPapers.createdDate
+            let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
+            // const dateFormater = detaPaper[1] + "/" + detaPaper[0] + "/" + detaPaper[2];
+            return (new Date(detaPaper) >= new Date(dateBeforeYear))
+
+
+        })
+        state.cartData.papers = AllPapersData
+    },
     setSumStatic(state, action) {
         state.AllProject = (action.payload);
     },
