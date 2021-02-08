@@ -59,12 +59,12 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
       })
     //  fetch to get sum of papers for user-----------------
     fetch('https://papers.dev.leader.codes/api/ruth109476@gmail.com/getAllQuote', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJEWWMzVlVtRUhTY3FhWkJ3MzAwbHY4OWZuYTgyIiwiZW1haWwiOiJydXRoMTA5NDc2QGdtYWlsLmNvbSIsImlhdCI6MTYxMTcyNjEzN30.sDgXmAvDj3JirPgU5AksbPVMdtxHVIAU9rgTFAeAluE",
-        //     Authorization: jwt,
-      },
+      // method: 'GET',
+      // headers: {
+      //   'Content-Type': 'application/json',
+      //   Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJEWWMzVlVtRUhTY3FhWkJ3MzAwbHY4OWZuYTgyIiwiZW1haWwiOiJydXRoMTA5NDc2QGdtYWlsLmNvbSIsImlhdCI6MTYxMTcyNjEzN30.sDgXmAvDj3JirPgU5AksbPVMdtxHVIAU9rgTFAeAluE",
+      //   //     Authorization: jwt,
+      // },
     })
       .then((data) => data.json())
       .then((data) => {
