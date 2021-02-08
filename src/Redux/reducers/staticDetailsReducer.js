@@ -12,7 +12,7 @@ const initialState = {
     AllTask: [],
     AllContact: [],
     chartData: {
-        papers: [0],
+        papers: [0,0,0,0,0,0,0,0,0,0,0,0],
         projects: [],
         tasks: [],
         contacts: []
