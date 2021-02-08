@@ -22,8 +22,9 @@ const initialState = {
 const staticData = {
     setPaperChart(state, action) {
         debugger
-        for (let i = 0; i < action.payload.length; i++) {
-            let data = action.payload.due_date;
+        let p=action.payload
+        for (let i = 0; i < p.length; i++) {
+            let data = p.due_date;
             //  let  date1=split(data).
             //    state.chartData.papers[date1]++
             i++;
