@@ -1,35 +1,38 @@
 import { actions } from '../actions/staticAction'
 
 // ---------------A function that extracts the jwt from the cookies----------------
-export const getCookie = (c_name) => {
-  if (document.cookie.length > 0) {
-    let c_start = document.cookie.indexOf(c_name + '=');
-    if (c_start !== -1) {
-      c_start = c_start + c_name.length + 1;
-      let c_end = document.cookie.indexOf(';', c_start);
-      if (c_end === -1) {
-        c_end = document.cookie.length;
-      }
-      return unescape(document.cookie.substring(c_start, c_end));
-    }
-  }
-  return '';
-};
+// export const getCookie = (c_name) => {
+//   if (document.cookie.length > 0) {
+//     let c_start = document.cookie.indexOf(c_name + '=');
+//     if (c_start !== -1) {
+//       c_start = c_start + c_name.length + 1;
+//       let c_end = document.cookie.indexOf(';', c_start);
+//       if (c_end === -1) {
+//         c_end = document.cookie.length;
+//       }
+//       return unescape(document.cookie.substring(c_start, c_end));
+//     }
+//   }
+//   return '';
+// };
 export const getStaticData = ({ dispatch, getState }) => next => action => {
   // with this type client enter to application:INIT_DATA
   if (action.type === 'INIT_DATA') {
-    let jwt = getCookie('jwt');
+    // let jwt = getCookie('jwt');
     //  fetch to get sum of projects for user-----------------
     fetch('https://reacthub.dev.leader.codes/api/renana-il/getAllProjectsForUser', {
-      method: 'GET',
+     
+    method: 'GET',
       headers: {
         'Content-Type': 'application/json',
         Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJIZXNJaFlXaVU2Z1A3M1NkMHRXaDJZVzA4ZFkyIiwiZW1haWwiOiJyZW5hbmFAbGVhZGVyLmNvZGVzIiwiaWF0IjoxNjA3NTkxOTI5fQ.U2FQ7I4qBXW9DF-SVJqxKiWgVs5tjSo06pyvmuwzCFU",
         //    Authorization: jwt,
       },
     })
+    
       .then((data) => data.json())
       .then((data) => {
+        debugger
         //only sumProject
         let sumProject = data.countProjectsForUser
         //all data for project
@@ -50,6 +53,8 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
     })
       .then((data) => data.json())
       .then((data) => {
+    debugger
+
         let taskData = data.userTasksList
         let sumTask = (data.countTasksForUser)
 
@@ -68,13 +73,11 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
     })
       .then((data) => data.json())
       .then((data) => {
+        debugger
 
         // let sumPapers = (data.quotes.length)
         let papersData = data.quotes
         let sumPapers = (data.quotes.length)
-        //chart data
-        let chartPapers=papersData.dueDate.filter(paper => paper.spl)
-
         dispatch(actions.setPaperStatic(sumPapers));
         dispatch(actions.setPaperData(papersData));
         debugger
@@ -94,6 +97,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
     })
       .then((data) => data.json())
       .then((dataContact) => {
+        
         let sumContact = (dataContact.length)
         let contactData = dataContact
 
