@@ -25,7 +25,7 @@ const staticData = {
         let p=action.payload
         for (let i = 0; i < p.length; i++) {
             let data = p.due_date;
-            //  let  date1=split(data).
+            //  let  date1=split(data[1]).
             //    state.chartData.papers[date1]++
             i++;
         }
