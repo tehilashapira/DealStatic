@@ -50,21 +50,21 @@ export default function TryChart() {
             }
         },
         series1: [
-            // {
-            //     name: "papers",
-            //     data: [UpdatedData.chartData.papers]
-            // },
-            // {
-            //     // name: "papers",
-            //     // data: [UpdatedData.leaderStatic.sumPapers]
-            // },
+            {
+                name: "papers",
+                data: [1,2,3,4,45,6,67,7]
+            },
+            {
+                 name: "contacts",
+                 data: [1,1,14,1,17,1,8,19,1]
+            },
             {
                 name: "projects",
-                data: [UpdatedData.leaderStatic.sumProjects]
+                data: [UpdatedData.projects]
             },
             {
                 name: "tasks",
-                data: [UpdatedData.leaderStatic.sumTasks]
+                data: [UpdatedData.tasks]
             }
 
         ],

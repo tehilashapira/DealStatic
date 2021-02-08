@@ -8,6 +8,7 @@ const initialState = {
     AllProject: [],
     AllTask: [],
     AllContact: [],
+    AllPapers:[],
 
     papers: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     projects: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -59,17 +60,20 @@ const staticData = {
         const arr=[...state.tasks];
         // let arr=initialState.tasks
         for (let i = 0; i < allData.length; i++) {
+       
             const date = allData[i].startDate.split("/");
             const dateFormater = date[1] + "/" + date[0] + "/" + date[2];
             const month = dateFormater[1]
-    
-        
-            arr[month]=(arr[month])+1
+            console.log(month)
+            // arr[month]=(arr[month])+1
+             const x=(arr[month])+1
+             arr[month]=x;
           
          
         }
+            state.tasks=[...arr];
     
-     console.log(arr)
+           console.log(state.tasks)
 
     },
     setPaperStatic(state, action) {

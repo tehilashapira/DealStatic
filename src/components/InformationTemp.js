@@ -34,110 +34,153 @@ const useStyles = () => ({
     },
 })
 function Information(props) {
-    //  ---filter by: last day,last week,last month
+    //  ---filter by: last day,last week,last month,year
     function filterByDay() {
-        debugger
+
+        let AllTaskData = (props.AllTask).filter(function (AllTask) {
+            const dateTask = AllTask.startDate.split("/")
+            const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
+            return (dateFormater == currentDate)
+
+        })
+
+        let AllContactData = (props.AllContact).filter(function (AllContact) {
+            const dateContact = (AllContact.createDateAndTime).substring(0, 10)
+            console.log(dateContact)
+            const correctDate = dateContact.replace(/-/g, '/');
+            console.log(correctDate)
+            const dateC = correctDate.split("/")
+            const dateFormater = dateC[1] + "/" + dateC[2] + "/" + dateC[0];
+            return (dateFormater == currentDate)
+        })
         let AllProjectData = (props.AllProject).filter(function (AllProject) {
             const dateProject = AllProject.dueDate.split("/")
             const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
             return (dateFormater == currentDate)
         })
+        let AllPapersData = (props.AllPapers).filter(function (AllPapers) {
+
+            const datePaper1 = AllPapers.createdDate
+            let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
+            // const dateFormater = detaPaper[1] + "/" + detaPaper[0] + "/" + detaPaper[2];
+            return (detaPaper == currentDate)
+        })
+        props.dispatch(actions.setTaskStatic(AllTaskData.length))
+        props.dispatch(actions.setContactStatic(AllContactData.length))
         props.dispatch(actions.setProjectStatic(AllProjectData.length));
-        
-        let AllTaskData = (props.AllTask).filter(function(AllTask){
-             const dateTask = AllTask.startDate.split("/")
-             const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
-             return(dateFormater == currentDate)
-
-        })
-        props.dispatch(actions.setTaskStatic(AllTaskData.length))
-
-        let AllContactData = (props.AllContact).filter(function(AllContact){
-            const dateContact = (AllContact.createDateAndTime).substring(0, 10)
-            console.log(dateContact)
-             const correctDate = dateContact.replace(/-/g, '/');
-             console.log(correctDate)
-            const dateC = correctDate.split("/")
-            const dateFormater = dateC[1] + "/" + dateC[2] + "/" + dateC[0];
-            return(dateFormater == currentDate)
-        })
-        props.dispatch(actions.setContactStatic(AllContactData.length))
-       }
-
-       function filterByWeek() {
-
-           let AllTaskData = (props.AllTask).filter(function (AllTask) {
-            const dateTask = AllTask.startDate.split("/")
-            const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
-            return (new Date(dateFormater) >= new Date(dateBeforeWeek))
-        })
-        props.dispatch(actions.setTaskStatic(AllTaskData.length))
-
-        let AllContactData = (props.AllContact).filter(function(AllContact){
-            const dateContact = (AllContact.createDateAndTime).substring(0, 10)
-            console.log(dateContact)
-             const correctDate = dateContact.replace(/-/g, '/');
-             console.log(correctDate)
-             const dateC = correctDate.split("/")
-             const dateFormater = dateC[1] + "/" + dateC[2] + "/" + dateC[0];
-             return (new Date(dateFormater) >= new Date(dateBeforeWeek))
-        })
-        props.dispatch(actions.setContactStatic(AllContactData.length))
+        props.dispatch(actions.setPaperStatic(AllPapersData.length));
 
     }
+    function filterByYear() {
+        let AllProjectData = (props.AllProject).filter(function (AllProject) {
+            const dateProject = AllProject.dueDate.split("/")
+            const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
+            return (new Date(dateFormater) >= new Date(dateBeforeYear))
 
-    function filterByMonth() {
+        })
+        let AllPapersData = (props.AllPapers).filter(function (AllPapers) {
+
+            const datePaper1 = AllPapers.createdDate
+            let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
+            // const dateFormater = detaPaper[1] + "/" + detaPaper[0] + "/" + detaPaper[2];
+            return (new Date(detaPaper) >= new Date(dateBeforeYear))
+
+        })
+        let AllTaskData = (props.AllTask).filter(function (AllTask) {
+            const dateTask = AllTask.startDate.split("/")
+            const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
+            return (new Date(dateFormater) >= new Date(dateBeforeYear))
+
+        })
+        let AllContactData = (props.AllContact).filter(function (AllContact) {
+            const dateContact = (AllContact.createDateAndTime).substring(0, 10)
+            console.log(dateContact)
+            const correctDate = dateContact.replace(/-/g, '/');
+            console.log(correctDate)
+            const dateC = correctDate.split("/")
+            const dateFormater = dateC[1] + "/" + dateC[2] + "/" + dateC[0];
+            return (new Date(dateFormater) >= new Date(dateBeforeYear))
+
+        })
+        props.dispatch(actions.setContactStatic(AllContactData.length))
+        props.dispatch(actions.setTaskStatic(AllTaskData.length))
+        props.dispatch(actions.setProjectStatic(AllProjectData.length));
+        props.dispatch(actions.setPaperStatic(AllPapersData.length));
+        // props.dispatch(actions.setPaperChart(AllPapersData.createdDate));
+    }
+
+    function filterByWeek() {
+        let AllProjectData = (props.AllProject).filter(function (AllProject) {
+            const dateProject = AllProject.dueDate.split("/")
+            const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
+            return (new Date(dateFormater) >= new Date(dateBeforeWeek))
+        })
+        let AllPapersData = (props.AllPapers).filter(function (AllPapers) {
+
+            const datePaper1 = AllPapers.createdDate
+            let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
+            // const dateFormater = detaPaper[1] + "/" + detaPaper[0] + "/" + detaPaper[2];
+            return (new Date(detaPaper) >= new Date(dateBeforeWeek))
+
+        })
 
         let AllTaskData = (props.AllTask).filter(function (AllTask) {
             const dateTask = AllTask.startDate.split("/")
             const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
+            return (new Date(dateFormater) >= new Date(dateBeforeWeek))
+
+        })
+        let AllContactData = (props.AllContact).filter(function (AllContact) {
+            const dateContact = (AllContact.createDateAndTime).substring(0, 10)
+            console.log(dateContact)
+            const correctDate = dateContact.replace(/-/g, '/');
+            console.log(correctDate)
+            const dateC = correctDate.split("/")
+            const dateFormater = dateC[1] + "/" + dateC[2] + "/" + dateC[0];
+            return (new Date(dateFormater) >= new Date(dateBeforeYear))
+
+        })
+        props.dispatch(actions.setProjectStatic(AllProjectData.length));
+        props.dispatch(actions.setPaperStatic(AllPapersData.length));
+        props.dispatch(actions.setContactStatic(AllContactData.length))
+        props.dispatch(actions.setTaskStatic(AllTaskData.length))
+    }
+    function filterByMonth() {
+        let AllProjectData = (props.AllProject).filter(function (AllProject) {
+            const dateProject = AllProject.dueDate.split("/")
+            const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
             return (new Date(dateFormater) >= new Date(dateBeforeMonth))
         })
-        props.dispatch(actions.setTaskStatic(AllTaskData.length))
+        let AllPapersData = (props.AllPapers).filter(function (AllPapers) {
 
-        let AllContactData = (props.AllContact).filter(function(AllContact){
-            const dateContact = (AllContact.createDateAndTime).substring(0, 10)
-            console.log(dateContact)
-             const correctDate = dateContact.replace(/-/g, '/');
-             console.log(correctDate)
-            const dateC = correctDate.split("/")
-            const dateFormater = dateC[1] + "/" + dateC[2] + "/" + dateC[0];
-            return(new Date(dateFormater) == dateBeforeMonth)
+            const datePaper1 = AllPapers.createdDate
+            let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
+            // const dateFormater = detaPaper[1] + "/" + detaPaper[0] + "/" + detaPaper[2];
+            return (new Date(detaPaper) >= new Date(dateBeforeMonth))
+
         })
-        props.dispatch(actions.setContactStatic(AllContactData.length))
-    }
-
-    function filterByYear() {
-
-        let AllTaskData = (props.AllTask).filter(function(AllTask){
+        let AllTaskData = (props.AllTask).filter(function (AllTask) {
             const dateTask = AllTask.startDate.split("/")
             const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
-            return(dateFormater == dateBeforeMonth)
+            return (new Date(dateFormater) >= new Date(dateBeforeMonth))
 
-       })
-       props.dispatch(actions.setTaskStatic(AllTaskData.length))
-
-        let AllContactData = (props.AllContact).filter(function(AllContact){
+        })
+        let AllContactData = (props.AllContact).filter(function (AllContact) {
             const dateContact = (AllContact.createDateAndTime).substring(0, 10)
             console.log(dateContact)
-             const correctDate = dateContact.replace(/-/g, '/');
-             console.log(correctDate)
+            const correctDate = dateContact.replace(/-/g, '/');
+            console.log(correctDate)
             const dateC = correctDate.split("/")
             const dateFormater = dateC[1] + "/" + dateC[2] + "/" + dateC[0];
-            return(dateFormater == dateBeforeMonth)
+            return (new Date(dateFormater) >= new Date(dateBeforeMonth))
+
         })
+
+        props.dispatch(actions.setProjectStatic(AllProjectData.length));
+        props.dispatch(actions.setPaperStatic(AllPapersData.length));
         props.dispatch(actions.setContactStatic(AllContactData.length))
+        props.dispatch(actions.setTaskStatic(AllTaskData.length))
     }
-
-    function paper() {
-        debugger
-        console.log("rrrr");
-        console.log(props.projectList)
-        window.location.assign('https://papers.dev.leader.codes/admin/ruth109476@gmail.com')
-
-    }
-  
-
     return (
         <div className="container-fluid mt-5">
             <div className="row pb-5" style={{ marginRight: '12%', marginLeft: '12%' }} >
@@ -263,11 +306,9 @@ const mapStateToProps = (state) => {
         sumStatic: state.staticDetailsReducer.sumStatic,
         leaderStatic: state.staticDetailsReducer.leaderStatic,
         AllProject: state.staticDetailsReducer.AllProject,
-        AllTask:state.staticDetailsReducer.AllTask,
-        AllContact:state.staticDetailsReducer.AllContact
+        AllPapers: state.staticDetailsReducer.AllPapers,
+        AllTask: state.staticDetailsReducer.AllTask,
+        AllContact: state.staticDetailsReducer.AllContact
     };
 }
-// const mapDispatchToProps = (dispatch) => ({
-//     changeSumStatic: (data) => dispatch(actions.setSumStatic(data))
-// })
 export default connect(mapStateToProps)(withStyles(useStyles)(Information));
