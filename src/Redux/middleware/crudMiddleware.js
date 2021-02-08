@@ -58,6 +58,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
         debugger
         dispatch(actions.setTaskStatic(sumTask));
         dispatch(actions.setTaskData(taskData));
+        dispatch(actions.setTaskChart(taskData));
         console.log(data)
       })
     //  fetch to get sum of papers for user-----------------
@@ -71,7 +72,8 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
     })
       .then((data) => data.json())
       .then((data) => {
-        let sumPapers = (data.quotes.length)
+        // let sumPapers = (data.quotes.length)
+        let sumPapers = (88)
         debugger
         dispatch(actions.setPaperStatic(sumPapers));
         console.log(data)
