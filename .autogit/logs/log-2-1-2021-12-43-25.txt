@@ -1,0 +1,17 @@
+-------------------- Auto-Git Log --------------------
+		Tue Feb 02 2021 12:43:25 GMT+0200 (שעון ישראל (חורף))
+------------------------------------------------------
+
+Modified files:
+* .eslintcache
+* src/components/InformationTemp.js
+
+
+Created files:
+* .autogit/logs/log-2-1-2021-11-56-33.txt
+
+
+Deleted files:
+
+
+Renamed files:

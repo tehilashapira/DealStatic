@@ -52,7 +52,6 @@ export default function TryChart() {
         series1: [
             {
                 name: "papers",
-<<<<<<< HEAD
                 data: [1,2,3,4,45,6,67,7]
             },
             {
@@ -66,21 +65,6 @@ export default function TryChart() {
             {
                 name: "tasks",
                 data: [UpdatedData.tasks]
-=======
-                data: [UpdatedData.chartData.projects]
-            },
-            {
-                name: "papers",
-                data: [UpdatedData.leaderStatic.projects]
-            },
-            {
-                name: "projects",
-                data: [UpdatedData.leaderStatic.sumProjects]
-            },
-            {
-                name: "tasks",
-                data: [UpdatedData.leaderStatic.sumTasks]
->>>>>>> fc4b60682c99c2eb16e584eab3d6986a1f0b0d49
             }
 
         ],
@@ -111,29 +95,18 @@ export default function TryChart() {
             },
         },
         serie: [UpdatedData.leaderStatic.sumContacts,
-<<<<<<< HEAD
         // UpdatedData.leaderStatic.sumPapers,
-=======
-        UpdatedData.leaderStatic.sumPapers,
->>>>>>> fc4b60682c99c2eb16e584eab3d6986a1f0b0d49
         UpdatedData.leaderStatic.sumProjects,
         UpdatedData.leaderStatic.sumTasks],
         series: [
             {
                 // leaderStatic:{sumProjects:0,sumTasks:0,sumPapers:0,sumContacts:0},
                 name: "",
-<<<<<<< HEAD
                 data:[{x: "2019-01-03", y: UpdatedData.leaderStatic.sumProjects}, {x: "2019-01-04", y: 18}]
                 // [UpdatedData.leaderStatic.sumContacts,
                 // // UpdatedData.leaderStatic.sumPapers,
                 // UpdatedData.leaderStatic.sumProjects,
                 // UpdatedData.leaderStatic.sumTasks],
-=======
-                data: [UpdatedData.leaderStatic.sumContacts,
-                UpdatedData.leaderStatic.sumPapers,
-                UpdatedData.leaderStatic.sumProjects,
-                UpdatedData.leaderStatic.sumTasks],
->>>>>>> fc4b60682c99c2eb16e584eab3d6986a1f0b0d49
 
 },
         ],

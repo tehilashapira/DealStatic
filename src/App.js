@@ -1,7 +1,5 @@
-
-import React, { Component } from 'react';
+import React from 'react';
 import { Provider } from 'react-redux';
-import { BrowserRouter as Router} from "react-router-dom";
 import store from './Redux/staticStore'
 import InformationTemp from './components/InformationTemp'
  import Chart2 from './components/Chart2'
@@ -30,11 +28,10 @@ function App() {
   
   );
 }
-
 export default App;
 
 
 
 
 
- 
+
