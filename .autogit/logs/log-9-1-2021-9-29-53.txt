@@ -1,0 +1,22 @@
+-------------------- Auto-Git Log --------------------
+		Tue Feb 09 2021 09:29:53 GMT+0200 (שעון ישראל (חורף))
+------------------------------------------------------
+
+Modified files:
+* .eslintcache
+* src/Redux/middleware/crudMiddleware.js
+* src/Redux/reducers/reducerUtils.js
+* src/Redux/reducers/staticDetailsReducer.js
+* src/components/Chart2.js
+* "src/components/InformationTemp copy.js"
+* src/components/InformationTemp.js
+
+
+Created files:
+* .autogit/logs/log-9-1-2021-8-5-8.txt
+
+
+Deleted files:
+
+
+Renamed files:

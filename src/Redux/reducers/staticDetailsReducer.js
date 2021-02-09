@@ -96,6 +96,10 @@ debugger
 
         state.AllContact = action.payload
 
+    }, setPaperData(state, action) {
+
+        state.AllPapers = action.payload
+
     }
 };
 
