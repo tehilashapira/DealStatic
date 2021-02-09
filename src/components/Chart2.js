@@ -52,11 +52,11 @@ export default function TryChart() {
         series1: [
             {
                 name: "papers",
-                data: [1,2,3,4,45,6,67,7]
+                data: [UpdatedData.papers]
             },
             {
                  name: "contacts",
-                 data: [1,1,14,1,17,1,8,19,1]
+                 data: [UpdatedData.contacts]
             },
             {
                 name: "projects",

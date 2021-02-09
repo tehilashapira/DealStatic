@@ -95,8 +95,8 @@ const staticData = {
 
             const date1 = allData[i].createdDate
             let date2 = moment(date1).format("MM/DD/YYYY")
-            let date = date2.split("/")
-            const dateFormater = date[0] + "/" + date[1] + "/" + date[2];
+            let date = new Date(date2.split("/"))
+            const dateFormater = date[1] + "/" + date[0] + "/" + date[2];
             const month = dateFormater[1]
             console.log(month)
             const x = (arr[month]) + 1
@@ -112,11 +112,13 @@ const staticData = {
         const arr = [...state.contacts];
         for (let i = 0; i < allData.length; i++) {
 
-            const date1 = allData[i].createDateAndTime;
-            let date2 = moment(date1).format("MM/DD/YYYY")
-            let date = date2.split("/")
-            const dateFormater = date[0] + "/" + date[1] + "/" + date[2];
-            const month = dateFormater[1]
+            const date = allData[i].createDateAndTime;
+            let date1= new Date(date)
+                let date2 = moment(date1).format("MM/DD/YYYY")
+            // let ndate=new Date(date2)
+            // let date = ndate.split("/")
+            // const dateFormater = date2[1] + "/" + date2[0] + "/" + date2[2];
+            const month = date2[0]
             console.log(month)
             const x = (arr[month]) + 1
             arr[month] = x;
