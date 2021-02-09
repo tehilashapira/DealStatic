@@ -94,18 +94,30 @@ const staticData = {
         for (let i = 0; i < allData.length; i++) {
 
             const date1 = allData[i].createdDate
-            let date2 = moment(date1).format("MM/DD/YYYY")
-            date2.toDateString()
-            const dateFormater = date2[1] + "/" + date2[0] + "/" + date2[2];
-            // let date = new Date(date2.split("/"))
-            // const dateFormater = date[1] + "/" + date[0] + "/" + date[2];
-            const month = dateFormater[1]
-            const x = (arr[month]) + 1
-            arr[month] = x;
+            let date2 = moment(date1).format("MM/DD/YYYY").split("/")
+            const month = date2[0]
+            if (month[0] != 0) {
+                const x = (arr[month]) + 1
+                arr[month] = x;
+            }
+            else {
+                month = month[1]
+            }
         }
+        // var mydate = new Date(date2[0], date2[1], date2[2]);
+        // console.log(mydate.toDateString());
+        // let date2 = moment(date1).format("MM/DD/YYYY")
+        // let r = (date2.toDateString())
+        // const dateFormater = date2[1] + "/" + date2[0] + "/" + date2[2];
+        // // let date = new Date(date2.split("/"))
+        // // const dateFormater = date[1] + "/" + date[0] + "/" + date[2];
+        // const month = dateFormater[1]
+        // const x = (arr[month]) + 1
+        // arr[month] = x;
+    }
         state.papers = [...arr];
-        console.log(state.papers)
-    },
+    console.log(state.papers)
+},
     setContactChart(state = initialState, action) {
         debugger
         let allData = action.payload
@@ -114,8 +126,8 @@ const staticData = {
         for (let i = 0; i < allData.length; i++) {
 
             const date = allData[i].createDateAndTime;
-            let date1= new Date(date)
-                let date2 = moment(date1).format("MM/DD/YYYY")
+            let date1 = new Date(date)
+            let date2 = moment(date1).format("MM/DD/YYYY")
             // let ndate=new Date(date2)
             // let date = ndate.split("/")
             // const dateFormater = date2[1] + "/" + date2[0] + "/" + date2[2];
@@ -127,22 +139,22 @@ const staticData = {
         state.contacts = [...arr];
         console.log(state.contacts)
     },
-    setPaperStatic(state, action) {
-        state.leaderStatic.sumPapers = action.payload
-    },
+        setPaperStatic(state, action) {
+    state.leaderStatic.sumPapers = action.payload
+},
 
-    setContactStatic(state, action) {
-        state.leaderStatic.sumContacts = action.payload
-    },
-    setContactData(state, action) {
+setContactStatic(state, action) {
+    state.leaderStatic.sumContacts = action.payload
+},
+setContactData(state, action) {
 
-        state.AllContact = action.payload
+    state.AllContact = action.payload
 
-    }, setPaperData(state, action) {
+}, setPaperData(state, action) {
 
-        state.AllPapers = action.payload
+    state.AllPapers = action.payload
 
-    }
+}
 };
 
 export default produce((state, action) => createReducer(state, action, staticData), initialState);
