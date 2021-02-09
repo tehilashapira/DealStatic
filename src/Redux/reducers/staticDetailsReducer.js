@@ -1,5 +1,6 @@
 import produce from 'immer';
 import { createReducer } from "./reducerUtils";
+import moment from 'moment';
 
 const initialState = {
     leaderStatic: { sumProjects: 0, sumTasks: 0, sumPapers: 0, sumContacts: 0 },
@@ -70,7 +71,7 @@ const staticData = {
         console.log(state.tasks)
     },
     setProjectChart(state = initialState, action) {
-debugger
+        debugger
         let allData = action.payload
         console.log(initialState.projects)
         const arr = [...state.projects];
@@ -84,6 +85,44 @@ debugger
         }
         state.projects = [...arr];
         console.log(state.projects)
+    },
+    setPaperChart(state = initialState, action) {
+        debugger
+        let allData = action.payload
+        console.log(initialState.papers)
+        const arr = [...state.papers];
+        for (let i = 0; i < allData.length; i++) {
+
+            const date1 = allData[i].createdDate
+            let date2 = moment(date1).format("MM/DD/YYYY")
+            let date = date2.split("/")
+            const dateFormater = date[0] + "/" + date[1] + "/" + date[2];
+            const month = dateFormater[1]
+            console.log(month)
+            const x = (arr[month]) + 1
+            arr[month] = x;
+        }
+        state.papers = [...arr];
+        console.log(state.papers)
+    },
+    setContactChart(state = initialState, action) {
+        debugger
+        let allData = action.payload
+        console.log(initialState.contacts)
+        const arr = [...state.contacts];
+        for (let i = 0; i < allData.length; i++) {
+
+            const date1 = allData[i].createDateAndTime;
+            let date2 = moment(date1).format("MM/DD/YYYY")
+            let date = date2.split("/")
+            const dateFormater = date[0] + "/" + date[1] + "/" + date[2];
+            const month = dateFormater[1]
+            console.log(month)
+            const x = (arr[month]) + 1
+            arr[month] = x;
+        }
+        state.contacts = [...arr];
+        console.log(state.contacts)
     },
     setPaperStatic(state, action) {
         state.leaderStatic.sumPapers = action.payload

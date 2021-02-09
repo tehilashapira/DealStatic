@@ -81,6 +81,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
 
         dispatch(actions.setPaperStatic(sumPapers));
         dispatch(actions.setPaperData(d));
+        dispatch(actions.setPaperChart(d));
         console.log(data)
       })
     // fetch to get sum of contacts for user----------------------
@@ -101,6 +102,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
 
         dispatch(actions.setContactStatic(sumContact));
         dispatch(actions.setContactData(contactData));
+        dispatch(actions.setContactChart(contactData));
         console.log(contactData)
       })
   }
