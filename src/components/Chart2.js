@@ -69,15 +69,6 @@ export default function TryChart() {
 
         ],
         op: {
-     
-            indexLabel: "{name}: {y}",
-            dataPoints: [
-                { name: "Unsatisfied", y: 5 },
-                { name: "Very Unsatisfied", y: 31 },
-                { name: "Very Satisfied", y: 40 },
-                { name: "Satisfied", y: 17 },
-                { name: "Neutral", y: 7 },
-            ],
                 
             //%%%%%%
             dataLabels: {
@@ -95,18 +86,18 @@ export default function TryChart() {
             },
         },
         serie: [UpdatedData.leaderStatic.sumContacts,
-        // UpdatedData.leaderStatic.sumPapers,
+        UpdatedData.leaderStatic.sumPapers,
         UpdatedData.leaderStatic.sumProjects,
         UpdatedData.leaderStatic.sumTasks],
         series: [
             {
                 // leaderStatic:{sumProjects:0,sumTasks:0,sumPapers:0,sumContacts:0},
                 name: "",
-                data:[{x: "2019-01-03", y: UpdatedData.leaderStatic.sumProjects}, {x: "2019-01-04", y: 18}]
-                // [UpdatedData.leaderStatic.sumContacts,
-                // // UpdatedData.leaderStatic.sumPapers,
-                // UpdatedData.leaderStatic.sumProjects,
-                // UpdatedData.leaderStatic.sumTasks],
+                // data:[{x: "2019-01-03", y: UpdatedData.leaderStatic.sumProjects}, {x: "2019-01-04", y: 18}]
+               data: [UpdatedData.leaderStatic.sumContacts,
+                UpdatedData.leaderStatic.sumPapers,
+                UpdatedData.leaderStatic.sumProjects,
+                UpdatedData.leaderStatic.sumTasks]
 
 },
         ],

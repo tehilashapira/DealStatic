@@ -8,7 +8,7 @@ const initialState = {
     AllProject: [],
     AllTask: [],
     AllContact: [],
-    AllPapers:[],
+    AllPapers: [],
 
     papers: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     projects: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -53,32 +53,40 @@ const staticData = {
 
         state.AllTask = action.payload
     },
-    setTaskChart(state=initialState, action) {
+    setTaskChart(state = initialState, action) {
         debugger
         let allData = action.payload
         console.log(initialState.tasks)
-        const arr=[...state.tasks];
-        // let arr=initialState.tasks
+        const arr = [...state.tasks];
         for (let i = 0; i < allData.length; i++) {
-       
             const date = allData[i].startDate.split("/");
             const dateFormater = date[1] + "/" + date[0] + "/" + date[2];
             const month = dateFormater[1]
             console.log(month)
-            // arr[month]=(arr[month])+1
-             const x=(arr[month])+1
-             arr[month]=x;
-          
-         
+            const x = (arr[month]) + 1
+            arr[month] = x;
         }
-            state.tasks=[...arr];
-    
-           console.log(state.tasks)
-
+        state.tasks = [...arr];
+        console.log(state.tasks)
     },
+    // setProjectChart(state = initialState, action) {
+    //     debugger
+    //     let allData = action.payload
+    //     console.log(initialState.tasks)
+    //     const arr = [...state.tasks];
+    //     for (let i = 0; i < allData.length; i++) {
+    //         const date = allData[i].startDate.split("/");
+    //         const dateFormater = date[1] + "/" + date[0] + "/" + date[2];
+    //         const month = dateFormater[1]
+    //         console.log(month)
+    //         const x = (arr[month]) + 1
+    //         arr[month] = x;
+    //     }
+    //     state.tasks = [...arr];
+    //     console.log(state.tasks)
+    // },
     setPaperStatic(state, action) {
         state.leaderStatic.sumPapers = action.payload
-
     },
 
     setContactStatic(state, action) {
