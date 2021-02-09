@@ -11,10 +11,10 @@ const initialState = {
     AllContact: [],
     AllPapers: [],
 
-    papers: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    projects: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    tasks: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    contacts: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+    papers: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0],
+    projects: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0],
+    tasks: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0],
+    contacts: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,0]
 
 
 };
@@ -62,7 +62,7 @@ const staticData = {
         for (let i = 0; i < allData.length; i++) {
 
             const date1 = allData[i].startDate.split("/")
-            let date2 = date1[0]
+            let date2 = date1[1]
             if (date2[0] != 0) {
                 const x = (arr[date2]) + 1
                 arr[date2] = x;
@@ -82,8 +82,9 @@ const staticData = {
         const arr = [...state.projects];
         for (let i = 0; i < allData.length; i++) {
 
-            const date1 = allData[i].dueDate.split()
-            let date2 = date1[0]
+            const date1 = allData[i].dueDate.split("/")
+            let date2 = date1[1]
+            debugger
             if (date2[0] != 0) {
                 const x = (arr[date2]) + 1
                 arr[date2] = x;
@@ -141,7 +142,7 @@ const staticData = {
                 }
             }
 
-                state.papers = [...arr];
+                state.contacts = [...arr];
             },
             setPaperStatic(state, action) {
                 state.leaderStatic.sumPapers = action.payload
