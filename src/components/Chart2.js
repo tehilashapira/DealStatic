@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 
 export default function TryChart() {
     const UpdatedData = useSelector(state => state.staticDetailsReducer);
-
+  
     const state = {
         op1: {
             chart: {
@@ -23,7 +23,7 @@ export default function TryChart() {
                 width: [5, 5, 5, 5]
             },
             xaxis: {
-                categories: ['Jan', 'feb', 'marth', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dic'],
+                categories: ['Jan', 'feb', 'marth', 'apr', 'may', 'jun', 'jul', 'aug','sep', 'oct','nov','dic'],
             },
             yaxis: [
                 {
@@ -55,16 +55,9 @@ export default function TryChart() {
                 data: [UpdatedData.papers]
             },
             {
-                name: "contacts",
-                data: [[UpdatedData.contacts[0], state.op1.xaxis.categories[0]], [UpdatedData.contacts[1], state.op1.xaxis.categories[1], [UpdatedData.contacts[2], state.op1.xaxis.categories[2]],
-                [UpdatedData.contacts[3], state.op1.xaxis.categories[3]], [UpdatedData.contacts[4], state.op1.xaxis.categories[4]],
-                [UpdatedData.contacts[5], state.op1.xaxis.categories[5]], [UpdatedData.contacts[6], state.op1.xaxis.categories[6]],
-                [UpdatedData.contacts[7], state.op1.xaxis.categories[7]], [UpdatedData.contacts[8], state.op1.xaxis.categories[8]],
-                [UpdatedData.contacts[8], state.op1.xaxis.categories[8]], [UpdatedData.contacts[9], state.op1.xaxis.categories[9]],
-                [UpdatedData.contacts[10], state.op1.xaxis.categories[10]]]]
+                 name: "contacts",
+                 data: [UpdatedData.contacts]
             },
-
-
             {
                 name: "projects",
                 data: [UpdatedData.projects]
@@ -76,7 +69,7 @@ export default function TryChart() {
 
         ],
         op: {
-
+                
             //%%%%%%
             dataLabels: {
                 enabled: true
@@ -101,16 +94,16 @@ export default function TryChart() {
                 // leaderStatic:{sumProjects:0,sumTasks:0,sumPapers:0,sumContacts:0},
                 name: "",
                 // data:[{x: "2019-01-03", y: UpdatedData.leaderStatic.sumProjects}, {x: "2019-01-04", y: 18}]
-                data: [UpdatedData.leaderStatic.sumContacts,
+               data: [UpdatedData.leaderStatic.sumContacts,
                 UpdatedData.leaderStatic.sumPapers,
                 UpdatedData.leaderStatic.sumProjects,
                 UpdatedData.leaderStatic.sumTasks]
 
-            },
+},
         ],
         options:
         {
-
+           
             chart: {
                 type: 'line',
                 zoom: {
@@ -156,8 +149,8 @@ export default function TryChart() {
     }
     return (
         <div className="container" >
-            <div className="row" style={{ paddingTop: "5%" }}  >
-                <div className="col-sm-4" style={{ marginLeft: "-75px" }}>
+            <div className="row" style={{paddingTop:"5%"}}  >
+                <div className="col-sm-4" style={{ marginLeft: "-75px"}}>
                     <ReactApexChart options={state.options} series={state.series} type="bar" width="420" />
                 </div><div className="col-md-5" >
                     <Chart options={state.op} series={state.serie} type="donut" width="460" height="250" />
