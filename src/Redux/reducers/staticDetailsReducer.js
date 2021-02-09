@@ -60,12 +60,18 @@ const staticData = {
         console.log(initialState.tasks)
         const arr = [...state.tasks];
         for (let i = 0; i < allData.length; i++) {
-            const date = allData[i].startDate.split("/");
-            const dateFormater = date[1] + "/" + date[0] + "/" + date[2];
-            const month = dateFormater[1]
-            console.log(month)
-            const x = (arr[month]) + 1
-            arr[month] = x;
+
+            const date1 = allData[i].startDate.split("/")
+            let date2 = date1[0]
+            if (date2[0] != 0) {
+                const x = (arr[date2]) + 1
+                arr[date2] = x;
+            }
+            else {
+                date2 = date2[1]
+                const x = (arr[date2]) + 1
+                arr[date2] = x;
+            }
         }
         state.tasks = [...arr];
         console.log(state.tasks)
@@ -73,15 +79,20 @@ const staticData = {
     setProjectChart(state = initialState, action) {
         debugger
         let allData = action.payload
-        console.log(initialState.projects)
         const arr = [...state.projects];
         for (let i = 0; i < allData.length; i++) {
-            const date = allData[i].dueDate.split("/");
-            const dateFormater = date[1] + "/" + date[0] + "/" + date[2];
-            const month = dateFormater[1]
-            console.log(month)
-            const x = (arr[month]) + 1
-            arr[month] = x;
+
+            const date1 = allData[i].dueDate.split()
+            let date2 = date1[0]
+            if (date2[0] != 0) {
+                const x = (arr[date2]) + 1
+                arr[date2] = x;
+            }
+            else {
+                date2 = date2[1]
+                const x = (arr[date2]) + 1
+                arr[date2] = x;
+            }
         }
         state.projects = [...arr];
         console.log(state.projects)
@@ -94,67 +105,60 @@ const staticData = {
         for (let i = 0; i < allData.length; i++) {
 
             const date1 = allData[i].createdDate
-            let date2 = moment(date1).format("MM/DD/YYYY").split("/")
-            const month = date2[0]
-            if (month[0] != 0) {
-                const x = (arr[month]) + 1
-                arr[month] = x;
+            let date11 = moment(date1).format("MM/DD/YYYY").split("/")
+            let date2 = date11[0]
+            if (date2[0] != 0) {
+                const x = (arr[date2]) + 1
+                arr[date2] = x;
             }
             else {
-                month = month[1]
+                date2 = date2[1]
+                const x = (arr[date2]) + 1
+                arr[date2] = x;
             }
         }
-        // var mydate = new Date(date2[0], date2[1], date2[2]);
-        // console.log(mydate.toDateString());
-        // let date2 = moment(date1).format("MM/DD/YYYY")
-        // let r = (date2.toDateString())
-        // const dateFormater = date2[1] + "/" + date2[0] + "/" + date2[2];
-        // // let date = new Date(date2.split("/"))
-        // // const dateFormater = date[1] + "/" + date[0] + "/" + date[2];
-        // const month = dateFormater[1]
-        // const x = (arr[month]) + 1
-        // arr[month] = x;
-    }
         state.papers = [...arr];
-    console.log(state.papers)
-},
+    },
+
     setContactChart(state = initialState, action) {
         debugger
         let allData = action.payload
         console.log(initialState.contacts)
         const arr = [...state.contacts];
-        for (let i = 0; i < allData.length; i++) {
+            for (let i = 0; i < allData.length; i++) {
 
-            const date = allData[i].createDateAndTime;
-            let date1 = new Date(date)
-            let date2 = moment(date1).format("MM/DD/YYYY")
-            // let ndate=new Date(date2)
-            // let date = ndate.split("/")
-            // const dateFormater = date2[1] + "/" + date2[0] + "/" + date2[2];
-            const month = date2[0]
-            console.log(month)
-            const x = (arr[month]) + 1
-            arr[month] = x;
-        }
-        state.contacts = [...arr];
-        console.log(state.contacts)
-    },
-        setPaperStatic(state, action) {
-    state.leaderStatic.sumPapers = action.payload
-},
+                const date1 = allData[i].createDateAndTime
+                let date11 = moment(date1).format("MM/DD/YYYY").split("/")
+                let date2 = date11[0]
+                if (date2[0] != 0) {
+                    const x = (arr[date2]) + 1
+                    arr[date2] = x;
+                }
+                else {
+                    date2 = date2[1]
+                    const x = (arr[date2]) + 1
+                    arr[date2] = x;
+                }
+            }
 
-setContactStatic(state, action) {
-    state.leaderStatic.sumContacts = action.payload
-},
-setContactData(state, action) {
+                state.papers = [...arr];
+            },
+            setPaperStatic(state, action) {
+                state.leaderStatic.sumPapers = action.payload
+            },
 
-    state.AllContact = action.payload
+            setContactStatic(state, action) {
+                state.leaderStatic.sumContacts = action.payload
+            },
+            setContactData(state, action) {
 
-}, setPaperData(state, action) {
+                state.AllContact = action.payload
 
-    state.AllPapers = action.payload
+            }, setPaperData(state, action) {
 
-}
-};
+                state.AllPapers = action.payload
 
-export default produce((state, action) => createReducer(state, action, staticData), initialState);
+            }
+        };
+
+        export default produce((state, action) => createReducer(state, action, staticData), initialState);
