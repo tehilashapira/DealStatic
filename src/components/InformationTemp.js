@@ -54,7 +54,7 @@ function Information(props) {
             const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
             return (dateFormater == currentDate)
         })
-        debugger
+
         let AllPapersData = (props.AllPapers).filter(function (AllPapers) {
 
             const datePaper1 = AllPapers.createdDate
@@ -83,8 +83,9 @@ function Information(props) {
 
         })
         let AllTaskData = (props.AllTask).filter(function (AllTask) {
+            debugger
             const dateTask = AllTask.startDate.split("/")
-            const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
+            const dateFormater = dateTask[0] + "/" + dateTask[1] + "/" + dateTask[2];
             return (new Date(dateFormater) >= new Date(dateBeforeYear))
 
         })
