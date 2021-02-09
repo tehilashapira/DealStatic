@@ -95,10 +95,11 @@ const staticData = {
 
             const date1 = allData[i].createdDate
             let date2 = moment(date1).format("MM/DD/YYYY")
-            let date = new Date(date2.split("/"))
-            const dateFormater = date[1] + "/" + date[0] + "/" + date[2];
+            date2.toDateString()
+            const dateFormater = date2[1] + "/" + date2[0] + "/" + date2[2];
+            // let date = new Date(date2.split("/"))
+            // const dateFormater = date[1] + "/" + date[0] + "/" + date[2];
             const month = dateFormater[1]
-            console.log(month)
             const x = (arr[month]) + 1
             arr[month] = x;
         }
