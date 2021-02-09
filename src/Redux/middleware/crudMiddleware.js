@@ -31,30 +31,31 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
 
       .then((data) => data.json())
       .then((data) => {
-       
+
         //all data for project
         let projectData = data.userProjectsList
-         //only sumProject
-         let sumProject = data.countProjectsForUser
-        debugger
+        //only sumProject
+        let sumProject = data.countProjectsForUser
+
         dispatch(actions.setProjectStatic(sumProject));
         dispatch(actions.setProjectData(projectData));
+        dispatch(actions.setProjectChart(projectData));
         console.log(data)
 
       })
-      // .then((data) => data.json())
-      // .then((data) => {
-      //   debugger
-      //   //only sumProject
-      //   let sumProject = data.countProjectsForUser
-      //   //all data for project
-      //   let projectData = data.userProjectsList
+    // .then((data) => data.json())
+    // .then((data) => {
+    //     
+    //   //only sumProject
+    //   let sumProject = data.countProjectsForUser
+    //   //all data for project
+    //   let projectData = data.userProjectsList
 
-      //   dispatch(actions.setProjectStatic(sumProject));
-      //   dispatch(actions.setProjectData(projectData));
+    //   dispatch(actions.setProjectStatic(sumProject));
+    //   dispatch(actions.setProjectData(projectData));
 
 
-      // })
+    // })
     // fetch to get sum tasks for user-------------
     fetch('https://reacthub.dev.leader.codes/api/renana-il/getAllTasksForUser', {
       method: 'GET',
@@ -70,7 +71,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
         let taskData = data.userTasksList
         //only sumTask
         let sumTask = (data.countTasksForUser)
-        debugger
+
         dispatch(actions.setTaskStatic(sumTask));
         dispatch(actions.setTaskData(taskData));
         dispatch(actions.setTaskChart(taskData));
@@ -89,7 +90,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
       .then((data) => {
         // let sumPapers = (data.quotes.length)
         let sumPapers = (data.quotes.length)
-        debugger
+
         dispatch(actions.setPaperStatic(sumPapers));
         console.log(data)
       })
@@ -106,9 +107,9 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
       .then((dataContact) => {
         //all data for contact
         let contactData = dataContact
-         //only sumContact
+        //only sumContact
         let sumContact = (dataContact.length)
-        debugger
+
         dispatch(actions.setContactStatic(sumContact));
         dispatch(actions.setContactData(contactData));
         console.log(contactData)

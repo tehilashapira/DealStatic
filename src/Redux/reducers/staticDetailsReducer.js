@@ -21,15 +21,15 @@ const initialState = {
 const staticData = {
 
     //  setStaticData(state, action) {
-    //     debugger;
+    //      
     // //   state.sumStatic=action.payload.viewers.map((viewer) =>new Date(viewer.data))
     //     state.dataStatic=action.payload;
-    //     debugger;
+    //      
     //     state.sumStatic.viewer=sumData(state.dataStatic.viewers);
-    //     debugger;
+    //      
     //     state.sumStatic.contactOptions=sumData(state.dataStatic.contactOptions);
     //     state.sumStatic.submitioms=sumData(state.dataStatic.submitioms);
-    //     debugger;
+    //      
 
     // },
 
@@ -42,7 +42,7 @@ const staticData = {
         state.leaderStatic.sumProjects = action.payload
     },
     setProjectData(state, action) {
-        debugger
+
         state.AllProject = action.payload
     },
     setTaskStatic(state, action) {
@@ -54,7 +54,7 @@ const staticData = {
         state.AllTask = action.payload
     },
     setTaskChart(state = initialState, action) {
-        debugger
+
         let allData = action.payload
         console.log(initialState.tasks)
         const arr = [...state.tasks];
@@ -69,22 +69,22 @@ const staticData = {
         state.tasks = [...arr];
         console.log(state.tasks)
     },
-    // setProjectChart(state = initialState, action) {
-    //     debugger
-    //     let allData = action.payload
-    //     console.log(initialState.tasks)
-    //     const arr = [...state.tasks];
-    //     for (let i = 0; i < allData.length; i++) {
-    //         const date = allData[i].startDate.split("/");
-    //         const dateFormater = date[1] + "/" + date[0] + "/" + date[2];
-    //         const month = dateFormater[1]
-    //         console.log(month)
-    //         const x = (arr[month]) + 1
-    //         arr[month] = x;
-    //     }
-    //     state.tasks = [...arr];
-    //     console.log(state.tasks)
-    // },
+    setProjectChart(state = initialState, action) {
+debugger
+        let allData = action.payload
+        console.log(initialState.projects)
+        const arr = [...state.projects];
+        for (let i = 0; i < allData.length; i++) {
+            const date = allData[i].dueDate.split("/");
+            const dateFormater = date[1] + "/" + date[0] + "/" + date[2];
+            const month = dateFormater[1]
+            console.log(month)
+            const x = (arr[month]) + 1
+            arr[month] = x;
+        }
+        state.projects = [...arr];
+        console.log(state.projects)
+    },
     setPaperStatic(state, action) {
         state.leaderStatic.sumPapers = action.payload
     },

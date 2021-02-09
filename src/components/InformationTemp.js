@@ -36,7 +36,7 @@ const useStyles = () => ({
 function Information(props) {
     //  ---filter by: last day,last week,last month,year
     function filterByDay() {
-
+        debugger
         let AllTaskData = (props.AllTask).filter(function (AllTask) {
             const dateTask = AllTask.startDate.split("/")
             const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];

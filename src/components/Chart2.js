@@ -27,13 +27,13 @@ export default function TryChart() {
             },
             yaxis: [
                 {
-                    // axisTicks: {
-                    //     show: true
-                    // },
-                    // axisBorder: {
-                    //     show: true,
-                    //     color: "#FF1654"
-                    // },
+                    axisTicks: {
+                        show: true
+                    },
+                    axisBorder: {
+                        show: true,
+                        // color: "#FF1654"
+                    },
                     // labels: {
                     //     style: {
                     //         colors: "#FF1654"
@@ -103,19 +103,7 @@ export default function TryChart() {
         ],
         options:
         {
-            // colors: [function ({ value }) {
-            //     if (value == 38) {
-            //         return 'rgb(247, 181, 0)'
-            //     }
-            //     else if (value == 11) {
-            //         return 'rgb(1, 220, 209)'
-            //     }
-            //     else if (value == 20) {
-            //         return 'rgb(103, 114, 222)'
-            //     }
-            //     else
-            //         return 'rgb(253, 81, 219)'
-            // }],
+           
             chart: {
                 type: 'line',
                 zoom: {
