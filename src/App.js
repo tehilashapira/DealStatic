@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import store from './Redux/staticStore'
 import InformationTemp from './components/InformationTemp'
  import Chart2 from './components/Chart2'
- import TryChart from './components/TryChart'
+//  import TryChart from './components/TryChart'
 // import TryChart from './components/Chart2';
 // // import TryChart from './components/Chart2';
  
@@ -18,7 +18,7 @@ function App() {
     
       <Chart2></Chart2> 
       
-     <TryChart></TryChart>
+     {/* <TryChart></TryChart> */}
    
        <div style={{marginLeft:"60%" }}> </div>
 
