@@ -19,11 +19,15 @@ export default function TryChart() {
             },
             colors: [' rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgb(253, 81, 219)'],
 
+            // stroke: {
+            //     width: [5, 5, 5, 5]
+            // },
             stroke: {
-                width: [5, 5, 5, 5]
-            },
+                curve: "straight"
+              },
             xaxis: {
-                categories: ['Jan', 'feb', 'marth', 'apr', 'may', 'jun', 'jul', 'aug','sep', 'oct','nov','dic'],
+                categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 
+                'Jun', 'jul', 'Aug','Sep', 'Oct','Nov','Dec'],
             },
             yaxis: [
                 {
@@ -34,12 +38,6 @@ export default function TryChart() {
                         show: true,
                         // color: "#FF1654"
                     },
-                    // labels: {
-                    //     style: {
-                    //         colors: "#FF1654"
-                    //     }
-                    // },
-
                 },
 
             ],
@@ -159,9 +157,7 @@ export default function TryChart() {
                 </div>
                 <div className="col-md-3">
                     < ReactApexChart options={state.op1} series={state.series1} type="line" width="400" height="270" />
-                    
                 </div>
-
             </div>
         </div>
     );
