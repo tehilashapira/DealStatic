@@ -109,7 +109,9 @@ export default function TryChart() {
                 zoom: {
                     enabled: false
                 },
+                
             },
+            backgroundColor:['red','blue','red','blue'],
             dataLabels: {
                 enabled: false
             },
