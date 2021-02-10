@@ -83,14 +83,15 @@ function Information(props) {
 
         })
         let AllTaskData = (props.AllTask).filter(function (AllTask) {
-            debugger
+   
             const dateTask = AllTask.startDate.split("/")
-            const dateFormater = dateTask[0] + "/" + dateTask[1] + "/" + dateTask[2];
+            const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
             return (new Date(dateFormater) >= new Date(dateBeforeYear))
 
         })
         let AllContactData = (props.AllContact).filter(function (AllContact) {
             const dateContact1 = (AllContact.createDateAndTime)
+            debugger
             let detaContact = moment(dateContact1).format("MM/DD/YYYY");
             return (new Date(detaContact) >= new Date(dateBeforeYear))
 
