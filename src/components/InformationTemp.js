@@ -13,6 +13,7 @@ import iconFour from '../img/iconFour.png'
 import { actions } from '../Redux/actions/staticAction'
 import moment from 'moment';
 import { } from 'react-router-dom'
+import {useSelector} from 
 
 
 // -------get new date in correct format to filter data----------------------------------------------------
@@ -33,7 +34,8 @@ const useStyles = () => ({
         background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)'
     },
 })
-function Information(props) {
+export default connect(useStyles(withStyles(function Information(props) {
+    let reducerData=
     //  ---filter by: last day,last week,last month,year
     function filterByDay() {
 
@@ -84,7 +86,7 @@ function Information(props) {
 
         })
         let AllTaskData = (props.AllTask).filter(function (AllTask) {
-   
+
             const dateTask = AllTask.startDate.split("/")
             const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
             return (new Date(dateFormater) >= new Date(dateBeforeYear))
@@ -102,7 +104,7 @@ function Information(props) {
         props.dispatch(actions.setProjectStatic(AllProjectData.length));
         props.dispatch(actions.setPaperStatic(AllPapersData.length));
         props.dispatch(actions.ClickFilter(1));
-        
+
     }
 
     function filterByWeek() {
@@ -289,16 +291,8 @@ function Information(props) {
 
 
 }
-const mapStateToProps = (state) => {
+)
+)
+)
 
-    return {
-        dataStatic: state.staticDetailsReducer.dataStatic,
-        sumStatic: state.staticDetailsReducer.sumStatic,
-        leaderStatic: state.staticDetailsReducer.leaderStatic,
-        AllProject: state.staticDetailsReducer.AllProject,
-        AllPapers: state.staticDetailsReducer.AllPapers,
-        AllTask: state.staticDetailsReducer.AllTask,
-        AllContact: state.staticDetailsReducer.AllContact
-    };
-}
-export default connect(mapStateToProps)(withStyles(useStyles)(Information));
+

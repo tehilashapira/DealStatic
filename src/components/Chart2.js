@@ -5,7 +5,8 @@ import { useSelector } from 'react-redux';
 
 export default function TryChart() {
     const UpdatedData = useSelector(state => state.staticDetailsReducer);
-
+    const is = useSelector(state => state.staticDetailsReducer.isClicked);
+debugger
     const state = {
         op1: {
             chart: {
@@ -149,38 +150,27 @@ export default function TryChart() {
             },
         },
     }
-  
+
+
+
+
     return (
-        
-//  {isClicked === 0 ? < ReactApexChart options={state.op1} 
-//  series={state.series1} type="line" width="400" height="270" /> : ""}
-
-        {UpdatedData.isClicked===0?
-            <div className="container" >
-                <div className="row" style={{ paddingTop: "5%" }}  >
-                    <div className="col-sm-6" >
-                        <ReactApexChart options={state.options} series={state.series} type="bar" width="420" />
-                    </div><div className="col-md-6" >
-                        <Chart options={state.op} series={state.serie} type="donut" width="460" height="250" />
-                    </div>
-                    <div className="row">
-                        <div className="col-md-3">
-                            < ReactApexChart options={state.op1} series={state.series1} type="line" width="400" height="270" />
-                        </div>
-                    </div>
+        <div className="container" >
+            <div className="row" style={{ paddingTop: "5%" }}  >
+                <div className="col-sm-4" >
+                    <ReactApexChart options={state.options} series={state.series} type="bar" width="420" />
                 </div>
-            </div>
-            :
-            <div className="container" >
-                <div className="row" style={{ paddingTop: "5%" }}  >
-                    <div className="col-sm-6" >
-                        <ReactApexChart options={state.options} series={state.series} type="bar" width="420" />
-                    </div><div className="col-md-6" >
-                        <Chart options={state.op} series={state.serie} type="donut" width="460" height="250" />
-                    </div>
+                <div className="col-md-4" >
+                    <Chart options={state.op} series={state.serie} type="donut" width="460" height="250" />
                 </div>
+                {UpdatedData.isClicked === 0 ?
+                    <div className="col-sm-4">
+                     
+                            < ReactApexChart options={state.op1} series={state.series1} type="line" width="800" height="270" />
+                  
+                    </div> : " "}
             </div>
+        </div>
 
-        }
     );
 }

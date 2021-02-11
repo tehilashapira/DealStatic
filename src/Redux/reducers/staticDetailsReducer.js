@@ -10,7 +10,7 @@ const initialState = {
     AllTask: [],
     AllContact: [],
     AllPapers: [],
-    isClicked:0,
+    isClicked: 0,
 
     papers: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     projects: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
