@@ -10,6 +10,7 @@ const initialState = {
     AllTask: [],
     AllContact: [],
     AllPapers: [],
+    isClicked:0,
 
     papers: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     projects: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -159,6 +160,9 @@ const staticData = {
 
         state.AllPapers = action.payload
 
+    },
+    ClickFilter(state, action) {
+        state.isClicked = action.payload
     }
 };
 

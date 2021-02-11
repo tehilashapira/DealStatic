@@ -65,6 +65,7 @@ function Information(props) {
         props.dispatch(actions.setContactStatic(AllContactData.length))
         props.dispatch(actions.setProjectStatic(AllProjectData.length));
         props.dispatch(actions.setPaperStatic(AllPapersData.length));
+        props.dispatch(actions.ClickFilter(1));
 
     }
     function filterByYear() {
@@ -100,7 +101,8 @@ function Information(props) {
         props.dispatch(actions.setTaskStatic(AllTaskData.length))
         props.dispatch(actions.setProjectStatic(AllProjectData.length));
         props.dispatch(actions.setPaperStatic(AllPapersData.length));
-        // props.dispatch(actions.setPaperChart(AllPapersData.createdDate));
+        props.dispatch(actions.ClickFilter(1));
+        
     }
 
     function filterByWeek() {
@@ -134,6 +136,7 @@ function Information(props) {
         props.dispatch(actions.setPaperStatic(AllPapersData.length));
         props.dispatch(actions.setContactStatic(AllContactData.length))
         props.dispatch(actions.setTaskStatic(AllTaskData.length))
+        props.dispatch(actions.ClickFilter(1));
     }
     function filterByMonth() {
         let AllProjectData = (props.AllProject).filter(function (AllProject) {
@@ -166,6 +169,7 @@ function Information(props) {
         props.dispatch(actions.setPaperStatic(AllPapersData.length));
         props.dispatch(actions.setContactStatic(AllContactData.length))
         props.dispatch(actions.setTaskStatic(AllTaskData.length))
+        props.dispatch(actions.ClickFilter(1));
     }
     return (
         <div className="container-fluid mt-5">
