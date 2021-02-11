@@ -5,8 +5,6 @@ import { useSelector } from 'react-redux';
 
 export default function TryChart() {
     const UpdatedData = useSelector(state => state.staticDetailsReducer);
-    const is = useSelector(state => state.staticDetailsReducer.isClicked);
-debugger
     const state = {
         op1: {
             chart: {
@@ -150,27 +148,33 @@ debugger
             },
         },
     }
-
-
-
-
     return (
+
         <div className="container" >
+            {UpdatedData.isClicked === 0 ?
             <div className="row" style={{ paddingTop: "5%" }}  >
-                <div className="col-sm-4" >
+                <div className="col-sm-4" style={{ marginLeft: "-70px" }}>
                     <ReactApexChart options={state.options} series={state.series} type="bar" width="420" />
                 </div>
-                <div className="col-md-4" >
+                <div className="col-md-2" >
                     <Chart options={state.op} series={state.serie} type="donut" width="460" height="250" />
                 </div>
-                {UpdatedData.isClicked === 0 ?
-                    <div className="col-sm-4">
-                     
-                            < ReactApexChart options={state.op1} series={state.series1} type="line" width="800" height="270" />
-                  
-                    </div> : " "}
+                <div className="col-sm-3" style={{ marginLeft: "270px" }}>
+                    < ReactApexChart options={state.op1} series={state.series1} type="line" width="400" height="270" />
+                </div>
+                <div className="container" >
+                    <div className="row" style={{ paddingTop: "5%" }}  >
+                        <div className="col-sm-8" style={{ marginLeft: "10px" }} >
+                            <ReactApexChart options={state.options} series={state.series} type="bar" width="420" />
+                        </div>
+                        <div className="col-md-6" >
+                            <Chart options={state.op} series={state.serie} type="donut" width="460" height="250" />
+                        </div>
+                    </div>
+                </div>
+
             </div>
-        </div>
+        }</div>
 
     );
 }
