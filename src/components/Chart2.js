@@ -149,32 +149,34 @@ export default function TryChart() {
         },
     }
     return (
-
-        <div className="container" >
+        <>
             {UpdatedData.isClicked === 0 ?
-            <div className="row" style={{ paddingTop: "5%" }}  >
-                <div className="col-sm-4" style={{ marginLeft: "-70px" }}>
-                    <ReactApexChart options={state.options} series={state.series} type="bar" width="420" />
-                </div>
-                <div className="col-md-2" >
-                    <Chart options={state.op} series={state.serie} type="donut" width="460" height="250" />
-                </div>
-                <div className="col-sm-3" style={{ marginLeft: "270px" }}>
-                    < ReactApexChart options={state.op1} series={state.series1} type="line" width="400" height="270" />
-                </div>
                 <div className="container" >
                     <div className="row" style={{ paddingTop: "5%" }}  >
-                        <div className="col-sm-8" style={{ marginLeft: "10px" }} >
+                        <div className="col-sm-4" style={{ marginLeft: "-70px" }}>
                             <ReactApexChart options={state.options} series={state.series} type="bar" width="420" />
                         </div>
-                        <div className="col-md-6" >
+                        <div className="col-md-2" >
+                            <Chart options={state.op} series={state.serie} type="donut" width="460" height="250" />
+                        </div>
+                        <div className="col-sm-3" style={{ marginLeft: "270px" }}>
+                            < ReactApexChart options={state.op1} series={state.series1} type="line" width="400" height="270" />
+                        </div>
+                    </div>
+                </div>
+                :
+                <div className="container" >
+
+                    <div className="row" style={{ paddingTop: "5%" }}  >
+                        <div className="col-sm-7" style={{marginLeft:"50px"}} >
+                            <ReactApexChart options={state.options} series={state.series} type="bar" width="420" />
+                        </div>
+                        <div className="col-md-1" style={{marginLeft:"-90px"}}>
                             <Chart options={state.op} series={state.serie} type="donut" width="460" height="250" />
                         </div>
                     </div>
                 </div>
-
-            </div>
-        }</div>
-
+            }
+        </>
     );
 }
