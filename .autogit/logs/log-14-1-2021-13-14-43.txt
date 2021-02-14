@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Sun Feb 14 2021 13:14:43 GMT+0200 (שעון ישראל (חורף))
+------------------------------------------------------
+
+Modified files:
+
+
+Created files:
+* .autogit/logs/log-14-1-2021-12-44-25.txt
+* src/Redux/reducers/reducerDay.js
+
+
+Deleted files:
+
+
+Renamed files:
