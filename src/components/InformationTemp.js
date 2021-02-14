@@ -34,7 +34,7 @@ const useStyles = () => ({
         background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)'
     },
 })
-export default connect()(withStyles(useStyles)(function Information(props) {
+export default withStyles(useStyles)(function Information() {
     const ReducerData = useSelector(state => state.staticDetailsReducer)
     const dispatch = useDispatch()
 
@@ -108,7 +108,6 @@ export default connect()(withStyles(useStyles)(function Information(props) {
         dispatch(actions.ClickFilter(1));
 
     }
-
     function filterByWeek() {
         let AllProjectData = (ReducerData.AllProject).filter(function (AllProject) {
             const dateProject = AllProject.dueDate.split("/")
@@ -180,7 +179,7 @@ export default connect()(withStyles(useStyles)(function Information(props) {
             <div className="row pb-5" style={{ marginRight: '12%', marginLeft: '12%' }} >
                 <div className="col-3 " style={{ fontSize: "30px", font: "normal normal bold 18px/27px Roboto", marginBottom: "15px" }}>
                     leads information
-      </div>
+                </div>
                 <div className="col-3.5" style={{ direction: "rtl" }}>
                     <div className="col-3.5" style={{ direction: "rtl" }}>
                     </div></div>‏
@@ -289,6 +288,6 @@ export default connect()(withStyles(useStyles)(function Information(props) {
             </div>
         </div>
     )
-}))
+})
 
 
