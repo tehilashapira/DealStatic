@@ -110,7 +110,7 @@ export default function TryChart() {
                 },
 
             },
-            backgroundColor: ['red', 'blue', 'red', 'blue'],
+            
             dataLabels: {
                 enabled: false
             },
