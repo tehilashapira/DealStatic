@@ -1,0 +1,17 @@
+-------------------- Auto-Git Log --------------------
+		Mon Feb 15 2021 13:25:17 GMT+0200 (שעון ישראל (חורף))
+------------------------------------------------------
+
+Modified files:
+* .eslintcache
+* src/components/Chart2.js
+
+
+Created files:
+* .autogit/logs/log-15-1-2021-11-52-48.txt
+
+
+Deleted files:
+
+
+Renamed files:
