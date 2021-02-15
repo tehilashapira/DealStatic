@@ -28,20 +28,17 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
         //    Authorization: jwt,
       },
     })
-
       .then((data) => data.json())
       .then((data) => {
-
+        debugger
         //all data for project
         let projectData = data.userProjectsList
         //only sumProject
         let sumProject = data.countProjectsForUser
-
         dispatch(actions.setProjectStatic(sumProject));
         dispatch(actions.setProjectData(projectData));
         dispatch(actions.setProjectChart(projectData));
         console.log(data)
-
       })
     // fetch to get sum tasks for user-------------
     fetch('https://reacthub.dev.leader.codes/api/renana-il/getAllTasksForUser', {
@@ -58,7 +55,6 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
         let taskData = data.userTasksList
         //only sumTask
         let sumTask = (data.countTasksForUser)
-
         dispatch(actions.setTaskStatic(sumTask));
         dispatch(actions.setTaskData(taskData));
         dispatch(actions.setTaskChart(taskData));
@@ -77,8 +73,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
       .then((data) => {
         // let sumPapers = (data.quotes.length)
         let sumPapers = (data.quotes.length)
-        let d=data.quotes
-
+        let d = data.quotes
         dispatch(actions.setPaperStatic(sumPapers));
         dispatch(actions.setPaperData(d));
         dispatch(actions.setPaperChart(d));

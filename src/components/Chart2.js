@@ -90,9 +90,7 @@ export default function TryChart() {
         UpdatedData.leaderStatic.sumTasks],
         series: [
             {
-                // leaderStatic:{sumProjects:0,sumTasks:0,sumPapers:0,sumContacts:0},
                 name: "",
-                // data:[{x: "2019-01-03", y: UpdatedData.leaderStatic.sumProjects}, {x: "2019-01-04", y: 18}]
                 data: [UpdatedData.leaderStatic.sumContacts,
                 UpdatedData.leaderStatic.sumPapers,
                 UpdatedData.leaderStatic.sumProjects,
@@ -108,9 +106,7 @@ export default function TryChart() {
                 zoom: {
                     enabled: false
                 },
-
             },
-            
             dataLabels: {
                 enabled: false
             },
@@ -125,7 +121,6 @@ export default function TryChart() {
                 }
             },
             xaxis: {
-
                 categories: [' contacts', ' papers', 'projects ', 'tasks']
             },
             tooltip: {
