@@ -6,7 +6,7 @@ import { useSelector } from 'react-redux';
 export default function TryChart() {
     const UpdatedData = useSelector(state => state.staticDetailsReducer);
     const state = {
-        op1: {
+        option1: {
             chart: {
                 zoom: { enabled: false },
                 height: 350,
@@ -48,15 +48,15 @@ export default function TryChart() {
         },
         series1: [
 
-
-            {
-                name: "papers",
-                data: [UpdatedData.papers[1], UpdatedData.papers[2], UpdatedData.papers[3], UpdatedData.papers[4], UpdatedData.papers[5], UpdatedData.papers[6], UpdatedData.papers[7], UpdatedData.papers[8], UpdatedData.papers[9], UpdatedData.papers[10], UpdatedData.papers[11], UpdatedData.papers[12]]
-            },
             {
                 name: "contacts",
                 data: [UpdatedData.contacts[1], UpdatedData.contacts[2], UpdatedData.contacts[3], UpdatedData.contacts[4], UpdatedData.contacts[5], UpdatedData.contacts[6], UpdatedData.contacts[7], UpdatedData.contacts[8], UpdatedData.contacts[9], UpdatedData.contacts[10], UpdatedData.contacts[11], UpdatedData.contacts[12]]
             },
+            {
+                name: "papers",
+                data: [UpdatedData.papers[1], UpdatedData.papers[2], UpdatedData.papers[3], UpdatedData.papers[4], UpdatedData.papers[5], UpdatedData.papers[6], UpdatedData.papers[7], UpdatedData.papers[8], UpdatedData.papers[9], UpdatedData.papers[10], UpdatedData.papers[11], UpdatedData.papers[12]]
+            },
+          
             {
                 name: "projects",
                 data: [UpdatedData.projects[1], UpdatedData.projects[2], UpdatedData.projects[3], UpdatedData.projects[4], UpdatedData.projects[5], UpdatedData.projects[6], UpdatedData.projects[7], UpdatedData.projects[8], UpdatedData.projects[9], UpdatedData.projects[10], UpdatedData.projects[11], UpdatedData.projects[12]]
@@ -67,24 +67,24 @@ export default function TryChart() {
             }
 
         ],
-        op: {
+        option2: {
 
             //%%%%%%
             dataLabels: {
                 enabled: true
             },
-            //con pap pro tasks
+            
             labels: ['contacts', 'papers', 'project', 'tasks'],
             //change color
             colors: [' rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgb(253, 81, 219)'],
             //Spacing
             stroke: {
-                width: [5, 7, 5],
+                width: [2, 7, 2],
                 curve: 'straight',
                 dashArray: [0, 8, 5]
             },
         },
-        serie: [UpdatedData.leaderStatic.sumContacts,
+        series2: [UpdatedData.leaderStatic.sumContacts,
         UpdatedData.leaderStatic.sumPapers,
         UpdatedData.leaderStatic.sumProjects,
         UpdatedData.leaderStatic.sumTasks],
@@ -157,10 +157,10 @@ export default function TryChart() {
                             <ReactApexChart options={state.options} series={state.series} type="bar" width="420" />
                         </div>
                         <div className="col-md-2" >
-                            <Chart options={state.op} series={state.serie} type="donut" width="460" height="250" />
+                            <Chart options={state.option2} series={state.series2} type="donut" width="460" height="250" />
                         </div>
                         <div className="col-sm-3" style={{ marginLeft: "270px" }}>
-                            < ReactApexChart options={state.op1} series={state.series1} type="line" width="400" height="270" />
+                            < ReactApexChart options={state.option1} series={state.series1} type="line" width="400" height="270" />
                         </div>
                     </div>
                 </div>
@@ -172,7 +172,7 @@ export default function TryChart() {
                             <ReactApexChart options={state.options} series={state.series} type="bar" width="420" />
                         </div>
                         <div className="col-md-1" style={{marginLeft:"-90px"}}>
-                            <Chart options={state.op} series={state.serie} type="donut" width="460" height="250" />
+                            <Chart options={state.option2} series={state.series2} type="donut" width="460" height="250" />
                         </div>
                     </div>
                 </div>
