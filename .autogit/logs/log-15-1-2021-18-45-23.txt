@@ -1,0 +1,15 @@
+-------------------- Auto-Git Log --------------------
+		Mon Feb 15 2021 18:45:23 GMT+0200 (שעון ישראל (חורף))
+------------------------------------------------------
+
+Modified files:
+
+
+Created files:
+* .autogit/logs/log-15-1-2021-16-43-15.txt
+
+
+Deleted files:
+
+
+Renamed files:
