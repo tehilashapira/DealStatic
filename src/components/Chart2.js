@@ -56,7 +56,7 @@ export default function TryChart() {
                 name: "papers",
                 data: [UpdatedData.papers[1], UpdatedData.papers[2], UpdatedData.papers[3], UpdatedData.papers[4], UpdatedData.papers[5], UpdatedData.papers[6], UpdatedData.papers[7], UpdatedData.papers[8], UpdatedData.papers[9], UpdatedData.papers[10], UpdatedData.papers[11], UpdatedData.papers[12]]
             },
-          
+
             {
                 name: "projects",
                 data: [UpdatedData.projects[1], UpdatedData.projects[2], UpdatedData.projects[3], UpdatedData.projects[4], UpdatedData.projects[5], UpdatedData.projects[6], UpdatedData.projects[7], UpdatedData.projects[8], UpdatedData.projects[9], UpdatedData.projects[10], UpdatedData.projects[11], UpdatedData.projects[12]]
@@ -73,7 +73,7 @@ export default function TryChart() {
             dataLabels: {
                 enabled: true
             },
-            
+
             labels: ['contacts', 'papers', 'project', 'tasks'],
             //change color
             colors: [' rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgb(253, 81, 219)'],
@@ -100,6 +100,14 @@ export default function TryChart() {
         ],
         options:
         {
+
+            colors: [function () {
+                debugger
+                for (let i = 0; i < 4; i++) {
+                  state.series[0].data[i]='#7E36AF'
+                }
+            }
+            ],
 
             chart: {
                 type: 'line',
@@ -163,10 +171,10 @@ export default function TryChart() {
                 <div className="container" >
 
                     <div className="row" style={{ paddingTop: "5%" }}  >
-                        <div className="col-sm-7" style={{marginLeft:"50px"}} >
+                        <div className="col-sm-7" style={{ marginLeft: "50px" }} >
                             <ReactApexChart options={state.options} series={state.series} type="bar" width="420" />
                         </div>
-                        <div className="col-md-1" style={{marginLeft:"-90px"}}>
+                        <div className="col-md-1" style={{ marginLeft: "-90px" }}>
                             <Chart options={state.option2} series={state.series2} type="donut" width="460" height="250" />
                         </div>
                     </div>
