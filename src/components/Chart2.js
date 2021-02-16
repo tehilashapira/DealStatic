@@ -107,17 +107,14 @@ export default function TryChart() {
             colors: [function () {
                 debugger
                 switch (state.options.labels) {
-                    case state.options.labels[0] == 'contacts':
+                    case  'contacts':
                         return '#7E36AF'
-                    case state.options.labels[1] == 'papers':
+                    case   'papers':
                         return '#7E776AF'
-                    case state.options.labels[2] == 'projects':
+                    case  'projects':
                         return '#7E387AF'
-                    case state.options.labels[3] == 'tasks':
+                    case   'tasks':
                         return '#76AF'
-
-                    default:
-                        break;
                 }
             }
             ],
