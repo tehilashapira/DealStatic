@@ -106,11 +106,9 @@ export default function TryChart() {
                 debugger
                 let color=[...state.options.labels];
                 for (let i = 0; i < 4; i++) {
-                    if (color[i] === 'contacts') {
-                        console.log(i)
+                    // alert("i now:"+i)
+                    if (color[i] === 'contacts') 
                         return ' rgb(247, 181, 0)';
-                        break
-                    }
                     else 
                         return 'rgb(253, 81, 219)'; 
                 }
