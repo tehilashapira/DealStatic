@@ -10,7 +10,7 @@ export default function TryChart() {
             chart: {
                 zoom: { enabled: false },
                 height: 350,
-                type: "line",
+                type: "liner",
                 stacked: false
             },
             dataLabels: {
@@ -28,6 +28,7 @@ export default function TryChart() {
                 categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May',
                     'Jun', 'jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
             },
+            
             yaxis: [
                 {
                     axisTicks: {
@@ -102,19 +103,35 @@ export default function TryChart() {
         {
             labels: ['contacts', 'papers', 'projects ', 'tasks'],
 
-            colors: [function () {
-                debugger
-                let color=[...state.options.labels];
-                for (let i = 0; i < 4; i++) {
-                    // alert("i now:"+i)
-                    if (color[i] === 'contacts') 
-                        return ' rgb(247, 181, 0)';
-                    else 
-                        return 'rgb(253, 81, 219)'; 
-                }
-                state.options.labels=[...color]
-            }
-            ],
+            // colors: [function () {
+            //     debugger
+            //     let color = [...state.options.labels];
+            //     for (let i = 0; i < 4; i++) {
+            //         // alert("i now:"+i)
+            //         if (color[i] === 'contacts')
+            //             return ' rgb(247, 181, 0)';
+            //         return 'rgb(253, 81, 219)';
+            //     }
+            //     state.options.labels = [...color]
+            // }
+            // ],
+
+            // colors: [function () {
+                
+
+            //     if (state.options.labels[0] === 'contacts') {
+            //         return(
+            //         state.options.labels[0] == 'rgb(1, 220, 209)'+
+            //         state.options.labels[1] == 'rgb(1, 666, 209)'+
+            //         state.options.labels[2] == 'rgb(1, 220, 209)'+
+            //         state.options.labels[3] == 'rgb(1, 220, 209)'
+            //    ) }
+                // state.options.labels[1] == 'red';
+                // state.options.labels[2] == 'black';
+                // state.options.labels[3] == 'black';
+
+            // }
+            // ],
 
             chart: {
                 type: 'line',
