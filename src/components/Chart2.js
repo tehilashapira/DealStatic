@@ -102,17 +102,19 @@ export default function TryChart() {
         {
             labels: ['contacts', 'papers', 'projects ', 'tasks'],
 
-
-
             colors: [function () {
                 debugger
-               if(state.options.labels){
-                state.options.labels[0].background='red'
-                state.options.labels[1]='#7677767'
-                state.options.labels[2]='#7767'
-                state.options.labels[3]='#768767'
-
-               }
+                let color=[...state.options.labels];
+                for (let i = 0; i < 4; i++) {
+                    if (color[i] === 'contacts') {
+                        console.log(i)
+                        return ' rgb(247, 181, 0)';
+                        break
+                    }
+                    else 
+                        return 'rgb(253, 81, 219)'; 
+                }
+                state.options.labels=[...color]
             }
             ],
 
