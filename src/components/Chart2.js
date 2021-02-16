@@ -100,12 +100,21 @@ export default function TryChart() {
         ],
         options:
         {
+            xaxis: 
+            {categories: [' contacts', ' papers', 'projects ', 'tasks']},
+        
+        
 
             colors: [function () {
                 debugger
-                for (let i = 0; i < 4; i++) {
-                  state.series[0].data[i]='#7E36AF'
-                }
+             switch (state.xaxis.categories) {
+                 case state.series[0].data[0]:
+                     return '#7E36AF'
+                     break;
+             
+                 default:
+                     break;
+             }
             }
             ],
 
@@ -128,9 +137,7 @@ export default function TryChart() {
                     return val + ' - ' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + ''
                 }
             },
-            xaxis: {
-                categories: [' contacts', ' papers', 'projects ', 'tasks']
-            },
+           
             tooltip: {
                 y: [
                     {
