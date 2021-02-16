@@ -28,7 +28,7 @@ export default function TryChart() {
                 categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May',
                     'Jun', 'jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
             },
-            
+
             yaxis: [
                 {
                     axisTicks: {
@@ -103,6 +103,16 @@ export default function TryChart() {
         {
             labels: ['contacts', 'papers', 'projects ', 'tasks'],
 
+
+            colors: [function ({ value }) {
+                if (value==UpdatedData.leaderStatic.sumContacts) {
+                    debugger
+                    console.log(value)
+                    return 'rgb(253, 81, 219)'
+                } else {
+                    return '#D9534F'
+                }
+                        }],
             // colors: [function () {
             //     debugger
             //     let color = [...state.options.labels];
@@ -117,7 +127,7 @@ export default function TryChart() {
             // ],
 
             // colors: [function () {
-                
+
 
             //     if (state.options.labels[0] === 'contacts') {
             //         return(

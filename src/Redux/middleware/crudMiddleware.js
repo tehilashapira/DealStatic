@@ -30,7 +30,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
     })
       .then((data) => data.json())
       .then((data) => {
-        debugger
+        
         //all data for project
         let projectData = data.userProjectsList
         //only sumProject
