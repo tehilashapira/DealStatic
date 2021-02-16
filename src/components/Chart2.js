@@ -100,21 +100,25 @@ export default function TryChart() {
         ],
         options:
         {
-            xaxis: 
-            {categories: [' contacts', ' papers', 'projects ', 'tasks']},
-        
-        
+            labels: ['contacts', 'papers', 'projects ', 'tasks'],
+
+
 
             colors: [function () {
                 debugger
-             switch (state.xaxis.categories) {
-                 case state.series[0].data[0]:
-                     return '#7E36AF'
-                     break;
-             
-                 default:
-                     break;
-             }
+                switch (state.options.labels) {
+                    case state.options.labels[0] == 'contacts':
+                        return '#7E36AF'
+                    case state.options.labels[1] == 'papers':
+                        return '#7E776AF'
+                    case state.options.labels[2] == 'projects':
+                        return '#7E387AF'
+                    case state.options.labels[3] == 'tasks':
+                        return '#76AF'
+
+                    default:
+                        break;
+                }
             }
             ],
 
@@ -137,7 +141,7 @@ export default function TryChart() {
                     return val + ' - ' + opts.w.globals.series[opts.seriesIndex][opts.dataPointIndex] + ''
                 }
             },
-           
+
             tooltip: {
                 y: [
                     {
