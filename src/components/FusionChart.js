@@ -30,20 +30,16 @@ export default function MyComponent() {
             caption: "",
             subcaption: "",
         
-            "bgColor": "#fff",
-            "bgratio": "0,0",
-            "bgAlpha": "0,0",
-            "bgAngle": "0"
             // yaxisname: "Deforested Area{br}(in Hectares)",
             // decimals: "1",
-            // theme: "fusion"
+
         },
         data: [
             {
                 label: "contacts",
                 value: UpdatedData.leaderStatic.sumContacts,
                 "color":'#f7b500',
-                "patternBgColor": "#1122ee"
+                
             },
             {
                 label: "papers",
