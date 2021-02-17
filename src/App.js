@@ -14,6 +14,7 @@ function App() {
         <InformationTemp></InformationTemp>
         <Chart2></Chart2>
         <FusionChart></FusionChart>
+        <AreaChart></AreaChart>
         {/* <AreaChart></AreaChart> */}
 
       </Provider>

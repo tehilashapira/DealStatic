@@ -9,12 +9,21 @@ import { useSelector } from 'react-redux'
 charts(FusionCharts);
 
 export default function MyComponent() {
+    // colors: [' rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgb(253, 81, 219)'],
+
+    const rgbToHex = (r, g, b) => '#' + [r, g, b].map(x => {
+        const hex = x.toString(16)
+        return hex.length === 1 ? '0' + hex : hex
+      }).join('')
+      debugger
+      console.log(rgbToHex(247, 181, 0)); // '#f7b500'
+      console.log(rgbToHex(1, 220, 209)); // "#01dcd1"
+      console.log(rgbToHex(103, 114, 222)); // "#6772de"
+      console.log(rgbToHex(253, 81, 219)); // "#fd51db"
     const UpdatedData = useSelector(state => state.staticDetailsReducer);
     const dataSource = {
         type: 'column3d',
         renderAt: 'chart-container',
-        width: '700',
-        height: '400',
         dataFormat: 'json',
        
         chart: {
@@ -33,25 +42,25 @@ export default function MyComponent() {
             {
                 label: "contacts",
                 value: UpdatedData.leaderStatic.sumContacts,
-                "color":'#ffc107',
+                "color":'#f7b500',
                 "patternBgColor": "#1122ee"
             },
             {
                 label: "papers",
                 value: UpdatedData.leaderStatic.sumPapers,
-                "color": '#20c997'
+                "color": "#01dcd1"
             },
             {
                 label: "projects",
                 value: UpdatedData.leaderStatic.sumProjects,
-                "color": '#6610f2'
+                "color":"#6772de"
     
 
             },
             {
                 label: "tasks",
                 value: UpdatedData.leaderStatic.sumTasks,
-                "color": '#e83e8c'
+                "color":"#fd51db"
 
             }
 
