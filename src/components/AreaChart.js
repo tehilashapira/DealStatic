@@ -34,15 +34,17 @@ export default function ApexChart() {
         ],
         optionsArea: {
             chart: {
+                stacked: false,
                 height: 350,
                 type: 'area'
             },
+          
+            colors: ['rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgb(253, 81, 219)'],
+
             dataLabels: {
                 enabled: false
             },
-            stroke: {
-                curve: 'smooth'
-            },
+          
             xaxis: {
                 categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May',
                     'Jun', 'jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
