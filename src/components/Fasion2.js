@@ -1,72 +1,62 @@
-import FusionCharts from "fusioncharts";
-import charts from "fusioncharts/fusioncharts.charts";
-import ReactFusioncharts from "react-fusioncharts";
+import React from 'react';
+import ReactApexChart from 'react-apexcharts'
+import Chart from "react-apexcharts";
+import { useSelector } from 'react-redux';
+export default class ApexChart extends React.Component {
+    constructor(props) {
+        super(props);
 
-// Resolves charts dependancy
-charts(FusionCharts);
+        this.state = {
 
-const dataSource = {
-  chart: {
-    caption: "Countries with Highest Deforestation Rate",
-    subcaption: "For the year 2017",
-    yaxisname: "Deforested Area{br}(in Hectares)",
-    decimals: "1",
-    theme: "fusion"
-  },
-  data: [
-    {
-      label: "Brazil",
-      value: "1466000"
-    },
-    {
-      label: "Indonesia",
-      value: "1147800"
-    },
-    {
-      label: "Russian Federation",
-      value: "532200"
-    },
-    {
-      label: "Mexico",
-      value: "395000"
-    },
-    {
-      label: "Papua New Guinea",
-      value: "250200"
-    },
-    {
-      label: "Peru",
-      value: "224600"
-    },
-    {
-      label: "U.S.A",
-      value: "215200"
-    },
-    {
-      label: "Bolivia",
-      value: "135200"
-    },
-    {
-      label: "Sudan",
-      value: "117807"
-    },
-    {
-      label: "Nigeria",
-      value: "82000"
+            series: [42, 47, 52, 58, 65],
+            options: {
+                chart: {
+                    width: 380,
+                    type: 'polarArea'
+                },
+                labels: ['Rose A', 'Rose B', 'Rose C', 'Rose D', 'Rose E'],
+                fill: {
+                    opacity: 1
+                },
+                stroke: {
+                    width: 1,
+                    colors: undefined
+                },
+                yaxis: {
+                    show: false
+                },
+                legend: {
+                    position: 'bottom'
+                },
+                plotOptions: {
+                    polarArea: {
+                        rings: {
+                            strokeWidth: 0
+                        }
+                    }
+                },
+                theme: {
+                    monochrome: {
+                        enabled: true,
+                        shadeTo: 'light',
+                        shadeIntensity: 0.6
+                    }
+                }
+            },
+
+
+        };
     }
-  ]
-};
 
-class MyComponent extends React.Component {
-  render() {
-    return (
-      <ReactFusioncharts
-        type="column3d"
-        width="100%"
-        height="100%"
-        dataFormat="JSON"
-        dataSource={dataSource}
-      />
-    );
-  }
+
+
+    render() {
+        return (
+
+
+            <div id="chart">
+                <ReactApexChart options={this.state.options} series={this.state.series} type="polarArea" width={380} />
+            </div>
+        )
+    }
 }
