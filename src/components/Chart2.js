@@ -8,9 +8,11 @@ export default function TryChart() {
     const state = {
         option1: {
             chart: {
+                type: 'area',
+                stacked: false,
                 zoom: { enabled: false },
                 height: 350,
-                type: "liner",
+                // type: "liner",
                 stacked: false
             },
             dataLabels: {
@@ -195,7 +197,7 @@ export default function TryChart() {
                             <Chart options={state.option2} series={state.series2} type="donut" width="460" height="250" />
                         </div>
                         <div className="col-sm-3" style={{ marginLeft: "270px" }}>
-                            < ReactApexChart options={state.option1} series={state.series1} type="line" width="400" height="270" />
+                            < ReactApexChart options={state.option1} series={state.series1} type="area" width="400" height="270" />
                         </div>
                     </div>
                 </div>

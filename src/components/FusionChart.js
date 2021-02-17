@@ -14,33 +14,38 @@ export default function MyComponent() {
         chart: {
             caption: "",
             subcaption: "",
+        
+            "bgColor": "#fff",
+            "bgratio": "0,0",
+            "bgAlpha": "0,0",
+            "bgAngle": "0"
             // yaxisname: "Deforested Area{br}(in Hectares)",
             // decimals: "1",
             // theme: "fusion"
         },
         data: [
-            // colors: [' rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgb(253, 81, 219)'],
-
             {
                 label: "contacts",
                 value: UpdatedData.leaderStatic.sumContacts,
-                "color": ' rgb(247, 181, 0)'
+                "color":'#ffc107',
+                "patternBgColor": "#1122ee"
             },
             {
                 label: "papers",
                 value: UpdatedData.leaderStatic.sumPapers,
-                "color": 'rgb(1, 220, 209)'
+                "color": '#20c997'
             },
             {
                 label: "projects",
                 value: UpdatedData.leaderStatic.sumProjects,
-                "color": rgb(103, 114, 222)
+                "color": '#6610f2'
+    
 
             },
             {
                 label: "tasks",
                 value: UpdatedData.leaderStatic.sumTasks,
-                "color": "#9b59b6" 
+                "color": '#e83e8c'
 
             }
 
@@ -53,7 +58,7 @@ export default function MyComponent() {
             type="column3d"
             width="40%"
             height="50%"
-            dataFormat="JSON"
+            // dataFormat="JSON"
             dataSource={dataSource}
         />
     );
