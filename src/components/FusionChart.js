@@ -24,11 +24,26 @@ export default function MyComponent() {
     const dataSource = {
         type: 'column3d',
         renderAt: 'chart-container',
+        width: '700',
+        height: '400',
         dataFormat: 'json',
+        dataSource: {
+          "chart": {
+            "caption": "Monthly revenue for last year",
+            "subCaption": "Harry's SuperMart",
+            "xAxisName": "Month",
+            "yAxisName": "Revenues (In USD)",
+            theme: "Candy"
+          },
+
+
+        // type: 'column3d',
+        // renderAt: 'chart-container',
+        // dataFormat: 'json',
        
-        chart: {
-            caption: "",
-            subcaption: "",
+        // chart: {
+        //     caption: "",
+        //     subcaption: "",
         
             // yaxisname: "Deforested Area{br}(in Hectares)",
             // decimals: "1",
