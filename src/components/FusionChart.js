@@ -11,6 +11,12 @@ charts(FusionCharts);
 export default function MyComponent() {
     const UpdatedData = useSelector(state => state.staticDetailsReducer);
     const dataSource = {
+        type: 'column3d',
+        renderAt: 'chart-container',
+        width: '700',
+        height: '400',
+        dataFormat: 'json',
+       
         chart: {
             caption: "",
             subcaption: "",

@@ -7,13 +7,37 @@ export default function TryChart() {
     const UpdatedData = useSelector(state => state.staticDetailsReducer);
     const state = {
         option1: {
+            // chart: {
+            //     type: 'area',
+            //     stacked: false,
+            //     zoom: { enabled: false },
+            //     height: 350,
+            //     // type: "liner",
+            //     stacked: false
+            // },
             chart: {
                 type: 'area',
                 stacked: false,
-                zoom: { enabled: false },
                 height: 350,
-                // type: "liner",
-                stacked: false
+                zoom: {
+                    enabled: false
+                },
+            },
+            tooltip: {
+                shared: true
+            },
+            fill: {
+                type: 'gradient',
+                gradient: {
+                    shadeIntensity: 1,
+                    inverseColors: false,
+                    opacityFrom: 0.45,
+                    opacityTo: 0.05,
+                    stops: [20, 100, 100, 100]
+                },
+            },
+            markers: {
+                size: 0,
             },
             dataLabels: {
                 enabled: false
@@ -31,18 +55,35 @@ export default function TryChart() {
                     'Jun', 'jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
             },
 
-            yaxis: [
-                {
-                    axisTicks: {
-                        show: true
+            // yaxis: [
+            //     {
+            //         axisTicks: {
+            //             show: true
+            //         },
+            //         axisBorder: {
+            //             show: true,
+            //             // color: "#FF1654"
+            //         },
+            //     },
+
+            // ],
+            yaxis: {
+                labels: {
+                    style: {
+                        colors: '#8e8da4',
                     },
-                    axisBorder: {
-                        show: true,
-                        // color: "#FF1654"
+                    offsetX: 0,
+                    formatter: function (val) {
+                        return (val / 1000000).toFixed(2);
                     },
                 },
-
-            ],
+                axisBorder: {
+                    show: false,
+                },
+                axisTicks: {
+                    show: false
+                }
+            }, 
             //the plase of labels
             legend: {
                 horizontalAlign: "left",
