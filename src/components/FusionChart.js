@@ -34,6 +34,14 @@ export default function MyComponent() {
                 // "bgImage": "https://upload.wikimedia.org/wikipedia/commons/7/79/Misc_fruit.jpg"
             },
         },
+        fill: {
+            type: 'image',
+            image: {
+              src: ['https://upload.wikimedia.org/wikipedia/commons/7/79/Misc_fruit.jpg'],
+              width: undefined,  // optional
+              height: undefined  //optional
+            }
+          },
         data: [
             {
                 label: "contacts",
