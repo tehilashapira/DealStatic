@@ -7,6 +7,8 @@ import { useSelector } from 'react-redux';
 
 export default function TryChart() {
     const UpdatedData = useSelector(state => state.staticDetailsReducer);
+ 
+    debugger
     const state = {
         option1: {
             chart: {
@@ -119,19 +121,14 @@ export default function TryChart() {
             },
             colors: [function({ value, seriesIndex, w }) {
                 debugger
-                if (value < 30) {
+                
+                if (value>6) {
                     return '#7E36AF'
                 } else {
                     return '#D9534F'
                 }
-              }, function({ value, seriesIndex, w }) {
-                  debugger
-                if (value < 15) {
-                    return '#7E36AF'
-                } else {
-                    return '#D9534F'
-                }
-              }],
+              }
+              ],
             // colors: ['rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114)'],
             dataLabels: {
                 enabled: false
