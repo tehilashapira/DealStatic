@@ -1,0 +1,21 @@
+-------------------- Auto-Git Log --------------------
+		Thu Feb 18 2021 11:05:34 GMT+0200 (שעון ישראל (חורף))
+------------------------------------------------------
+
+Modified files:
+* .eslintcache
+* src/App.js
+* src/components/Chart2.js
+* src/components/FusionChart.js
+* src/components/TotalChart.js
+
+
+Created files:
+* .autogit/logs/log-18-1-2021-10-35-16.txt
+* src/components/FusionChart.css
+
+
+Deleted files:
+
+
+Renamed files:

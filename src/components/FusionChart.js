@@ -24,11 +24,11 @@ export default function MyComponent() {
     const UpdatedData = useSelector(state => state.staticDetailsReducer);
     const dataSource = {
         type: 'column3d',
-        renderAt: 'chart-container',
+        // renderAt: 'chart-container',
         width: '700',
         height: '250',
-        dataFormat: 'json',
-        "theme": "fint",
+        // dataFormat: 'json',
+        "theme": " ",
         dataSource: {
             "chart": {
                 "bgColor": '#fff',

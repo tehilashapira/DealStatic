@@ -208,6 +208,7 @@ export default function TryChart() {
                         <div className="col-md-2" >
                             <Chart options={state.option2} series={state.series2} type="donut" width="460" height="250" />
                         </div>
+                        
                         <div className="col-sm-3" style={{ marginLeft: "270px" }}>
                             < ReactApexChart options={state.option1} series={state.series1} type="area" width="400" height="270" />
                         </div>
