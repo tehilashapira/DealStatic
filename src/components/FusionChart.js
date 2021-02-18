@@ -4,8 +4,6 @@ import FusionCharts from "fusioncharts";
 import charts from "fusioncharts/fusioncharts.charts";
 import ReactFusioncharts from "react-fusioncharts";
 import { useSelector } from 'react-redux'
-
-
 // Resolves charts dependancy
 charts(FusionCharts);
 
@@ -31,8 +29,9 @@ export default function MyComponent() {
         "theme": " ",
         dataSource: {
             "chart": {
-                "bgColor": '#fff',
-                "bgAlpha": "0%",
+                bgColor: "#ff0000",
+                canvasBgColor:"#ff0000",
+                // "bgImage": "https://upload.wikimedia.org/wikipedia/commons/7/79/Misc_fruit.jpg"
             },
         },
         data: [
