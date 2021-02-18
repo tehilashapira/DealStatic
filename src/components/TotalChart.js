@@ -1,12 +1,15 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts'
-import {useSelector} from 'react-redux'
+import { useSelector } from 'react-redux'
 
 export default function ApexChart() {
 
     const UpdatedData = useSelector(state => state.staticDetailsReducer);
-    state = {
-        series: [44, 55, 67, 83],
+    const state = {
+        series: [UpdatedData.leaderStatic.sumContacts,
+        UpdatedData.leaderStatic.sumPapers,
+        UpdatedData.leaderStatic.sumProjects,
+        UpdatedData.leaderStatic.sumTasks],
         options: {
             chart: {
                 height: 350,
@@ -21,18 +24,18 @@ export default function ApexChart() {
                         value: {
                             fontSize: '16px',
                         },
-                        total: {
-                            show: true,
-                            label: 'Total',
-                            formatter: function (w) {
-                                // By default this function returns the average of all series. The below is just an example to show the use of custom formatter function
-                                return 249
-                            }
-                        }
+                        // total: {
+                        //     show: true,
+                        //     label: 'Total',
+                        //     formatter: function (w) {
+                        //         // By default this function returns the average of all series. The below is just an example to show the use of custom formatter function
+                        //         return 249
+                        //     }
+                        // }
                     }
                 }
             },
-            labels: ['Apples', 'Oranges', 'Bananas', 'Berries'],
+            labels: ['contacts', 'papers', 'projects ', 'tasks'],
         },
 
 

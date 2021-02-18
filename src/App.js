@@ -6,6 +6,7 @@ import Chart2 from './components/Chart2'
 import FusionChart from './components/FusionChart'
 import AreaChart from './components/AreaChart'
 import Fasion2 from './components/Fasion2'
+import TotalChart from './components/TotalChart'
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <FusionChart></FusionChart>
         <AreaChart></AreaChart>
         <Fasion2></Fasion2>
+        <TotalChart></TotalChart>
         {/* <AreaChart></AreaChart> */}
 
       </Provider>

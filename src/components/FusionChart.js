@@ -5,6 +5,7 @@ import charts from "fusioncharts/fusioncharts.charts";
 import ReactFusioncharts from "react-fusioncharts";
 import { useSelector } from 'react-redux'
 
+
 // Resolves charts dependancy
 charts(FusionCharts);
 
@@ -14,44 +15,32 @@ export default function MyComponent() {
     const rgbToHex = (r, g, b) => '#' + [r, g, b].map(x => {
         const hex = x.toString(16)
         return hex.length === 1 ? '0' + hex : hex
-      }).join('')
+    }).join('')
     //   debugger
-      console.log(rgbToHex(247, 181, 0)); // '#f7b500'
-      console.log(rgbToHex(1, 220, 209)); // "#01dcd1"
-      console.log(rgbToHex(103, 114, 222)); // "#6772de"
-      console.log(rgbToHex(253, 81, 219)); // "#fd51db"
+    console.log(rgbToHex(247, 181, 0)); // '#f7b500'
+    console.log(rgbToHex(1, 220, 209)); // "#01dcd1"
+    console.log(rgbToHex(103, 114, 222)); // "#6772de"
+    console.log(rgbToHex(253, 81, 219)); // "#fd51db"
     const UpdatedData = useSelector(state => state.staticDetailsReducer);
     const dataSource = {
         type: 'column3d',
         renderAt: 'chart-container',
         width: '700',
-        height: '400',
+        height: '250',
         dataFormat: 'json',
+        "theme": "fint",
         dataSource: {
-          "chart": {
-            "bgColor": "#fd51db",
-            "bgAlpha": "1000"
-          },
-
-
-        // type: 'column3d',
-        // renderAt: 'chart-container',
-        // dataFormat: 'json',
-       
-        // chart: {
-        //     caption: "",
-        //     subcaption: "",
-        
-            // yaxisname: "Deforested Area{br}(in Hectares)",
-            // decimals: "1",
-
+            "chart": {
+                "bgColor": '#fff',
+                "bgAlpha": "0%",
+            },
         },
         data: [
             {
                 label: "contacts",
                 value: UpdatedData.leaderStatic.sumContacts,
-                "color":'#f7b500',
-                
+                "color": '#f7b500',
+
             },
             {
                 label: "papers",
@@ -61,14 +50,14 @@ export default function MyComponent() {
             {
                 label: "projects",
                 value: UpdatedData.leaderStatic.sumProjects,
-                "color":"#6772de"
-    
+                "color": "#6772de"
+
 
             },
             {
                 label: "tasks",
                 value: UpdatedData.leaderStatic.sumTasks,
-                "color":"#fd51db"
+                "color": "#fd51db"
 
             }
 
@@ -77,12 +66,14 @@ export default function MyComponent() {
     };
 
     return (
-        <ReactFusioncharts
-            type="column3d"
-            width="40%"
-            height="50%"
-            // dataFormat="JSON"
-            dataSource={dataSource}
-        />
+        <div id="c">
+            <ReactFusioncharts
+                type="column3d"
+                width="40%"
+                height="
+                210%"
+                // dataFormat="JSON"
+                dataSource={dataSource}
+            /></div>
     );
 }

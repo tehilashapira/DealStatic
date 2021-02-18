@@ -102,9 +102,6 @@ export default function TryChart() {
         options:
         {
             labels: ['contacts', 'papers', 'projects ', 'tasks'],
-           
-           
-           
             colors: [function ({ value }) {
                
                const color=[' rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgb(253, 81, 219)']
@@ -118,13 +115,7 @@ export default function TryChart() {
                         return color[i]}
 
                 }
-                // if (value==UpdatedData.leaderStatic.sumContacts) {
-                //     debugger
-                //     console.log(value)
-                //     return 'rgb(253, 81, 219)'
-                // } else {
-                //     return '#D9534F'
-                // }
+           
                         }],
 
             // colors: [function ({ value }) {
