@@ -10,6 +10,7 @@ export default function TryChart() {
     const state = {
         option1: {
             chart: {
+
                 type: 'area',
                 stacked: false,
                 height: 350,
@@ -20,6 +21,8 @@ export default function TryChart() {
             tooltip: {
                 shared: true
             },
+            דstroke:{
+                curve: 'smooth',},
             dataLabels: {
                 enabled: false
             },
@@ -28,23 +31,23 @@ export default function TryChart() {
                 categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May',
                     'Jun', 'jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
             },
-            yaxis: {
-                labels: {
-                    style: {
-                        colors: '#8e8da4',
-                    },
-                    offsetX: 0,
-                    formatter: function (val) {
-                        return (val / 1000000).toFixed(2);
-                    },
-                },
-                axisBorder: {
-                    show: false,
-                },
-                axisTicks: {
-                    show: false
-                }
-            },
+            // yaxis: {
+            //     labels: {
+            //         style: {
+            //             colors: '#8e8da4',
+            //         },
+            //         offsetX: 0,
+            //         formatter: function (val) {
+            //             return (val / 1000000).toFixed(2);
+            //         },
+            //     },
+            //     axisBorder: {
+            //         show: false,
+            //     },
+            //     axisTicks: {
+            //         show: false
+            //     }
+            // },
             //the plase of labels
             legend: {
                 horizontalAlign: "left",
@@ -111,9 +114,24 @@ export default function TryChart() {
                     enabled: false
                 },
                    theme: {
-                palette: "palette1"
+                palette: "palette5"
               },
             },
+            colors: [function({ value, seriesIndex, w }) {
+                debugger
+                if (value < 30) {
+                    return '#7E36AF'
+                } else {
+                    return '#D9534F'
+                }
+              }, function({ value, seriesIndex, w }) {
+                  debugger
+                if (value < 15) {
+                    return '#7E36AF'
+                } else {
+                    return '#D9534F'
+                }
+              }],
             // colors: ['rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114)'],
             dataLabels: {
                 enabled: false
