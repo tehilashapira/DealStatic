@@ -1,4 +1,4 @@
-import React ,{useEffect} from 'react';
+import React, { useEffect } from 'react';
 import ReactApexChart from 'react-apexcharts'
 import Chart from "react-apexcharts";
 import { useSelector } from 'react-redux';
@@ -7,12 +7,14 @@ import { useSelector } from 'react-redux';
 
 export default function TryChart() {
     const UpdatedData = useSelector(state => state.staticDetailsReducer);
-   debugger
     useEffect(() => {
         debugger
-        if (UpdatedData.leaderStatic.contacts) 
-        document.title ="leaderStatic";
-      }, [UpdatedData.leaderStatic.contacts]);
+        if (UpdatedData.leaderStatic.contacts)
+            document.title = "leaderStatic";
+    }, [UpdatedData.leaderStatic.contacts]);
+
+    debugger
+
     debugger
     const state = {
         option1: {
@@ -28,8 +30,9 @@ export default function TryChart() {
             tooltip: {
                 shared: true
             },
-            דstroke:{
-                curve: 'smooth',},
+            דstroke: {
+                curve: 'smooth',
+            },
             dataLabels: {
                 enabled: false
             },
@@ -104,36 +107,36 @@ export default function TryChart() {
         UpdatedData.leaderStatic.sumProjects,
         UpdatedData.leaderStatic.sumTasks],
 
-        series:[{
-            name:" ",
+        series: [{
+            name: " ",
             data: [UpdatedData.leaderStatic.sumContacts,
-        UpdatedData.leaderStatic.sumPapers,
-        UpdatedData.leaderStatic.sumProjects,
-        UpdatedData.leaderStatic.sumTasks],
-        }] ,
+            UpdatedData.leaderStatic.sumPapers,
+            UpdatedData.leaderStatic.sumProjects,
+            UpdatedData.leaderStatic.sumTasks],
+        }],
         options:
         {
             labels: ['contacts', 'papers', 'projects ', 'tasks'],
-         
+
             chart: {
                 type: 'line',
                 zoom: {
                     enabled: false
                 },
-                   theme: {
-                palette: "palette5"
-              },
+                theme: {
+                    palette: "palette5"
+                },
             },
-            colors: [function({ value, seriesIndex, w }) {
+            colors: [function ({ value, seriesIndex, w }) {
                 debugger
-                
-                if (value>6) {
+
+                if (value > 6) {
                     return '#7E36AF'
                 } else {
                     return '#D9534F'
                 }
-              }
-              ],
+            }
+            ],
             // colors: ['rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114)'],
             dataLabels: {
                 enabled: false
