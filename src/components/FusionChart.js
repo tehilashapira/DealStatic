@@ -29,11 +29,8 @@ export default function MyComponent() {
         dataFormat: 'json',
         dataSource: {
           "chart": {
-            "caption": "Monthly revenue for last year",
-            "subCaption": "Harry's SuperMart",
-            "xAxisName": "Month",
-            "yAxisName": "Revenues (In USD)",
-            theme: "Candy"
+            "bgColor": "#fd51db",
+            "bgAlpha": "1000"
           },
 
 
