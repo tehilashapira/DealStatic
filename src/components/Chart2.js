@@ -1,4 +1,4 @@
-import React from 'react';
+import React ,{useEffect} from 'react';
 import ReactApexChart from 'react-apexcharts'
 import Chart from "react-apexcharts";
 import { useSelector } from 'react-redux';
@@ -7,7 +7,12 @@ import { useSelector } from 'react-redux';
 
 export default function TryChart() {
     const UpdatedData = useSelector(state => state.staticDetailsReducer);
- 
+   debugger
+    useEffect(() => {
+        debugger
+        if (UpdatedData.leaderStatic.contacts) 
+        document.title ="leaderStatic";
+      }, [UpdatedData.leaderStatic.contacts]);
     debugger
     const state = {
         option1: {
