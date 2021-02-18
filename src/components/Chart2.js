@@ -43,7 +43,7 @@ export default function TryChart() {
                 axisTicks: {
                     show: false
                 }
-            }, 
+            },
             //the plase of labels
             legend: {
                 horizontalAlign: "left",
@@ -92,77 +92,25 @@ export default function TryChart() {
         UpdatedData.leaderStatic.sumPapers,
         UpdatedData.leaderStatic.sumProjects,
         UpdatedData.leaderStatic.sumTasks],
-        series:   [UpdatedData.leaderStatic.sumContacts,
-                   UpdatedData.leaderStatic.sumPapers,
-                   UpdatedData.leaderStatic.sumProjects,
-                   UpdatedData.leaderStatic.sumTasks],
 
-           
-        
+        series: [UpdatedData.leaderStatic.sumContacts,
+        UpdatedData.leaderStatic.sumPapers,
+        UpdatedData.leaderStatic.sumProjects,
+        UpdatedData.leaderStatic.sumTasks],
         options:
         {
             labels: ['contacts', 'papers', 'projects ', 'tasks'],
-            colors: [function ({ value }) {
-               
-               const color=[' rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgb(253, 81, 219)']
-                   for (let i=0;i<4;i++){
-                   
-                    if({value}==(state.series)[i]){
-                     
-                        debugger
-                        return color[i]
-                    }else{
-                        return color[i]}
-
-                }
-           
-                        }],
-
-            // colors: [function ({ value }) {
-            //     if (value==UpdatedData.leaderStatic.sumContacts) {
-            //         debugger
-            //         console.log(value)
-            //         return 'rgb(253, 81, 219)'
-            //     } else {
-            //         return '#D9534F'
-            //     }
-            //             }],
-            // colors: [function () {
-            //     debugger
-            //     let color = [...state.options.labels];
-            //     for (let i = 0; i < 4; i++) {
-            //         // alert("i now:"+i)
-            //         if (color[i] === 'contacts')
-            //             return ' rgb(247, 181, 0)';
-            //         return 'rgb(253, 81, 219)';
-            //     }
-            //     state.options.labels = [...color]
-            // }
-            // ],
-
-            // colors: [function () {
-
-
-            //     if (state.options.labels[0] === 'contacts') {
-            //         return(
-            //         state.options.labels[0] == 'rgb(1, 220, 209)'+
-            //         state.options.labels[1] == 'rgb(1, 666, 209)'+
-            //         state.options.labels[2] == 'rgb(1, 220, 209)'+
-            //         state.options.labels[3] == 'rgb(1, 220, 209)'
-            //    ) }
-                // state.options.labels[1] == 'red';
-                // state.options.labels[2] == 'black';
-                // state.options.labels[3] == 'black';
-
-            // }
-            // ],
-
+         
             chart: {
                 type: 'line',
                 zoom: {
                     enabled: false
                 },
+            //        theme: {
+            //     palette: "palette1"
+            //   },
             },
+            colors: ['rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114)'],
             dataLabels: {
                 enabled: false
             },
@@ -208,7 +156,7 @@ export default function TryChart() {
                         <div className="col-md-2" >
                             <Chart options={state.option2} series={state.series2} type="donut" width="460" height="250" />
                         </div>
-                        
+
                         <div className="col-sm-3" style={{ marginLeft: "270px" }}>
                             < ReactApexChart options={state.option1} series={state.series1} type="area" width="400" height="270" />
                         </div>
