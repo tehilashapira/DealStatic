@@ -93,10 +93,13 @@ export default function TryChart() {
         UpdatedData.leaderStatic.sumProjects,
         UpdatedData.leaderStatic.sumTasks],
 
-        series: [UpdatedData.leaderStatic.sumContacts,
+        series:[{
+            name:" ",
+            data: [UpdatedData.leaderStatic.sumContacts,
         UpdatedData.leaderStatic.sumPapers,
         UpdatedData.leaderStatic.sumProjects,
         UpdatedData.leaderStatic.sumTasks],
+        }] ,
         options:
         {
             labels: ['contacts', 'papers', 'projects ', 'tasks'],
@@ -106,11 +109,11 @@ export default function TryChart() {
                 zoom: {
                     enabled: false
                 },
-            //        theme: {
-            //     palette: "palette1"
-            //   },
+                   theme: {
+                palette: "palette1"
+              },
             },
-            colors: ['rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114)'],
+            // colors: ['rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114)'],
             dataLabels: {
                 enabled: false
             },
