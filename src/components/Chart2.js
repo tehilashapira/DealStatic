@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import ReactApexChart from 'react-apexcharts'
 import Chart from "react-apexcharts";
 import { useSelector } from 'react-redux';
+import Mdb from './Mdbreact'
 
 
 
@@ -123,9 +124,10 @@ export default function TryChart() {
                 zoom: {
                     enabled: false
                 },
-                theme: {
-                    palette: "palette1"
-                },
+              
+                backgroundColor: [
+                    'rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgb(253, 81, 219)'
+                ],
             },
         //    colors: tooltip.marker.fillColors=['rgb(1, 220, 209)', 'rgb(103, 114)','rgb(1, 220, 209)', 'rgb(103, 114)'],
             // colors: [function ({ value, seriesIndex, w }) {
@@ -179,7 +181,8 @@ export default function TryChart() {
                 <div className="container" >
                     <div className="row" style={{ paddingTop: "5%" }}  >
                         <div className="col-sm-4" style={{ marginLeft: "-70px" }}>
-                            <ReactApexChart options={state.options} series={state.series} type="bar" width="420" />
+                            {/* <ReactApexChart options={state.options} series={state.series} type="bar" width="420" /> */}
+                            <Mdb ></Mdb>
                         </div>
                         <div className="col-md-2" >
                             <Chart options={state.option2} series={state.series2} type="donut" width="460" height="250" />
