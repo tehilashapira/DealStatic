@@ -6,11 +6,21 @@ import { useSelector } from "react-redux"
 export default function ChartsPage() {
     const UpdatedData = useSelector(state => state.staticDetailsReducer);
 
+    // dataBar: {
+    //     labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+    //     datasets: [
+    //       {
+    //         label: "% of Votes",
+    //         data: [12, 19, 3, 5, 2, 3],
+    //         backgroundColor: [
     const state = {
         dataBar: {
-            labels: ["contact", "papers", "projects", "tasks"],
+          
+            labels: 
+            ["contact", "papers", "projects", "tasks"],
             datasets: [
                 {
+                    label:" ",
                     data: [
                         UpdatedData.leaderStatic.sumContacts,
                         UpdatedData.leaderStatic.sumPapers,
@@ -31,33 +41,10 @@ export default function ChartsPage() {
             responsive: true,
             title: {
                 display: false,},
-            // maintainAspectRatio: true,
-            scales: {
-                height:800,
-                xAxes: [
-                    {
-                  
-                        
-
-                    }
-                ],
-                yAxes: [
-                    {
-
-                    }
-                ]
-            }
         }
     }
-
-
-
     return (
         <div>
-            <Bar data={state.dataBar} options={state.barChartOptions}  width="800" height="700" /></div>
-
-            
-     
-            
+            <Bar data={state.dataBar} options={state.barChartOptions}  width="500" height="370" /></div>     
     );
 }
