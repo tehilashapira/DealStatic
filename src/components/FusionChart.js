@@ -3,6 +3,8 @@ import React from "react";
 import FusionCharts from "fusioncharts";
 import charts from "fusioncharts/fusioncharts.charts";
 import ReactFusioncharts from "react-fusioncharts";
+import Fasion2 from './Fasion2'
+import TotalChart from './TotalChart'
 import { useSelector } from 'react-redux'
 // Resolves charts dependancy
 charts(FusionCharts);
@@ -30,18 +32,18 @@ export default function MyComponent() {
         dataSource: {
             "chart": {
                 bgColor: "#ff0000",
-                canvasBgColor:"#ff0000",
+                canvasBgColor: "#ff0000",
                 // "bgImage": "https://upload.wikimedia.org/wikipedia/commons/7/79/Misc_fruit.jpg"
             },
         },
         fill: {
             type: 'image',
             image: {
-              src: ['https://upload.wikimedia.org/wikipedia/commons/7/79/Misc_fruit.jpg'],
-              width: undefined,  // optional
-              height: undefined  //optional
+                src: ['https://upload.wikimedia.org/wikipedia/commons/7/79/Misc_fruit.jpg'],
+                width: undefined,  // optional
+                height: undefined  //optional
             }
-          },
+        },
         data: [
             {
                 label: "contacts",
@@ -73,6 +75,8 @@ export default function MyComponent() {
     };
 
     return (
+        <>
+    
         <div id="c">
             <ReactFusioncharts
                 type="column3d"
@@ -81,6 +85,10 @@ export default function MyComponent() {
                 210%"
                 // dataFormat="JSON"
                 dataSource={dataSource}
-            /></div>
+            />
+            <Fasion2></Fasion2>
+            <TotalChart></TotalChart>
+        </div>
+        </>
     );
 }

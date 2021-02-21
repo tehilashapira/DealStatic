@@ -127,7 +127,7 @@ export default function TryChart() {
                     palette: "palette1"
                 },
             },
-           colors: tooltip.marker.fillColors
+        //    colors: tooltip.marker.fillColors=['rgb(1, 220, 209)', 'rgb(103, 114)','rgb(1, 220, 209)', 'rgb(103, 114)'],
             // colors: [function ({ value, seriesIndex, w }) {
             //     return 'rgb(247, 181, 0)'
             // }, function ({ value, seriesIndex, w }) {
