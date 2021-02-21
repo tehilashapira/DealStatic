@@ -1,69 +1,84 @@
 import React from "react";
 import { Bar } from "react-chartjs-2";
-import { MDBContainer } from "mdbreact";
+// import { MDBContainer } from "mdbreact";
+import {useSelector} from "react-redux"
 
-export default function ChartsPage () {
-  const state = {
-    dataBar: {
-      labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-      datasets: [
-        {
-          label: "% of Votes",
-          data: [12, 19, 3, 5, 2, 3],
-          backgroundColor: [
-            "rgba(255, 134,159,0.4)",
-            "rgba(98,  182, 239,0.4)",
-            "rgba(255, 218, 128,0.4)",
-            "rgba(113, 205, 205,0.4)",
-            "rgba(170, 128, 252,0.4)",
-            "rgba(255, 177, 101,0.4)"
-          ],
-          borderWidth: 2,
-          borderColor: [
-            "rgba(255, 134, 159, 1)",
-            "rgba(98,  182, 239, 1)",
-            "rgba(255, 218, 128, 1)",
-            "rgba(113, 205, 205, 1)",
-            "rgba(170, 128, 252, 1)",
-            "rgba(255, 177, 101, 1)"
-          ]
+export default function ChartsPage() {
+    const UpdatedData = useSelector(state => state.staticDetailsReducer);
+
+    const state = {
+        dataBar: {
+            labels: ["contact","papers","projects","tasks"],
+            datasets: [
+                {
+                    label: "% of Votes",
+                    data: [
+                        UpdatedData.leaderStatic.sumContacts,
+                          
+            
+                   
+                        UpdatedData.leaderStatic.sumPapers,
+            UpdatedData.leaderStatic.sumProjects,
+                        
+            
+                       UpdatedData.leaderStatic.sumTasks,
+   
+            
+                    
+            
+                    ],
+                    backgroundColor: [
+                        'rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgb(253, 81, 219)'
+
+                    ],
+                    borderWidth: 2,
+                    borderColor: [
+
+            'rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgb(253, 81, 219)'
+
+                      
+                       
+                    ]
+                }
+            ]
+        },
+        barChartOptions: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                xAxes: [
+                    {
+                        barPercentage: 1,
+                        gridLines: {
+                            display: true,
+                            color: "rgba(0, 0, 0, 0.1)"
+                        }
+                    }
+                ],
+                yAxes: [
+                    {
+                        gridLines: {
+                            display: true,
+                            color: "rgba(0, 0, 0, 0.1)"
+                        },
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }
+                ]
+            }
         }
-      ]
-    },
-    barChartOptions: {
-      responsive: true,
-      maintainAspectRatio: false,
-      scales: {
-        xAxes: [
-          {
-            barPercentage: 1,
-            gridLines: {
-              display: true,
-              color: "rgba(0, 0, 0, 0.1)"
-            }
-          }
-        ],
-        yAxes: [
-          {
-            gridLines: {
-              display: true,
-              color: "rgba(0, 0, 0, 0.1)"
-            },
-            ticks: {
-              beginAtZero: true
-            }
-          }
-        ]
-      }
     }
-  }
 
 
-  
+
     return (
-      <MDBContainer>
-        <h3 className="mt-5">Bar chart</h3>
-        <Bar data={state.dataBar} options={state.barChartOptions} />
-      </MDBContainer>
+        <div className="container">
+
+        <div>
+            
+            <Bar data={state.dataBar} options={state.barChartOptions} />
+        </div>
+        </div>
     );
-  }
+}
