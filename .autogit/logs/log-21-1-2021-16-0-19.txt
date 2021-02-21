@@ -1,0 +1,22 @@
+-------------------- Auto-Git Log --------------------
+		Sun Feb 21 2021 16:00:19 GMT+0200 (שעון ישראל (חורף))
+------------------------------------------------------
+
+Modified files:
+* .eslintcache
+* package-lock.json
+* package.json
+* src/App.js
+* src/components/FusionChart.js
+* src/components/mdbreact.js
+
+
+Created files:
+* .autogit/logs/log-21-1-2021-15-29-59.txt
+* src/components/NewChart.js
+
+
+Deleted files:
+
+
+Renamed files:
