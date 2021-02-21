@@ -31,7 +31,6 @@ export default function ChartsPage() {
             responsive: true,
             title: {
                 display: false,},
-              hoverBackgroundColor:false,
             // maintainAspectRatio: true,
             scales: {
                 height:800,
