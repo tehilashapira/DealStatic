@@ -124,20 +124,21 @@ export default function TryChart() {
                     enabled: false
                 },
                 theme: {
-                    palette: "palette5"
+                    palette: "palette1"
                 },
             },
-            colors: [function ({ value, seriesIndex, w }) {
-                debugger
-
-                if (value > 6) {
-                    return '#7E36AF'
-                } else {
-                    return '#D9534F'
-                }
-            }
-            ],
-            // colors: ['rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114)'],
+           colors: tooltip.marker.fillColors
+            // colors: [function ({ value, seriesIndex, w }) {
+            //     return 'rgb(247, 181, 0)'
+            // }, function ({ value, seriesIndex, w }) {
+            //     return 'rgb(0, 181, 0)'
+            // }, function ({ value, seriesIndex, w }) {
+            //     return 'rgb(0, 0, 0)'
+            // }, function ({ value, seriesIndex, w }) {
+            //     return 'rgb(247, 6, 0)'
+            // },
+            // ],
+            // colors: ['', 'rgb(1, 220, 209)', 'rgb(103, 114)'],
             dataLabels: {
                 enabled: false
             },
