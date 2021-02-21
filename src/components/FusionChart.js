@@ -83,7 +83,6 @@ export default function MyComponent() {
                 width="40%"
                 height="
                 210%"
-                // dataFormat="JSON"
                 dataSource={dataSource}
             />
             <Fasion2></Fasion2>

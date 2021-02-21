@@ -5,17 +5,8 @@ import { useSelector } from "react-redux"
 
 export default function ChartsPage() {
     const UpdatedData = useSelector(state => state.staticDetailsReducer);
-
-    // dataBar: {
-    //     labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-    //     datasets: [
-    //       {
-    //         label: "% of Votes",
-    //         data: [12, 19, 3, 5, 2, 3],
-    //         backgroundColor: [
     const state = {
         dataBar: {
-          
             labels: 
             ["contact", "papers", "projects", "tasks"],
             datasets: [
@@ -30,10 +21,6 @@ export default function ChartsPage() {
                     backgroundColor: [
                         'rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgb(253, 81, 219)'
                     ],
-                    // borderWidth: 1,
-                    // borderColor: [
-                    //     'rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgb(253, 81, 219)'
-                    // ]
                 }
             ]
         },

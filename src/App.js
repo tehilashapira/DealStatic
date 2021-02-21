@@ -4,6 +4,7 @@ import store from './Redux/staticStore'
 import InformationTemp from './components/InformationTemp'
 import Chart2 from './components/Chart2'
 import FusionChart from './components/FusionChart'
+import NewChart from './components/NewChart'
 
 function App() {
   return (
@@ -11,7 +12,8 @@ function App() {
       <Provider store={store}>
         <InformationTemp></InformationTemp>
         <Chart2></Chart2>
-        <FusionChart></FusionChart>
+        {/* <FusionChart></FusionChart> */}
+        <NewChart></NewChart>
       </Provider>
     </div>
   );
