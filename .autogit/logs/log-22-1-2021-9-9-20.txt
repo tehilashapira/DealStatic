@@ -1,0 +1,20 @@
+-------------------- Auto-Git Log --------------------
+		Mon Feb 22 2021 09:09:20 GMT+0200 (שעון ישראל (חורף))
+------------------------------------------------------
+
+Modified files:
+* .eslintcache
+* package-lock.json
+* package.json
+* src/components/Chart2.js
+* src/components/mdbreact.js
+
+
+Created files:
+* .autogit/logs/log-22-1-2021-8-39-1.txt
+
+
+Deleted files:
+
+
+Renamed files:

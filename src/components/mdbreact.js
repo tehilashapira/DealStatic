@@ -13,7 +13,7 @@ export default function ChartsPage() {
         /////////////////////////////
     
         const but = e.target;
-        // but.style.display = "none";
+        but.style.display = true;
         let input = window.document.getElementsByClassName("div2PDF")[0];
     
         html2canvas(input).then(canvas => {
