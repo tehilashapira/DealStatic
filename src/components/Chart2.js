@@ -124,12 +124,12 @@ export default function TryChart() {
                 zoom: {
                     enabled: false
                 },
-              
+
                 backgroundColor: [
                     'rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgb(253, 81, 219)'
                 ],
             },
-        //    colors: tooltip.marker.fillColors=['rgb(1, 220, 209)', 'rgb(103, 114)','rgb(1, 220, 209)', 'rgb(103, 114)'],
+            //    colors: tooltip.marker.fillColors=['rgb(1, 220, 209)', 'rgb(103, 114)','rgb(1, 220, 209)', 'rgb(103, 114)'],
             // colors: [function ({ value, seriesIndex, w }) {
             //     return 'rgb(247, 181, 0)'
             // }, function ({ value, seriesIndex, w }) {
@@ -197,10 +197,13 @@ export default function TryChart() {
                 <div className="container" >
 
                     <div className="row" style={{ paddingTop: "5%" }}  >
-                        <div className="col-sm-7" style={{ marginLeft: "50px" }} >
-                            <ReactApexChart options={state.options} series={state.series} type="bar" width="420" />
+                        <div className="col-sm-4" style={{ marginLeft: "80px" }} >
+                            <Mdb ></Mdb>
+                            {/* <div className="col-sm-7" style={{ marginLeft: "50px" }} > */}
+                            {/* <ReactApexChart options={state.options} series={state.series} type="bar" width="420" /> */}
                         </div>
-                        <div className="col-md-1" style={{ marginLeft: "-90px" }}>
+                        {/* <div className="col-md-3" style={{ marginLeft: "-90px" }}> */} 
+                        <div className="col-md-3" style={{ marginLeft: "120px" }}>
                             <Chart options={state.option2} series={state.series2} type="donut" width="460" height="250" />
                         </div>
                     </div>
