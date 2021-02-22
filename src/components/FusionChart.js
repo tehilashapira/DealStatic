@@ -85,7 +85,7 @@ export default function MyComponent() {
                 210%"
                 dataSource={dataSource}
             />
-            <Fasion2></Fasion2>
+            {/* <Fasion2></Fasion2> */}
             <TotalChart></TotalChart>
         </div>
         </>

@@ -181,8 +181,8 @@ export default function TryChart() {
                 <div className="container" >
                     <div className="row" style={{ paddingTop: "5%" }}  >
                         <div className="col-sm-4" style={{ marginLeft: "-70px" }}>
-                            <ReactApexChart options={state.options} series={state.series} type="bar" width="420" />
-                            {/* <Mdb ></Mdb> */}
+                            {/* <ReactApexChart options={state.options} series={state.series} type="bar" width="420" /> */}
+                            <Mdb ></Mdb>
                         </div>
                         <div className="col-md-2" >
                             <Chart options={state.option2} series={state.series2} type="donut" width="460" height="250" />
