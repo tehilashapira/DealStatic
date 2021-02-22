@@ -28,6 +28,13 @@ export default function ChartsPage() {
             responsive: true,
             title: {
                 display: false,},
+                scales: {
+                    xAxes: [{
+                        gridLines: {
+                            offsetGridLines: true
+                        }
+                    }]
+                }
         }
     }
     return (
