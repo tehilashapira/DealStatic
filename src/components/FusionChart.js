@@ -6,7 +6,7 @@ import ReactFusioncharts from "react-fusioncharts";
 import Fasion2 from './Fasion2'
 import TotalChart from './TotalChart'
 import { useSelector } from 'react-redux'
-// Resolves charts dependancy
+
 charts(FusionCharts);
 
 export default function MyComponent() {
