@@ -12,7 +12,7 @@ function App() {
       <Provider store={store}>
         <InformationTemp></InformationTemp>
         <Chart2></Chart2>
-        {/* <FusionChart></FusionChart> */}
+        <FusionChart></FusionChart>
         <NewChart></NewChart>
       </Provider>
     </div>
