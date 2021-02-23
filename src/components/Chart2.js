@@ -38,7 +38,7 @@ export default function TryChart() {
             dataLabels: {
                 enabled: false
             },
-            colors: ['rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgb(253, 81, 219)'],
+            // colors: ['rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgb(253, 81, 219)'],
             xaxis: {
                 categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May',
                     'Jun', 'jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -76,10 +76,10 @@ export default function TryChart() {
             }
         },
         // the plase of labels
-            legend: {
-                horizontalAlign: "left",
-                offsetX: 40
-            }
+            // legend: {
+            //     horizontalAlign: "left",
+            //     offsetX: 40
+            // }
         },
        
         series1: [
