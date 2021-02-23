@@ -34,11 +34,12 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
         //all data for project
         let projectData = data.userProjectsList
         //only sumProject
-        let sumProject = data.countProjectsForUser
+        if(projectData!=null)
+    {    let sumProject = data.countProjectsForUser
         dispatch(actions.setProjectStatic(sumProject));
         dispatch(actions.setProjectData(projectData));
         dispatch(actions.setProjectChart(projectData));
-        console.log(data)
+        console.log(data)}
       })
     // fetch to get sum tasks for user-------------
     fetch('https://reacthub.dev.leader.codes/api/renana-il/getAllTasksForUser', {
@@ -54,11 +55,12 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
         //all data for project
         let taskData = data.userTasksList
         //only sumTask
-        let sumTask = (data.countTasksForUser)
+        if(taskData!=null)
+        {let sumTask = (data.countTasksForUser)
         dispatch(actions.setTaskStatic(sumTask));
         dispatch(actions.setTaskData(taskData));
         dispatch(actions.setTaskChart(taskData));
-        console.log(data)
+        console.log(data)}
       })
     //  fetch to get sum of papers for user-----------------
     fetch('https://papers.dev.leader.codes/api/ruth109476@gmail.com/getAllQuote', {
@@ -72,13 +74,15 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
       .then((data) => data.json())
       .then((data) => {
         // let sumPapers = (data.quotes.length)
+        if(data.quotes!=null){
+          debugger
         let sumPapers = (data.quotes.length)
         let d = data.quotes
         dispatch(actions.setPaperStatic(sumPapers));
         dispatch(actions.setPaperData(d));
         dispatch(actions.setPaperChart(d));
         console.log(data)
-      })
+       } })
     // fetch to get sum of contacts for user----------------------
     fetch('https://api.dev.leader.codes/blabla101/getContacts/?includesConversations=false', {
       method: 'GET',
@@ -93,13 +97,15 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
         //all data for contact
         let contactData = dataContact
         //only sumContact
+        if(contactData!=null){
+          debugger
         let sumContact = (dataContact.length)
 
         dispatch(actions.setContactStatic(sumContact));
         dispatch(actions.setContactData(contactData));
         dispatch(actions.setContactChart(contactData));
         console.log(contactData)
-      })
+      } })
   }
   return next(action)
 }
