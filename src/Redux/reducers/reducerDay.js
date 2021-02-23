@@ -17,6 +17,7 @@ const staticData = {
         console.log(initialState.tasks)
         const arr = [...state.tasks];
         for (let i = 0; i < arr.length; i++) {
+
             const date1 = allData[i].startDate.split("/")
             let date2 = date1[0]
             if (date2[0] != 0) {
@@ -37,17 +38,15 @@ const staticData = {
         let allData = action.payload
         const arr = [...state.projects];
         for (let i = 0; i < allData.length; i++) {
-            const date1 = allData[i].dueDate.split("/")
-            let date2 = date1[0]
-            if (date2[0] != 0) {
-                const x = (arr[date2]) + 1
-                arr[date2] = x;
-            }
-            else {
-                date2 = date2[1]
-                const x = (arr[date2]) + 1
-                arr[date2] = x;
-            }
+            let day = allData[i].dueDate
+           let m= moment(day).weekday()
+            console.log(moment().isoWeekday())
+           let d= moment(day).isoWeekday()
+            const date = moment(day); // Thursday Feb 2015
+            debugger
+            const dow = date.day();
+            const x = (arr[dow]) + 1
+            arr[dow] = x;
         }
         state.projects = [...arr];
         console.log(state.projects)
