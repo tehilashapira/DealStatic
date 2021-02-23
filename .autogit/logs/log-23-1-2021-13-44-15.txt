@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Tue Feb 23 2021 13:44:15 GMT+0200 (שעון ישראל (חורף))
+------------------------------------------------------
+
+Modified files:
+* .eslintcache
+* src/Redux/reducers/staticDetailsReducer.js
+* src/components/Chart2.js
+
+
+Created files:
+* .autogit/logs/log-23-1-2021-13-13-47.txt
+
+
+Deleted files:
+
+
+Renamed files:
