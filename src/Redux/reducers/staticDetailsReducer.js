@@ -60,7 +60,7 @@ debugger
         let allData = action.payload
         console.log(initialState.tasks)
         const arr = [...state.tasks];
-        for (let i = 0; i < allData.length; i++) {
+        for (let i = 0; i <9; i++) {
 
             const date1 = allData[i].startDate.split("/")
             let date2 = date1[1]

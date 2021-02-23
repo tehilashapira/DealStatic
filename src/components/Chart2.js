@@ -187,7 +187,7 @@ export default function TryChart() {
     }
     return (
         <>
-            {UpdatedData.isClicked === 0 ?
+            {/* {UpdatedData.isClicked === 0 ? */}
                 <div className="container" >
                     <div className="row" style={{ paddingTop: "5%" }}  >
                         <div className="col-sm-4" style={{ marginLeft: "-70px" }}>
@@ -207,7 +207,7 @@ export default function TryChart() {
                         </div>
                     </div>
                 </div>
-                :
+                {/* : */}
                 <div className="container" >
 
                     <div className="row" style={{ paddingTop: "5%" }}  >
@@ -224,7 +224,7 @@ export default function TryChart() {
                         </div>
                     </div>
                 </div>
-            }
+            {/* } */}
         </>
     );
 }
