@@ -96,7 +96,7 @@ export default withStyles(useStyles)(function Information() {
         })
         let AllContactData = (ReducerData.AllContact).filter(function (AllContact) {
             const dateContact1 = (AllContact.createDateAndTime)
-            debugger
+
             let detaContact = moment(dateContact1).format("MM/DD/YYYY");
             return (new Date(detaContact) >= new Date(dateBeforeYear))
 

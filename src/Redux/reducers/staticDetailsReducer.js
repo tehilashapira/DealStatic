@@ -56,7 +56,7 @@ const staticData = {
         state.AllTask = action.payload
     },
     setTaskChart(state = initialState, action) {
-
+debugger
         let allData = action.payload
         console.log(initialState.tasks)
         const arr = [...state.tasks];
@@ -78,7 +78,7 @@ const staticData = {
         console.log(state.tasks)
     },
     setProjectChart(state = initialState, action) {
-
+debugger
         let allData = action.payload
         const arr = [...state.projects];
         for (let i = 0; i < allData.length; i++) {

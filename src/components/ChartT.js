@@ -32,6 +32,36 @@ export default function ApexChart() {
 
     ],
     options: {
+      grid: {
+        show: true,
+        borderColor: '#90A4AE',
+        strokeDashArray: 0,
+        position: 'back',
+        xaxis: {
+            lines: {
+                show: false
+            }
+        },   
+        yaxis: {
+            lines: {
+                show: false
+            }
+        },  
+        row: {
+            colors: undefined,
+            // opacity: 0.5
+        },  
+        column: {
+            colors: undefined,
+            // opacity: 0.5
+        },  
+        padding: {
+            top: 0,
+            right: 0,
+            bottom: 0,
+            left: 0
+        },  
+    },
       chart: {
         background: '#fff',
         height: 350,
@@ -43,9 +73,7 @@ export default function ApexChart() {
       stroke: {
         curve: 'smooth',
         // lineCap: 'butt',
-
         width: 3,
-
       },
 
       xaxis: {

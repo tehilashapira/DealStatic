@@ -12,14 +12,14 @@ import ChartT from './ChartT'
 export default function TryChart() {
     const UpdatedData = useSelector(state => state.staticDetailsReducer);
     useEffect(() => {
-        debugger
+
         if (UpdatedData.leaderStatic.contacts)
             document.title = "leaderStatic";
     }, [UpdatedData.leaderStatic.contacts]);
 
-    debugger
 
-    debugger
+
+
     const state = {
         option1: {
             chart: {
@@ -126,7 +126,7 @@ export default function TryChart() {
                 borderRadius: 6,
                 columnWidth: '15%',
                 distributed: true,
-              },
+            },
             labels: ['contacts', 'papers', 'projects ', 'tasks'],
 
             chart: {
@@ -193,10 +193,10 @@ export default function TryChart() {
                         <div className="col-sm-4" style={{ marginLeft: "-70px" }}>
                             {/* <ReactApexChart options={state.options} series={state.series} type="bar" width="420" /> */}
                             <BarT></BarT>
-                           
+
                             {/* <Mdb ></Mdb> */}
                         </div>
-                        <div className="col-md-2" style={{marginLeft:"90px"}}>
+                        <div className="col-md-2" style={{ marginLeft: "90px" }}>
                             {/* <Chart options={state.option2} series={state.series2} type="donut" width="460" height="250" /> */}
                             <TotalChart></TotalChart>
                         </div>
@@ -217,7 +217,7 @@ export default function TryChart() {
                             {/* <div className="col-sm-7" style={{ marginLeft: "50px" }} > */}
                             {/* <ReactApexChart options={state.options} series={state.series} type="bar" width="420" /> */}
                         </div>
-                        {/* <div className="col-md-3" style={{ marginLeft: "-90px" }}> */} 
+                        {/* <div className="col-md-3" style={{ marginLeft: "-90px" }}> */}
                         <div className="col-md-3" style={{ marginLeft: "120px" }}>
                             {/* <Chart options={state.option2} series={state.series2} type="donut" width="460" height="250" /> */}
                             <TotalChart></TotalChart>

@@ -15,6 +15,36 @@ export default function  ApexChart() {
             UpdatedData.leaderStatic.sumTasks]
         }],
         options: {
+          grid: {
+            show: true,
+            borderColor: '#90A4AE',
+            strokeDashArray: 0,
+            position: 'back',
+            xaxis: {
+                lines: {
+                    show: false
+                }
+            },   
+            yaxis: {
+                lines: {
+                    show: false
+                }
+            },  
+            row: {
+                colors: undefined,
+                opacity: 0.5
+            },  
+            column: {
+                colors: undefined,
+                opacity: 0.5
+            },  
+            padding: {
+                top: 0,
+                right: 0,
+                bottom: 0,
+                left: 0
+            },  
+        },
          
             chart: {
             height: 350,
