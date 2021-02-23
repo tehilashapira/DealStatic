@@ -2,7 +2,10 @@ import React, { useEffect } from 'react';
 import ReactApexChart from 'react-apexcharts'
 import Chart from "react-apexcharts";
 import { useSelector } from 'react-redux';
-import Mdb from './Mdbreact'
+// import Mdb from './Mdbreact'
+import BarT from './BarT'
+import TotalChart from './TotalChart'
+import ChartT from './ChartT'
 
 
 
@@ -117,6 +120,11 @@ export default function TryChart() {
         }],
         options:
         {
+            bar: {
+                borderRadius: 6,
+                columnWidth: '15%',
+                distributed: true,
+              },
             labels: ['contacts', 'papers', 'projects ', 'tasks'],
 
             chart: {
@@ -182,14 +190,18 @@ export default function TryChart() {
                     <div className="row" style={{ paddingTop: "5%" }}  >
                         <div className="col-sm-4" style={{ marginLeft: "-70px" }}>
                             {/* <ReactApexChart options={state.options} series={state.series} type="bar" width="420" /> */}
-                            <Mdb ></Mdb>
+                            <BarT></BarT>
+                           
+                            {/* <Mdb ></Mdb> */}
                         </div>
-                        <div className="col-md-2" >
-                            <Chart options={state.option2} series={state.series2} type="donut" width="460" height="250" />
+                        <div className="col-md-2" style={{marginLeft:"90px"}}>
+                            {/* <Chart options={state.option2} series={state.series2} type="donut" width="460" height="250" /> */}
+                            <TotalChart></TotalChart>
                         </div>
 
-                        <div className="col-sm-3" style={{ marginLeft: "270px" }}>
-                            < ReactApexChart options={state.option1} series={state.series1} type="area" width="400" height="270" />
+                        <div className="col-sm-3" style={{ marginLeft: "150px" }}>
+                            {/* < ReactApexChart options={state.option1} series={state.series1} type="area" width="400" height="270" /> */}
+                            <ChartT></ChartT>
                         </div>
                     </div>
                 </div>
@@ -198,13 +210,15 @@ export default function TryChart() {
 
                     <div className="row" style={{ paddingTop: "5%" }}  >
                         <div className="col-sm-4" style={{ marginLeft: "80px" }} >
-                            <Mdb ></Mdb>
+                            {/* <Mdb ></Mdb> */}
+                            <BarT></BarT>
                             {/* <div className="col-sm-7" style={{ marginLeft: "50px" }} > */}
                             {/* <ReactApexChart options={state.options} series={state.series} type="bar" width="420" /> */}
                         </div>
                         {/* <div className="col-md-3" style={{ marginLeft: "-90px" }}> */} 
                         <div className="col-md-3" style={{ marginLeft: "120px" }}>
-                            <Chart options={state.option2} series={state.series2} type="donut" width="460" height="250" />
+                            {/* <Chart options={state.option2} series={state.series2} type="donut" width="460" height="250" /> */}
+                            <TotalChart></TotalChart>
                         </div>
                     </div>
                 </div>

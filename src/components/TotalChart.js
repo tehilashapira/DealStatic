@@ -44,8 +44,8 @@ export default function ApexChart() {
     return (
 
 
-        <div id="chart">
-            <ReactApexChart options={state.options} series={state.series} type="radialBar" height={350} />
+        <div className="col-md-2" id="chart">
+            <ReactApexChart options={state.options} series={state.series} type="radialBar" height={270} width={270} />
         </div>
     )
 }
