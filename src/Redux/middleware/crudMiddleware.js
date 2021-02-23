@@ -39,6 +39,8 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
           dispatch(actions.setProjectStatic(sumProject));
           dispatch(actions.setProjectData(projectData));
           dispatch(actions.setProjectChart(projectData));
+          dispatch(actions.ProjectChartDay(projectData));
+          debugger
           console.log(data)
         }
       })
