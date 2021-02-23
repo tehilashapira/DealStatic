@@ -76,18 +76,18 @@ export default function MyComponent() {
 
     return (
         <>
-    
-        <div id="c">
-            <ReactFusioncharts
-                type="column3d"
-                width="40%"
-                height="
+
+            <div id="c">
+                <ReactFusioncharts
+                    type="column3d"
+                    width="40%"
+                    height="
                 210%"
-                dataSource={dataSource}
-            />
-            {/* <Fasion2></Fasion2> */}
-            <TotalChart></TotalChart>
-        </div>
+                    dataSource={dataSource}
+                />
+                {/* <Fasion2></Fasion2> */}
+                <TotalChart></TotalChart>
+            </div>
         </>
     );
 }

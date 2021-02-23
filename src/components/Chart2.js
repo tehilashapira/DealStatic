@@ -20,7 +20,7 @@ export default function TryChart() {
     const state = {
         option1: {
             chart: {
-
+                background: '#fff',
                 type: 'area',
                 stacked: false,
                 height: 350,
@@ -31,8 +31,9 @@ export default function TryChart() {
             tooltip: {
                 shared: true
             },
-            דstroke: {
+            stroke: {
                 curve: 'smooth',
+                width:1
             },
             dataLabels: {
                 enabled: false
@@ -42,29 +43,45 @@ export default function TryChart() {
                 categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May',
                     'Jun', 'jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
             },
-            // yaxis: {
-            //     labels: {
-            //         style: {
-            //             colors: '#8e8da4',
-            //         },
-            //         offsetX: 0,
-            //         formatter: function (val) {
-            //             return (val / 1000000).toFixed(2);
-            //         },
+            //  fill: {
+            //     colors: undefined,
+            //     opacity: 0.9,
+            //     type: 'gradient',
+            //     gradient: {
+            //         shade: 'light',
+            //         type: "diagonal1",
             //     },
-            //     axisBorder: {
-            //         show: false,
-            //     },
-            //     axisTicks: {
-            //         show: false
-            //     }
             // },
-            //the plase of labels
+            markers: {
+                size: 0,
+                hover: {
+                    sizeOffset: 6
+                }
+            },
+        yaxis: {
+            labels: {
+                style: {
+                    colors: '#8e8da4',
+                },
+                offsetX: 0,
+                formatter: function (val) {
+                    return (val / 1000000).toFixed(2);
+                },
+            },
+            axisBorder: {
+                show: false,
+            },
+            axisTicks: {
+                show: false
+            }
+        },
+        // the plase of labels
             legend: {
                 horizontalAlign: "left",
                 offsetX: 40
             }
         },
+       
         series1: [
 
             {
@@ -129,18 +146,6 @@ export default function TryChart() {
                     'rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgb(253, 81, 219)'
                 ],
             },
-            //    colors: tooltip.marker.fillColors=['rgb(1, 220, 209)', 'rgb(103, 114)','rgb(1, 220, 209)', 'rgb(103, 114)'],
-            // colors: [function ({ value, seriesIndex, w }) {
-            //     return 'rgb(247, 181, 0)'
-            // }, function ({ value, seriesIndex, w }) {
-            //     return 'rgb(0, 181, 0)'
-            // }, function ({ value, seriesIndex, w }) {
-            //     return 'rgb(0, 0, 0)'
-            // }, function ({ value, seriesIndex, w }) {
-            //     return 'rgb(247, 6, 0)'
-            // },
-            // ],
-            // colors: ['', 'rgb(1, 220, 209)', 'rgb(103, 114)'],
             dataLabels: {
                 enabled: false
             },
@@ -202,7 +207,7 @@ export default function TryChart() {
                             {/* <div className="col-sm-7" style={{ marginLeft: "50px" }} > */}
                             {/* <ReactApexChart options={state.options} series={state.series} type="bar" width="420" /> */}
                         </div>
-                        {/* <div className="col-md-3" style={{ marginLeft: "-90px" }}> */} 
+                        {/* <div className="col-md-3" style={{ marginLeft: "-90px" }}> */}
                         <div className="col-md-3" style={{ marginLeft: "120px" }}>
                             <Chart options={state.option2} series={state.series2} type="donut" width="460" height="250" />
                         </div>
