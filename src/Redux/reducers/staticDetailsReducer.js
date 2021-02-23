@@ -56,12 +56,11 @@ const staticData = {
         state.AllTask = action.payload
     },
     setTaskChart(state = initialState, action) {
-debugger
+        debugger
         let allData = action.payload
         console.log(initialState.tasks)
         const arr = [...state.tasks];
-        for (let i = 0; i <9; i++) {
-
+        for (let i = 0; i < 9; i++) {
             const date1 = allData[i].startDate.split("/")
             let date2 = date1[1]
             if (date2[0] != 0) {
@@ -78,14 +77,12 @@ debugger
         console.log(state.tasks)
     },
     setProjectChart(state = initialState, action) {
-debugger
+        debugger
         let allData = action.payload
         const arr = [...state.projects];
         for (let i = 0; i < allData.length; i++) {
-
             const date1 = allData[i].dueDate.split("/")
             let date2 = date1[1]
-
             if (date2[0] != 0) {
                 const x = (arr[date2]) + 1
                 arr[date2] = x;
@@ -100,12 +97,10 @@ debugger
         console.log(state.projects)
     },
     setPaperChart(state = initialState, action) {
-
         let allData = action.payload
         console.log(initialState.papers)
         const arr = [...state.papers];
         for (let i = 0; i < allData.length; i++) {
-
             const date1 = allData[i].createdDate
             let date11 = moment(date1).format("MM/DD/YYYY").split("/")
             let date2 = date11[0]
@@ -121,14 +116,11 @@ debugger
         }
         state.papers = [...arr];
     },
-
     setContactChart(state = initialState, action) {
-
         let allData = action.payload
         console.log(initialState.contacts)
         const arr = [...state.contacts];
         for (let i = 0; i < allData.length; i++) {
-
             const date1 = allData[i].createDateAndTime
             let date11 = moment(date1).format("MM/DD/YYYY").split("/")
             let date2 = date11[0]
@@ -142,28 +134,21 @@ debugger
                 arr[date2] = x;
             }
         }
-
         state.contacts = [...arr];
     },
     setPaperStatic(state, action) {
         state.leaderStatic.sumPapers = action.payload
     },
-
     setContactStatic(state, action) {
         state.leaderStatic.sumContacts = action.payload
     },
     setContactData(state, action) {
-
         state.AllContact = action.payload
-
     }, setPaperData(state, action) {
-
         state.AllPapers = action.payload
-
     },
     ClickFilter(state, action) {
         state.isClicked = action.payload
     }
 };
-
 export default produce((state, action) => createReducer(state, action, staticData), initialState);
