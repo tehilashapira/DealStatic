@@ -189,7 +189,7 @@ export default function TryChart() {
                         </div>
 
                         <div className="col-sm-3" style={{ marginLeft: "270px" }}>
-                            < ReactApexChart options={state.option1} series={state.series1} type="area" width="400" height="270" />
+                            < ReactApexChart options={state.option1} series={state.series1} type="line" width="400" height="270" />
                         </div>
                     </div>
                 </div>
