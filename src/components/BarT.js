@@ -52,7 +52,7 @@ export default function ApexChart() {
         //   }
         // }
       },
-      colors: ['rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgb(253, 81, 219)'],
+      colors: ['rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgba(255, 69, 96, 0.85)'],
       plotOptions: {
         bar: {
           borderRadius: 6,

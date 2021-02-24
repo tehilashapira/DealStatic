@@ -1,0 +1,17 @@
+-------------------- Auto-Git Log --------------------
+		Wed Feb 24 2021 10:48:14 GMT+0200 (שעון ישראל (חורף))
+------------------------------------------------------
+
+Modified files:
+* .eslintcache
+* src/components/TotalChart.js
+
+
+Created files:
+* .autogit/logs/log-23-1-2021-23-58-4.txt
+
+
+Deleted files:
+
+
+Renamed files:
