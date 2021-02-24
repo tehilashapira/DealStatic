@@ -3,9 +3,15 @@ import ReactApexChart from 'react-apexcharts'
 import { useSelector } from 'react-redux'
 
 export default function ApexChart() {
-
+  
     const UpdatedData = useSelector(state => state.staticDetailsReducer);
+    debugger
+    const  sumAll=(UpdatedData.leaderStatic.sumContacts+
+        UpdatedData.leaderStatic.sumPapers+
+        UpdatedData.leaderStatic.sumProjects+
+        UpdatedData.leaderStatic.sumTasks)
     const state = {
+       
         series: [UpdatedData.leaderStatic.sumContacts,
         UpdatedData.leaderStatic.sumPapers,
         UpdatedData.leaderStatic.sumProjects,
@@ -24,14 +30,28 @@ export default function ApexChart() {
                         value: {
                             fontSize: '16px',
                         },
-                        // total: {
-                        //     show: true,
-                        //     label: 'Total',
-                        //     formatter: function (w) {
-                        //         // By default this function returns the average of all series. The below is just an example to show the use of custom formatter function
-                        //         return 249
-                        //     }
-                        // }
+                        
+                        value: {
+                            show: true,
+                            fontSize: '14px',
+                            fontFamily: undefined,
+                            fontWeight: 400,
+                            color: undefined,
+                            offsetY: 16,
+                            formatter: function (val) {
+                              return val 
+                            }
+                          },
+                          total: {
+                            show: true,
+                            label: 'Total',
+                            formatter:function (w) {
+                                return w.globals.seriesTotals.reduce((a, b) => {
+                                  return a + b
+                                }, 0)
+                              }
+                            
+                        },
                     }
                 }
             },
