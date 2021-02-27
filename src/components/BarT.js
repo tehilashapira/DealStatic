@@ -1,6 +1,7 @@
-import React from 'react';
+
 import ReactApexChart from 'react-apexcharts'
 import { useSelector } from 'react-redux'
+import react from 'react'
 
 export default function ApexChart() {
   const UpdatedData = useSelector(state => state.staticDetailsReducer);
@@ -13,6 +14,14 @@ export default function ApexChart() {
       UpdatedData.leaderStatic.sumTasks]
     }],
     options: {
+      xaxis: {
+        type: 'category',
+        categories: [],
+        labels: {
+          show: false
+        }
+      },
+
       grid: {
         show: true,
         borderColor: '#90A4AE',
@@ -21,12 +30,16 @@ export default function ApexChart() {
         xaxis: {
           lines: {
             show: false
-          }
+          },
+          labels: {
+            show: false
+          },
         },
         yaxis: {
           lines: {
             show: false
-          }
+          },
+
         },
         row: {
           colors: undefined,
@@ -36,21 +49,16 @@ export default function ApexChart() {
           colors: undefined,
           opacity: 0.5
         },
-        padding: {
-          top: 0,
-          right: 0,
-          bottom: 0,
-          left: 0
-        },
+
       },
       chart: {
         height: 350,
         type: 'bar',
-        // events: {
-        //   click: function(chart, w, e) {
-        //     // console.log(chart, w, e)
-        //   }
-        // }
+        background: '#f8f9fa',
+        toolbar: {
+          show: false
+        }
+
       },
       colors: ['rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgba(255, 69, 96, 0.85)'],
       plotOptions: {
@@ -62,21 +70,66 @@ export default function ApexChart() {
       },
       labels: ['contacts', 'papers', 'projects ', 'tasks'],
       dataLabels: {
+        show: false,
         enabled: false
       },
+      // ----מקרא מפה למטה
       legend: {
-        show: false
+        show: false,
+        display: false
       },
-      // fillSeriesColor: ['rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgb(253, 81, 219)'],
-      xaxis: {
+      tooltip: {
+        enabled: true,
+        enabledOnSeries: undefined,
+        shared: false,
+        followCursor: false,
+        intersect: false,
+        inverseOrder: false,
+        custom: undefined,
+        fillSeriesColor: false,
+        theme: true,
+        style: {
+          fontSize: '12px',
+          fontFamily: undefined
+        },
+        onDatasetHover: {
+          highlightDataSeries: true,
+        },
+        x: {
+          show: true,
+          format: 'dd MMM',
+          formatter: undefined,
 
-        labels: {
-          style: {
-            //  colors: ['rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgb(253, 81, 219)'],
-            fontSize: '12px'
-          }
-        }
+        },
+        y: {
+          // show: true,
+          formatter: undefined,
+          title: {
+            formatter: (seriesName) => seriesName,
+          },
+        },
+        // z: {
+        //   formatter: undefined,
+        //   title: 'Size: '
+        // },
+        marker: {
+          show: true,
+        },
+        // items: {
+        //    display: flex,
+        // },
+        fixed: {
+          enabled: false,
+          position: 'topRight',
+          offsetX: 0,
+          offsetY: 0,
+        },
       }
+
+
+
+      // fillSeriesColor: ['rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgb(253, 81, 219)'],
+
     },
 
 

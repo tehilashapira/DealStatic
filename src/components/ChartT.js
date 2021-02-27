@@ -9,7 +9,6 @@ export default function ApexChart() {
 
 
   const state = {
-
     series: [
 
       {
@@ -32,93 +31,49 @@ export default function ApexChart() {
 
     ],
     options: {
+      legend: {
+        show:false,
+      },
+      scales: {
+      },
+      colors: [' rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgba(255, 69, 96, 0.85)'],
+      chart: {
+        background: '#f8f9fa',
+        zoom: { enabled: false },
+        height: 350,
+        type: "line",
+        stacked: false,
+        toolbar: {
+          show: false
+        }
+      },
+      dataLabels: {
+        enabled: false
+      },
+      // colors: [' rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgb(253, 81, 219)'],
       grid: {
         show: false,
         borderColor: '#90A4AE',
         strokeDashArray: 0,
         position: 'back',
         xaxis: {
-            lines: {
-                show: false
-            }
-        },   
-        yaxis: {
-            lines: {
-                show: false
-            }
-        },  
-        row: {
-            colors: undefined,
-            // opacity: 0.5
-        },  
-        column: {
-            colors: undefined,
-            // opacity: 0.5
-        },  
-        padding: {
-            top: 0,
-            right: 0,
-            bottom: 0,
-            left: 0
-        },  
-    },
-      chart: {
-        background: '#fff',
-        height: 350,
-        // type: 'area'
-      },
-      dataLabels: {
-        enabled: false
+          lines: {
+            show: false
+          }
+        },
       },
       stroke: {
         curve: 'smooth',
-        // lineCap: 'butt',
         width: 3,
       },
-
       xaxis: {
-        categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May',
-          'Jun', 'jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        categories: ['Jan', 'feb', 'marth', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dic'],
       },
-      legend: {
-
-      },
-
-
-      fill: {
-        colors: undefined,
-        opacity: 0.9,
-        type: 'gradient',
-        gradient: {
-          shade: 'light',
-          type: "diagonal1",
-
-
-        },
-      },
-
-      markers: {
-        size: 0,
-        hover: {
-          sizeOffset: 6
-        }
-      },
-
     },
-
-
   };
-
-
-
-
   return (
-
-
     <div id="chart">
       <ReactApexChart options={state.options} series={state.series} type="line" width={420} />
     </div>
-
-
   );
 }

@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import './InformationTemp.css';
 import { connect } from 'react-redux';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import iconOne from '../img/iconOne.png'
 import iconTwo from '../img/iconTwo.png';
 import iconThree from '../img/iconThree.png'
@@ -14,6 +14,11 @@ import { actions } from '../Redux/actions/staticAction'
 import moment from 'moment';
 import { } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
+import { Navbar, Container } from 'react-bootstrap';
+import { FcNext, FcPrevious } from "react-icons/fc";
+
+
+
 
 
 // -------get new date in correct format to filter data----------------------------------------------------
@@ -37,7 +42,88 @@ const useStyles = () => ({
 export default withStyles(useStyles)(function Information() {
     const ReducerData = useSelector(state => state.staticDetailsReducer)
     const dispatch = useDispatch()
-
+    const [value, setValue] = useState("Day")
+    let arr = ["Day", "Week", "Month", "Year"]
+    var circleStyle1 = {
+        padding: 6,
+        margin: 6,
+        display: "inline-block",
+        // position:'absolute',
+        backgroundColor: "rgb(247, 181, 0)",
+        borderRadius: "50%",
+        width: 1,
+        height: 1,
+        left: 0,
+        top: 0
+    };
+    var circleStyle2 = {
+        padding: 6,
+        margin: 6,
+        display: "inline-block",
+        // position:'absolute',
+        backgroundColor: "rgb(1, 220, 209)",
+        borderRadius: "50%",
+        width: 1,
+        height: 1,
+        left: 0,
+        top: 0
+    };
+    var circleStyle3 = {
+        padding: 6,
+        margin: 6,
+        display: "inline-block",
+        // position:'absolute',
+        backgroundColor: "rgb(103, 114, 222)",
+        borderRadius: "50%",
+        width: 1,
+        height: 1,
+        left: 0,
+        top: 0
+    };
+    var circleStyle4 = {
+        padding: 6,
+        margin: 6,
+        display: "inline-block",
+        // position:'absolute',
+        backgroundColor: "rgba(255, 69, 96, 0.85)",
+        borderRadius: "50%",
+        width: 1,
+        height: 1,
+        left: 0,
+        top: 1
+    };
+    function filterby(value, x) {
+        let index = 0
+        debugger
+        for (let i = 0; i < arr.length; i++) {
+            if (value === arr[i]) {
+                index = i
+                break
+            }
+        }
+        if (x !== null) {
+            if (index === 0)
+                index = 4
+            let newIndex = arr[index - 1]
+            setValue(newIndex)
+        }
+        else {
+            if (index === 3)
+                index = -1
+            let newIndex = arr[index + 1]
+            setValue(newIndex)
+        }
+        switch (value) {
+            case 'Day': filterByDay()
+                break;
+            case 'Week': filterByWeek()
+                break;
+            case 'Month': filterByMonth()
+                break;
+            default: filterByYear()
+                break;
+        }
+    }
     //  ---filter by: last day,last week,last month,year
     function filterByDay() {
 
@@ -275,8 +361,33 @@ export default withStyles(useStyles)(function Information() {
                     </Grid>
                 </Grid>
             </div>
-            {/* ----------------------------filter by: day ,week, month----------------------------------------------------- */}
             <div>
+                <Container >
+                    <Navbar expand="md" variant="light" bg="light">
+                    <div class="container">
+                            <FcPrevious  style={{ marginLeft: "2%" ,cursor: 'pointer'}} onClick={() => filterby(value, 1)}></FcPrevious>
+                            {value}
+                           {/* <div style={{ marginLeft: "-620px" }} >{value}</div>  */}
+                            <FcNext style={{marginRight:"88%",cursor: 'pointer'}} onClick={() => filterby(value, null)}></FcNext>
+                        </div>
+                        <p style={circleStyle1}>
+                        </p>
+                        <Navbar.Brand style={{ fontSize: "14px" }}>contacts</Navbar.Brand>
+                        <div style={circleStyle2}>
+                        </div>
+                        <Navbar.Brand style={{ fontSize: "14px" }}>papers</Navbar.Brand>
+                        <div style={circleStyle3}>
+                        </div>
+                        <Navbar.Brand style={{ fontSize: "14px" }}>projects</Navbar.Brand>
+                        <div style={circleStyle4}>
+                        </div>
+                        <Navbar.Brand style={{ fontSize: "14px" }}>tasks</Navbar.Brand>
+                    </Navbar>
+                </Container>
+            </div>
+
+            {/* ----------------------------filter by: day ,week, month----------------------------------------------------- */}
+            {/* <div>
                 <div class="row" style={{ direction: "rtl", paddingLeft: "30%" }}>
                     ‎
                     <Button variant="contained" style={{ background: "lightslategrey", marginRight: "520px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" onClick={filterByYear}>Year</Button>
@@ -285,7 +396,7 @@ export default withStyles(useStyles)(function Information() {
                     <Button variant="contained" style={{ background: "lightslategrey", marginRight: "3px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" onClick={filterByDay}>Day</Button>
 
                 </div>
-            </div>
+            </div> */}
         </div>
     )
 })

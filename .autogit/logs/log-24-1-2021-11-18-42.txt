@@ -1,0 +1,19 @@
+-------------------- Auto-Git Log --------------------
+		Wed Feb 24 2021 11:18:42 GMT+0200 (שעון ישראל (חורף))
+------------------------------------------------------
+
+Modified files:
+* .eslintcache
+* src/components/BarT.js
+* src/components/Chart2.js
+* src/components/ChartT.js
+
+
+Created files:
+* .autogit/logs/log-24-1-2021-10-48-14.txt
+
+
+Deleted files:
+
+
+Renamed files:
