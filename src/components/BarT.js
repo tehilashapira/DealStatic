@@ -102,7 +102,7 @@ export default function ApexChart() {
 
         },
         y: {
-          // show: true,
+          show: true,
           formatter: undefined,
           title: {
             formatter: (seriesName) => seriesName,

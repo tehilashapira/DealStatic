@@ -94,6 +94,7 @@ export default withStyles(useStyles)(function Information() {
     };
     function filterby(value, x) {
         let index = 0
+        let newIndex=0
         debugger
         for (let i = 0; i < arr.length; i++) {
             if (value === arr[i]) {
@@ -104,25 +105,31 @@ export default withStyles(useStyles)(function Information() {
         if (x !== null) {
             if (index === 0)
                 index = 4
-            let newIndex = arr[index - 1]
+             newIndex = arr[index - 1]
             setValue(newIndex)
         }
+        
         else {
             if (index === 3)
                 index = -1
-            let newIndex = arr[index + 1]
+            newIndex = arr[index + 1]
             setValue(newIndex)
+     
         }
-        switch (value) {
+        console.log(newIndex)
+        switch (newIndex) {
             case 'Day': filterByDay()
                 break;
             case 'Week': filterByWeek()
                 break;
             case 'Month': filterByMonth()
                 break;
-            default: filterByYear()
+            case 'Year': filterByYear()
+                break;
+            default:
                 break;
         }
+
     }
     //  ---filter by: last day,last week,last month,year
     function filterByDay() {
@@ -364,12 +371,13 @@ export default withStyles(useStyles)(function Information() {
             <div>
                 <Container >
                     <Navbar expand="md" variant="light" bg="light">
-                    <div class="container">
-                            <FcPrevious  style={{ marginLeft: "2%" ,cursor: 'pointer'}} onClick={() => filterby(value, 1)}></FcPrevious>
+                        <div class="container">
+                            <FcPrevious style={{ marginLeft: "2%", cursor: 'pointer' }} onClick={() => filterby(value, 1)}></FcPrevious>
                             {value}
-                           {/* <div style={{ marginLeft: "-620px" }} >{value}</div>  */}
-                            <FcNext style={{marginRight:"88%",cursor: 'pointer'}} onClick={() => filterby(value, null)}></FcNext>
+                            {/* <div style={{ marginLeft: "-620px" }} >{value}</div>  */}
+                            <FcNext style={{ marginRight: "88%", cursor: 'pointer' }} onClick={() => filterby(value, null)}></FcNext>
                         </div>
+
                         <p style={circleStyle1}>
                         </p>
                         <Navbar.Brand style={{ fontSize: "14px" }}>contacts</Navbar.Brand>

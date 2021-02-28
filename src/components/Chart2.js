@@ -2,6 +2,7 @@ import React from 'react';
 import BarT from './BarT'
 import TotalChart from './TotalChart'
 import ChartT from './ChartT'
+import './FusionChart.css'
 
 export default function TryChart() {
 
@@ -9,14 +10,16 @@ export default function TryChart() {
         <>
             <div className="container" >
                 <div className="row" style={{ paddingTop: "5%" }}  >
-                    <div className="col-sm-4" style={{ marginLeft: "-70px" }}>
+                    <div className="col-xs-12 col-lg-4" style={{ marginLeft: "-70px" }}>
                         <BarT></BarT>
                     </div>
-                    <div className="col-md-2" style={{ marginLeft: "90px" }}>
+                    <div className="col-xs-12 col-lg-2" style={{ marginLeft: "90px" }}>
                         <TotalChart></TotalChart>
                     </div>
-                    <div className="col-sm-3" style={{ marginLeft: "150px" }}>
-                        <ChartT></ChartT>
+                   
+                    <div className="col-xs-12 col-md-4" style={{ marginLeft: "150px" }}>
+                    {/* <p className="vl"></p>  */}
+                    <ChartT></ChartT>
                     </div>
                 </div>
             </div>
