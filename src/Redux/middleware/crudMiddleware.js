@@ -30,16 +30,19 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
     })
       .then((data) => data.json())
       .then((data) => {
-        
+
         //all data for project
         let projectData = data.userProjectsList
         //only sumProject
-        if(projectData!=null)
-    {    let sumProject = data.countProjectsForUser
-        dispatch(actions.setProjectStatic(sumProject));
-        dispatch(actions.setProjectData(projectData));
-        dispatch(actions.setProjectChart(projectData));
-        console.log(data)}
+        if (projectData != null) {
+          let sumProject = data.countProjectsForUser
+          dispatch(actions.setProjectStatic(sumProject));
+          dispatch(actions.setProjectData(projectData));
+          dispatch(actions.setProjectChart(projectData));
+          dispatch(actions.ProjectChartDay(projectData));
+          debugger
+          console.log(data)
+        }
       })
     // fetch to get sum tasks for user-------------
     fetch('https://reacthub.dev.leader.codes/api/renana-il/getAllTasksForUser', {
@@ -55,12 +58,13 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
         //all data for project
         let taskData = data.userTasksList
         //only sumTask
-        if(taskData!=null)
-        {let sumTask = (data.countTasksForUser)
-        dispatch(actions.setTaskStatic(sumTask));
-        dispatch(actions.setTaskData(taskData));
-        dispatch(actions.setTaskChart(taskData));
-        console.log(data)}
+        if (taskData != null) {
+          let sumTask = (data.countTasksForUser)
+          dispatch(actions.setTaskStatic(sumTask));
+          dispatch(actions.setTaskData(taskData));
+          dispatch(actions.setTaskChart(taskData));
+          console.log(data)
+        }
       })
     //  fetch to get sum of papers for user-----------------
     fetch('https://papers.dev.leader.codes/api/ruth109476@gmail.com/getAllQuote', {
@@ -97,15 +101,16 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
         //all data for contact
         let contactData = dataContact
         //only sumContact
-        if(contactData!=null){
-          ""
-        let sumContact = (dataContact.length)
+        if (contactData != null) {
 
-        dispatch(actions.setContactStatic(sumContact));
-        dispatch(actions.setContactData(contactData));
-        dispatch(actions.setContactChart(contactData));
-        console.log(contactData)
-      } })
+          let sumContact = (dataContact.length)
+
+          dispatch(actions.setContactStatic(sumContact));
+          dispatch(actions.setContactData(contactData));
+          dispatch(actions.setContactChart(contactData));
+          console.log(contactData)
+        }
+      })
   }
   return next(action)
 }

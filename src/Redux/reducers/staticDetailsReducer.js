@@ -91,10 +91,8 @@ const staticData = {
         let allData = action.payload
         const arr = [...state.projects];
         for (let i = 0; i < allData.length; i++) {
-
             const date1 = allData[i].dueDate.split("/")
             let date2 = date1[1]
-
             if (date2[0] != 0) {
                 const x = (arr[date2]) + 1
                 arr[date2] = x;
@@ -115,7 +113,6 @@ const staticData = {
         console.log(initialState.papers)
         const arr = [...state.papers];
         for (let i = 0; i < allData.length; i++) {
-
             const date1 = allData[i].createdDate
             let date11 = moment(date1).format("MM/DD/YYYY").split("/")
             let date2 = date11[0]
@@ -131,14 +128,11 @@ const staticData = {
         }
         state.papers = [...arr];
     },
-
     setContactChart(state = initialState, action) {
-
         let allData = action.payload
         console.log(initialState.contacts)
         const arr = [...state.contacts];
         for (let i = 0; i < allData.length; i++) {
-
             const date1 = allData[i].createDateAndTime
             let date11 = moment(date1).format("MM/DD/YYYY").split("/")
             let date2 = date11[0]
@@ -152,14 +146,12 @@ const staticData = {
                 arr[date2] = x;
             }
         }
-
         state.contacts = [...arr];
     },
     setPaperStatic(state, action) {
         state.leaderStatic.sumPapers = action.payload
         // state.SumAll= state.SumAll+state.leaderStatic.sumPapers
     },
-
     setContactStatic(state, action) {
         ""
         state.leaderStatic.sumContacts = action.payload
@@ -167,13 +159,9 @@ const staticData = {
     //   console.log(state.SumAll)
     },
     setContactData(state, action) {
-
         state.AllContact = action.payload
-
     }, setPaperData(state, action) {
-
         state.AllPapers = action.payload
-
     },
     ClickFilter(state, action) {
         state.isClicked = action.payload
@@ -193,5 +181,4 @@ const staticData = {
 
     // sumAll=(UpdatedData.papers+updatedData.contacts+updatedData.projects+updatedData.tasks)
 };
-
 export default produce((state, action) => createReducer(state, action, staticData), initialState);

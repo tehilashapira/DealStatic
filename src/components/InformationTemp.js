@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import './InformationTemp.css';
 import { connect } from 'react-redux';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Avatar from '@material-ui/core/Avatar';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import iconOne from '../img/iconOne.png'
 import iconTwo from '../img/iconTwo.png';
 import iconThree from '../img/iconThree.png'
@@ -14,13 +14,11 @@ import { actions } from '../Redux/actions/staticAction'
 import moment from 'moment';
 import { } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
-import { Navbar, NavItem, NavDropdown, MenuItem, Nav, Container } from 'react-bootstrap';
-import Dropdown from 'react-bootstrap/Dropdown'
-import DropdownButton from 'react-bootstrap/DropdownButton'
-import Pagination from 'react-bootstrap/Pagination'
-import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import { Navbar, Container } from 'react-bootstrap';
 import { FcNext, FcPrevious } from "react-icons/fc";
-import { indexOf } from '@amcharts/amcharts4/.internal/core/utils/Array';
+
+
+
 
 
 // -------get new date in correct format to filter data----------------------------------------------------
@@ -48,71 +46,95 @@ const useStyles = () => ({
 export default withStyles(useStyles)(function Information() {
     const ReducerData = useSelector(state => state.staticDetailsReducer)
     const dispatch = useDispatch()
-
-// ------------------Functions to scroll the arrows of the date-----------------------------
-    function chooseTimeNext() {
+    const [value, setValue] = useState("Day")
+    let arr = ["Day", "Week", "Month", "Year"]
+    var circleStyle1 = {
+        padding: 6,
+        margin: 6,
+        display: "inline-block",
+        // position:'absolute',
+        backgroundColor: "rgb(247, 181, 0)",
+        borderRadius: "50%",
+        width: 1,
+        height: 1,
+        left: 0,
+        top: 0
+    };
+    var circleStyle2 = {
+        padding: 6,
+        margin: 6,
+        display: "inline-block",
+        // position:'absolute',
+        backgroundColor: "rgb(1, 220, 209)",
+        borderRadius: "50%",
+        width: 1,
+        height: 1,
+        left: 0,
+        top: 0
+    };
+    var circleStyle3 = {
+        padding: 6,
+        margin: 6,
+        display: "inline-block",
+        // position:'absolute',
+        backgroundColor: "rgb(103, 114, 222)",
+        borderRadius: "50%",
+        width: 1,
+        height: 1,
+        left: 0,
+        top: 0
+    };
+    var circleStyle4 = {
+        padding: 6,
+        margin: 6,
+        display: "inline-block",
+        // position:'absolute',
+        backgroundColor: "rgba(255, 69, 96, 0.85)",
+        borderRadius: "50%",
+        width: 1,
+        height: 1,
+        left: 0,
+        top: 1
+    };
+    function filterby(value, x) {
+        let index = 0
+        let newIndex=0
         debugger
-
-        var y = ReducerData.choose
-        console.log(y)
-        var x = ReducerData.arrTime.indexOf(ReducerData.choose);
-
-        if (x != 3) {
-            x = x + 1
-
+        for (let i = 0; i < arr.length; i++) {
+            if (value === arr[i]) {
+                index = i
+                break
+            }
         }
-
+        if (x !== null) {
+            if (index === 0)
+                index = 4
+             newIndex = arr[index - 1]
+            setValue(newIndex)
+        }
+        
         else {
-            x = 0
+            if (index === 3)
+                index = -1
+            newIndex = arr[index + 1]
+            setValue(newIndex)
+     
         }
-
-        dispatch(actions.IsChooseNext(x))
-        var filter= ReducerData.arrTime[x]
-        switch (filter) {
-            case 'Day':   filterByDay()
-                break;
-            case 'Week':  filterByWeek()
-                break;
-            case 'Month': filterByMonth()
-                break;
-            default:      filterByYear()
-                break;
-        }
-    }
-
-
-
-    function chooseTimePrevious() {
-        var y = ReducerData.choose
-        console.log(y)
-        var x = ReducerData.arrTime.indexOf(ReducerData.choose);
-
-        if (x != 0) {
-            x = x - 1
-        }
-
-        else {
-            x = 3
-        }
-        var filter= ReducerData.arrTime[x]
-        switch (filter) {
-            case 'Day':  filterByDay()
+        console.log(newIndex)
+        switch (newIndex) {
+            case 'Day': filterByDay()
                 break;
             case 'Week': filterByWeek()
                 break;
             case 'Month': filterByMonth()
                 break;
-
-            default:      filterByYear()
+            case 'Year': filterByYear()
+                break;
+            default:
                 break;
         }
-        dispatch(actions.IsChoosePrevious(x))
 
     }
-
-
-
-
     //  ---filter by: last day,last week,last month,year
     function filterByDay() {
 
@@ -354,42 +376,34 @@ export default withStyles(useStyles)(function Information() {
                 </Grid>
 
             </div>
-            <Container>
-                <Navbar expand="lg" variant="light" bg="light">
-                    <Navbar.Brand href="#">Contacts</Navbar.Brand>
-                    <Navbar.Brand href="#">Papers</Navbar.Brand>
-                    <Navbar.Brand href="#">Projects</Navbar.Brand>
-                    <Navbar.Brand href="#">Tasks</Navbar.Brand>
-                    {/* <div class="container"> 
-    <BsChevronLeft></BsChevronLeft>
-    <BsChevronRight></BsChevronRight>
-    </div> */}
-                    <div class="container" style={{ paddingLeft: "62%" }}>
-
-                        <FcPrevious onClick={(e) => chooseTimePrevious(e)}></FcPrevious>
-                       
-                        {ReducerData.choose}
-
-                        <FcNext onClick={(e) => chooseTimeNext(e)}></FcNext>
-
-                    </div>
-
-
-                    <div style={{ paddingLeft: "60%" }}>
-                        <DropdownButton id="dropdown-basic-button" title="Choose Time">
-                            <Dropdown.Item href="#/action-1">Day</Dropdown.Item>
-                            <Dropdown.Item href="#/action-2">Week</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">Month</Dropdown.Item>
-                            <Dropdown.Item href="#/action-3">Year</Dropdown.Item>
-                        </DropdownButton>
-                    </div>
-                </Navbar>
-            </Container>
-            {/* ----------------------------filter by: day ,week, month----------------------------------------------------- */}
-
-
-
             <div>
+                <Container >
+                    <Navbar expand="md" variant="light" bg="light">
+                        <div class="container">
+                            <FcPrevious style={{ marginLeft: "2%", cursor: 'pointer' }} onClick={() => filterby(value, 1)}></FcPrevious>
+                            {value}
+                            {/* <div style={{ marginLeft: "-620px" }} >{value}</div>  */}
+                            <FcNext style={{ marginRight: "88%", cursor: 'pointer' }} onClick={() => filterby(value, null)}></FcNext>
+                        </div>
+
+                        <p style={circleStyle1}>
+                        </p>
+                        <Navbar.Brand style={{ fontSize: "14px" }}>contacts</Navbar.Brand>
+                        <div style={circleStyle2}>
+                        </div>
+                        <Navbar.Brand style={{ fontSize: "14px" }}>papers</Navbar.Brand>
+                        <div style={circleStyle3}>
+                        </div>
+                        <Navbar.Brand style={{ fontSize: "14px" }}>projects</Navbar.Brand>
+                        <div style={circleStyle4}>
+                        </div>
+                        <Navbar.Brand style={{ fontSize: "14px" }}>tasks</Navbar.Brand>
+                    </Navbar>
+                </Container>
+            </div>
+
+            {/* ----------------------------filter by: day ,week, month----------------------------------------------------- */}
+            {/* <div>
                 <div class="row" style={{ direction: "rtl", paddingLeft: "30%" }}>
                     ‎
                     {/* <Button variant="contained" style={{ background: "lightslategrey", marginRight: "520px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" onClick={filterByYear}>Year</Button>
@@ -398,7 +412,7 @@ export default withStyles(useStyles)(function Information() {
                     <Button variant="contained" style={{ background: "lightslategrey", marginRight: "3px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" onClick={filterByDay}>Day</Button> */}
 
                 </div>
-            </div>
+        
         </div>
     )
 })

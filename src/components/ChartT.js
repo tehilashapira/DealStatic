@@ -9,7 +9,6 @@ export default function ApexChart() {
 
 
   const state = {
-
     series: [
 
       {
@@ -39,17 +38,32 @@ export default function ApexChart() {
             show: false}
         },
       chart: {
-        background: '#fff',
+        background: '#f8f9fa',
+        zoom: { enabled: false },
         height: 350,
-        // type: 'area'
+        type: "line",
+        stacked: false,
+        toolbar: {
+          show: false
+        }
       },
       dataLabels: {
         enabled: false
       },
+      // colors: [' rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgb(253, 81, 219)'],
+      grid: {
+        show: false,
+        borderColor: '#90A4AE',
+        strokeDashArray: 0,
+        position: 'back',
+        xaxis: {
+          lines: {
+            show: false
+          }
+        },
+      },
       stroke: {
         curve: 'smooth',
-        // lineCap: 'butt',
-
         width: 3,
 
         },
@@ -79,7 +93,6 @@ export default function ApexChart() {
               left: 0
           },  
       },
-
       xaxis: {
         categories: ['Jan', 'Feb', 'Mar', 'Apr', 'May',
           'Jun', 'jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
@@ -90,42 +103,11 @@ export default function ApexChart() {
       legend: {
 
       },
-
-
-      fill: {
-        colors: undefined,
-        opacity: 0.9,
-        type: 'gradient',
-        gradient: {
-          shade: 'light',
-          type: "diagonal1",
-
-
-        },
-      },
-
-      markers: {
-        size: 0,
-        hover: {
-          sizeOffset: 6
-        }
-      },
-
     },
-
-
   };
-
-
-
-
   return (
-
-
     <div id="chart">
       <ReactApexChart options={state.options} series={state.series} type="line" width={420} />
     </div>
-
-
   );
 }

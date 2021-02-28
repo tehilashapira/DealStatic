@@ -17,11 +17,15 @@ export default function ApexChart() {
         UpdatedData.leaderStatic.sumProjects,
         UpdatedData.leaderStatic.sumTasks],
         options: {
+
             chart: {
                 height: 350,
                 type: 'radialBar',
+                background: '#f8f9fa'
             },
-            plotOptions: {
+            colors :[' rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgba(255, 69, 96, 0.85)']
+
+            ,plotOptions: {
                 radialBar: {
                     dataLabels: {
                         name: {
