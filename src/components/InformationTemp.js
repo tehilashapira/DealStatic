@@ -23,10 +23,6 @@ import { FcNext, FcPrevious } from "react-icons/fc";
 
 // -------get new date in correct format to filter data----------------------------------------------------
 
-// const arrTime=['Day','Wee','Mon','Yea']
-// 
-
-
 let currentDate = moment().format("MM/DD/YYYY");
 let dateBeforeWeek = moment().subtract(1, 'week').format('MM/DD/YYYY');
 let dateBeforeMonth = moment().subtract(1, 'month').format('MM/DD/YYYY');
@@ -271,9 +267,6 @@ export default withStyles(useStyles)(function Information() {
         dispatch(actions.setTaskStatic(AllTaskData.length))
         dispatch(actions.ClickFilter(1));
     }
-
-
- 
     return (
         <div className="container-fluid mt-5">
             <div className="row pb-5" style={{ marginRight: '12%', marginLeft: '12%' }} >
@@ -374,7 +367,6 @@ export default withStyles(useStyles)(function Information() {
                         </Paper>
                     </Grid>
                 </Grid>
-
             </div>
             <div>
                 <Container >
@@ -406,15 +398,13 @@ export default withStyles(useStyles)(function Information() {
             {/* <div>
                 <div class="row" style={{ direction: "rtl", paddingLeft: "30%" }}>
                     ‎
-                    {/* <Button variant="contained" style={{ background: "lightslategrey", marginRight: "520px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" onClick={filterByYear}>Year</Button>
+                    <Button variant="contained" style={{ background: "lightslategrey", marginRight: "520px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" onClick={filterByYear}>Year</Button>
                     <Button variant="contained" style={{ background: "lightslategrey", marginRight: "3px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" onClick={filterByMonth}>Month</Button>
                     <Button variant="contained" style={{ background: "lightslategrey", marginRight: "3px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" onClick={filterByWeek}>Week</Button>
-                    <Button variant="contained" style={{ background: "lightslategrey", marginRight: "3px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" onClick={filterByDay}>Day</Button> */}
+                    <Button variant="contained" style={{ background: "lightslategrey", marginRight: "3px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" onClick={filterByDay}>Day</Button>
 
                 </div>
-        
+            </div> */}
         </div>
     )
 })
-
-
