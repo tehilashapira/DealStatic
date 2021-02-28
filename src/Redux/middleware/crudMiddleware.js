@@ -78,15 +78,16 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
       .then((data) => data.json())
       .then((data) => {
         // let sumPapers = (data.quotes.length)
-        if(data.quotes!=null){
-          ""
-        let sumPapers = (data.quotes.length)
-        let d = data.quotes
-        dispatch(actions.setPaperStatic(sumPapers));
-        dispatch(actions.setPaperData(d));
-        dispatch(actions.setPaperChart(d));
-        console.log(data)
-       } })
+        if (data.quotes != null) {
+
+          let sumPapers = (data.quotes.length)
+          let d = data.quotes
+          dispatch(actions.setPaperStatic(sumPapers));
+          dispatch(actions.setPaperData(d));
+          dispatch(actions.setPaperChart(d));
+          console.log(data)
+        }
+      })
     // fetch to get sum of contacts for user----------------------
     fetch('https://api.dev.leader.codes/blabla101/getContacts/?includesConversations=false', {
       method: 'GET',

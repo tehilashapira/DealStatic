@@ -1,6 +1,7 @@
-import React from 'react';
+
 import ReactApexChart from 'react-apexcharts'
 import { useSelector } from 'react-redux'
+import react from 'react'
 
 export default function ApexChart() {
   const UpdatedData = useSelector(state => state.staticDetailsReducer);
@@ -17,9 +18,10 @@ export default function ApexChart() {
         type: 'category',
         categories: [],
         labels: {
-            show: false}
-        },
-        
+          show: false
+        }
+      },
+
       grid: {
         show: true,
         borderColor: '#90A4AE',
@@ -31,12 +33,13 @@ export default function ApexChart() {
           },
           labels: {
             show: false
-        },},
+          },
+        },
         yaxis: {
           lines: {
             show: false
           },
-          
+
         },
         row: {
           colors: undefined,
@@ -46,12 +49,16 @@ export default function ApexChart() {
           colors: undefined,
           opacity: 0.5
         },
-      
+
       },
       chart: {
         height: 350,
         type: 'bar',
-      
+        background: '#f8f9fa',
+        toolbar: {
+          show: false
+        }
+
       },
       colors: ['rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgba(255, 69, 96, 0.85)'],
       plotOptions: {
@@ -63,7 +70,7 @@ export default function ApexChart() {
       },
       labels: ['contacts', 'papers', 'projects ', 'tasks'],
       dataLabels: {
-        show:false,
+        show: false,
         enabled: false
       },
       // ----מקרא מפה למטה
@@ -74,7 +81,7 @@ export default function ApexChart() {
       tooltip: {
         enabled: true,
         enabledOnSeries: undefined,
-        shared:false,
+        shared: false,
         followCursor: false,
         intersect: false,
         inverseOrder: false,
@@ -86,42 +93,43 @@ export default function ApexChart() {
           fontFamily: undefined
         },
         onDatasetHover: {
-            highlightDataSeries: true,
+          highlightDataSeries: true,
         },
         x: {
-            show: true,
-            format: 'dd MMM',
-            formatter: undefined,
-            
+          show: true,
+          format: 'dd MMM',
+          formatter: undefined,
+
         },
         y: {
-            formatter: undefined,
-            title: {
-                formatter: (seriesName) => seriesName,
-            },
+          show: true,
+          formatter: undefined,
+          title: {
+            formatter: (seriesName) => seriesName,
+          },
         },
-        z: {
-            formatter: undefined,
-            title: 'Size: '
-        },
+        // z: {
+        //   formatter: undefined,
+        //   title: 'Size: '
+        // },
         marker: {
-            show: true,
+          show: true,
         },
         // items: {
         //    display: flex,
         // },
         fixed: {
-            enabled: false,
-            position: 'topRight',
-            offsetX: 0,
-            offsetY: 0,
+          enabled: false,
+          position: 'topRight',
+          offsetX: 0,
+          offsetY: 0,
         },
-    }
-    
-    
-  
+      }
+
+
+
       // fillSeriesColor: ['rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgb(253, 81, 219)'],
-    
+
     },
 
 

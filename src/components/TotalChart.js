@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 export default function ApexChart() {
   
     const UpdatedData = useSelector(state => state.staticDetailsReducer);
-    ""
+    debugger
     const  sumAll=(UpdatedData.leaderStatic.sumContacts+
         UpdatedData.leaderStatic.sumPapers+
         UpdatedData.leaderStatic.sumProjects+

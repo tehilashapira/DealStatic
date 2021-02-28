@@ -93,6 +93,7 @@ export default withStyles(useStyles)(function Information() {
         top: 1
     };
     function filterby(value, x) {
+        debugger
         let index = 0
         let newIndex=0
         debugger
@@ -201,6 +202,7 @@ export default withStyles(useStyles)(function Information() {
         dispatch(actions.ClickFilter(1));
 
     }
+    //////hgjghghghghghghghghh
     function filterByWeek() {
         let AllProjectData = (ReducerData.AllProject).filter(function (AllProject) {
             const dateProject = AllProject.dueDate.split("/")
@@ -373,6 +375,7 @@ export default withStyles(useStyles)(function Information() {
                     <Navbar expand="md" variant="light" bg="light">
                         <div class="container">
                             <FcPrevious style={{ marginLeft: "2%", cursor: 'pointer' }} onClick={() => filterby(value, 1)}></FcPrevious>
+                            
                             {value}
                             {/* <div style={{ marginLeft: "-620px" }} >{value}</div>  */}
                             <FcNext style={{ marginRight: "88%", cursor: 'pointer' }} onClick={() => filterby(value, null)}></FcNext>

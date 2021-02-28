@@ -17,7 +17,8 @@ export default function TryChart() {
                         <TotalChart></TotalChart>
                     </div>
                    
-                    <div className="col-xs-12 col-md-4" style={{ marginLeft: "150px" }}>
+                    {/* <div className="col-xs-12 col-md-4" style={{ marginLeft: "150px" }}> */}
+                    <div className={"col-md" ? { marginLeft: "100px" }:{ marginLeft: "200px"}}>
                     {/* <p className="vl"></p>  */}
                     <ChartT></ChartT>
                     </div>
@@ -26,3 +27,5 @@ export default function TryChart() {
         </>
     );
 }
+
+// className={props.editFolder  ? "container" :  "editF"
