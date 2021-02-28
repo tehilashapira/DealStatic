@@ -201,6 +201,7 @@ export default withStyles(useStyles)(function Information() {
         dispatch(actions.ClickFilter(1));
 
     }
+    //////hgjghghghghghghghghh
     function filterByWeek() {
         let AllProjectData = (ReducerData.AllProject).filter(function (AllProject) {
             const dateProject = AllProject.dueDate.split("/")
