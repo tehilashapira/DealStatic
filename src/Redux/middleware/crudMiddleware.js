@@ -75,7 +75,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
       .then((data) => {
         // let sumPapers = (data.quotes.length)
         if(data.quotes!=null){
-          debugger
+          ""
         let sumPapers = (data.quotes.length)
         let d = data.quotes
         dispatch(actions.setPaperStatic(sumPapers));
@@ -98,7 +98,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
         let contactData = dataContact
         //only sumContact
         if(contactData!=null){
-          debugger
+          ""
         let sumContact = (dataContact.length)
 
         dispatch(actions.setContactStatic(sumContact));

@@ -14,9 +14,20 @@ import { actions } from '../Redux/actions/staticAction'
 import moment from 'moment';
 import { } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
+import { Navbar, NavItem, NavDropdown, MenuItem, Nav, Container } from 'react-bootstrap';
+import Dropdown from 'react-bootstrap/Dropdown'
+import DropdownButton from 'react-bootstrap/DropdownButton'
+import Pagination from 'react-bootstrap/Pagination'
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs";
+import { FcNext, FcPrevious } from "react-icons/fc";
+import { indexOf } from '@amcharts/amcharts4/.internal/core/utils/Array';
 
 
 // -------get new date in correct format to filter data----------------------------------------------------
+
+// const arrTime=['Day','Wee','Mon','Yea']
+// 
+
 
 let currentDate = moment().format("MM/DD/YYYY");
 let dateBeforeWeek = moment().subtract(1, 'week').format('MM/DD/YYYY');
@@ -37,6 +48,70 @@ const useStyles = () => ({
 export default withStyles(useStyles)(function Information() {
     const ReducerData = useSelector(state => state.staticDetailsReducer)
     const dispatch = useDispatch()
+
+// ------------------Functions to scroll the arrows of the date-----------------------------
+    function chooseTimeNext() {
+        debugger
+
+        var y = ReducerData.choose
+        console.log(y)
+        var x = ReducerData.arrTime.indexOf(ReducerData.choose);
+
+        if (x != 3) {
+            x = x + 1
+
+        }
+
+        else {
+            x = 0
+        }
+
+        dispatch(actions.IsChooseNext(x))
+        var filter= ReducerData.arrTime[x]
+        switch (filter) {
+            case 'Day':   filterByDay()
+                break;
+            case 'Week':  filterByWeek()
+                break;
+            case 'Month': filterByMonth()
+                break;
+            default:      filterByYear()
+                break;
+        }
+    }
+
+
+
+    function chooseTimePrevious() {
+        var y = ReducerData.choose
+        console.log(y)
+        var x = ReducerData.arrTime.indexOf(ReducerData.choose);
+
+        if (x != 0) {
+            x = x - 1
+        }
+
+        else {
+            x = 3
+        }
+        var filter= ReducerData.arrTime[x]
+        switch (filter) {
+            case 'Day':  filterByDay()
+                break;
+            case 'Week': filterByWeek()
+                break;
+            case 'Month': filterByMonth()
+                break;
+
+            default:      filterByYear()
+                break;
+        }
+        dispatch(actions.IsChoosePrevious(x))
+
+    }
+
+
+
 
     //  ---filter by: last day,last week,last month,year
     function filterByDay() {
@@ -96,7 +171,7 @@ export default withStyles(useStyles)(function Information() {
         })
         let AllContactData = (ReducerData.AllContact).filter(function (AllContact) {
             const dateContact1 = (AllContact.createDateAndTime)
-            debugger
+
             let detaContact = moment(dateContact1).format("MM/DD/YYYY");
             return (new Date(detaContact) >= new Date(dateBeforeYear))
 
@@ -174,6 +249,9 @@ export default withStyles(useStyles)(function Information() {
         dispatch(actions.setTaskStatic(AllTaskData.length))
         dispatch(actions.ClickFilter(1));
     }
+
+
+ 
     return (
         <div className="container-fluid mt-5">
             <div className="row pb-5" style={{ marginRight: '12%', marginLeft: '12%' }} >
@@ -274,15 +352,50 @@ export default withStyles(useStyles)(function Information() {
                         </Paper>
                     </Grid>
                 </Grid>
+
             </div>
+            <Container>
+                <Navbar expand="lg" variant="light" bg="light">
+                    <Navbar.Brand href="#">Contacts</Navbar.Brand>
+                    <Navbar.Brand href="#">Papers</Navbar.Brand>
+                    <Navbar.Brand href="#">Projects</Navbar.Brand>
+                    <Navbar.Brand href="#">Tasks</Navbar.Brand>
+                    {/* <div class="container"> 
+    <BsChevronLeft></BsChevronLeft>
+    <BsChevronRight></BsChevronRight>
+    </div> */}
+                    <div class="container" style={{ paddingLeft: "62%" }}>
+
+                        <FcPrevious onClick={(e) => chooseTimePrevious(e)}></FcPrevious>
+                       
+                        {ReducerData.choose}
+
+                        <FcNext onClick={(e) => chooseTimeNext(e)}></FcNext>
+
+                    </div>
+
+
+                    <div style={{ paddingLeft: "60%" }}>
+                        <DropdownButton id="dropdown-basic-button" title="Choose Time">
+                            <Dropdown.Item href="#/action-1">Day</Dropdown.Item>
+                            <Dropdown.Item href="#/action-2">Week</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">Month</Dropdown.Item>
+                            <Dropdown.Item href="#/action-3">Year</Dropdown.Item>
+                        </DropdownButton>
+                    </div>
+                </Navbar>
+            </Container>
             {/* ----------------------------filter by: day ,week, month----------------------------------------------------- */}
+
+
+
             <div>
                 <div class="row" style={{ direction: "rtl", paddingLeft: "30%" }}>
                     ‎
-                    <Button variant="contained" style={{ background: "lightslategrey", marginRight: "520px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" onClick={filterByYear}>Year</Button>
+                    {/* <Button variant="contained" style={{ background: "lightslategrey", marginRight: "520px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" onClick={filterByYear}>Year</Button>
                     <Button variant="contained" style={{ background: "lightslategrey", marginRight: "3px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" onClick={filterByMonth}>Month</Button>
                     <Button variant="contained" style={{ background: "lightslategrey", marginRight: "3px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" onClick={filterByWeek}>Week</Button>
-                    <Button variant="contained" style={{ background: "lightslategrey", marginRight: "3px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" onClick={filterByDay}>Day</Button>
+                    <Button variant="contained" style={{ background: "lightslategrey", marginRight: "3px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" onClick={filterByDay}>Day</Button> */}
 
                 </div>
             </div>

@@ -11,15 +11,10 @@ import ChartT from './ChartT'
 
 export default function TryChart() {
     const UpdatedData = useSelector(state => state.staticDetailsReducer);
-    useEffect(() => {
-        debugger
-        if (UpdatedData.leaderStatic.contacts)
-            document.title = "leaderStatic";
-    }, [UpdatedData.leaderStatic.contacts]);
 
-    debugger
 
-    debugger
+
+   
     const state = {
         option1: {
             chart: {

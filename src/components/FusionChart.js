@@ -16,7 +16,7 @@ export default function MyComponent() {
         const hex = x.toString(16)
         return hex.length === 1 ? '0' + hex : hex
     }).join('')
-    //   debugger
+    //   ""
     console.log(rgbToHex(247, 181, 0)); // '#f7b500'
     console.log(rgbToHex(1, 220, 209)); // "#01dcd1"
     console.log(rgbToHex(103, 114, 222)); // "#6772de"
