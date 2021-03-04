@@ -1,26 +1,24 @@
 import React from 'react';
+
+import './chart.css'
 import BarT from './BarT'
 import TotalChart from './TotalChart'
 import ChartT from './ChartT'
-import './FusionChart.css'
 
 export default function TryChart() {
-
     return (
         <>
-            <div className="container" >
-                <div className="row" style={{ paddingTop: "5%" }}  >
-                    <div className="col-xs-12 col-lg-4" style={{ marginLeft: "-70px" }}>
+            <div className="container mt-5" >
+                <div className="d-flex justify-content-between align-items-center myClass">
+                    <div className="marginClass">
                         <BarT></BarT>
                     </div>
-                    <div className="col-xs-12 col-lg-2" style={{ marginLeft: "90px" }}>
+                    <div className="marginClass" >
                         <TotalChart></TotalChart>
                     </div>
-                   
-                    {/* <div className="col-xs-12 col-md-4" style={{ marginLeft: "150px" }}> */}
-                    <div className={"col-md" ? { marginLeft: "100px" }:{ marginLeft: "200px"}}>
-                    {/* <p className="vl"></p>  */}
-                    <ChartT></ChartT>
+                    <div className="marginClass">
+                        {/* <p className="vl"></p>  */}
+                        <ChartT></ChartT>
                     </div>
                 </div>
             </div>

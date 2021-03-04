@@ -30,11 +30,12 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
     })
       .then((data) => data.json())
       .then((data) => {
-
+        debugger
         //all data for project
         let projectData = data.userProjectsList
         //only sumProject
-        if (projectData != null) {
+        debugger
+        if (projectData.length != 0) {
           let sumProject = data.countProjectsForUser
           dispatch(actions.setProjectStatic(sumProject));
           dispatch(actions.setProjectData(projectData));
@@ -53,12 +54,14 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
         //     Authorization: jwt,
       },
     })
+
       .then((data) => data.json())
       .then((data) => {
+        debugger
         //all data for project
         let taskData = data.userTasksList
         //only sumTask
-        if (taskData != null) {
+        if (taskData.length != 0) {
           let sumTask = (data.countTasksForUser)
           dispatch(actions.setTaskStatic(sumTask));
           dispatch(actions.setTaskData(taskData));
@@ -78,7 +81,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
       .then((data) => data.json())
       .then((data) => {
         // let sumPapers = (data.quotes.length)
-        if (data.quotes != null) {
+        if (data.quotes.length != 0) {
 
           let sumPapers = (data.quotes.length)
           let d = data.quotes
@@ -102,7 +105,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
         //all data for contact
         let contactData = dataContact
         //only sumContact
-        if (contactData != null) {
+        if (contactData.length != 0) {
 
           let sumContact = (dataContact.length)
 

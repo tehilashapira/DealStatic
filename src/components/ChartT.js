@@ -1,12 +1,9 @@
 import React from 'react';
-import moment from 'moment';
 import ReactApexChart from 'react-apexcharts'
 import { useSelector } from 'react-redux'
 
 export default function ApexChart() {
   const UpdatedData = useSelector(state => state.staticDetailsReducer);
-
-
 
   const state = {
     series: [
@@ -32,7 +29,7 @@ export default function ApexChart() {
     ],
     options: {
       legend: {
-        show:false,
+        show: false,
       },
       scales: {
       },
@@ -67,13 +64,14 @@ export default function ApexChart() {
         width: 3,
       },
       xaxis: {
-        categories: ['Jan', 'feb', 'marth', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dic'],
+        categories: ['Jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dic'],
       },
     },
   };
   return (
     <div id="chart">
-      <ReactApexChart options={state.options} series={state.series} type="line" width={420} />
+      <ReactApexChart options={state.options} series={state.series} type="line" width="100%" />
     </div>
   );
+
 }

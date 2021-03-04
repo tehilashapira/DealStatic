@@ -10,7 +10,7 @@
 // export default function MyCircle() {
 //     const [value, setValue] = useState("Day")
 //     let arr = ["Day", "Week", "Month", "Year"]
-//     var circleStyle1 = {
+//     let circleStyle1 = {
 //         padding: 6,
 //         margin: 6,
 //         display: "inline-block",
@@ -22,7 +22,7 @@
 //         left: 0,
 //         top: 0
 //     };
-//     var circleStyle2 = {
+//     let circleStyle2 = {
 //         padding: 6,
 //         margin: 6,
 //         display: "inline-block",
@@ -34,7 +34,7 @@
 //         left: 0,
 //         top: 0
 //     };
-//     var circleStyle3 = {
+//     let circleStyle3 = {
 //         padding: 6,
 //         margin: 6,
 //         display: "inline-block",
@@ -46,7 +46,7 @@
 //         left: 0,
 //         top: 0
 //     };
-//     var circleStyle4 = {
+//     let circleStyle4 = {
 //         padding: 6,
 //         margin: 6,
 //         display: "inline-block",
@@ -60,14 +60,14 @@
 //     };
 //     function filterby(value, x) {
 //         let index = 0
-//         debugger
+//          
 //         for (let i = 0; i < arr.length; i++) {
 //             if (value === arr[i]) {
 //                 index = i
 //                 break
 //             }
 //         }
-//         if (x !== null) {
+//         if (x  !=null) {
 //             if (index === 0)
 //                 index = 4
 //             let newIndex = arr[index - 1]
@@ -101,10 +101,10 @@
 
 //     }
 
-//     // var colors = [' rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgba(255, 69, 96, 0.85)']
+//     // let colors = [' rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgba(255, 69, 96, 0.85)']
 //     // const [data, setData] = useState([])
-//     // for (var i = 0; i < colors.length; i++) {
-//     //     var color = colors[i];
+//     // for (let i = 0; i < colors.length; i++) {
+//     //     let color = colors[i];
 //     //     setData(...data, )
 //     //     renderData.push(<Circle key={i + color} bgColor={color} />);
 //     // }

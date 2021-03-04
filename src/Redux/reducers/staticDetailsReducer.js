@@ -1,6 +1,8 @@
 import produce from 'immer';
-import { createReducer } from "./reducerUtils";
 import moment from 'moment';
+
+import { createReducer } from "./reducerUtils";
+
 
 const initialState = {
     leaderStatic: { sumProjects: 0, sumTasks: 0, sumPapers: 0, sumContacts: 0 },
@@ -13,64 +15,33 @@ const initialState = {
     isClicked: 0,
     arrTime:['Day','Week','Month','Year'],
     choose:'Day',
-    // SumAll:0,
-   
-
     papers: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     projects: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     tasks: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     contacts: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-
-
 };
 
 const staticData = {
 
-    //  setStaticData(state, action) {
-    //      
-    // //   state.sumStatic=action.payload.viewers.map((viewer) =>new Date(viewer.data))
-    //     state.dataStatic=action.payload;
-    //      
-    //     state.sumStatic.viewer=sumData(state.dataStatic.viewers);
-    //      
-    //     state.sumStatic.contactOptions=sumData(state.dataStatic.contactOptions);
-    //     state.sumStatic.submitioms=sumData(state.dataStatic.submitioms);
-    //      
-
-    // },
-    
-
     setSumStatic(state, action) {
         state.AllProject = (action.payload);
-        // state.sumStatic.contactOptions=sumData(action.payload.contactOptions);
-        // state.sumStatic.submitioms=sumData(action.payload.submitioms);  
     },
     setProjectStatic(state, action) {
         state.leaderStatic.sumProjects = action.payload
-        // state.SumAll=state.leaderStatic.sumProjects
     },
     setProjectData(state, action) {
-
         state.AllProject = action.payload
     },
     setTaskStatic(state, action) {
         state.leaderStatic.sumTasks = action.payload
-        // state.SumAll=state.SumAll+state.leaderStatic.sumTasks
-
     },
     setTaskData(state, action) {
-
         state.AllTask = action.payload
     },
     setTaskChart(state = initialState, action) {
-
-        let allData = action.payload
-        console.log(initialState.tasks)
-    
+        let allData = action.payload    
         const arr = [...state.tasks];
-        for (let i = 0; i < 9; i++) {
-           
-
+        for (let i = 0; i < allData.length; i++) {
             const date1 = allData[i].startDate.split("/")
             let date2 = date1[1]
             if (date2[0] != 0) {
@@ -84,14 +55,13 @@ const staticData = {
             }
         }
         state.tasks = [...arr];
-        console.log(state.tasks)
     },
     setProjectChart(state = initialState, action) {
-
+        debugger
         let allData = action.payload
         const arr = [...state.projects];
         for (let i = 0; i < allData.length; i++) {
-            const date1 = allData[i].dueDate.split("/")
+            const date1 = allData[i].startDate.split("/")
             let date2 = date1[1]
             if (date2[0] != 0) {
                 const x = (arr[date2]) + 1
@@ -104,13 +74,9 @@ const staticData = {
             }
         }
         state.projects = [...arr];
-        console.log(state.projects)
     },
     setPaperChart(state = initialState, action) {
-       
-
         let allData = action.payload
-        console.log(initialState.papers)
         const arr = [...state.papers];
         for (let i = 0; i < allData.length; i++) {
             const date1 = allData[i].createdDate
@@ -130,7 +96,6 @@ const staticData = {
     },
     setContactChart(state = initialState, action) {
         let allData = action.payload
-        console.log(initialState.contacts)
         const arr = [...state.contacts];
         for (let i = 0; i < allData.length; i++) {
             const date1 = allData[i].createDateAndTime
@@ -150,13 +115,9 @@ const staticData = {
     },
     setPaperStatic(state, action) {
         state.leaderStatic.sumPapers = action.payload
-        // state.SumAll= state.SumAll+state.leaderStatic.sumPapers
     },
     setContactStatic(state, action) {
-        ""
         state.leaderStatic.sumContacts = action.payload
-        // state.SumAll= state.SumAll+state.leaderStatic.sumContacts 
-    //   console.log(state.SumAll)
     },
     setContactData(state, action) {
         state.AllContact = action.payload
@@ -166,19 +127,5 @@ const staticData = {
     ClickFilter(state, action) {
         state.isClicked = action.payload
     },
-    IsChooseNext(state= initialState, action){
-        let y=action.payload
-       state.choose =state.arrTime[y]
-      
-
-  },
-   IsChoosePrevious(state=initialState, action){
-    let y=action.payload
-    state.choose=state.arrTime[y]
-
-
   }
-
-    // sumAll=(UpdatedData.papers+updatedData.contacts+updatedData.projects+updatedData.tasks)
-};
 export default produce((state, action) => createReducer(state, action, staticData), initialState);

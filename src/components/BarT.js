@@ -1,7 +1,7 @@
-
 import ReactApexChart from 'react-apexcharts'
 import { useSelector } from 'react-redux'
-import react from 'react'
+
+import './chart.css'
 
 export default function ApexChart() {
   const UpdatedData = useSelector(state => state.staticDetailsReducer);
@@ -58,7 +58,6 @@ export default function ApexChart() {
         toolbar: {
           show: false
         }
-
       },
       colors: ['rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgba(255, 69, 96, 0.85)'],
       plotOptions: {
@@ -86,11 +85,12 @@ export default function ApexChart() {
         intersect: false,
         inverseOrder: false,
         custom: undefined,
-        fillSeriesColor: false,
+        fillSeriesColor:true,
         theme: true,
         style: {
           fontSize: '12px',
-          fontFamily: undefined
+          fontFamily: undefined,
+          backgroundColor:'white'
         },
         onDatasetHover: {
           highlightDataSeries: true,
@@ -99,7 +99,6 @@ export default function ApexChart() {
           show: true,
           format: 'dd MMM',
           formatter: undefined,
-
         },
         y: {
           show: true,
@@ -108,16 +107,9 @@ export default function ApexChart() {
             formatter: (seriesName) => seriesName,
           },
         },
-        // z: {
-        //   formatter: undefined,
-        //   title: 'Size: '
-        // },
         marker: {
           show: true,
         },
-        // items: {
-        //    display: flex,
-        // },
         fixed: {
           enabled: false,
           position: 'topRight',
@@ -125,23 +117,11 @@ export default function ApexChart() {
           offsetY: 0,
         },
       }
-
-
-
-      // fillSeriesColor: ['rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgb(253, 81, 219)'],
-
     },
-
-
   };
-
   return (
-
-
     <div id="chart">
-      <ReactApexChart options={state.options} series={state.series} type="bar" width="420" />
+      <ReactApexChart options={state.options} series={state.series}type="bar" width="100%" />
     </div>
-
-
   );
 }

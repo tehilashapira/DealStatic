@@ -1,11 +1,10 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
+
 import { getStaticData } from './middleware/crudMiddleware'
 import staticDetailsReducer from './reducers/staticDetailsReducer'
-import reducerDay from './reducers/reducerDay'
-// ,getStaticTask,getStaticPapers,getStaticContacts
 
 
-const reducer = combineReducers({ staticDetailsReducer, reducerDay });
+const reducer = combineReducers({ staticDetailsReducer });
 
 const store = createStore(reducer, applyMiddleware(getStaticData));
 window.store = store;
