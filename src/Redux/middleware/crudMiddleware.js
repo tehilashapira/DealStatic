@@ -35,7 +35,8 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
         let projectData = data.userProjectsList
         //only sumProject
         if (projectData != null) {
-          let sumProject = data.countProjectsForUser
+          // let sumProject = data.countProjectsForUser
+          let sumProject = (88)
           dispatch(actions.setProjectStatic(sumProject));
           dispatch(actions.setProjectData(projectData));
           dispatch(actions.setProjectChart(projectData));
