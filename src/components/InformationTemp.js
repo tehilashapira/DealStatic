@@ -1,25 +1,20 @@
 import React, { useState } from 'react';
-import { withStyles } from '@material-ui/core/styles';
-import './InformationTemp.css';
-import { connect } from 'react-redux';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
-import Avatar from '@material-ui/core/Avatar';
-// import Button from '@material-ui/core/Button';
-import iconOne from '../img/iconOne.png'
-import iconTwo from '../img/iconTwo.png';
-import iconThree from '../img/iconThree.png'
-import iconFour from '../img/iconFour.png'
-import { actions } from '../Redux/actions/staticAction'
 import moment from 'moment';
 import { } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { Navbar, Container } from 'react-bootstrap';
-import { FcNext, FcPrevious } from "react-icons/fc";
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+import Avatar from '@material-ui/core/Avatar';
+import { withStyles } from '@material-ui/core/styles';
 
-
-
-
+import './InformationTemp.css';
+import iconOne from '../img/iconOne.png'
+import iconTwo from '../img/iconTwo.png';
+import iconThree from '../img/iconThree.png'
+import iconFour from '../img/iconFour.png'
+import iconFive from '../img/iconFive.png'
+import { actions } from '../Redux/actions/staticAction'
 
 // -------get new date in correct format to filter data----------------------------------------------------
 
@@ -27,6 +22,55 @@ let currentDate = moment().format("MM/DD/YYYY");
 let dateBeforeWeek = moment().subtract(1, 'week').format('MM/DD/YYYY');
 let dateBeforeMonth = moment().subtract(1, 'month').format('MM/DD/YYYY');
 let dateBeforeYear = moment().subtract(1, 'year').format('MM/DD/YYYY')
+
+let circleStyle1 = {
+    padding: 6,
+    margin: 6,
+    display: "inline-block",
+    backgroundColor: "rgb(247, 181, 0)",
+    borderRadius: "50%",
+    width: 1,
+    height: 1,
+    left: 0,
+    top: 0
+};
+let circleStyle2 = {
+    padding: 6,
+    margin: 6,
+    display: "inline-block",
+    // position:'absolute',
+    backgroundColor: "rgb(1, 220, 209)",
+    borderRadius: "50%",
+    width: 1,
+    height: 1,
+    left: 0,
+    top: 0
+};
+let circleStyle3 = {
+    padding: 6,
+    margin: 6,
+    display: "inline-block",
+    // position:'absolute',
+    backgroundColor: "rgb(103, 114, 222)",
+    borderRadius: "50%",
+    width: 1,
+    height: 1,
+    left: 0,
+    top: 0
+};
+let circleStyle4 = {
+    padding: 6,
+    margin: 6,
+    display: "inline-block",
+    // position:'absolute',
+    backgroundColor: "#ff4560",
+    borderRadius: "50%",
+    width: 1,
+    height: 1,
+    left: 0,
+    top: 1
+};
+
 // --------------------------------------------------------------------------------------------------------------
 const useStyles = () => ({
     root: {
@@ -43,121 +87,34 @@ export default withStyles(useStyles)(function Information() {
     const ReducerData = useSelector(state => state.staticDetailsReducer)
     const dispatch = useDispatch()
     const [value, setValue] = useState("Day")
-    let arr = ["Day", "Week", "Month", "Year"]
-    var circleStyle1 = {
-        padding: 6,
-        margin: 6,
-        display: "inline-block",
-        // position:'absolute',
-        backgroundColor: "rgb(247, 181, 0)",
-        borderRadius: "50%",
-        width: 1,
-        height: 1,
-        left: 0,
-        top: 0
-    };
-    var circleStyle2 = {
-        padding: 6,
-        margin: 6,
-        display: "inline-block",
-        // position:'absolute',
-        backgroundColor: "rgb(1, 220, 209)",
-        borderRadius: "50%",
-        width: 1,
-        height: 1,
-        left: 0,
-        top: 0
-    };
-    var circleStyle3 = {
-        padding: 6,
-        margin: 6,
-        display: "inline-block",
-        // position:'absolute',
-        backgroundColor: "rgb(103, 114, 222)",
-        borderRadius: "50%",
-        width: 1,
-        height: 1,
-        left: 0,
-        top: 0
-    };
-    var circleStyle4 = {
-        padding: 6,
-        margin: 6,
-        display: "inline-block",
-        // position:'absolute',
-        backgroundColor: "rgba(255, 69, 96, 0.85)",
-        borderRadius: "50%",
-        width: 1,
-        height: 1,
-        left: 0,
-        top: 1
-    };
-    function filterby(value, x) {
-        debugger
-        let index = 0
-        let newIndex=0
-        debugger
-        for (let i = 0; i < arr.length; i++) {
-            if (value === arr[i]) {
-                index = i
-                break
-            }
-        }
-        if (x !== null) {
-            if (index === 0)
-                index = 4
-             newIndex = arr[index - 1]
-            setValue(newIndex)
-        }
-        
-        else {
-            if (index === 3)
-                index = -1
-            newIndex = arr[index + 1]
-            setValue(newIndex)
-     
-        }
-        console.log(newIndex)
-        switch (newIndex) {
-            case 'Day': filterByDay()
-                break;
-            case 'Week': filterByWeek()
-                break;
-            case 'Month': filterByMonth()
-                break;
-            case 'Year': filterByYear()
-                break;
-            default:
-                break;
-        }
 
-    }
     //  ---filter by: last day,last week,last month,year
     function filterByDay() {
+        debugger
 
         let AllTaskData = (ReducerData.AllTask).filter(function (AllTask) {
             const dateTask = AllTask.startDate.split("/")
             const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
-            return (dateFormater == currentDate)
+            return (dateFormater === currentDate)
 
         })
 
         let AllContactData = (ReducerData.AllContact).filter(function (AllContact) {
             const dateContact1 = (AllContact.createDateAndTime)
             let detaContact = moment(dateContact1).format("MM/DD/YYYY");
-            return (detaContact == currentDate)
+            return (detaContact === currentDate)
         })
         let AllProjectData = (ReducerData.AllProject).filter(function (AllProject) {
             const dateProject = AllProject.dueDate.split("/")
             const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
-            return (dateFormater == currentDate)
+            return (dateFormater === currentDate)
         })
 
         let AllPapersData = (ReducerData.AllPapers).filter(function (AllPapers) {
 
             const datePaper1 = AllPapers.createdDate
             let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
-            return (detaPaper == currentDate)
+            return (detaPaper === currentDate)
         })
         dispatch(actions.setTaskStatic(AllTaskData.length))
         dispatch(actions.setContactStatic(AllContactData.length))
@@ -202,7 +159,6 @@ export default withStyles(useStyles)(function Information() {
         dispatch(actions.ClickFilter(1));
 
     }
-    //////hgjghghghghghghghghh
     function filterByWeek() {
         let AllProjectData = (ReducerData.AllProject).filter(function (AllProject) {
             const dateProject = AllProject.dueDate.split("/")
@@ -287,13 +243,13 @@ export default withStyles(useStyles)(function Information() {
                             <div class="row justify-content-between">
                                 <div className="ml-2" >
                                     <div class="col-6 ml-2">
-                                        <h5 style={{ fontWeight: 'bolder' }}>
+                                        <h5>
                                             {ReducerData.leaderStatic.sumContacts ? ReducerData.leaderStatic.sumContacts : "0"}</h5>
                                     </div>
                                 </div>
                                 <div class="col-4" >
                                     <Avatar style={{ background: '#FFFFFF', boxShadow: '0px 0px 20px #00000033' }}>
-                                        <img src={iconOne} style={{ height: '50%' }} />
+                                        <img src={iconOne} style={{ height: '50%' }} alt="icon one" />
                                     </Avatar>
                                 </div>
                             </div>
@@ -301,7 +257,6 @@ export default withStyles(useStyles)(function Information() {
                             </div>
                         </Paper>
                     </Grid>
-
                     <Grid item xs={12} sm={3}>
                         <Paper className="paperTwo" onClick={() => { window.location.assign('https://papers.dev.leader.codes/admin/ruth109476@gmail.com') }} style={{ padding: 10, background: '#ECFAFA', cursor: 'pointer', border: '2px Solid #01DCD1', color: '#01DCD1', borderRadius: '14px' }}>
                             <div className="ml-2" style={{ textAlign: 'start', fontWeight: 'bolder' }}>
@@ -315,7 +270,7 @@ export default withStyles(useStyles)(function Information() {
                                 </div>
                                 <div class="col-4" >
                                     <Avatar style={{ background: '#FFFFFF', boxShadow: '0px 0px 20px #00000033' }}>
-                                        <img src={iconTwo} style={{ height: '50%' }} />
+                                        <img src={iconTwo} style={{ height: '50%' }} alt="icon one" />
                                     </Avatar>
                                 </div>
                             </div>
@@ -338,7 +293,7 @@ export default withStyles(useStyles)(function Information() {
                                 </div>
                                 <div class="col-4">
                                     <Avatar style={{ background: '#FFFFFF', boxShadow: ' 0px 0px 20px #00000033' }}>
-                                        <img src={iconThree} />
+                                        <img src={iconThree} alt="icon three" />
                                     </Avatar>
                                 </div>
                             </div>
@@ -347,8 +302,8 @@ export default withStyles(useStyles)(function Information() {
                         </Paper>
                     </Grid>
                     <Grid item xs={12} sm={3}  >
-                        <Paper className="paperFour" style={{ padding: 10, background: '#FFF5FD', border: '2px Solid #FD51DB', color: '#FD51DB', borderRadius: '14px', cursor: 'pointer' }}>
-                            <div className="cardFor" className="ml-2 cardFor" style={{ textAlign: 'start', fontWeight: 'bolder' }}>
+                        <Paper className="paperFour" style={{ padding: 10, background: '#fadbe091', border: '2px Solid rgba(255, 69, 96, 0.85)', color: 'rgba(255, 69, 96, 0.85)', borderRadius: '14px', cursor: 'pointer' }}>
+                            <div className="ml-2 cardFor" style={{ textAlign: 'start', fontWeight: 'bolder' }}>
                                 Total Tasks  {" "}
                             </div>
                             <div class="row justify-content-between">
@@ -360,7 +315,7 @@ export default withStyles(useStyles)(function Information() {
                                 </div>
                                 <div class="col-4" >
                                     <Avatar style={{ background: '#FFFFFF', boxShadow: '0px 0px 20px #00000033' }}>
-                                        <img src={iconFour} />
+                                        <img style = {{paddingLeft:'16px',paddingBottom:'6px'}} src={iconFive} alt="icon four" />
                                     </Avatar>
                                 </div>
                             </div>
@@ -370,44 +325,40 @@ export default withStyles(useStyles)(function Information() {
                     </Grid>
                 </Grid>
             </div>
-            <div>
-                <Container >
-                    <Navbar expand="md" variant="light" bg="light">
-                        <div class="container">
-                            <FcPrevious style={{ marginLeft: "2%", cursor: 'pointer' }} onClick={() => filterby(value, 1)}></FcPrevious>
-                            
-                            {value}
-                            {/* <div style={{ marginLeft: "-620px" }} >{value}</div>  */}
-                            <FcNext style={{ marginRight: "88%", cursor: 'pointer' }} onClick={() => filterby(value, null)}></FcNext>
+            <div className="div-container">
+                <Container className="p-0">
+                    <div class="container p-0">
+                        <div class="row">
+                            <div class="col-7 mb-0">
+                                <Navbar expand="md" variant="light" bg="light" className="mb-0 ">
+                                    <p onClick={filterByDay} className="filterBy">Day</p>
+                                    <p onClick={filterByWeek} className="filterBy">Week</p>
+                                    <p onClick={filterByMonth} className="filterBy">Month</p>
+                                    <p onClick={filterByYear} className="filterBy">Year</p>
+                                </Navbar>
+                            </div>
+                            <div class="col-5 mb-10" >
+                                <Navbar expand="md" variant="light" bg="light" className="justify-content-end">
+                                    <p style={circleStyle1}>
+                                    </p>
+                                    <Navbar.Brand style={{ fontSize: "14px" }}>Contacts</Navbar.Brand>
+                                    <div style={circleStyle2}>
+                                    </div>
+                                    <Navbar.Brand style={{ fontSize: "14px" }}>Papers</Navbar.Brand>
+                                    <div style={circleStyle3}>
+                                    </div>
+                                    <Navbar.Brand style={{ fontSize: "14px" }}>Projects</Navbar.Brand>
+                                    <div style={circleStyle4}>
+                                    </div>
+                                    <Navbar.Brand style={{ fontSize: "14px" }}>Tasks</Navbar.Brand>
+                                </Navbar>
+                            </div>
                         </div>
-
-                        <p style={circleStyle1}>
-                        </p>
-                        <Navbar.Brand style={{ fontSize: "14px" }}>contacts</Navbar.Brand>
-                        <div style={circleStyle2}>
-                        </div>
-                        <Navbar.Brand style={{ fontSize: "14px" }}>papers</Navbar.Brand>
-                        <div style={circleStyle3}>
-                        </div>
-                        <Navbar.Brand style={{ fontSize: "14px" }}>projects</Navbar.Brand>
-                        <div style={circleStyle4}>
-                        </div>
-                        <Navbar.Brand style={{ fontSize: "14px" }}>tasks</Navbar.Brand>
-                    </Navbar>
+                    </div>
                 </Container>
             </div>
-
-            {/* ----------------------------filter by: day ,week, month----------------------------------------------------- */}
-            {/* <div>
-                <div class="row" style={{ direction: "rtl", paddingLeft: "30%" }}>
-                    ‎
-                    <Button variant="contained" style={{ background: "lightslategrey", marginRight: "520px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" onClick={filterByYear}>Year</Button>
-                    <Button variant="contained" style={{ background: "lightslategrey", marginRight: "3px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" onClick={filterByMonth}>Month</Button>
-                    <Button variant="contained" style={{ background: "lightslategrey", marginRight: "3px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" onClick={filterByWeek}>Week</Button>
-                    <Button variant="contained" style={{ background: "lightslategrey", marginRight: "3px", height: "20px", font: "normal normal 600 14px/66px SF Pro Display" }} color="primary" onClick={filterByDay}>Day</Button>
-
-                </div>
-            </div> */}
         </div>
     )
+
 })
+

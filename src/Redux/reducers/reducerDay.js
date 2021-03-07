@@ -34,16 +34,16 @@ const staticData = {
         console.log(state.tasks)
     },
     ProjectChartDay(state = initialState, action) {
-        debugger
+
         let allData = action.payload
         const arr = [...state.projects];
         for (let i = 0; i < allData.length; i++) {
             let day = allData[i].dueDate
-           let m= moment(day).weekday()
+            let m = moment(day).weekday()
             console.log(moment().isoWeekday())
-           let d= moment(day).isoWeekday()
+            let d = moment(day).isoWeekday()
             const date = moment(day); // Thursday Feb 2015
-            debugger
+
             const dow = date.day();
             const x = (arr[dow]) + 1
             arr[dow] = x;

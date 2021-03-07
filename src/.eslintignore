@@ -1,0 +1,2 @@
+src\Redux\reducers\staticDetailsReducer.js
+src\Redux\middleware\crudMiddleware.js

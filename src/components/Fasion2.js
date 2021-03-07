@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactApexChart from 'react-apexcharts'
-import Chart from "react-apexcharts";
 import { useSelector } from 'react-redux';
 
 

@@ -3,38 +3,26 @@ import ReactApexChart from 'react-apexcharts'
 import { useSelector } from 'react-redux'
 
 export default function ApexChart() {
-  
+
     const UpdatedData = useSelector(state => state.staticDetailsReducer);
-    debugger
-    const  sumAll=(UpdatedData.leaderStatic.sumContacts+
-        UpdatedData.leaderStatic.sumPapers+
-        UpdatedData.leaderStatic.sumProjects+
-        UpdatedData.leaderStatic.sumTasks)
     const state = {
-       
         series: [UpdatedData.leaderStatic.sumContacts,
         UpdatedData.leaderStatic.sumPapers,
         UpdatedData.leaderStatic.sumProjects,
         UpdatedData.leaderStatic.sumTasks],
         options: {
-
             chart: {
                 height: 350,
                 type: 'radialBar',
                 background: '#f8f9fa'
             },
-            colors :[' rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgba(255, 69, 96, 0.85)']
-
-            ,plotOptions: {
+            colors: [' rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgba(255, 69, 96, 0.85)']
+            , plotOptions: {
                 radialBar: {
                     dataLabels: {
                         name: {
                             fontSize: '22px',
                         },
-                        value: {
-                            fontSize: '16px',
-                        },
-                        
                         value: {
                             show: true,
                             fontSize: '14px',
@@ -43,18 +31,18 @@ export default function ApexChart() {
                             color: undefined,
                             offsetY: 16,
                             formatter: function (val) {
-                              return val 
+                                return val
                             }
-                          },
-                          total: {
+                        },
+                        total: {
                             show: true,
                             label: 'Total',
-                            formatter:function (w) {
+                            formatter: function (w) {
                                 return w.globals.seriesTotals.reduce((a, b) => {
-                                  return a + b
+                                    return a + b
                                 }, 0)
-                              }
-                            
+                            }
+
                         },
                     }
                 }
@@ -64,12 +52,9 @@ export default function ApexChart() {
 
 
     };
-
     return (
-
-
-        <div className="col-md-2" id="chart">
-            <ReactApexChart options={state.options} series={state.series} type="radialBar" height={270} width={270} />
+        <div id="chart">
+            <ReactApexChart options={state.options} series={state.series} type="radialBar" className="m-0" style={{ minHeight: "4rem" }} />
         </div>
     )
 }

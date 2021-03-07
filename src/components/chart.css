@@ -1,0 +1,26 @@
+.marginClass{
+    width: 100%;
+  
+}
+.marginClass{
+    margin-right: 10px;
+}
+@media only screen and (max-width: 600px) {
+    .myClass {
+     flex-wrap: wrap;
+    }
+    .marginClass{
+        margin-bottom:20px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
+}
+
+
+@media only screen and (min-width: 900px) {
+    .in-small-screen{
+        flex-direction: row-reverse;
+    }
+    }
+
+
