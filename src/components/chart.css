@@ -1,10 +1,10 @@
 .marginClass{
     width: 100%;
+    margin-right: 10px;
+   height: 100%;
   
 }
-.marginClass{
-    margin-right: 10px;
-}
+
 @media only screen and (max-width: 600px) {
     .myClass {
      flex-wrap: wrap;

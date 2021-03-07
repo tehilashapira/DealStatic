@@ -9,18 +9,21 @@ export default function TryChart() {
     return (
         <>
             <div className="container mt-5 " >
+              <div className="row">
+
                 <div className="d-flex justify-content-between align-items-center myClass in-small-screen">
-                    <div className="marginClass">
+                    <div className="marginClass ">
                    <ChartT></ChartT>
                     </div>
-                    <div className="marginClass" >
+                    <div className="marginClass " >
                         <TotalChart></TotalChart>
                     </div>
-                    <div className="marginClass">
+                    <div className="marginClass ">
                         {/* <p className="vl"></p>  */}
                           <BarT></BarT>
                     </div>
                 </div>
+            </div>
             </div>
         </>
     );
