@@ -15,6 +15,8 @@ import iconThree from '../img/iconThree.png'
 import iconFour from '../img/iconFour.png'
 import { actions } from '../Redux/actions/staticAction'
 
+
+
 // -------get new date in correct format to filter data----------------------------------------------------
 
 let currentDate = moment().format("MM/DD/YYYY");
@@ -328,16 +330,16 @@ export default withStyles(useStyles)(function Information() {
                 <Container className="p-0">
                     <div class="container p-0">
                         <div class="row">
-                            <div class="col-7 mb-0">
-                                <Navbar expand="md" variant="light" bg="light" className="mb-0 ">
+                            <div class="col-md-6 mb-0 text-time-container">
+                                <Navbar expand="md" variant="light" bg="light" className="mb-0 d-flex" style={{ justifyContent: "flex-start" }}>
                                     <p onClick={filterByDay} className="filterBy">Day</p>
                                     <p onClick={filterByWeek} className="filterBy">Week</p>
                                     <p onClick={filterByMonth} className="filterBy">Month</p>
                                     <p onClick={filterByYear} className="filterBy">Year</p>
                                 </Navbar>
                             </div>
-                            <div class="col-5 mb-10" >
-                                <Navbar expand="md" variant="light" bg="light" className="justify-content-end">
+                            <div class="col-md-6 circle-menu-container">
+                                <Navbar expand="md" variant="light" bg="light" className="justify-content-end is-small">
                                     <p style={circleStyle1}>
                                     </p>
                                     <Navbar.Brand style={{ fontSize: "14px" }}>Contacts</Navbar.Brand>

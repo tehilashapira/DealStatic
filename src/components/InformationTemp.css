@@ -12,8 +12,11 @@
     padding-top: 0 !important;
 }
 .filterBy{
-   margin-right: 20px;
+
+   margin-right: 10px;
    margin-bottom: 0 !important;
+   border-right: 1px solid #50565c80;
+   padding-right: 10px;
 }
 .filterBy:hover {
     cursor: pointer;
@@ -30,10 +33,10 @@
 .paperFour:hover{
     background-color:#FF456042!important;
 }
-@media only screen and (max-width: 400px) {
-  .myClass1{
-      margin-right: 0 !important;
-  }
+
+  .is-small{
+      font-size: 4px !important;
+      width: 100%;
   }
   .circleStyle{
         padding: 6;
@@ -53,3 +56,38 @@
   .MuiAvatar-colorDefault {
 color: #000000 !important;  
 }
+.navbar{
+    flex-wrap: nowrap;
+}
+@media only screen and (max-width: 770px) {
+    .MuiGrid-spacing-xs-4 > .MuiGrid-item{
+        max-width: 100%;
+        width: 100%;
+        flex-basis: 100%;
+    }
+    .circle-menu-container, .text-time-container{
+        max-width: 100%;
+    }
+    .myClass1{
+        margin-right: 0 !important;
+    }
+    .navbar{
+        width: 100%;
+        justify-content: center !important;
+        margin-top: 10px;
+    }
+    .is-small{
+        margin-top: 10px;
+        font-size: 2px;
+        font-display:unset;
+        zoom:0.8;
+    }
+    .div-container{
+        margin-left: 0;
+        margin-right: 0;
+    }
+    /* .text-time-container{
+        position: absolute !important;
+        top:  20rem !important;
+    } */
+    }
