@@ -1,0 +1,20 @@
+-------------------- Auto-Git Log --------------------
+		Mon Mar 08 2021 12:09:47 GMT+0200 (שעון ישראל (חורף))
+------------------------------------------------------
+
+Modified files:
+* .eslintcache
+* src/components/ChartT.js
+* src/components/InformationTemp.css
+* src/components/InformationTemp.js
+
+
+Created files:
+* .autogit/logs/log-8-2-2021-11-32-59.txt
+* src/img/iconFive.png
+
+
+Deleted files:
+
+
+Renamed files:
