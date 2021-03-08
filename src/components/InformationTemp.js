@@ -90,16 +90,15 @@ export default withStyles(useStyles)(function Information() {
     const ReducerData = useSelector(state => state.staticDetailsReducer)
     const dispatch = useDispatch()
     const [value, setValue] = useState("Day")
-    const [choose,setChoose]=useState(" ")
+    // const [choose,setChoose]=useState(" ")
 
     //  ---filter by: last day,last week,last month,year
     function filterByDay() {
         debugger
-        setChoose("Day")
+        // setChoose("Day")
         let AllTaskData = (ReducerData.AllTask).filter(function (AllTask) {                const dateTask = AllTask.startDate.split("/")
             const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
             return (dateFormater === currentDate)
-
         })
 
         let AllContactData = (ReducerData.AllContact).filter(function (AllContact) {

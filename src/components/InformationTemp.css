@@ -25,7 +25,11 @@
    
     padding-right: 10px;
  }
-  .filterBy:hover {
+  .filterBy:hover  {
+    cursor: pointer;
+    font-weight: bold;
+}
+.filterBy:active  {
     cursor: pointer;
     font-weight: bold;
 }
