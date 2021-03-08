@@ -8,6 +8,9 @@ import Avatar from '@material-ui/core/Avatar';
 import { withStyles } from '@material-ui/core/styles';
 
 import './InformationTemp.css';
+
+import iconFive from '../img/iconFive.png'
+
 import iconOne from '../img/iconOne.png'
 import iconTwo from '../img/iconTwo.png';
 import iconThree from '../img/iconThree.png'
@@ -92,7 +95,7 @@ export default withStyles(useStyles)(function Information() {
     function filterByDay() {
         debugger
         let AllTaskData = (ReducerData.AllTask).filter(function (AllTask) {
-            if (ReducerData.AllTask)
+            // if (ReducerData.AllTask)
                 const dateTask = AllTask.startDate.split("/")
             const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
             return (dateFormater === currentDate)
@@ -315,7 +318,7 @@ export default withStyles(useStyles)(function Information() {
                                 </div>
                                 <div class="col-4" >
                                     <Avatar style={{ background: '#FFFFFF', boxShadow: '0px 0px 20px #00000033' }}>
-                                        <img src={iconFour} alt="icon four" />
+                                        <img src={iconFive} alt="icon five" style = {{paddingLeft:'16px',paddingBottom:'6px'}} />
                                     </Avatar>
                                 </div>
                             </div>
@@ -330,15 +333,15 @@ export default withStyles(useStyles)(function Information() {
                     <div class="container p-0">
                         <div class="row">
                             <div class="col-md-6 mb-0 text-time-container">
-                                <Navbar expand="md" variant="light" bg="light" className="mb-0 d-flex" style={{ justifyContent: "flex-start" }}>
+                                <Navbar expand="md" variant="light"  className="mb-0 d-flex" style={{ justifyContent: "flex-start" }}>
                                     <p onClick={filterByDay} className="filterBy">Day</p>
                                     <p onClick={filterByWeek} className="filterBy">Week</p>
                                     <p onClick={filterByMonth} className="filterBy">Month</p>
-                                    <p onClick={filterByYear} className="filterBy">Year</p>
+                                    <p onClick={filterByYear} className="filter">Year</p>
                                 </Navbar>
                             </div>
                             <div class="col-md-6 circle-menu-container">
-                                <Navbar expand="md" variant="light" bg="light" className="justify-content-end is-small">
+                                <Navbar expand="md" variant="light" className="justify-content-end is-small">
                                     <p style={circleStyle1}>
                                     </p>
                                     <Navbar.Brand style={{ fontSize: "14px" }}>Contacts</Navbar.Brand>

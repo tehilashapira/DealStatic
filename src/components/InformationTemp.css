@@ -18,7 +18,18 @@
    border-right: 1px solid #50565c80;
    padding-right: 10px;
 }
+.filter{
+
+    margin-right: 10px;
+    margin-bottom: 0 !important;
+   
+    padding-right: 10px;
+ }
 .filterBy:hover {
+    cursor: pointer;
+    font-weight: bold;
+}
+.filter:hover {
     cursor: pointer;
     font-weight: bold;
 }
