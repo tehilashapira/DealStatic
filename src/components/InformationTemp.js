@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import moment from 'moment';
-import { } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { Navbar, Container } from 'react-bootstrap';
 import Paper from '@material-ui/core/Paper';
@@ -92,9 +91,9 @@ export default withStyles(useStyles)(function Information() {
     //  ---filter by: last day,last week,last month,year
     function filterByDay() {
         debugger
-
         let AllTaskData = (ReducerData.AllTask).filter(function (AllTask) {
-            const dateTask = AllTask.startDate.split("/")
+            if (ReducerData.AllTask)
+                const dateTask = AllTask.startDate.split("/")
             const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
             return (dateFormater === currentDate)
 
