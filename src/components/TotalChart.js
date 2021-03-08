@@ -12,9 +12,8 @@ export default function ApexChart() {
         UpdatedData.leaderStatic.sumTasks],
         options: {
             chart: {
-                height: 350,
                 type: 'radialBar',
-                background: '#f8f9fa'
+                background: '#f8f9fa',
             },
             colors: [' rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgba(255, 69, 96, 0.85)']
             , plotOptions: {
@@ -54,8 +53,8 @@ export default function ApexChart() {
     };
     return (
         <div id="chart">
-            <ReactApexChart options={state.options} series={state.series} type="radialBar"  width="100%" height="225px" />
-            {/* className="m-0" style={{ minHeight: "4rem" }} */}
+            <ReactApexChart options={state.options} series={state.series} type="radialBar" className="m-0" height="100%" width="
+            100%" />
         </div>
     )
 }

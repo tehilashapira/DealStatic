@@ -64,13 +64,13 @@ export default function ApexChart() {
         width: 3,
       },
       xaxis: {
-        categories: ['Jan', 'feb', 'mar', 'apr', 'may', 'jun', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'],
+        categories: ['Jan', 'feb', 'mar', 'apr', 'may', 'ju', 'jul', 'aug', 'sep', 'oct', 'nov', 'dec'],
       },
     },
   };
   return (
     <div id="chart">
-      <ReactApexChart options={state.options} series={state.series} type="line" width="100%" />
+      <ReactApexChart options={state.options} series={state.series} type="line" height="100%" width="100%" />
     </div>
   );
 
