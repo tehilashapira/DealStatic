@@ -231,8 +231,8 @@ export default withStyles(useStyles)(function Information() {
     return (
         <div className="container-fluid mt-5">
             <div className="row pb-5" style={{ marginRight: '12%', marginLeft: '12%' }} >
-                <div className="col-3 " style={{ fontSize: "30px", font: "normal normal bold 18px/27px Roboto", marginBottom: "15px" }}>
-                    leads information
+                <div className="col-3 " style={{ fontSize: "18px",fontFamily: "system-ui", fontWeight: "bold" ,marginBottom: "15px" }}>
+                    Leads Information
                 </div>
                 <div className="col-3.5" style={{ direction: "rtl" }}>
                     <div className="col-3.5" style={{ direction: "rtl" }}>

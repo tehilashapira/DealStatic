@@ -28,6 +28,22 @@ export default function ApexChart() {
 
     ],
     options: {
+
+      title: {
+        text: "Total Last Year",
+        align: 'center',
+        margin: 10,
+        offsetX: 0,
+        offsetY: 0,
+        floating: false,
+        style: {
+          fontSize: '12px',
+          fontWeight: 'bold',
+          fontFamily: undefined,
+          color: '#263238',
+          textAlign: 'center',
+        },
+      },
       legend: {
         show: false,
       },
@@ -64,7 +80,7 @@ export default function ApexChart() {
         width: 3,
       },
       xaxis: {
-        categories: ['01','02','03','04','05','06','07','08','09','10','11','12'],
+        categories: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
       },
     },
   };
