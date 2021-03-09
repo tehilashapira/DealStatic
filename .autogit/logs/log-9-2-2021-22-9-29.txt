@@ -1,0 +1,26 @@
+-------------------- Auto-Git Log --------------------
+		Tue Mar 09 2021 22:09:29 GMT+0200 (שעון ישראל (חורף))
+------------------------------------------------------
+
+Modified files:
+* .eslintcache
+* src/Redux/middleware/crudMiddleware.js
+* src/Redux/reducers/staticDetailsReducer.js
+* src/components/ChartT.js
+
+
+Created files:
+* .autogit/logs/log-9-2-2021-21-39-9.txt
+
+
+Deleted files:
+* src/Redux/reducers/reducerDay.js
+* src/components/AreaChart.js
+* src/components/Circle.js
+* src/components/Fasion2.js
+* src/components/FusionChart.css
+* src/components/FusionChart.js
+* src/components/Time.js
+
+
+Renamed files:
