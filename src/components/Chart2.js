@@ -64,7 +64,8 @@ export default function TryChart() {
 
                 <div className=" d-flex justify-content-between align-items-center myClass in-small-screen">
                     <div className="marginClass">
-                        <ChartT></ChartT>
+                        
+                        <BarT></BarT>
                     </div>
                     <div class="add-div">
                                 <Navbar expand="md" variant="light" className="justify-content-end is-small">
@@ -86,8 +87,8 @@ export default function TryChart() {
                     {/* <div className="marginClass total-chart" >
                         <TotalChart></TotalChart>
                     </div> */}
-                    <div className="marginClass">
-                        <BarT></BarT>
+                    <div className="marginClass1">
+                    <ChartT></ChartT>
                     </div>
                 </div>
             </div>

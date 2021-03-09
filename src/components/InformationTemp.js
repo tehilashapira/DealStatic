@@ -7,16 +7,13 @@ import Grid from '@material-ui/core/Grid';
 import Avatar from '@material-ui/core/Avatar';
 import { withStyles } from '@material-ui/core/styles';
 import $ from 'jquery'
+
 import './InformationTemp.css';
-
 import iconFive from '../img/iconFive.png'
-
 import iconOne from '../img/iconOne.png'
 import iconTwo from '../img/iconTwo.png';
 import iconThree from '../img/iconThree.png'
-import iconFour from '../img/iconFour.png'
 import { actions } from '../Redux/actions/staticAction'
-// import { debugger } from 'fusioncharts';
 
 
 

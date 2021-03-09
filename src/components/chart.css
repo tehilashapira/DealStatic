@@ -1,4 +1,4 @@
-.marginClass{
+.marginClass .marginClass1{
     width: 100%;
     margin-right: 10px;
     height: 100%;
@@ -48,21 +48,13 @@
         margin-left: 0;
     }
     .add-div{
-        /* width: 100%;
-        max-width: 100%;
-        height:10%;
-        background-color:aqua  */
         display: flex;
         height: 31px;
         margin-bottom: 11px;
-        /* background-color: red; */
         width: 100%;
     }
 }
 @media only screen and (min-width: 900px) {
-/* .in-small-screen{
-    flex-direction: row-reverse;
-  } */
   .circle-menu-container{
      display: flex; 
   }

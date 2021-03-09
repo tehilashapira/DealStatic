@@ -32,7 +32,7 @@ export default function ApexChart() {
       title: {
         text: "Total Last Year",
         align: 'center',
-        margin: 20,
+        marginBottom: 40,
         offsetX: 0,
         offsetY: 0,
         floating: false,
@@ -63,7 +63,6 @@ export default function ApexChart() {
       dataLabels: {
         enabled: false
       },
-      // colors: [' rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgb(253, 81, 219)'],
       grid: {
         show: false,
         borderColor: '#90A4AE',
