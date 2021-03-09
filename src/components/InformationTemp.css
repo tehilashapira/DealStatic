@@ -77,6 +77,9 @@ color: #000000 !important;
 .navbar{
     flex-wrap: nowrap;
 }
+.circle-menu-container{
+    display: none; 
+ }
 @media only screen and (max-width: 770px) {
     .MuiGrid-spacing-xs-4 > .MuiGrid-item{
         max-width: 100%;

@@ -1,4 +1,6 @@
 import React from 'react';
+import { Navbar } from 'react-bootstrap';
+
 
 import './chart.css'
 import BarT from './BarT'
@@ -6,6 +8,55 @@ import TotalChart from './TotalChart'
 import ChartT from './ChartT'
 import './chart.css'
 
+
+
+let circleStyle1 = {
+    padding: 6,
+    margin: 6,
+    display: "inline-block",
+    backgroundColor: "rgb(247, 181, 0)",
+    borderRadius: "50%",
+    width: 1,
+    height: 1,
+    left: 0,
+    top: 0
+};
+let circleStyle2 = {
+    padding: 6,
+    margin: 6,
+    display: "inline-block",
+    // position:'absolute',
+    backgroundColor: "rgb(1, 220, 209)",
+    borderRadius: "50%",
+    width: 1,
+    height: 1,
+    left: 0,
+    top: 0
+};
+let circleStyle3 = {
+    padding: 6,
+    margin: 6,
+    display: "inline-block",
+    // position:'absolute',
+    backgroundColor: "rgb(103, 114, 222)",
+    borderRadius: "50%",
+    width: 1,
+    height: 1,
+    left: 0,
+    top: 0
+};
+let circleStyle4 = {
+    padding: 6,
+    margin: 6,
+    display: "inline-block",
+    // position:'absolute',
+    backgroundColor: "#ff4560",
+    borderRadius: "50%",
+    width: 1,
+    height: 1,
+    left: 0,
+    top: 1
+};
 export default function TryChart() {
     return (
         <>
@@ -15,9 +66,22 @@ export default function TryChart() {
                     <div className="marginClass">
                         <ChartT></ChartT>
                     </div>
-                    <div className="add-div">
-
-                    </div>
+                    <div class="add-div">
+                                <Navbar expand="md" variant="light" className="justify-content-end is-small">
+                                    <p style={circleStyle1}>
+                                    </p>
+                                    <Navbar.Brand style={{ fontSize: "14px" }}>Contacts</Navbar.Brand>
+                                    <div style={circleStyle2}>
+                                    </div>
+                                    <Navbar.Brand style={{ fontSize: "14px" }}>Papers</Navbar.Brand>
+                                    <div style={circleStyle3}>
+                                    </div>
+                                    <Navbar.Brand style={{ fontSize: "14px" }}>Projects</Navbar.Brand>
+                                    <div style={circleStyle4}>
+                                    </div>
+                                    <Navbar.Brand style={{ fontSize: "14px" }}>Tasks</Navbar.Brand>
+                                </Navbar>
+                            </div>
                     {/* <div className="text-time-revers-container"> </div> */}
                     {/* <div className="marginClass total-chart" >
                         <TotalChart></TotalChart>

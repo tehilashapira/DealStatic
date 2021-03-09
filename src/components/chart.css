@@ -5,13 +5,13 @@
     margin-top: 30px;
 }
 
-.text-time-revers-container{
+/* .text-time-revers-container{
     display: none;
-}
+} */
 .add-div{
-    max-width: 100%;
-    background-color:aqua 
+    display:none;
 }
+
 #chart{
     height: 100%;
 }
@@ -36,21 +36,34 @@
     .container-chart{
         max-width: 600px;
     }
-    .text-time-revers-container{
+    /* .text-time-revers-container{
+        display: flex;
+        height: 31px;
+        margin-bottom: 11px;
+        /* background-color: red; */
+        /* width: 100%; */
+    /* } */ 
+    .in-small-screen{
+        width: 100%;
+        margin-left: 0;
+    }
+    .add-div{
+        /* width: 100%;
+        max-width: 100%;
+        height:10%;
+        background-color:aqua  */
         display: flex;
         height: 31px;
         margin-bottom: 11px;
         /* background-color: red; */
         width: 100%;
     }
-    .in-small-screen{
-        width: 100%;
-        margin-left: 0;
-    }
 }
-
 @media only screen and (min-width: 900px) {
-.in-small-screen{
+/* .in-small-screen{
     flex-direction: row-reverse;
+  } */
+  .circle-menu-container{
+     display: flex; 
   }
 }

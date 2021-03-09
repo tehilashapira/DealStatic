@@ -32,7 +32,7 @@ export default function ApexChart() {
       title: {
         text: "Total Last Year",
         align: 'center',
-        margin: 10,
+        margin: 20,
         offsetX: 0,
         offsetY: 0,
         floating: false,
