@@ -91,14 +91,11 @@ export default withStyles(useStyles)(function Information() {
     const ReducerData = useSelector(state => state.staticDetailsReducer)
     const dispatch = useDispatch()
     const [value, setValue] = useState("Day")
-    // const [choose,setChoose]=useState(" ")
 
     //  ---filter by: last day,last week,last month,year
     function filterByDay() {
         $(".filterBy").css("font-weight","unset")
         $("#day").css("font-weight","bold")
-
-        // setChoose("Day")
         let AllTaskData = (ReducerData.AllTask).filter(function (AllTask) {                const dateTask = AllTask.startDate.split("/")
             const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
             return (dateFormater === currentDate)
@@ -130,9 +127,7 @@ export default withStyles(useStyles)(function Information() {
     }
  
     function filterByWeek() {
-        // debugger;
         $(".filterBy").css("font-weight","unset")
-        // $(".filterBy").css("font-weight","bold")
         $("#week").css("font-weight","bold")
 
         let AllProjectData = (ReducerData.AllProject).filter(function (AllProject) {
@@ -242,9 +237,6 @@ export default withStyles(useStyles)(function Information() {
         dispatch(actions.ClickFilter(1));
 
     }
-
-    // function changeOnClick(){
-    // }
     return (
         <div className="container-fluid mt-5">
             <div className="row pb-5" style={{ marginRight: '12%', marginLeft: '12%' }} >
@@ -379,5 +371,4 @@ export default withStyles(useStyles)(function Information() {
             </div>
         </div>
     )
-
 })
