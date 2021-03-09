@@ -4,7 +4,7 @@ import { Navbar } from 'react-bootstrap';
 
 import './chart.css'
 import BarT from './BarT'
-import TotalChart from './TotalChart'
+// import TotalChart from './TotalChart'
 import ChartT from './ChartT'
 import './chart.css'
 

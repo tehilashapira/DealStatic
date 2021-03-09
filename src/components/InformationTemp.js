@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import moment from 'moment';
 import { useSelector, useDispatch } from 'react-redux'
 import { Navbar, Container } from 'react-bootstrap';
@@ -87,13 +87,12 @@ const useStyles = () => ({
 export default withStyles(useStyles)(function Information() {
     const ReducerData = useSelector(state => state.staticDetailsReducer)
     const dispatch = useDispatch()
-    const [value, setValue] = useState("Day")
-
     //  ---filter by: last day,last week,last month,year
     function filterByDay() {
-        $(".filterBy").css("font-weight","unset")
-        $("#day").css("font-weight","bold")
-        let AllTaskData = (ReducerData.AllTask).filter(function (AllTask) {                const dateTask = AllTask.startDate.split("/")
+        $(".filterBy").css("font-weight", "unset")
+        $("#day").css("font-weight", "bold")
+        let AllTaskData = (ReducerData.AllTask).filter(function (AllTask) {
+            const dateTask = AllTask.startDate.split("/")
             const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
             return (dateFormater === currentDate)
         })
@@ -122,10 +121,10 @@ export default withStyles(useStyles)(function Information() {
         dispatch(actions.ClickFilter(1));
 
     }
- 
+
     function filterByWeek() {
-        $(".filterBy").css("font-weight","unset")
-        $("#week").css("font-weight","bold")
+        $(".filterBy").css("font-weight", "unset")
+        $("#week").css("font-weight", "bold")
 
         let AllProjectData = (ReducerData.AllProject).filter(function (AllProject) {
             const dateProject = AllProject.dueDate.split("/")
@@ -160,8 +159,8 @@ export default withStyles(useStyles)(function Information() {
         dispatch(actions.ClickFilter(1));
     }
     function filterByMonth() {
-        $(".filterBy").css("font-weight","unset")
-        $("#month").css("font-weight","bold")
+        $(".filterBy").css("font-weight", "unset")
+        $("#month").css("font-weight", "bold")
 
         let AllProjectData = (ReducerData.AllProject).filter(function (AllProject) {
             const dateProject = AllProject.dueDate.split("/")
@@ -196,9 +195,9 @@ export default withStyles(useStyles)(function Information() {
         dispatch(actions.ClickFilter(1));
     }
     function filterByYear() {
-        $(".filterBy").css("font-weight","unset")
-        $("#year").css("font-weight","bold")
-        
+        $(".filterBy").css("font-weight", "unset")
+        $("#year").css("font-weight", "bold")
+
         let AllProjectData = (ReducerData.AllProject).filter(function (AllProject) {
             const dateProject = AllProject.dueDate.split("/")
             const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
@@ -237,7 +236,7 @@ export default withStyles(useStyles)(function Information() {
     return (
         <div className="container-fluid mt-5">
             <div className="row pb-5" style={{ marginRight: '12%', marginLeft: '12%' }} >
-                <div className="col-3 " style={{ fontSize: "18px",fontFamily: "system-ui", fontWeight: "bold" ,marginBottom: "15px" }}>
+                <div className="col-3 " style={{ fontSize: "18px", fontFamily: "system-ui", fontWeight: "bold", marginBottom: "15px" }}>
                     Leads Information
                 </div>
                 <div className="col-3.5" style={{ direction: "rtl" }}>
@@ -324,7 +323,7 @@ export default withStyles(useStyles)(function Information() {
                                 </div>
                                 <div class="col-4" >
                                     <Avatar style={{ background: '#FFFFFF', boxShadow: '0px 0px 20px #00000033' }}>
-                                        <img src={iconFive} alt="icon five" style = {{paddingLeft:'16px',paddingBottom:'6px'}} />
+                                        <img src={iconFive} alt="icon five" style={{ paddingLeft: '16px', paddingBottom: '6px' }} />
                                     </Avatar>
                                 </div>
                             </div>
@@ -339,7 +338,7 @@ export default withStyles(useStyles)(function Information() {
                     <div class="container p-0">
                         <div class="row">
                             <div class="col-md-6 mb-0 text-time-container">
-                                <Navbar expand="md" variant="light"  className="mb-0 d-flex" style={{ justifyContent: "flex-start" }}>
+                                <Navbar expand="md" variant="light" className="mb-0 d-flex" style={{ justifyContent: "flex-start" }}>
                                     <p id="day" onClick={filterByDay} className="filterBy">Day</p>
                                     <p id="week" onClick={filterByWeek} className="filterBy">Week</p>
                                     <p id="month" onClick={filterByMonth} className="filterBy">Month</p>
