@@ -38,12 +38,14 @@
         margin-right: 10px;
         margin-left: 10px;
         margin-top: 20px;
+        height:80%
     }
     .marginClass1{
         margin-bottom:40px;
         margin-right: 10px;
         margin-left: 10px;
         margin-top: 40px;
+        height:90%
     }
     .container-chart{
         max-width: 600px;
