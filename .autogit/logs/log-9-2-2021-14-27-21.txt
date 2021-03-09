@@ -1,0 +1,19 @@
+-------------------- Auto-Git Log --------------------
+		Tue Mar 09 2021 14:27:21 GMT+0200 (שעון ישראל (חורף))
+------------------------------------------------------
+
+Modified files:
+* .eslintcache
+* src/components/BarT.js
+* src/components/Chart2.js
+* src/components/InformationTemp.css
+
+
+Created files:
+* .autogit/logs/log-9-2-2021-13-57-4.txt
+
+
+Deleted files:
+
+
+Renamed files:

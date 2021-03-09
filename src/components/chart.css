@@ -29,10 +29,16 @@
     width: 82%;
     margin-left: 9%;
 }
+
 @media only screen and (max-width: 770px) {
     .myClass {
      flex-wrap: wrap;
     }
+    #chart div div #SvgjsSvg4952{
+        margin-top: -50px!important;
+        margin-left: 16px !important;
+    }
+
     .marginClass{
         margin-bottom:20px;
         margin-right: 10px;

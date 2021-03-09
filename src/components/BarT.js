@@ -55,11 +55,11 @@ export default function ApexChart() {
         height: 350,
         type: 'bar',
         background: '#f8f9fa',
-        marginTop: "-50px",
-        marginLeft: " 16px",
+    
         toolbar: {
           show: false
-        }
+        },
+       
       },
       colors: ['rgb(247, 181, 0)', 'rgb(1, 220, 209)', 'rgb(103, 114, 222)', 'rgba(255, 69, 96, 0.85)'],
       plotOptions: {
@@ -87,12 +87,12 @@ export default function ApexChart() {
         intersect: false,
         inverseOrder: false,
         custom: undefined,
-        fillSeriesColor: true,
+        fillSeriesColor:true,
         theme: true,
         style: {
           fontSize: '12px',
           fontFamily: undefined,
-          backgroundColor: 'white'
+          backgroundColor:'white'
         },
         onDatasetHover: {
           highlightDataSeries: true,
@@ -123,7 +123,7 @@ export default function ApexChart() {
   };
   return (
     <div id="chart">
-      <ReactApexChart options={state.options} series={state.series} type="bar" height="110%" width="90%" />
+      <ReactApexChart options={state.options} series={state.series}type="bar" height="110%" width="90%" />
     </div>
   );
 }
