@@ -54,7 +54,8 @@
 
 .is-small{
       font-size: 4px !important;
-      width: 100%;
+      /* width: 100%; */
+      margin-left:104px;
   }
   .circleStyle{
         padding: 6;
@@ -95,12 +96,12 @@ color: #000000 !important;
     .navbar{
         width: 100%;
         justify-content: center !important;
-        margin-top: 10px;
+        margin-top: -21px;
     }
     .is-small{
         margin-top: 29px;
         margin-bottom: 49px;
-  
+        margin-left: unset;
         font-size: 2px;
         font-display:unset;
         zoom:0.8;

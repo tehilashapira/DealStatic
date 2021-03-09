@@ -64,35 +64,51 @@ export default function TryChart() {
 
                 <div className=" d-flex justify-content-between align-items-center myClass in-small-screen">
                     <div className="marginClass">
-                        
+
                         <BarT></BarT>
                     </div>
                     <div class="add-div">
-                                <Navbar expand="md" variant="light" className="justify-content-end is-small">
-                                    <p style={circleStyle1}>
-                                    </p>
-                                    <Navbar.Brand style={{ fontSize: "14px" }}>Contacts</Navbar.Brand>
-                                    <div style={circleStyle2}>
-                                    </div>
-                                    <Navbar.Brand style={{ fontSize: "14px" }}>Papers</Navbar.Brand>
-                                    <div style={circleStyle3}>
-                                    </div>
-                                    <Navbar.Brand style={{ fontSize: "14px" }}>Projects</Navbar.Brand>
-                                    <div style={circleStyle4}>
-                                    </div>
-                                    <Navbar.Brand style={{ fontSize: "14px" }}>Tasks</Navbar.Brand>
-                                </Navbar>
+                        <Navbar expand="md" variant="light" className="justify-content-end is-small">
+                            <p style={circleStyle1}>
+                            </p>
+                            <Navbar.Brand style={{ fontSize: "14px" }}>Contacts</Navbar.Brand>
+                            <div style={circleStyle2}>
                             </div>
+                            <Navbar.Brand style={{ fontSize: "14px" }}>Papers</Navbar.Brand>
+                            <div style={circleStyle3}>
+                            </div>
+                            <Navbar.Brand style={{ fontSize: "14px" }}>Projects</Navbar.Brand>
+                            <div style={circleStyle4}>
+                            </div>
+                            <Navbar.Brand style={{ fontSize: "14px" }}>Tasks</Navbar.Brand>
+                        </Navbar>
+                    </div>
                     {/* <div className="text-time-revers-container"> </div> */}
                     {/* <div className="marginClass total-chart" >
                         <TotalChart></TotalChart>
                     </div> */}
                     <div className="marginClass1">
-                    <ChartT></ChartT>
+                        <ChartT></ChartT>
+                        <div class="add-div">
+                            <Navbar expand="md" variant="light" className="justify-content-end is-small">
+                                <p style={circleStyle1}>
+                                </p>
+                                <Navbar.Brand style={{ fontSize: "14px" }}>Contacts</Navbar.Brand>
+                                <div style={circleStyle2}>
+                                </div>
+                                <Navbar.Brand style={{ fontSize: "14px" }}>Papers</Navbar.Brand>
+                                <div style={circleStyle3}>
+                                </div>
+                                <Navbar.Brand style={{ fontSize: "14px" }}>Projects</Navbar.Brand>
+                                <div style={circleStyle4}>
+                                </div>
+                                <Navbar.Brand style={{ fontSize: "14px" }}>Tasks</Navbar.Brand>
+                            </Navbar>
+                        </div>
                     </div>
                 </div>
             </div>
-            
+
         </>
     );
 }
