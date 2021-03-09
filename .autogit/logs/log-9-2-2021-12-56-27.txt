@@ -1,0 +1,16 @@
+-------------------- Auto-Git Log --------------------
+		Tue Mar 09 2021 12:56:27 GMT+0200 (שעון ישראל (חורף))
+------------------------------------------------------
+
+Modified files:
+* src/components/chart.css
+
+
+Created files:
+* .autogit/logs/log-9-2-2021-11-34-50.txt
+
+
+Deleted files:
+
+
+Renamed files:

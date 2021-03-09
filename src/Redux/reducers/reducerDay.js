@@ -7,7 +7,6 @@ const initialState = {
     projects: [0, 0, 0, 0, 0, 0, 0, 0],
     tasks: [0, 0, 0, 0, 0, 0, 0, 0],
     contacts: [0, 0, 0, 0, 0, 0, 0, 0]
-
 }
 
 const staticData = {

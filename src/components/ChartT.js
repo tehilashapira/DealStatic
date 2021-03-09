@@ -32,9 +32,10 @@ export default function ApexChart() {
       title: {
         text: "Total Last Year",
         align: 'center',
-        marginBottom: 40,
-        offsetX: 0,
-        offsetY: 0,
+        margin: 15,
+        // marginBottom: 25,
+        // offsetX: 0,
+        // offsetY: 0,
         floating: false,
         style: {
           fontSize: '12px',
@@ -76,7 +77,7 @@ export default function ApexChart() {
       },
       stroke: {
         curve: 'smooth',
-        width: 3,
+        width: 1,
       },
       xaxis: {
         categories: ['01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '11', '12'],
