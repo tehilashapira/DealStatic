@@ -1,20 +1,22 @@
 import React, { useState } from 'react';
 import moment from 'moment';
-import { } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { Navbar, Container } from 'react-bootstrap';
 import Paper from '@material-ui/core/Paper';
 import Grid from '@material-ui/core/Grid';
 import Avatar from '@material-ui/core/Avatar';
 import { withStyles } from '@material-ui/core/styles';
-
+import $ from 'jquery'
 import './InformationTemp.css';
+
+import iconFive from '../img/iconFive.png'
+
 import iconOne from '../img/iconOne.png'
 import iconTwo from '../img/iconTwo.png';
 import iconThree from '../img/iconThree.png'
 import iconFour from '../img/iconFour.png'
-import iconFive from '../img/iconFive.png'
 import { actions } from '../Redux/actions/staticAction'
+// import { debugger } from 'fusioncharts';
 
 
 
@@ -89,16 +91,17 @@ export default withStyles(useStyles)(function Information() {
     const ReducerData = useSelector(state => state.staticDetailsReducer)
     const dispatch = useDispatch()
     const [value, setValue] = useState("Day")
+    // const [choose,setChoose]=useState(" ")
 
     //  ---filter by: last day,last week,last month,year
     function filterByDay() {
-        debugger
+        $(".filterBy").css("font-weight","unset")
+        $("#day").css("font-weight","bold")
 
-        let AllTaskData = (ReducerData.AllTask).filter(function (AllTask) {
-            const dateTask = AllTask.startDate.split("/")
+        // setChoose("Day")
+        let AllTaskData = (ReducerData.AllTask).filter(function (AllTask) {                const dateTask = AllTask.startDate.split("/")
             const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
             return (dateFormater === currentDate)
-
         })
 
         let AllContactData = (ReducerData.AllContact).filter(function (AllContact) {
@@ -125,7 +128,85 @@ export default withStyles(useStyles)(function Information() {
         dispatch(actions.ClickFilter(1));
 
     }
+ 
+    function filterByWeek() {
+        // debugger;
+        $(".filterBy").css("font-weight","unset")
+        // $(".filterBy").css("font-weight","bold")
+        $("#week").css("font-weight","bold")
+
+        let AllProjectData = (ReducerData.AllProject).filter(function (AllProject) {
+            const dateProject = AllProject.dueDate.split("/")
+            const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
+            return (new Date(dateFormater) >= new Date(dateBeforeWeek))
+        })
+        let AllPapersData = (ReducerData.AllPapers).filter(function (AllPapers) {
+
+            const datePaper1 = AllPapers.createdDate
+            let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
+            // const dateFormater = detaPaper[1] + "/" + detaPaper[0] + "/" + detaPaper[2];
+            return (new Date(detaPaper) >= new Date(dateBeforeWeek))
+
+        })
+
+        let AllTaskData = (ReducerData.AllTask).filter(function (AllTask) {
+            const dateTask = AllTask.startDate.split("/")
+            const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
+            return (new Date(dateFormater) >= new Date(dateBeforeWeek))
+
+        })
+        let AllContactData = (ReducerData.AllContact).filter(function (AllContact) {
+            const dateContact1 = (AllContact.createDateAndTime)
+            let detaContact = moment(dateContact1).format("MM/DD/YYYY");
+            return (new Date(detaContact) >= new Date(dateBeforeWeek))
+
+        })
+        dispatch(actions.setProjectStatic(AllProjectData.length));
+        dispatch(actions.setPaperStatic(AllPapersData.length));
+        dispatch(actions.setContactStatic(AllContactData.length))
+        dispatch(actions.setTaskStatic(AllTaskData.length))
+        dispatch(actions.ClickFilter(1));
+    }
+    function filterByMonth() {
+        $(".filterBy").css("font-weight","unset")
+        $("#month").css("font-weight","bold")
+
+        let AllProjectData = (ReducerData.AllProject).filter(function (AllProject) {
+            const dateProject = AllProject.dueDate.split("/")
+            const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
+            return (new Date(dateFormater) >= new Date(dateBeforeMonth))
+        })
+        let AllPapersData = (ReducerData.AllPapers).filter(function (AllPapers) {
+
+            const datePaper1 = AllPapers.createdDate
+            let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
+            // const dateFormater = detaPaper[1] + "/" + detaPaper[0] + "/" + detaPaper[2];
+            return (new Date(detaPaper) >= new Date(dateBeforeMonth))
+
+        })
+        let AllTaskData = (ReducerData.AllTask).filter(function (AllTask) {
+            const dateTask = AllTask.startDate.split("/")
+            const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
+            return (new Date(dateFormater) >= new Date(dateBeforeMonth))
+
+        })
+        let AllContactData = (ReducerData.AllContact).filter(function (AllContact) {
+            const dateContact1 = (AllContact.createDateAndTime)
+            let detaContact = moment(dateContact1).format("MM/DD/YYYY");
+            return (new Date(detaContact) >= new Date(dateBeforeMonth))
+
+        })
+
+        dispatch(actions.setProjectStatic(AllProjectData.length));
+        dispatch(actions.setPaperStatic(AllPapersData.length));
+        dispatch(actions.setContactStatic(AllContactData.length))
+        dispatch(actions.setTaskStatic(AllTaskData.length))
+        dispatch(actions.ClickFilter(1));
+    }
     function filterByYear() {
+        $(".filter").css("font-weight","unset")
+        $("#year").css("font-weight","bold")
+        
         let AllProjectData = (ReducerData.AllProject).filter(function (AllProject) {
             const dateProject = AllProject.dueDate.split("/")
             const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
@@ -161,77 +242,14 @@ export default withStyles(useStyles)(function Information() {
         dispatch(actions.ClickFilter(1));
 
     }
-    function filterByWeek() {
-        let AllProjectData = (ReducerData.AllProject).filter(function (AllProject) {
-            const dateProject = AllProject.dueDate.split("/")
-            const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
-            return (new Date(dateFormater) >= new Date(dateBeforeWeek))
-        })
-        let AllPapersData = (ReducerData.AllPapers).filter(function (AllPapers) {
 
-            const datePaper1 = AllPapers.createdDate
-            let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
-            // const dateFormater = detaPaper[1] + "/" + detaPaper[0] + "/" + detaPaper[2];
-            return (new Date(detaPaper) >= new Date(dateBeforeWeek))
-
-        })
-
-        let AllTaskData = (ReducerData.AllTask).filter(function (AllTask) {
-            const dateTask = AllTask.startDate.split("/")
-            const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
-            return (new Date(dateFormater) >= new Date(dateBeforeWeek))
-
-        })
-        let AllContactData = (ReducerData.AllContact).filter(function (AllContact) {
-            const dateContact1 = (AllContact.createDateAndTime)
-            let detaContact = moment(dateContact1).format("MM/DD/YYYY");
-            return (new Date(detaContact) >= new Date(dateBeforeWeek))
-
-        })
-        dispatch(actions.setProjectStatic(AllProjectData.length));
-        dispatch(actions.setPaperStatic(AllPapersData.length));
-        dispatch(actions.setContactStatic(AllContactData.length))
-        dispatch(actions.setTaskStatic(AllTaskData.length))
-        dispatch(actions.ClickFilter(1));
-    }
-    function filterByMonth() {
-        let AllProjectData = (ReducerData.AllProject).filter(function (AllProject) {
-            const dateProject = AllProject.dueDate.split("/")
-            const dateFormater = dateProject[1] + "/" + dateProject[0] + "/" + dateProject[2];
-            return (new Date(dateFormater) >= new Date(dateBeforeMonth))
-        })
-        let AllPapersData = (ReducerData.AllPapers).filter(function (AllPapers) {
-
-            const datePaper1 = AllPapers.createdDate
-            let detaPaper = moment(datePaper1).format("MM/DD/YYYY");
-            // const dateFormater = detaPaper[1] + "/" + detaPaper[0] + "/" + detaPaper[2];
-            return (new Date(detaPaper) >= new Date(dateBeforeMonth))
-
-        })
-        let AllTaskData = (ReducerData.AllTask).filter(function (AllTask) {
-            const dateTask = AllTask.startDate.split("/")
-            const dateFormater = dateTask[1] + "/" + dateTask[0] + "/" + dateTask[2];
-            return (new Date(dateFormater) >= new Date(dateBeforeMonth))
-
-        })
-        let AllContactData = (ReducerData.AllContact).filter(function (AllContact) {
-            const dateContact1 = (AllContact.createDateAndTime)
-            let detaContact = moment(dateContact1).format("MM/DD/YYYY");
-            return (new Date(detaContact) >= new Date(dateBeforeMonth))
-
-        })
-
-        dispatch(actions.setProjectStatic(AllProjectData.length));
-        dispatch(actions.setPaperStatic(AllPapersData.length));
-        dispatch(actions.setContactStatic(AllContactData.length))
-        dispatch(actions.setTaskStatic(AllTaskData.length))
-        dispatch(actions.ClickFilter(1));
-    }
+    // function changeOnClick(){
+    // }
     return (
         <div className="container-fluid mt-5">
             <div className="row pb-5" style={{ marginRight: '12%', marginLeft: '12%' }} >
-                <div className="col-3 " style={{ fontSize: "30px", font: "normal normal bold 18px/27px Roboto", marginBottom: "15px" }}>
-                    leads information
+                <div className="col-3 " style={{ fontSize: "18px",fontFamily: "system-ui", fontWeight: "bold" ,marginBottom: "15px" }}>
+                    Leads Information
                 </div>
                 <div className="col-3.5" style={{ direction: "rtl" }}>
                     <div className="col-3.5" style={{ direction: "rtl" }}>
@@ -317,7 +335,7 @@ export default withStyles(useStyles)(function Information() {
                                 </div>
                                 <div class="col-4" >
                                     <Avatar style={{ background: '#FFFFFF', boxShadow: '0px 0px 20px #00000033' }}>
-                                        <img style = {{paddingLeft:'16px',paddingBottom:'6px'}} src={iconFive} alt="icon four" />
+                                        <img src={iconFive} alt="icon five" style = {{paddingLeft:'16px',paddingBottom:'6px'}} />
                                     </Avatar>
                                 </div>
                             </div>
@@ -332,15 +350,15 @@ export default withStyles(useStyles)(function Information() {
                     <div class="container p-0">
                         <div class="row">
                             <div class="col-md-6 mb-0 text-time-container">
-                                <Navbar  expand="md" variant="light" bg="light" className="mb-0 d-flex tt" style={{ justifyContent: "flex-start" }}>
-                                    <p onClick={filterByDay} className="filterBy">Day</p>
-                                    <p onClick={filterByWeek} className="filterBy">Week</p>
-                                    <p onClick={filterByMonth} className="filterBy">Month</p>
-                                    <p onClick={filterByYear} className="filter">Year</p>
+                                <Navbar expand="md" variant="light"  className="mb-0 d-flex" style={{ justifyContent: "flex-start" }}>
+                                    <p id="day" onClick={filterByDay} className="filterBy">Day</p>
+                                    <p id="week" onClick={filterByWeek} className="filterBy">Week</p>
+                                    <p id="month" onClick={filterByMonth} className="filterBy">Month</p>
+                                    <p id="year" onClick={filterByYear} className="filterBy">Year</p>
                                 </Navbar>
                             </div>
                             <div class="col-md-6 circle-menu-container">
-                                <Navbar expand="md" variant="light" bg="light" className="justify-content-end is-small">
+                                <Navbar expand="md" variant="light" className="justify-content-end is-small">
                                     <p style={circleStyle1}>
                                     </p>
                                     <Navbar.Brand style={{ fontSize: "14px" }}>Contacts</Navbar.Brand>
@@ -363,4 +381,3 @@ export default withStyles(useStyles)(function Information() {
     )
 
 })
-

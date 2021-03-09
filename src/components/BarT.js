@@ -121,7 +121,7 @@ export default function ApexChart() {
   };
   return (
     <div id="chart">
-      <ReactApexChart options={state.options} series={state.series}type="bar" height="100%" width="100%" />
+      <ReactApexChart options={state.options} series={state.series}type="bar" height="90%" width="90%" />
     </div>
   );
 }

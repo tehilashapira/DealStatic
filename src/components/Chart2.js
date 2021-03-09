@@ -16,9 +16,9 @@ export default function TryChart() {
                         <ChartT></ChartT>
                     </div>
                     {/* <div className="text-time-revers-container"> </div> */}
-                    <div className="marginClass total-chart" >
+                    {/* <div className="marginClass total-chart" >
                         <TotalChart></TotalChart>
-                    </div>
+                    </div> */}
                     <div className="marginClass">
                         <BarT></BarT>
                     </div>
