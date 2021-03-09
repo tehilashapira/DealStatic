@@ -34,9 +34,9 @@
     .myClass {
      flex-wrap: wrap;
     }
-    #chart div div #SvgjsSvg4952{
+    #chart:nth-of-type(1) svg{
         margin-top: -50px!important;
-        margin-left: 16px !important;
+        margin-left: 2px !important;
     }
 
     .marginClass{
@@ -70,8 +70,9 @@
     .add-div{
         display: flex;
         height: 31px;
-        margin-bottom: 11px;
         width: 100%;
+        margin-bottom: 45px;
+    margin-top: -42px
     }
 }
 @media only screen and (min-width: 900px) {

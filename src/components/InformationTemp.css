@@ -52,11 +52,17 @@
     background-color:#FF456042!important;
 }
 
-.is-small{
+.is-small1{
       font-size: 4px !important;
       /* width: 100%; */
       margin-left:104px;
   }
+  
+.is-small{
+    font-size: 4px !important;
+    /* width: 100%; */
+    margin-left:104px;
+}
   .circleStyle{
         padding: 6;
         margin: 6;
@@ -100,6 +106,15 @@ color: #000000 !important;
     }
     .is-small{
         margin-top: 29px;
+        margin-bottom: 49px;
+        margin-left: unset;
+        font-size: 2px;
+        font-display:unset;
+        zoom:0.8;
+    }
+    
+    .is-small1{
+        margin-top: 43px;
         margin-bottom: 49px;
         margin-left: unset;
         font-size: 2px;

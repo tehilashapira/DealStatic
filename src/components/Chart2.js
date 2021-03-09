@@ -90,7 +90,7 @@ export default function TryChart() {
                     <div className="marginClass1">
                         <ChartT></ChartT>
                         <div class="add-div">
-                            <Navbar expand="md" variant="light" className="justify-content-end is-small">
+                            <Navbar expand="md" variant="light" className="justify-content-end is-small1">
                                 <p style={circleStyle1}>
                                 </p>
                                 <Navbar.Brand style={{ fontSize: "14px" }}>Contacts</Navbar.Brand>
