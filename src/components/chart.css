@@ -8,6 +8,10 @@
 .text-time-revers-container{
     display: none;
 }
+.add-div{
+    max-width: 100%;
+    background-color:aqua 
+}
 #chart{
     height: 100%;
 }
@@ -27,6 +31,7 @@
         margin-bottom:20px;
         margin-right: 10px;
         margin-left: 10px;
+        margin-top: 20px;
     }
     .container-chart{
         max-width: 600px;
