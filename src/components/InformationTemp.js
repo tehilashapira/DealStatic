@@ -204,7 +204,7 @@ export default withStyles(useStyles)(function Information() {
         dispatch(actions.ClickFilter(1));
     }
     function filterByYear() {
-        $(".filter").css("font-weight","unset")
+        $(".filterBy").css("font-weight","unset")
         $("#year").css("font-weight","bold")
         
         let AllProjectData = (ReducerData.AllProject).filter(function (AllProject) {
