@@ -3,7 +3,6 @@ import moment from 'moment';
 
 import { createReducer } from "./reducerUtils";
 
-
 const initialState = {
     leaderStatic: { sumProjects: 0, sumTasks: 0, sumPapers: 0, sumContacts: 0 },
     dataStatic: [],
@@ -13,8 +12,8 @@ const initialState = {
     AllContact: [],
     AllPapers: [],
     isClicked: 0,
-    arrTime:['Day','Week','Month','Year'],
-    choose:'Day',
+    arrTime: ['Day', 'Week', 'Month', 'Year'],
+    choose: 'Day',
     papers: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     projects: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
     tasks: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
@@ -39,38 +38,48 @@ const staticData = {
         state.AllTask = action.payload
     },
     setTaskChart(state = initialState, action) {
-        let allData = action.payload    
+
+        let allData = action.payload
         const arr = [...state.tasks];
         for (let i = 0; i < allData.length; i++) {
+            debugger
             const date1 = allData[i].startDate.split("/")
-            let date2 = date1[1]
-            if (date2[0] != 0) {
-                const x = (arr[date2]) + 1
-                arr[date2] = x;
-            }
-            else {
-                date2 = date2[1]
-                const x = (arr[date2]) + 1
-                arr[date2] = x;
+            let currentYear = moment().format("YYYY");
+            let year = date1[2]
+            if (year === currentYear) {
+                let date2 = date1[1]
+                if (date2[0] != 0) {
+                    const x = (arr[date2]) + 1
+                    arr[date2] = x;
+                }
+                else {
+                    date2 = date2[1]
+                    const x = (arr[date2]) + 1
+                    arr[date2] = x;
+                }
             }
         }
         state.tasks = [...arr];
     },
     setProjectChart(state = initialState, action) {
-        debugger
+
         let allData = action.payload
         const arr = [...state.projects];
         for (let i = 0; i < allData.length; i++) {
             const date1 = allData[i].startDate.split("/")
-            let date2 = date1[1]
-            if (date2[0] != 0) {
-                const x = (arr[date2]) + 1
-                arr[date2] = x;
-            }
-            else {
-                date2 = date2[1]
-                const x = (arr[date2]) + 1
-                arr[date2] = x;
+            let currentYear = moment().format("YYYY");
+            let year = date1[2]
+            if (year === currentYear) {
+                let date2 = date1[1]
+                if (date2[0] != 0) {
+                    const x = (arr[date2]) + 1
+                    arr[date2] = x;
+                }
+                else {
+                    date2 = date2[1]
+                    const x = (arr[date2]) + 1
+                    arr[date2] = x;
+                }
             }
         }
         state.projects = [...arr];
@@ -81,15 +90,19 @@ const staticData = {
         for (let i = 0; i < allData.length; i++) {
             const date1 = allData[i].createdDate
             let date11 = moment(date1).format("MM/DD/YYYY").split("/")
-            let date2 = date11[0]
-            if (date2[0] != 0) {
-                const x = (arr[date2]) + 1
-                arr[date2] = x;
-            }
-            else {
-                date2 = date2[1]
-                const x = (arr[date2]) + 1
-                arr[date2] = x;
+            let currentYear = moment().format("YYYY");
+            let year = date11[2]
+            if (year === currentYear) {
+                let date2 = date11[0]
+                if (date2[0] != 0) {
+                    const x = (arr[date2]) + 1
+                    arr[date2] = x;
+                }
+                else {
+                    date2 = date2[1]
+                    const x = (arr[date2]) + 1
+                    arr[date2] = x;
+                }
             }
         }
         state.papers = [...arr];
@@ -100,15 +113,19 @@ const staticData = {
         for (let i = 0; i < allData.length; i++) {
             const date1 = allData[i].createDateAndTime
             let date11 = moment(date1).format("MM/DD/YYYY").split("/")
-            let date2 = date11[0]
-            if (date2[0] != 0) {
-                const x = (arr[date2]) + 1
-                arr[date2] = x;
-            }
-            else {
-                date2 = date2[1]
-                const x = (arr[date2]) + 1
-                arr[date2] = x;
+            let currentYear = moment().format("YYYY");
+            let year = date11[2]
+            if (year === currentYear) {
+                let date2 = date11[0]
+                if (date2[0] != 0) {
+                    const x = (arr[date2]) + 1
+                    arr[date2] = x;
+                }
+                else {
+                    date2 = date2[1]
+                    const x = (arr[date2]) + 1
+                    arr[date2] = x;
+                }
             }
         }
         state.contacts = [...arr];
@@ -127,5 +144,5 @@ const staticData = {
     ClickFilter(state, action) {
         state.isClicked = action.payload
     },
-  }
+}
 export default produce((state, action) => createReducer(state, action, staticData), initialState);
