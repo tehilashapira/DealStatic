@@ -111,6 +111,7 @@ const staticData = {
         let allData = action.payload
         const arr = [...state.contacts];
         for (let i = 0; i < allData.length; i++) {
+            debugger
             const date1 = allData[i].createDateAndTime
             let date11 = moment(date1).format("MM/DD/YYYY").split("/")
             let currentYear = moment().format("YYYY");

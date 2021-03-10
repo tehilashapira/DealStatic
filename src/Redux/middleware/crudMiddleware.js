@@ -102,6 +102,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
     })
       .then((data) => data.json())
       .then((dataContact) => {
+        
         //all data for contact
         let contactData = dataContact
         //only sumContact
