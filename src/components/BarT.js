@@ -52,7 +52,19 @@ export default function ApexChart() {
         },
 
       },
+      vAxis:
+      {
+        textPosition: 'in',
+        minValue: 0,
+        viewWindow: {
+          min: 0
+        },
+        gridlines: {
+          count: -1
+        },
+      },
       chart: {
+
         height: 350,
         type: 'bar',
         background: '#f8f9fa',
