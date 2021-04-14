@@ -1,5 +1,6 @@
 
 
+
 import produce from 'immer';
 import moment from 'moment';
 
@@ -140,6 +141,13 @@ const staticData = {
         state.CurrentValuesGoals.dealsSum = currentData.dealsSum
         state.CurrentValuesGoals.newContactsSum = currentData.newContactsSum
 
+
+
+    },
+    setMaxValueSpeedometer(state,action){
+        debugger
+        let val=action.payload.goals.appointmentsSum
+        state.maxValue=val
 
 
     }

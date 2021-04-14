@@ -15,8 +15,7 @@ import { actions } from '../actions/staticAction'
 //   }
 //   return '';
 // };
-export const getStaticData = ({ dispatch, getState }) => next => action => {
-   ;
+export const getStaticData = ({ dispatch }) => next => action => {
   // with this type client enter to application:INIT_DATA
   if (action.type === 'INIT_DATA') {
     // let jwt = getCookie('jwt');
@@ -45,6 +44,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
           dispatch(actions.setPresentationsData(userData));
           dispatch(actions.setDealsStatic(userData));
           dispatch(actions.setNewContactData(sumNewContacts));
+          dispatch(actions.setMaxValueSpeedometer(userData));
           // dispatch(actions.setSumMeets(userData))
           
           
@@ -74,7 +74,7 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
       })
 
         // fetch to get sum of contacts for user----------------------
-        fetch(`https://api.dev.leader.codes/OdayaBenfredj/getContacts/?includesConversations=false`, {
+        fetch("https://api.dev.leader.codes/OdayaBenfredj/getContacts/?includesConversations=false", {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -100,11 +100,10 @@ export const getStaticData = ({ dispatch, getState }) => next => action => {
           
           })
     
- 
-        }}
-    
- 
-
+ return next(action);
+        }
+      return next (action)}
+  
 // ----- function update new goals------------------------
 export const updateGoals = ({ dispatch, getState }) => next => action => {
   if (action.type === 'SET_GOALS_SERVER1') {
