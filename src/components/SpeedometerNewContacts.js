@@ -15,7 +15,7 @@ export default function App() {
             height={100}
             fluidWidth={false}
             valueTextFontSize={'0px'}
-            maxValue={s}
+            maxValue={UpdatedData.CurrentValuesGoals.newContactsSum}
             segmentColors={[
                 "#2FAAF4",
                 "#2FAAF4",
@@ -27,6 +27,7 @@ export default function App() {
             ringWidth={16}
             needleHeightRatio={0.34}
             needleColor={'2E2E2E'}
+            forceRender={true}
             // valueTextFontSize={0}
         />
     );

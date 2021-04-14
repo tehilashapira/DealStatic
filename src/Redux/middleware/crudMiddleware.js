@@ -44,7 +44,7 @@ export const getStaticData = ({ dispatch }) => next => action => {
           dispatch(actions.setPresentationsData(userData));
           dispatch(actions.setDealsStatic(userData));
           dispatch(actions.setNewContactData(sumNewContacts));
-          dispatch(actions.setMaxValueSpeedometer(userData));
+       
           // dispatch(actions.setSumMeets(userData))
           
           
@@ -69,6 +69,7 @@ export const getStaticData = ({ dispatch }) => next => action => {
       let GoalsData=data.goals
 
       dispatch(actions.setDataGoals(GoalsData))
+      
          
         }
       })

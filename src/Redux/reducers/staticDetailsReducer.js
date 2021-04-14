@@ -144,13 +144,7 @@ const staticData = {
 
 
     },
-    setMaxValueSpeedometer(state,action){
-        debugger
-        let val=action.payload.goals.appointmentsSum
-        state.maxValue=val
-
-
-    }
+ 
     // setSumMeets(state,action){
     //      
     //     state.AllDeals=action.payload

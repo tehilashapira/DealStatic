@@ -72,7 +72,7 @@ export default withStyles(useStyles)(function Information() {
                             </div></div>‏
              <Grid container spacing={4}>
                             <Grid item xs={12} sm={3}>
-                                <Paper className="paperOne" style={{ cursor: 'pointer', padding: 10, borderRadius: '14px', background: 'white', color: '#C1EAF8', height: '100px' }}>
+                                <Paper className="paperOne" style={{ cursor: 'pointer', padding: 10, borderRadius: '14px', background: 'white', color: '#C1EAF8', height: '100px', width: '240px' }}>
                                     {/* ,border: '2px solid #4BBAFD' */}
                                     <div className="ml-2" style={{ textAlign: 'start', fontWeight: 'bolder', color: "#000000" }}>
                                         Total appointments {" "}
@@ -89,7 +89,8 @@ export default withStyles(useStyles)(function Information() {
                                                     <SpeedometerAppointments className="gouge1"></SpeedometerAppointments></div>
                                                 <div className="d-flex flex-row">
                                                     <div>
-                                                        <input onChange={(e) => (setValueGoal1(e.target.value))} className="myInput" placeholder="Set Goal" type="number" value={valueGoal1} style={{ background: "#4BBAFD", border: "1px solid #2FAAF4", borderRadius: " 3px", opacity: "1", textAlign: "center" }}></input></div>
+                                                        <input onFocus={(e)=>e.currentTarget.placeholder=''}
+                                                        onChange={(e) => (setValueGoal1(e.target.value))} className="myInput" placeholder="Set Goal" type="number" value={valueGoal1} style={{ background: "#4BBAFD", border: "1px solid #2FAAF4", borderRadius: " 3px", opacity: "1", textAlign: "center" }}></input></div>
                                                     <div>
                                                         <button onClick={() => CurrentValues(1, valueGoal1)} style={{ backgroundColor: "white", height: "26px", marginTop: "-1px", border: "1px solid #2FAAF4", opacity: "1" }}>  <img src={v} style={{ height: '50%', color: "white" }} alt="V" /></button>
                                                     </div></div>

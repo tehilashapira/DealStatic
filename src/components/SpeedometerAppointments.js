@@ -4,10 +4,11 @@ import { useSelector } from 'react-redux'
 
 
 export default function App() {
+
     const UpdatedData = useSelector(state => state.staticDetailsReducer);
-    console.log(UpdatedData.leaderStatic.sumProjects + "in gouge2");
+ 
     return (<>
-    {/* <p>{UpdatedData.GoalsStatic.appointmentsSum}</p> */}
+    
         <ReactSpeedometer
 
             value={UpdatedData.GoalsStatic.appointmentsSum}
@@ -23,10 +24,11 @@ export default function App() {
                 "#0064A0",
              ]}
             labelFontSize={'0'}
-            maxValue={4}
+            maxValue={UpdatedData.CurrentValuesGoals.appointmentsSum}
             ringWidth={16}
             needleHeightRatio={0.34}
             needleColor={'2E2E2E'}
+            forceRender={true}
             
             // customSegmentLabels={true}
             // maxSegmentLabels={55}
