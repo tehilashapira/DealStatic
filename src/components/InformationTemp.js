@@ -10,7 +10,6 @@ import $ from 'jquery'
 
 import './InformationTemp.css';
 import v from '../img/v.png'
-import forms from '../img/forms.png'
 import { actions } from '../Redux/actions/staticAction'
 import SpeedometerAppointments from './SpeedometerAppointments'
 import SpeedometerPresentations from './SpeedometerPresentations'
@@ -45,6 +44,8 @@ export default withStyles(useStyles)(function Information() {
     const dispatch = useDispatch()
 
 
+    
+
     function CurrentValues(typeNumber, valueGoal) {
 
         dispatch(actions.setGoalsServer({ typeNumber, valueGoal }))
@@ -67,14 +68,12 @@ export default withStyles(useStyles)(function Information() {
              <Grid container spacing={4}>
                             <Grid item xs={12} sm={3}>
                                 <Paper className="paperOne" style={{ cursor: 'pointer', padding: 10, borderRadius: '14px', background: 'white', color: '#C1EAF8', height: '100px', width: '240px' }}>
-                                    {/* ,border: '2px solid #4BBAFD' */}
                                     <div className="ml-2" style={{ textAlign: 'start', fontWeight: 'bolder', color: "#000000" }}>
                                         Total appointments {" "}
                                     </div>
                                     <div class="row justify-content-between">
                                         <div className="ml-2" >
                                             <div class="col-6 ml-2">
-                                                {/* <h1>{ReducerData.CurrentValuesGoals.appointments}</h1> */}
                                                 <h6 style={{ color: "#000000", fontSize: "19px" }}>
                                                     {ReducerData.GoalsStatic.appointmentsSum
                                                         ? ReducerData.GoalsStatic.appointmentsSum + "/" +
@@ -84,17 +83,17 @@ export default withStyles(useStyles)(function Information() {
                                                 <div className="d-flex flex-row">
                                                     <div>
                                                         <input onFocus={(e) => e.currentTarget.placeholder = ''}
+                                                            onBlur={(e) => e.currentTarget.placeholder = 'Set Goal'}
+                                                            placeholder="Set Goal"
                                                             onChange={(e) => (setValueGoal1(e.target.value))} className="myInput" placeholder="Set Goal" type="number" value={valueGoal1} style={{ background: "#4BBAFD", border: "1px solid #2FAAF4", borderRadius: " 3px", opacity: "1", textAlign: "center" }}></input></div>
                                                     <div>
-                                                        <button onClick={() => CurrentValues(1, valueGoal1)} style={{ backgroundColor: "white", height: "26px", marginTop: "-1px", border: "1px solid #2FAAF4", opacity: "1" }}>  <img src={v} style={{ height: '50%', color: "white" }} alt="V" /></button>
+                                                        <button onClick={() => CurrentValues(1, valueGoal1)} style={{ backgroundColor: "white", height: "26px", marginTop: "-1px", border: "1px solid #2FAAF4", borderRadius: " 3px", opacity: "1" }}>  <img src={v} style={{ height: '50%', color: "white" }} alt="V" /></button>
                                                     </div></div>
 
-                                              
-                                             
                                             </div>
                                         </div>
 
-                                      
+
                                     </div>
                                     <div className="row" style={{ margin: '1px', fontWeight: 'bolder' }}>
                                     </div>
@@ -115,16 +114,20 @@ export default withStyles(useStyles)(function Information() {
                                             </div>
                                             <div className="d-flex flex-row" style={{ marginLeft: "22px" }}>
                                                 <div>
-                                                    <input onFocus={(e) => e.currentTarget.placeholder = ''} onChange={(e) => (setValueGoal2(e.target.value))} className="myInput" placeholder="Set Goal" type="number" value={valueGoal2} style={{ background: "#4BBAFD", border: "1px solid #2FAAF4", borderRadius: " 3px", opacity: "1", textAlign: "center" }}></input></div>
+                                                    <input onFocus={(e) => e.currentTarget.placeholder = ''}
+                                                        onBlur={(e) => e.currentTarget.placeholder = 'Set Goal'}
+                                                        placeholder="Set Goal"
+                                                        onChange={(e) => (setValueGoal2(e.target.value))} className="myInput" placeholder="Set Goal" type="number" value={valueGoal2} style={{ background: "#4BBAFD", border: "1px solid #2FAAF4", borderRadius: " 3px", opacity: "1", textAlign: "center" }}>
+
+                                                    </input></div>
                                                 <div>
-                                                    <button onClick={() => CurrentValues(2, valueGoal2)} style={{ backgroundColor: "white", height: "26px", marginTop: "-1px", border: "1px solid #2FAAF4", opacity: "1" }}>  <img src={v} style={{ height: '50%', color: "white" }} alt="V" /></button>
+                                                    <button onClick={() => CurrentValues(2, valueGoal2)} style={{ backgroundColor: "white", height: "26px", marginTop: "-1px", border: "1px solid #2FAAF4", borderRadius: " 3px", opacity: "1" }}>  <img src={v} style={{ height: '50%', color: "white" }} alt="V" /></button>
                                                 </div></div>
 
                                         </div>
 
                                     </div>
-                                    {/* <div className="row" style={{ margin: '1px' }}>
-                                    </div> */}
+
                                 </Paper>
                             </Grid>
                             <Grid item xs={12} sm={3}  >
@@ -142,19 +145,20 @@ export default withStyles(useStyles)(function Information() {
                                                 </div>
                                                 <div className="d-flex flex-row">
                                                     <div>
-                                                        <input onFocus={(e) => e.currentTarget.placeholder = ''} onChange={(e) => (setValueGoal3(e.target.value))} className="myInput" placeholder="Set Goal" type="number" value={valueGoal3} style={{ background: "#4BBAFD", border: "1px solid #2FAAF4", borderRadius: " 3px", opacity: "1", textAlign: "center" }}></input></div>
-                                                    <div>
-                                                        <button onClick={() => CurrentValues(3, valueGoal3)} style={{ backgroundColor: "white", height: "26px", marginTop: "-1px", border: "1px solid #2FAAF4", opacity: "1" }}>  <img src={v} style={{ height: '50%', color: "white" }} alt="V" /></button>
-                                                    </div></div>
+                                                        <input onFocus={(e) => e.currentTarget.placeholder = ''}
+                                                        onBlur= {(e) =>e.currentTarget.placeholder='Set Goal'}
+                                                        placeholder="Set Goal"
+                                                        onChange={(e) => (setValueGoal3(e.target.value))} className="myInput" placeholder="Set Goal" type="number" value={valueGoal3} style={{ background: "#4BBAFD", border: "1px solid #2FAAF4", borderRadius: " 3px", borderRadius: " 3px", opacity: "1", textAlign: "center" }}>
+                                                        </input></div>
 
-                                                {/* <div onClick={() => { window.location.assign('https://pay.leader.codes/') }} className="upladge" style={{ backgroundColor: "#4BBAFD" ,textAlign: "center"}}>upradge</div> */}
+                                                    <div>
+                                                        <button onClick={() => CurrentValues(3, valueGoal3)} style={{ backgroundColor: "white", height: "26px", marginTop: "-1px", border: "1px solid #2FAAF4", borderRadius: " 3px", opacity: "1" }}>  <img src={v} style={{ height: '50%', color: "white" }} alt="V" /></button>
+                                                    </div></div>
 
                                             </div>
                                         </div>
                                         <div class="col-4">
-                                            {/* <Avatar style={{ background: '#FFFFFF', boxShadow: ' 0px 0px 20px #00000033' }}>
-                                        <img src={forms} alt="icon three" />
-                                    </Avatar> */}
+                                         
                                         </div>
                                     </div>
                                     <div className="row" style={{ margin: '1px' }}>
@@ -184,9 +188,14 @@ export default withStyles(useStyles)(function Information() {
 
                                                 <div className="d-flex flex-row">
                                                     <div>
-                                                        <input onFocus={(e) => e.currentTarget.placeholder = ''} onChange={(e) => (setValueGoal4(e.target.value))} className="myInput" placeholder="Set Goal" type="number" value={valueGoal4} style={{ background: "#4BBAFD", border: "1px solid #2FAAF4", borderRadius: " 3px", opacity: "1", textAlign: "center" }}></input></div>
+                                                        <input onFocus={(e) => e.currentTarget.placeholder = ''}
+                                                         onChange={(e) => (setValueGoal4(e.target.value))} className="myInput" placeholder="Set Goal" type="number" value={valueGoal4} style={{ background: "#4BBAFD", border: "1px solid #2FAAF4", borderRadius: " 3px", opacity: "1", textAlign: "center" }}
+                                                         onBlur= {(e) =>e.currentTarget.placeholder='Set Goal'}
+                                                         placeholder="Set Goal">
+                                                             
+                                                             </input></div>
                                                     <div>
-                                                        <button onClick={() => CurrentValues(4, valueGoal4)} style={{ backgroundColor: "white", height: "26px", marginTop: "-1px", border: "1px solid #2FAAF4", opacity: "1" }}>  <img src={v} style={{ height: '50%', color: "white" }} alt="V" /></button>
+                                                        <button onClick={() => CurrentValues(4, valueGoal4)} style={{ backgroundColor: "white", height: "26px", marginTop: "-1px", border: "1px solid #2FAAF4", borderRadius: " 3px", opacity: "1" }}>  <img src={v} style={{ height: '50%', color: "white" }} alt="V" /></button>
                                                     </div></div>
 
 
