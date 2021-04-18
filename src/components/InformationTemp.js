@@ -9,11 +9,6 @@ import { withStyles } from '@material-ui/core/styles';
 import $ from 'jquery'
 
 import './InformationTemp.css';
-import iconFive from '../img/iconFive.png'
-import iconOne from '../img/iconOne.png'
-import iconTwo from '../img/iconTwo.png';
-import iconThree from '../img/iconThree.png'
-import flag from '../img/flag.png'
 import v from '../img/v.png'
 import forms from '../img/forms.png'
 import { actions } from '../Redux/actions/staticAction'
@@ -51,8 +46,7 @@ export default withStyles(useStyles)(function Information() {
 
 
     function CurrentValues(typeNumber, valueGoal) {
-         
-        // alert("lll")
+
         dispatch(actions.setGoalsServer({ typeNumber, valueGoal }))
         dispatch(actions.setGoalsServer1(valueGoal))
 
@@ -89,23 +83,18 @@ export default withStyles(useStyles)(function Information() {
                                                     <SpeedometerAppointments className="gouge1"></SpeedometerAppointments></div>
                                                 <div className="d-flex flex-row">
                                                     <div>
-                                                        <input onFocus={(e)=>e.currentTarget.placeholder=''}
-                                                        onChange={(e) => (setValueGoal1(e.target.value))} className="myInput" placeholder="Set Goal" type="number" value={valueGoal1} style={{ background: "#4BBAFD", border: "1px solid #2FAAF4", borderRadius: " 3px", opacity: "1", textAlign: "center" }}></input></div>
+                                                        <input onFocus={(e) => e.currentTarget.placeholder = ''}
+                                                            onChange={(e) => (setValueGoal1(e.target.value))} className="myInput" placeholder="Set Goal" type="number" value={valueGoal1} style={{ background: "#4BBAFD", border: "1px solid #2FAAF4", borderRadius: " 3px", opacity: "1", textAlign: "center" }}></input></div>
                                                     <div>
                                                         <button onClick={() => CurrentValues(1, valueGoal1)} style={{ backgroundColor: "white", height: "26px", marginTop: "-1px", border: "1px solid #2FAAF4", opacity: "1" }}>  <img src={v} style={{ height: '50%', color: "white" }} alt="V" /></button>
                                                     </div></div>
 
-                                                {/* < button onClick={(e)=>updateGoals(e)}>ok</button> */}
-                                                {/* <div onClick={() => { window.location.assign('https://pay.leader.codes/') }}  className="upladge" style={{ backgroundColor: "#4BBAFD" ,textAlign: "center"}}>upradge</div> */}
+                                              
+                                             
                                             </div>
                                         </div>
 
-                                        {/* <div class="col-4" >
-                                    <Avatar style={{ background: "#FFFFFF", boxShadow: '0px 0px 20px #00000033' }}>
-                                        <img src={flag} style={{ height: '50%' }} alt="icon one" />
-                                    </Avatar>
-                                    
-                                </div> */}
+                                      
                                     </div>
                                     <div className="row" style={{ margin: '1px', fontWeight: 'bolder' }}>
                                     </div>
@@ -126,7 +115,7 @@ export default withStyles(useStyles)(function Information() {
                                             </div>
                                             <div className="d-flex flex-row" style={{ marginLeft: "22px" }}>
                                                 <div>
-                                                    <input onChange={(e) => (setValueGoal2(e.target.value))} className="myInput" placeholder="Set Goal" type="number" value={valueGoal2} style={{ background: "#4BBAFD", border: "1px solid #2FAAF4", borderRadius: " 3px", opacity: "1", textAlign: "center" }}></input></div>
+                                                    <input onFocus={(e) => e.currentTarget.placeholder = ''} onChange={(e) => (setValueGoal2(e.target.value))} className="myInput" placeholder="Set Goal" type="number" value={valueGoal2} style={{ background: "#4BBAFD", border: "1px solid #2FAAF4", borderRadius: " 3px", opacity: "1", textAlign: "center" }}></input></div>
                                                 <div>
                                                     <button onClick={() => CurrentValues(2, valueGoal2)} style={{ backgroundColor: "white", height: "26px", marginTop: "-1px", border: "1px solid #2FAAF4", opacity: "1" }}>  <img src={v} style={{ height: '50%', color: "white" }} alt="V" /></button>
                                                 </div></div>
@@ -153,7 +142,7 @@ export default withStyles(useStyles)(function Information() {
                                                 </div>
                                                 <div className="d-flex flex-row">
                                                     <div>
-                                                        <input onChange={(e) => (setValueGoal3(e.target.value))} className="myInput" placeholder="Set Goal" type="number" value={valueGoal3} style={{ background: "#4BBAFD", border: "1px solid #2FAAF4", borderRadius: " 3px", opacity: "1", textAlign: "center" }}></input></div>
+                                                        <input onFocus={(e) => e.currentTarget.placeholder = ''} onChange={(e) => (setValueGoal3(e.target.value))} className="myInput" placeholder="Set Goal" type="number" value={valueGoal3} style={{ background: "#4BBAFD", border: "1px solid #2FAAF4", borderRadius: " 3px", opacity: "1", textAlign: "center" }}></input></div>
                                                     <div>
                                                         <button onClick={() => CurrentValues(3, valueGoal3)} style={{ backgroundColor: "white", height: "26px", marginTop: "-1px", border: "1px solid #2FAAF4", opacity: "1" }}>  <img src={v} style={{ height: '50%', color: "white" }} alt="V" /></button>
                                                     </div></div>
@@ -195,7 +184,7 @@ export default withStyles(useStyles)(function Information() {
 
                                                 <div className="d-flex flex-row">
                                                     <div>
-                                                        <input onChange={(e) => (setValueGoal4(e.target.value))} className="myInput" placeholder="Set Goal" type="number" value={valueGoal4} style={{ background: "#4BBAFD", border: "1px solid #2FAAF4", borderRadius: " 3px", opacity: "1", textAlign: "center" }}></input></div>
+                                                        <input onFocus={(e) => e.currentTarget.placeholder = ''} onChange={(e) => (setValueGoal4(e.target.value))} className="myInput" placeholder="Set Goal" type="number" value={valueGoal4} style={{ background: "#4BBAFD", border: "1px solid #2FAAF4", borderRadius: " 3px", opacity: "1", textAlign: "center" }}></input></div>
                                                     <div>
                                                         <button onClick={() => CurrentValues(4, valueGoal4)} style={{ backgroundColor: "white", height: "26px", marginTop: "-1px", border: "1px solid #2FAAF4", opacity: "1" }}>  <img src={v} style={{ height: '50%', color: "white" }} alt="V" /></button>
                                                     </div></div>

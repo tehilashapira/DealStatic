@@ -34,7 +34,7 @@ export const getStaticData = ({ dispatch }) => next => action => {
         
         //all data for deals
         let userData = data
-        let sumNewContacts=70
+        // let sumNewContacts=70
         
        
         
@@ -43,7 +43,7 @@ export const getStaticData = ({ dispatch }) => next => action => {
           dispatch(actions.setAppointmentsData(userData));
           dispatch(actions.setPresentationsData(userData));
           dispatch(actions.setDealsStatic(userData));
-          dispatch(actions.setNewContactData(sumNewContacts));
+          // dispatch(actions.setNewContactData(sumNewContacts));
        
           // dispatch(actions.setSumMeets(userData))
           
@@ -75,11 +75,11 @@ export const getStaticData = ({ dispatch }) => next => action => {
       })
 
         // fetch to get sum of contacts for user----------------------
-        fetch("https://api.dev.leader.codes/OdayaBenfredj/getContacts/?includesConversations=false", {
+        fetch("https://api.dev.leader.codes/postman@leader.codes/getContacts/?includesConversations=false", {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
-            Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJIZXNJaFlXaVU2Z1A3M1NkMHRXaDJZVzA4ZFkyIiwiZW1haWwiOiJyZW5hbmFAbGVhZGVyLmNvZGVzIiwiaWF0IjoxNjA3NTkxOTI5fQ.U2FQ7I4qBXW9DF-SVJqxKiWgVs5tjSo06pyvmuwzCFU",
+            Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIxTXZPektQcmt3V3JIcmd2dTl1T25lT1BzRm8xIiwiZW1haWwiOiJwb3N0bWFuQGxlYWRlci5jb2RlcyIsImlhdCI6MTYxODMyMjc5MH0.ugSWTmPWuPlq040DrrWjL8Cm7beTdP8QklXdZG-biRc",
           },
         })
 
@@ -101,7 +101,7 @@ export const getStaticData = ({ dispatch }) => next => action => {
           
           })
     
- return next(action);
+ 
         }
       return next (action)}
   
