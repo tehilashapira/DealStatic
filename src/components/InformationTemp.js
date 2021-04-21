@@ -15,6 +15,7 @@ import SpeedometerAppointments from './SpeedometerAppointments'
 import SpeedometerPresentations from './SpeedometerPresentations'
 import SpeedometerDeals from './SpeedometerDeals'
 import SpeedometerNewContacts from './SpeedometerNewContacts'
+import { BsCheck } from "react-icons/bs";
 
 
 // --------------------------------------------------------------------------------------------------------------
@@ -38,15 +39,67 @@ export default withStyles(useStyles)(function Information() {
     const [valueGoal3, setValueGoal3] = useState()
     const [valueGoal4, setValueGoal4] = useState()
 
+    const [check1, setCheck1] = useState(false)
+    const [check2, setCheck2] = useState(false)
+    const [check3, setCheck3] = useState(false)
+    const [check4, setCheck4] = useState(false)
+
+    
+    const [flag1,setflag1]=useState(false)
+    const [flag2,setflag2]=useState(false)
+    const [flag3,setflag3]=useState(false)
+    const [flag4,setflag4]=useState(false)
+
 
 
     const ReducerData = useSelector(state => state.staticDetailsReducer)
     const dispatch = useDispatch()
 
 
-    
+    function buttonCheck1(e) {
+        e.currentTarget.placeholder = ""
+        setCheck1(true)
+        $(".myInput1").css("background-color", "white")
+        setflag1(true);setflag2(false);setflag3(false);setflag4(false) 
+    }
+    function buttonCheck2(e) {
+        setflag2(true);setflag1(false);setflag3(false);setflag4(false) 
+        e.currentTarget.placeholder = ""
+        setCheck2(true)
+        $(".myInput2").css("background-color", "white")
 
+    }
+    function buttonCheck3(e) {
+        setflag3(true);setflag1(false);setflag2(false);setflag4(false) 
+        e.currentTarget.placeholder = ""
+        setCheck3(true)
+        $(".myInput3").css("background-color", "white")
+
+    }
+    function buttonCheck4(e) {
+        setflag4(true);setflag1(false);setflag2(false);setflag3(false) 
+        e.currentTarget.placeholder = ""
+        setCheck4(true)
+        $(".myInput4").css("background-color", "white")
+
+    }
     function CurrentValues(typeNumber, valueGoal) {
+        switch (typeNumber) {
+            case 1:
+                setCheck1(false)
+                break;
+            case 2:
+                setCheck2(false)
+                break;
+            case 3:
+                setCheck3(false)
+                break;
+            case 4:
+                setCheck4(false)
+                break;
+
+
+        }
 
         dispatch(actions.setGoalsServer({ typeNumber, valueGoal }))
         dispatch(actions.setGoalsServer1(valueGoal))
@@ -74,20 +127,37 @@ export default withStyles(useStyles)(function Information() {
                                     <div class="row justify-content-between">
                                         <div className="ml-2" >
                                             <div class="col-6 ml-2">
-                                                <h6 style={{ color: "#000000", fontSize: "19px" }}>
-                                                    {ReducerData.GoalsStatic.appointmentsSum
-                                                        ? ReducerData.GoalsStatic.appointmentsSum + "/" +
-                                                        (ReducerData.CurrentValuesGoals.appointmentsSum) : "0/" + (ReducerData.CurrentValuesGoals.appointmentsSum)}</h6>
+                                            <h6 style={{ color: "#000000", fontSize: "19px" }}>
+                                                    {(ReducerData.GoalsStatic.appointmentsSum ? ReducerData.GoalsStatic.appointmentsSum : "0") + "/" + (ReducerData.CurrentValuesGoals.appointmentsSum ? ReducerData.CurrentValuesGoals.appointmentsSum : "0")}
+                                                </h6>
                                                 <div className="gouge">
-                                                    <SpeedometerAppointments className="gouge1"></SpeedometerAppointments></div>
+                                                    <SpeedometerAppointments flag={flag1} className="gouge1"></SpeedometerAppointments>
+                                                </div>
                                                 <div className="d-flex flex-row">
                                                     <div>
-                                                        <input onFocus={(e) => e.currentTarget.placeholder = ''}
+                                                        <input
+                                                            onFocus={(e) => buttonCheck1(e)}
                                                             onBlur={(e) => e.currentTarget.placeholder = 'Set Goal'}
                                                             placeholder="Set Goal"
-                                                            onChange={(e) => (setValueGoal1(e.target.value))} className="myInput" placeholder="Set Goal" type="number" value={valueGoal1} style={{ background: "#4BBAFD", border: "1px solid #2FAAF4", borderRadius: " 3px", opacity: "1", textAlign: "center" }}></input></div>
+                                                            onChange={(e) => {setValueGoal1(e.target.value);
+                                                                setflag1(true);setflag2(false);setflag3(false);setflag4(false)
+                                                              }  } 
+                                                            className="myInput1 hover1" type="text" value={valueGoal1}
+                      
+
+                                                        ></input>
+                                                    </div>
                                                     <div>
-                                                        <button onClick={() => CurrentValues(1, valueGoal1)} style={{ backgroundColor: "white", height: "26px", marginTop: "-1px", border: "1px solid #2FAAF4", borderRadius: " 3px", opacity: "1" }}>  <img src={v} style={{ height: '50%', color: "white" }} alt="V" /></button>
+
+                                                        {
+                                                            check1 ?
+
+                                                                <button onClick={() => CurrentValues(1, valueGoal1)} style={{ backgroundColor: "#2FAAF4", height: "26px", marginTop: "-1px", border: "1px solid #2FAAF4", opacity: "1" }}><BsCheck color="white"></BsCheck></button>
+
+                                                                : ""
+
+                                                        }
+
                                                     </div></div>
 
                                             </div>
@@ -95,8 +165,7 @@ export default withStyles(useStyles)(function Information() {
 
 
                                     </div>
-                                    <div className="row" style={{ margin: '1px', fontWeight: 'bolder' }}>
-                                    </div>
+
                                 </Paper>
                             </Grid>
                             <Grid item xs={12} sm={3}>
@@ -107,26 +176,46 @@ export default withStyles(useStyles)(function Information() {
                                     <div class="row justify-content-between">
                                         <div className="ml-2" >
                                             <div class="col-6 ml-2">
-                                                <h6 style={{ color: "#000000", fontSize: "19px" }}>  {ReducerData.GoalsStatic.presentationsSum ? ReducerData.GoalsStatic.presentationsSum + "/" + ReducerData.CurrentValuesGoals.presentationsSum : "0/500"}</h6>
+                                                <h6 style={{ color: "#000000", fontSize: "19px" }}>
+                                                    {(ReducerData.GoalsStatic.presentationsSum ? ReducerData.GoalsStatic.presentationsSum : "0") + "/" + (ReducerData.CurrentValuesGoals.presentationsSum ? ReducerData.CurrentValuesGoals.presentationsSum : "0")}
+                                                </h6>
                                                 <div className="gouge">
-                                                    <SpeedometerPresentations className="gouge1"></SpeedometerPresentations></div>
+                                                    <SpeedometerPresentations flag={flag2} className="gouge1"></SpeedometerPresentations>
+                                                </div>
                                                 {/* <div  onClick={() => { window.location.assign('https://pay.leader.codes/') }}  className="upladge" style={{ backgroundColor: "#4BBAFD" ,textAlign: "center"}}>upradge</div> */}
                                             </div>
                                             <div className="d-flex flex-row" style={{ marginLeft: "22px" }}>
                                                 <div>
-                                                    <input onFocus={(e) => e.currentTarget.placeholder = ''}
+                                                    <input
+                                                        onFocus={(e) => { buttonCheck2(e) }}
                                                         onBlur={(e) => e.currentTarget.placeholder = 'Set Goal'}
                                                         placeholder="Set Goal"
-                                                        onChange={(e) => (setValueGoal2(e.target.value))} className="myInput" placeholder="Set Goal" type="number" value={valueGoal2} style={{ background: "#4BBAFD", border: "1px solid #2FAAF4", borderRadius: " 3px", opacity: "1", textAlign: "center" }}>
+                                                        onChange={
+                                                            (e) => { debugger; setValueGoal2(e.target.value); 
+                                                            setflag2(true);setflag1(false);setflag3(false);setflag4(false) }
+                                                        } 
+                                                        className="myInput2 hover2" placeholder="Set Goal" type="text" value={valueGoal2} >
 
                                                     </input></div>
-                                                <div>
-                                                    <button onClick={() => CurrentValues(2, valueGoal2)} style={{ backgroundColor: "white", height: "26px", marginTop: "-1px", border: "1px solid #2FAAF4", borderRadius: " 3px", opacity: "1" }}>  <img src={v} style={{ height: '50%', color: "white" }} alt="V" /></button>
-                                                </div></div>
+
+                                                {
+                                                    check2 ?
+
+                                                        <button onClick={() => CurrentValues(2, valueGoal2)} style={{ backgroundColor: "#2FAAF4", height: "26px", marginTop: "-1px", border: "1px solid #2FAAF4", opacity: "1" }}><BsCheck color="white"></BsCheck></button>
+
+                                                        : ""
+
+                                                }
+
+                                                {/* <div>
+                                                    <button onClick={() => CurrentValues(2, valueGoal2)} style={{ backgroundColor: "#2FAAF4", height: "26px", marginTop: "-1px", border: "1px solid #2FAAF4", borderRadius: " 3px", opacity: "1" }}>      <BsCheck color="white"></BsCheck></button>
+                                                </div> */}
+                                            </div>
 
                                         </div>
 
                                     </div>
+
 
                                 </Paper>
                             </Grid>
@@ -139,26 +228,35 @@ export default withStyles(useStyles)(function Information() {
                                         <div className="ml-2">
                                             <div class="col-6 ml-2">
                                                 <h6 style={{ color: "#000000", fontSize: "19px" }}>
-                                                    {ReducerData.GoalsStatic.dealsSum ? ReducerData.GoalsStatic.dealsSum + "/" + ReducerData.CurrentValuesGoals.dealsSum : "0/500"}</h6>
+                                                    {(ReducerData.GoalsStatic.dealsSum ? ReducerData.GoalsStatic.dealsSum : "0") + "/" + (ReducerData.CurrentValuesGoals.dealsSum ? ReducerData.CurrentValuesGoals.dealsSum : "0")} </h6>
                                                 <div className="gouge">
-                                                    <SpeedometerDeals className="gouge1"></SpeedometerDeals>
+                                                    <SpeedometerDeals flag={flag3} className="gouge1"></SpeedometerDeals>
                                                 </div>
                                                 <div className="d-flex flex-row">
                                                     <div>
-                                                        <input onFocus={(e) => e.currentTarget.placeholder = ''}
-                                                        onBlur= {(e) =>e.currentTarget.placeholder='Set Goal'}
-                                                        placeholder="Set Goal"
-                                                        onChange={(e) => (setValueGoal3(e.target.value))} className="myInput" placeholder="Set Goal" type="number" value={valueGoal3} style={{ background: "#4BBAFD", border: "1px solid #2FAAF4", borderRadius: " 3px", borderRadius: " 3px", opacity: "1", textAlign: "center" }}>
+                                                        <input
+                                                            onFocus={(e) => { buttonCheck3(e) }}
+                                                            onBlur={(e) => e.currentTarget.placeholder = 'Set Goal'}
+                                                            placeholder="Set Goal"
+                                                            onChange={(e) => {setValueGoal3(e.target.value);
+                                                                setflag3(true);setflag1(false);setflag2(false);setflag4(false) }} 
+                                                            className="myInput3 hover3" placeholder="Set Goal" type="text" value={valueGoal3} >
                                                         </input></div>
 
-                                                    <div>
-                                                        <button onClick={() => CurrentValues(3, valueGoal3)} style={{ backgroundColor: "white", height: "26px", marginTop: "-1px", border: "1px solid #2FAAF4", borderRadius: " 3px", opacity: "1" }}>  <img src={v} style={{ height: '50%', color: "white" }} alt="V" /></button>
-                                                    </div></div>
+                                                    {
+                                                        check3 ?
+
+                                                            <button onClick={() => CurrentValues(3, valueGoal3)} style={{ backgroundColor: "#2FAAF4", height: "26px", marginTop: "-1px", border: "1px solid #2FAAF4", opacity: "1" }}><BsCheck color="white"></BsCheck></button>
+
+                                                            : ""
+
+                                                    }
+                                                </div>
 
                                             </div>
                                         </div>
                                         <div class="col-4">
-                                         
+
                                         </div>
                                     </div>
                                     <div className="row" style={{ margin: '1px' }}>
@@ -177,33 +275,38 @@ export default withStyles(useStyles)(function Information() {
                                     <div class="row justify-content-between">
                                         <div class=" ml-2">
                                             <div className=" col-6 ml-2" >
-                                                <h6 style={{ color: "#000000", fontSize: "19px" }}>{ReducerData.GoalsStatic.newContactsSum ? ReducerData.GoalsStatic.newContactsSum + "/" + ReducerData.CurrentValuesGoals.newContactsSum : "0/500"}
+                                                <h6 style={{ color: "#000000", fontSize: "19px" }}>
+                                                    {(ReducerData.GoalsStatic.newContactsSum ? ReducerData.GoalsStatic.newContactsSum :"0") + "/" + (ReducerData.CurrentValuesGoals.newContactsSum ? ReducerData.CurrentValuesGoals.newContactsSum  : "0")}
                                                 </h6>
 
                                                 <div className="gouge">
-                                                    <SpeedometerNewContacts className="gouge1"></SpeedometerNewContacts>
-
+                                                    <SpeedometerNewContacts flag={flag4} className="gouge1"></SpeedometerNewContacts>
 
                                                 </div>
 
                                                 <div className="d-flex flex-row">
                                                     <div>
-                                                        <input onFocus={(e) => e.currentTarget.placeholder = ''}
-                                                         onChange={(e) => (setValueGoal4(e.target.value))} className="myInput" placeholder="Set Goal" type="number" value={valueGoal4} style={{ background: "#4BBAFD", border: "1px solid #2FAAF4", borderRadius: " 3px", opacity: "1", textAlign: "center" }}
-                                                         onBlur= {(e) =>e.currentTarget.placeholder='Set Goal'}
-                                                         placeholder="Set Goal">
-                                                             
-                                                             </input></div>
-                                                    <div>
-                                                        <button onClick={() => CurrentValues(4, valueGoal4)} style={{ backgroundColor: "white", height: "26px", marginTop: "-1px", border: "1px solid #2FAAF4", borderRadius: " 3px", opacity: "1" }}>  <img src={v} style={{ height: '50%', color: "white" }} alt="V" /></button>
-                                                    </div></div>
+                                                        <input
+                                                            onFocus={(e) => { buttonCheck4(e) }}
+                                                            onBlur={(e) => e.currentTarget.placeholder = 'Set Goal'}
+                                                            placeholder="Set Goal"
+                                                            onChange={(e) => { debugger; setValueGoal4(e.target.value);
+                                                                setflag4(true);setflag1(false);setflag2(false);setflag3(false)}} className="myInput4 hover4" placeholder="Set Goal" type="text" value={valueGoal4} >
 
+                                                        </input></div>
+                                            
+                                                    {
+                                                        check4 ?
+                                                            <button onClick={() => CurrentValues(4, valueGoal4)} style={{ backgroundColor: "#2FAAF4", height: "26px", marginTop: "-1px", border: "1px solid #2FAAF4", opacity: "1" }}><BsCheck color="white"></BsCheck></button>
 
+                                                            : ""
+                                                    }
+
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="row" style={{ margin: '1px' }}>
-                                    </div>
+
                                 </Paper>
                             </Grid>
                         </Grid>

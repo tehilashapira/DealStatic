@@ -20,7 +20,7 @@ export const getStaticData = ({ dispatch }) => next => action => {
   if (action.type === 'INIT_DATA') {
     // let jwt = getCookie('jwt');
 
-      fetch('https://contacts.dev.leader.codes/api/deal/yi4149411@gmail.com/getAllDealsByUser', {
+    fetch('https://contacts.dev.leader.codes/api/deal/yi4149411@gmail.com/getAllDealsByUser', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',
@@ -30,29 +30,56 @@ export const getStaticData = ({ dispatch }) => next => action => {
     })
       .then((data) => data.json())
       .then((data) => {
-         
-        
+
+
         //all data for deals
-        let userData = data
-        // let sumNewContacts=70
-        
-       
-        
-        // if (dataDeals.length != 0) {
-          // let sumDeals = data.dealsSum
+
+
+        if (!data.status) {
+          let userData = data
           dispatch(actions.setAppointmentsData(userData));
           dispatch(actions.setPresentationsData(userData));
-          dispatch(actions.setDealsStatic(userData));
-          // dispatch(actions.setNewContactData(sumNewContacts));
-       
-          // dispatch(actions.setSumMeets(userData))
-          
-          
-          console.log(data)
-        // }
+          dispatch(actions.setDealsStatic(userData))
+        }
+
+        else {
+
+          dispatch(actions.setAppointmentsData("0"));
+          dispatch(actions.setPresentationsData("0"));
+          dispatch(actions.setDealsStatic("0"))
+        }
+
+
       });
-    
-  // ----get Goals for user----------
+
+
+    // fetch to get sum of contacts for user----------------------
+    fetch("https://api.dev.leader.codes/postman@leader.codes/getContacts/?includesConversations=false", {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIxTXZPektQcmt3V3JIcmd2dTl1T25lT1BzRm8xIiwiZW1haWwiOiJwb3N0bWFuQGxlYWRlci5jb2RlcyIsImlhdCI6MTYxODMyMjc5MH0.ugSWTmPWuPlq040DrrWjL8Cm7beTdP8QklXdZG-biRc",
+      },
+    })
+
+      .then((data) => data.json())
+      .then((dataContact) => {
+
+        if (dataContact && dataContact.length !== 0) {
+          let contactData = dataContact
+          let sumContact = (contactData.length)
+          dispatch(actions.setNewContactData(sumContact));
+
+        }
+        else
+
+          dispatch(actions.setNewContactData("0"));
+
+      })
+
+
+
+    // ----get Goals for user----------
     fetch('https://contacts.dev.leader.codes/api/goals/OdayaBenfredj', {
       method: 'GET',
       headers: {
@@ -64,70 +91,50 @@ export const getStaticData = ({ dispatch }) => next => action => {
 
       .then((data) => data.json())
       .then((data) => {
-       {
+        {
 
-      let GoalsData=data.goals
+          if (!data.status) {
 
-      dispatch(actions.setDataGoals(GoalsData))
-      
-         
+            let GoalsData = data.goals
+            dispatch(actions.setDataGoals(GoalsData))
+          }
+          else {
+            dispatch(actions.setDataGoals("0"))
+
+           }
+
+
         }
       })
+  }
 
-        // fetch to get sum of contacts for user----------------------
-        fetch("https://api.dev.leader.codes/postman@leader.codes/getContacts/?includesConversations=false", {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiIxTXZPektQcmt3V3JIcmd2dTl1T25lT1BzRm8xIiwiZW1haWwiOiJwb3N0bWFuQGxlYWRlci5jb2RlcyIsImlhdCI6MTYxODMyMjc5MH0.ugSWTmPWuPlq040DrrWjL8Cm7beTdP8QklXdZG-biRc",
-          },
-        })
 
-          .then((data) => data.json())
-          .then((dataContact) => {
+  return next(action)
+}
 
-            
-              let contactData = dataContact
-              //only sumContact
-              if (contactData && contactData.length !== 0) {
-                let sumContact = (dataContact.length)
-                 dispatch(actions.setNewContactData(sumContact));
-
-                // dispatch(actions.setContactData(contactData));
-                // dispatch(actions.setContactChart(contactData));
-                console.log(contactData)
-              }
-           
-          
-          })
-    
- 
-        }
-      return next (action)}
-  
 // ----- function update new goals------------------------
 export const updateGoals = ({ dispatch, getState }) => next => action => {
   if (action.type === 'SET_GOALS_SERVER1') {
-    
-      console.log("setGoal1");
-      let body = { goals: getState().staticDetailsReducer.CurrentValuesGoals };
-      fetch("https://contacts.dev.leader.codes/api/goals/OdayaBenfredj", {
-          method: 'PUT',
-           headers: {
-            Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJIZXNJaFlXaVU2Z1A3M1NkMHRXaDJZVzA4ZFkyIiwiZW1haWwiOiJyZW5hbmFAbGVhZGVyLmNvZGVzIiwiaWF0IjoxNjA3NTkxOTI5fQ.U2FQ7I4qBXW9DF-SVJqxKiWgVs5tjSo06pyvmuwzCFU",
-               Accept: 'application/json',
-               'Content-Type': 'application/json'
-          },
-         body: JSON.stringify(body)
-      }).then(res => res.json()).then(response => {
-           if (response) {
-              
-             console.log(response)
-           }
-       }).catch(error => {
-         
-           console.log(error);
-      });
-   }
+
+    console.log("setGoal1");
+    let body = { goals: getState().staticDetailsReducer.CurrentValuesGoals };
+    fetch("https://contacts.dev.leader.codes/api/goals/OdayaBenfredj", {
+      method: 'PUT',
+      headers: {
+        Authorization: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiJIZXNJaFlXaVU2Z1A3M1NkMHRXaDJZVzA4ZFkyIiwiZW1haWwiOiJyZW5hbmFAbGVhZGVyLmNvZGVzIiwiaWF0IjoxNjA3NTkxOTI5fQ.U2FQ7I4qBXW9DF-SVJqxKiWgVs5tjSo06pyvmuwzCFU",
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(body)
+    }).then(res => res.json()).then(response => {
+      if (response) {
+
+        console.log(response)
+      }
+    }).catch(error => {
+
+      console.log(error);
+    });
+  }
   return next(action);
 }

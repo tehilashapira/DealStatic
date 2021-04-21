@@ -3,25 +3,15 @@ import ReactSpeedometer from "react-d3-speedometer"
 import { useSelector } from 'react-redux'
 
 
-export default function App() {
+export default function App(props) {
+  debugger
+  const flag=props.flag
     const UpdatedData = useSelector(state => state.staticDetailsReducer);
-    console.log(UpdatedData.leaderStatic.sumProjects + "in gouge2");
-    // let s=UpdatedData.CurrentValuesGoals.dealsSum
+    
 
     return (<>
 
-{/* export const ConfiguringValues = () => (
-  <ReactSpeedometer
-    maxValue={UpdatedData.CurrentValuesGoals.dealsSum}
-    value={UpdatedData.GoalsStatic.dealsSum}
-    needleColor="red"
-    startColor="green"
-    segments={10}
-    endColor="blue"
-    textColor="grey"
-    // textColor={textColor}
-  />
-) */}
+
 
         <ReactSpeedometer
             value={UpdatedData.GoalsStatic.dealsSum}
@@ -41,7 +31,7 @@ export default function App() {
             ringWidth={16}
             needleHeightRatio={0.34}
             needleColor={'2E2E2E'}
-            forceRender={true}
+            forceRender={flag}
             // valueTextFontSize={0}
         />
         {/* <p>{UpdatedData.CurrentValuesGoals.dealsSum}</p> */}

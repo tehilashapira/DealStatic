@@ -3,7 +3,10 @@ import ReactSpeedometer from "react-d3-speedometer"
 import { useSelector } from 'react-redux'
 
 
-export default function App() {
+export default function App(props) {
+
+    debugger
+    const flag=props.flag
     const UpdatedData = useSelector(state => state.staticDetailsReducer);
   
     return (
@@ -28,7 +31,7 @@ export default function App() {
             ringWidth={16}
             needleHeightRatio={0.34}
             needleColor={'2E2E2E'}
-            forceRender={true}
+            forceRender={flag}
             // valueTextFontSize={0}
         />
 
