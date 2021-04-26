@@ -1,0 +1,18 @@
+-------------------- Auto-Git Log --------------------
+		Mon Apr 26 2021 11:48:14 GMT+0300 (שעון ישראל (קיץ))
+------------------------------------------------------
+
+Modified files:
+* .eslintcache
+* package-lock.json
+* src/components/InformationTemp.js
+
+
+Created files:
+* .autogit/logs/log-26-3-2021-11-17-48.txt
+
+
+Deleted files:
+
+
+Renamed files:
