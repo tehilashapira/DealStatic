@@ -17,9 +17,6 @@ import SpeedometerDeals from './SpeedometerDeals'
 import SpeedometerNewContacts from './SpeedometerNewContacts'
 import { BsCheck } from "react-icons/bs";
 import Toggle from 'react-toggle'
-// import { DragSwitch } from 'react-dragswitch'
-
-
 
 // --------------------------------------------------------------------------------------------------------------
 const useStyles = () => ({
@@ -141,15 +138,16 @@ export default withStyles(useStyles)(function Information() {
                                                     <SpeedometerAppointments flag={flag1} className="gouge1"></SpeedometerAppointments>
                                                 </div>
                                                 <div className="d-flex flex-row">
- <lable>
+                                                    <label>
                                                         <Toggle
                                                             id='cheese-status'
                                                             defaultChecked={check1}
                                                             onChange={!check1}
-                                                            icons={false} /><span>set Goal </span>
-
-                                                    </lable>
-                                                    {/* <input
+                                                            icons={false} />
+                                                    </label>
+                                                    <span type="text">Set Goal</span>
+                                                </div>
+                                                {/* <input
                                                             onFocus={(e) => buttonCheck1(e)}
                                                             onBlur={(e) => e.currentTarget.placeholder = 'Set Goal'}
                                                             placeholder="Set Goal"
@@ -161,28 +159,24 @@ export default withStyles(useStyles)(function Information() {
 
 
                                                         ></input> */}
-                                                    {/* </div> */}
-
-
-
-                                                    <div>
-
-                                                        {/* {
+                                                {/* </div> */}
+                                                <div>
+                                                    {/* {
                                                             check1 ? */}
 
-                                                        {/* // <button onClick={() => CurrentValues(1, valueGoal1)} style={{ backgroundColor: "#2FAAF4", height: "26px", marginTop: "-1px", border: "1px solid #2FAAF4", opacity: "1" }}><BsCheck color="white"></BsCheck></button> */}
+                                                    {/* // <button onClick={() => CurrentValues(1, valueGoal1)} style={{ backgroundColor: "#2FAAF4", height: "26px", marginTop: "-1px", border: "1px solid #2FAAF4", opacity: "1" }}><BsCheck color="white"></BsCheck></button> */}
 
-                                                        {/* : ""
+                                                    {/* : ""
 
                                                         } */}
 
-                                                    </div></div>
+                                                </div></div>
 
-                                            </div>
                                         </div>
-
-
                                     </div>
+
+
+
 
                                 </Paper>
                             </Grid>
@@ -347,7 +341,7 @@ export default withStyles(useStyles)(function Information() {
                     </div>
                 </div>
             </div>
-        </div>
+        </div >
 
     )
 })
