@@ -16,6 +16,9 @@ import SpeedometerPresentations from './SpeedometerPresentations'
 import SpeedometerDeals from './SpeedometerDeals'
 import SpeedometerNewContacts from './SpeedometerNewContacts'
 import { BsCheck } from "react-icons/bs";
+import Toggle from 'react-toggle'
+// import { DragSwitch } from 'react-dragswitch'
+
 
 
 // --------------------------------------------------------------------------------------------------------------
@@ -39,16 +42,16 @@ export default withStyles(useStyles)(function Information() {
     const [valueGoal3, setValueGoal3] = useState()
     const [valueGoal4, setValueGoal4] = useState()
 
-    const [check1, setCheck1] = useState(false)
+    const [check1, setCheck1] = useState(true)
     const [check2, setCheck2] = useState(false)
     const [check3, setCheck3] = useState(false)
     const [check4, setCheck4] = useState(false)
 
-    
-    const [flag1,setflag1]=useState(false)
-    const [flag2,setflag2]=useState(false)
-    const [flag3,setflag3]=useState(false)
-    const [flag4,setflag4]=useState(false)
+
+    const [flag1, setflag1] = useState(false)
+    const [flag2, setflag2] = useState(false)
+    const [flag3, setflag3] = useState(false)
+    const [flag4, setflag4] = useState(false)
 
 
 
@@ -60,24 +63,24 @@ export default withStyles(useStyles)(function Information() {
         e.currentTarget.placeholder = ""
         setCheck1(true)
         $(".myInput1").css("background-color", "white")
-        setflag1(true);setflag2(false);setflag3(false);setflag4(false) 
+        setflag1(true); setflag2(false); setflag3(false); setflag4(false)
     }
     function buttonCheck2(e) {
-        setflag2(true);setflag1(false);setflag3(false);setflag4(false) 
+        setflag2(true); setflag1(false); setflag3(false); setflag4(false)
         e.currentTarget.placeholder = ""
         setCheck2(true)
         $(".myInput2").css("background-color", "white")
 
     }
     function buttonCheck3(e) {
-        setflag3(true);setflag1(false);setflag2(false);setflag4(false) 
+        setflag3(true); setflag1(false); setflag2(false); setflag4(false)
         e.currentTarget.placeholder = ""
         setCheck3(true)
         $(".myInput3").css("background-color", "white")
 
     }
     function buttonCheck4(e) {
-        setflag4(true);setflag1(false);setflag2(false);setflag3(false) 
+        setflag4(true); setflag1(false); setflag2(false); setflag3(false)
         e.currentTarget.placeholder = ""
         setCheck4(true)
         $(".myInput4").css("background-color", "white")
@@ -114,7 +117,11 @@ export default withStyles(useStyles)(function Information() {
                     <div className="row pb-5" style={{ marginRight: '12%', marginLeft: '12%' }} >
                         <div className="col-3 " style={{ fontSize: "18px", fontFamily: "system-ui", fontWeight: "bold", marginBottom: "31px", marginTop: "25px", color: "black" }}>
                             Goals Information
-                </div>
+                            {/* <Toggle 
+                             onToggle={e => console.log("onToggle", e.target.checked)}/> */}
+
+                            {/* <label htmlFor='cheese-status'>Adjacent label tag</label> */}
+                        </div>
                         <div className="col-3.5" style={{ direction: "rtl" }}>
                             <div className="col-3.5" style={{ direction: "rtl" }}>
                             </div></div>‏
@@ -127,36 +134,47 @@ export default withStyles(useStyles)(function Information() {
                                     <div class="row justify-content-between">
                                         <div className="ml-2" >
                                             <div class="col-6 ml-2">
-                                            <h6 style={{ color: "#000000", fontSize: "19px" }}>
+                                                <h6 style={{ color: "#000000", fontSize: "19px" }}>
                                                     {(ReducerData.GoalsStatic.appointmentsSum ? ReducerData.GoalsStatic.appointmentsSum : "0") + "/" + (ReducerData.CurrentValuesGoals.appointmentsSum ? ReducerData.CurrentValuesGoals.appointmentsSum : "0")}
                                                 </h6>
                                                 <div className="gouge">
                                                     <SpeedometerAppointments flag={flag1} className="gouge1"></SpeedometerAppointments>
                                                 </div>
                                                 <div className="d-flex flex-row">
-                                                    <div>
-                                                        <input
+ <lable>
+                                                        <Toggle
+                                                            id='cheese-status'
+                                                            defaultChecked={check1}
+                                                            onChange={!check1}
+                                                            icons={false} /><span>set Goal </span>
+
+                                                    </lable>
+                                                    {/* <input
                                                             onFocus={(e) => buttonCheck1(e)}
                                                             onBlur={(e) => e.currentTarget.placeholder = 'Set Goal'}
                                                             placeholder="Set Goal"
-                                                            onChange={(e) => {setValueGoal1(e.target.value);
-                                                                setflag1(true);setflag2(false);setflag3(false);setflag4(false)
-                                                              }  } 
+                                                            onChange={(e) => {
+                                                                setValueGoal1(e.target.value);
+                                                                setflag1(true); setflag2(false); setflag3(false); setflag4(false)
+                                                            }}
                                                             className="myInput1 hover1" type="text" value={valueGoal1}
-                      
 
-                                                        ></input>
-                                                    </div>
+
+                                                        ></input> */}
+                                                    {/* </div> */}
+
+
+
                                                     <div>
 
-                                                        {
-                                                            check1 ?
+                                                        {/* {
+                                                            check1 ? */}
 
-                                                                <button onClick={() => CurrentValues(1, valueGoal1)} style={{ backgroundColor: "#2FAAF4", height: "26px", marginTop: "-1px", border: "1px solid #2FAAF4", opacity: "1" }}><BsCheck color="white"></BsCheck></button>
+                                                        {/* // <button onClick={() => CurrentValues(1, valueGoal1)} style={{ backgroundColor: "#2FAAF4", height: "26px", marginTop: "-1px", border: "1px solid #2FAAF4", opacity: "1" }}><BsCheck color="white"></BsCheck></button> */}
 
-                                                                : ""
+                                                        {/* : ""
 
-                                                        }
+                                                        } */}
 
                                                     </div></div>
 
@@ -191,9 +209,11 @@ export default withStyles(useStyles)(function Information() {
                                                         onBlur={(e) => e.currentTarget.placeholder = 'Set Goal'}
                                                         placeholder="Set Goal"
                                                         onChange={
-                                                            (e) => { debugger; setValueGoal2(e.target.value); 
-                                                            setflag2(true);setflag1(false);setflag3(false);setflag4(false) }
-                                                        } 
+                                                            (e) => {
+                                                                debugger; setValueGoal2(e.target.value);
+                                                                setflag2(true); setflag1(false); setflag3(false); setflag4(false)
+                                                            }
+                                                        }
                                                         className="myInput2 hover2" placeholder="Set Goal" type="text" value={valueGoal2} >
 
                                                     </input></div>
@@ -238,8 +258,10 @@ export default withStyles(useStyles)(function Information() {
                                                             onFocus={(e) => { buttonCheck3(e) }}
                                                             onBlur={(e) => e.currentTarget.placeholder = 'Set Goal'}
                                                             placeholder="Set Goal"
-                                                            onChange={(e) => {setValueGoal3(e.target.value);
-                                                                setflag3(true);setflag1(false);setflag2(false);setflag4(false) }} 
+                                                            onChange={(e) => {
+                                                                setValueGoal3(e.target.value);
+                                                                setflag3(true); setflag1(false); setflag2(false); setflag4(false)
+                                                            }}
                                                             className="myInput3 hover3" placeholder="Set Goal" type="text" value={valueGoal3} >
                                                         </input></div>
 
@@ -276,7 +298,7 @@ export default withStyles(useStyles)(function Information() {
                                         <div class=" ml-2">
                                             <div className=" col-6 ml-2" >
                                                 <h6 style={{ color: "#000000", fontSize: "19px" }}>
-                                                    {(ReducerData.GoalsStatic.newContactsSum ? ReducerData.GoalsStatic.newContactsSum :"0") + "/" + (ReducerData.CurrentValuesGoals.newContactsSum ? ReducerData.CurrentValuesGoals.newContactsSum  : "0")}
+                                                    {(ReducerData.GoalsStatic.newContactsSum ? ReducerData.GoalsStatic.newContactsSum : "0") + "/" + (ReducerData.CurrentValuesGoals.newContactsSum ? ReducerData.CurrentValuesGoals.newContactsSum : "0")}
                                                 </h6>
 
                                                 <div className="gouge">
@@ -290,11 +312,13 @@ export default withStyles(useStyles)(function Information() {
                                                             onFocus={(e) => { buttonCheck4(e) }}
                                                             onBlur={(e) => e.currentTarget.placeholder = 'Set Goal'}
                                                             placeholder="Set Goal"
-                                                            onChange={(e) => { debugger; setValueGoal4(e.target.value);
-                                                                setflag4(true);setflag1(false);setflag2(false);setflag3(false)}} className="myInput4 hover4" placeholder="Set Goal" type="text" value={valueGoal4} >
+                                                            onChange={(e) => {
+                                                                debugger; setValueGoal4(e.target.value);
+                                                                setflag4(true); setflag1(false); setflag2(false); setflag3(false)
+                                                            }} className="myInput4 hover4" placeholder="Set Goal" type="text" value={valueGoal4} >
 
                                                         </input></div>
-                                            
+
                                                     {
                                                         check4 ?
                                                             <button onClick={() => CurrentValues(4, valueGoal4)} style={{ backgroundColor: "#2FAAF4", height: "26px", marginTop: "-1px", border: "1px solid #2FAAF4", opacity: "1" }}><BsCheck color="white"></BsCheck></button>
